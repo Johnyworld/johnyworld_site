@@ -1,0 +1,101 @@
+/* Import */
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:100,300,400,600,800');
+@import url('http://fonts.googleapis.com/earlyaccess/notosanskr.css');
+
+/* Reset */
+body, ul, li, section, div, p, h1, h2, h5 {
+    padding: 0;
+    margin: 0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    overscroll-behavior: smooth;
+}
+
+body {
+    background-color: #000;
+    font-family: 'Open Sans', 'Noto Sans KR', 'sans-serif';
+    letter-spacing: -.04em;
+    overflow-x: hidden;
+    overscroll-behavior: smooth;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style-type: none;
+}
+
+.l-wrapper {
+    max-width: 1240px;
+    margin: auto;
+}
+
+.f-title {
+    font-size: 42px;
+    font-weight: 300;
+}
+
+.f-normal {
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 1.8;
+}
+
+.f-eng {
+    letter-spacing: 0;
+}
+
+.c-blue-dark { color: #5c709e; }
+.c-blue-bright { color: #3976fe; }
+.c-wine-dark { color: #8d4256; }
+.c-wine-bright { color: #ff4b7b; }
+
+.is-hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.button-top {
+    /* background-color: rebeccapurple; */
+    transition: .5s;
+    width: 67px;
+    height: 67px;
+    padding: 20px;
+    position: fixed;
+    bottom: 64px;
+    right: 64px;
+    cursor: pointer;
+}
+
+.button-top .icon {
+    width: 15px;
+    height: 15px;
+    margin: auto;
+    border-top: 1px solid #777;
+    border-left: 1px solid #777;
+    transform: rotate(45deg);
+    transition: .5s;
+}
+
+.button-top:hover .icon {
+    transform: rotate(405deg) scale(1.5);
+    border-color: #3976fe;
+}
+
+.button-top .f-normal {
+    color: #777;
+    text-align: center;
+    line-height: 1;
+    transition: .5s;
+}
+
+.button-top:hover .f-normal {
+    color: #bbb;
+}

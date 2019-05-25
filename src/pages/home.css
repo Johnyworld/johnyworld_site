@@ -1,0 +1,87 @@
+.home-main {
+    position: relative;
+    height: 100vh;
+    background-color: #000;
+    background-image: url("../images/home-main-background.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.home-main .layer {
+    position: absolute;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.home-main .layer.moon {
+    position: fixed;
+    background-image: url("../images/home-main-moon.png");
+}
+
+.home-main .layer.starry {
+    position: fixed;
+    height: 100vw;
+    top: -50%;
+    transform-origin: center;     
+    background-image: url("../images/home-main-starry.png");
+    /* animation-name: rotate-starry;
+    animation-timing-function: linear;
+    animation-duration: 500s; */
+}
+
+.home-main #canvas-starfire {
+    display: block;
+    position: fixed;
+}
+
+.home-main .layer.mt-third {
+    background-image: url("../images/home-main-mt-03.png");
+}
+
+.home-main .layer.mt-second {
+    background-image: url("../images/home-main-mt-02.png");
+}
+
+.home-main .layer.mt-first {
+    background-image: url("../images/home-main-mt-01.png");
+}
+
+.home-main h1.maintext {
+    position: fixed;
+    width: 100%;
+    top: 24%;
+    text-align: center;
+    font-size: 220px;
+    letter-spacing: .01em;
+    color: #000;
+}
+
+.home-main .greeting {
+    color: #bd709a;
+    font-weight: 300;
+    padding-top: 87px;
+}
+
+.home-main #jsHomeForm {
+    transition: .5s;
+}
+
+@keyframes rotate-starry {
+    0% {
+        transform: rotate( 0deg );
+    }
+
+    50% {
+        transform: rotate( 180deg );
+    }
+
+    100% {
+        transform: rotate( 360deg );
+    }
+
+}

@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css?family=Titillium+Web:400,700&display=swap');
+
+.lab-slider-wrapper {
+    text-align: left;
+}
+
+.lab-slider-wrapper .slider {
+    overflow: hidden;
+    width: 50000px;
+}
+
+.lab-slider-wrapper .slider-item {
+    float: left;
+    transform: scale(0.9);
+    opacity: .5;
+
+}
+
+.lab-slider-wrapper .slider-item.selected {
+    width: 100vw;
+    margin-right: -10vw;
+    transform: scale(1);
+    opacity: 1;
+}
+
+.lab-slider-wrapper .slider-item.selected .slider-inner {
+    width: 1024px;
+    margin: 0 auto;
+}
+
+.lab-slider-wrapper .slider-inner > div {
+    float: left;
+    width: 50%;
+    padding: 15px;
+}
+
+.lab-slider-wrapper .slider-inner .image-wrap .thumbnail {
+    width: 400px;
+    height: 520px;
+    margin-left: auto;
+    background-color: #34373d;
+}
+
+.lab-slider-wrapper .slider-item .slider-inner .text-wrap {
+    display: none;
+}
+
+.lab-slider-wrapper .slider-item.selected .slider-inner .text-wrap {
+    display: block;
+}
+
+.lab-slider-wrapper .slider-inner .text-wrap .index {
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 21px;
+    font-weight: 800;
+    margin-top: 20px;
+}
+
+.lab-slider-wrapper .slider-inner .text-wrap .index span {
+    color: #34373d;
+}
+
+.lab-slider-wrapper .slider-inner .text-wrap .title-wrap {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 60px;
+}
+
+.lab-slider-wrapper .slider-inner .text-wrap .title-wrap h2 {
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 45px;
+    font-weight: 800;
+    margin-left: -.04em;
+    letter-spacing: 0;
+}
+
+.lab-slider-wrapper .slider-inner .text-wrap .title-wrap .btn-more {
+    position: absolute;
+    display: block;
+    width: 4em;
+    height: 4em;
+    color: black;
+    text-align: center;
+    font-size: 14px;
+    line-height: 4em;
+    right: -3em;
+    top: -1em;
+    cursor: pointer;
+}
+
+.lab-slider-wrapper .slider-inner .text-wrap .title-wrap .btn-more .bg {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    border-radius: 3em;
+    background-color: #3976fe;
+    transition: .5s;
+    transform: scale(1);
+    z-index: 10;
+}
+
+.lab-slider-wrapper .slider-inner .text-wrap .title-wrap .btn-more .txt {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    z-index: 20;
+}
+
+.lab-slider-wrapper .slider-inner .text-wrap .title-wrap .btn-more:hover .bg {
+    transform: scale(1.2);
+}
+
+.lab-slider-wrapper .slider-inner .text-wrap .title-wrap .comment {
+    font-size: 18px;
+    font-weight: 300;
+}
+
+.lab-slider-wrapper .slider-inner .text-wrap span .divide {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+.lab-slider-wrapper .slider-inner .text-wrap span:last-child .divide {
+    display: none;
+}

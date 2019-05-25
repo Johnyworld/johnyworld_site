@@ -1,0 +1,15 @@
+.home-section .content {
+    margin-top: 50px;
+}
+
+.canvas-pirates-wrap {
+    width: 1024px;
+    height: 400px;
+    margin: 0 auto;
+    box-sizing: content-box;
+    border: 1px solid #673241;
+}
+
+#jsCanvasPirates {
+    image-rendering: pixelated;
+}

@@ -4,6 +4,9 @@ import HomeSectionTextBox from '../components/home-section';
 import IconWheelBtn from '../components/icon-wheel-btn';
 import HomeSectionContent from '../components/home-section-content';
 
+import Animate from '../js/animate';
+import Canvas from '../js/canvas';
+
 import './home.css';
 
 class Home extends Component {
@@ -34,6 +37,12 @@ class Home extends Component {
             }
         ];
     }
+
+    componentDidMount() {
+        Animate();
+        Canvas();
+    }
+
     render() {
         return (
             <section className="home-wrapper" >

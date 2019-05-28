@@ -1,9 +1,10 @@
 /* Import */
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:100,300,400,600,800');
 @import url('http://fonts.googleapis.com/earlyaccess/notosanskr.css');
+@import url('https://fonts.googleapis.com/css?family=Titillium+Web:400,700&display=swap');
 
 /* Reset */
-body, ul, li, section, div, p, h1, h2, h5 {
+body, ul, li, section, div, p, h1, h2, h3, h5 {
     padding: 0;
     margin: 0;
 }
@@ -26,6 +27,7 @@ body {
 
 a {
     text-decoration: none;
+    color: inherit;
 }
 
 li {
@@ -37,8 +39,24 @@ li {
     margin: auto;
 }
 
+.l-row {
+    overflow: hidden;
+    margin: -15px;   
+}
+
+.l-col {
+    width: 50%;
+    float: left;
+    padding: 15px;
+}
+
 .f-title {
     font-size: 42px;
+    font-weight: 300;
+}
+
+.f-subhead {
+    font-size: 24px;
     font-weight: 300;
 }
 
@@ -98,4 +116,10 @@ li {
 
 .button-top:hover .f-normal {
     color: #bbb;
+}
+
+.clear-fix::after {
+    content: ' ';
+    display: block;
+    clear: both;
 }

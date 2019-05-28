@@ -1,0 +1,43 @@
+.grid-item {
+    display: block;
+    position: relative;
+    cursor: pointer;
+}
+
+.grid-item .background {
+    position: absolute;
+    top: 0; bottom: 0; left: 0; right: 0;
+    background-color: #111;
+    opacity: 1;
+}
+
+.grid-item .textbox {
+    position: absolute;
+    top: 0; bottom: 0; left: 0; right: 0;
+    text-align: left;
+    padding: 30px;
+    margin: 20px;
+    background-color: rgba(0, 0, 0, 0.9);
+    transition: .5s;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.grid-item:hover .textbox {
+    opacity: 1;
+}
+
+.grid-item .textbox .bottom {
+    position: absolute;
+    bottom: 30px;
+}
+
+.grid-item .textbox .f-subhead {
+    /* font-family: 'Titillium Web', sans-serif; */
+}
+
+.grid-item .textbox .category {
+    font-size: 16px;
+    font-weight: 600;
+    color: #3976fe;
+}

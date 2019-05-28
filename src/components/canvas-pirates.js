@@ -45,7 +45,7 @@ const canvasPirates = () => {
     const GAME_STATE_LEVEL = 2;
     const GAME_STATE_GAME_OVER = 3;
 
-    let currentGameState = 0;
+    // let currentGameState = 0;
     let currentGameStateFuntion = null;
 
     const switchGameState = ( newState ) => {
@@ -264,7 +264,7 @@ const canvasPirates = () => {
 
         // 적 프리깃함 캐논볼 쏘기 
         for ( let i=enemies.length-1; i>=0; i-- ) {
-            if ( enemies[i].cannon && enemies[i].canFire && enemies[i].pos.x < 900+enemies[i].posfix/2 ) {
+            if ( enemies[i].cannon && enemies[i].canFire && enemies[i].pos.x < 1124 ) {
                 cannonBalls.push( new CannonBall(ctxPrts, enemies[i].pos.x-2, enemies[i].pos.y+13, enemies[i].cannon, true) );
                 enemies[i].canFire = false;
                 enemies[i].delay();

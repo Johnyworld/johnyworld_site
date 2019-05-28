@@ -4,7 +4,7 @@ const Animate = () => {
     const mountainThird = document.getElementById('jsMtThird');
     const mainText = document.getElementById('jsMaintext');
     const moon = document.getElementById('jsMoon');
-    const starry = document.getElementById('jsStarry');
+    // const starry = document.getElementById('jsStarry');
     const jsIconWheel = document.getElementById('jsIconWheel');
     const jsBtnTop = document.getElementById('jsBtnTop');
 
@@ -103,7 +103,7 @@ const Animate = () => {
     });
 
     jsIconWheel.addEventListener( 'click', function() {
-        smoothScroll('.home-section', 2000);
+        smoothScroll('#home-Works', 3000);
     });
 
     jsBtnTop.addEventListener( 'click', function() {

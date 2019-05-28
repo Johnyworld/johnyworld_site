@@ -1,4 +1,4 @@
-import { playerA, cannonBalls, canvasPrts, ctxPrts } from '../canvas-pirates';
+import { playerA, cannonBalls } from '../canvas-pirates';
 import CannonBall from './cannon-ball';
 
 const gameKeys = (event) => {

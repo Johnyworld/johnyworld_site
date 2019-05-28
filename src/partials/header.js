@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import './header.css';
 
 class Header extends Component {
@@ -63,8 +64,8 @@ class Header extends Component {
                         </div>
                     </div>
                     <ul className="hamberger-menu" id="jsHamberger">
-                        <li><span className="menu-item">WORKS</span></li>
-                        <li className="second"><span className="menu-item">ABOUT</span></li>
+                        <li><Link to="/" className="menu-item">WORKS</Link></li>
+                        <li className="second"><Link to="/about" className="menu-item">ABOUT</Link></li>
                     </ul>
                 </div>
             </header>

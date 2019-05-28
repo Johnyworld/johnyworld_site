@@ -1,4 +1,4 @@
-import { WIND, playerA, SCORE, ctxPrts } from '../canvas-pirates';
+import { WIND, playerA, SCORE } from '../canvas-pirates';
 
 
 

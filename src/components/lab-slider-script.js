@@ -1,3 +1,5 @@
+export let labSliderIndex = 1;
+
 const labSliderScript = () => {
     const labSliderBtnLeft = document.getElementById('labSliderBtnLeft');
     const labSliderBtnRight = document.getElementById('labSliderBtnRight');
@@ -6,7 +8,6 @@ const labSliderScript = () => {
     const navItems = labSliderNavigator.getElementsByClassName('nav-item');
     let itemWidth = sliderItems[0].clientWidth;
     let selectedWidth = window.innerWidth / 100 * 80;
-    let labSliderIndex = 1;
     
     const hideObject = (object, duration) => {
         setTimeout(function() {
@@ -75,7 +76,7 @@ const labSliderScript = () => {
     
     const labSliderButtonEvents = () => {
         labSliderBtnRight.addEventListener( 'click', function(event) {
-            if ( labSliderIndex < sliderItems.length ) {
+            if ( labSliderIndex < sliderItems.length-1 ) {
                 labSliderIndex +=1;
                 labSliderInit(labSliderIndex-1, labSliderIndex);
             } 
@@ -118,11 +119,13 @@ const labSliderScript = () => {
     }
     
     window.addEventListener( 'resize', function() {
-        itemWidth = sliderItems[0].clientWidth;
-        selectedWidth = window.innerWidth / 100 * 80;
-        setLabSliderPosition(labSliderIndex);
+        if ( sliderItems[0] ) {
+            itemWidth = sliderItems[0].clientWidth;
+            selectedWidth = window.innerWidth / 100 * 80;
+            setLabSliderPosition(labSliderIndex);
+        }
     });
-    
+
     labSliderButtonEvents();
     setLabSliderPosition(labSliderIndex);
     movingLabSliderTexts(labSliderIndex);

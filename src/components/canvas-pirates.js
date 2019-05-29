@@ -296,7 +296,7 @@ const canvasPirates = () => {
         }
 
         // UI 그리기
-        textBoard();
+        textBoard(ctxPrts);
     }
     
     // 적 리스폰 인터벌
@@ -340,9 +340,14 @@ const canvasPirates = () => {
     // 게임 시작
     switchGameState(GAME_STATE_TITLE);
 
+    let canvasFrames;
     const runningGame = () => {
-        requestAnimationFrame(runningGame);
+        canvasFrames = requestAnimationFrame(runningGame);
         runGame();
+
+        if ( window.location.pathname !== "/" ) {
+            cancelAnimationFrame(canvasFrames);
+        }
     }
 
     runningGame();

@@ -2,212 +2,14 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import './lab-slider.css';
-
+import dataLabSliderReverse from '../data/data-lab-slider';
 import labSliderScript from './lab-slider-script';
-
-import labBgMarioJump from '../images/labbg-mariojump.jpg';
-import labBgCollision1 from '../images/labbg-collision1.jpg';
-import labBgCollision2 from '../images/labbg-collision2.jpg';
-import labBgMario1 from '../images/labbg-mario1.jpg';
-import labBgRpgMoving from '../images/labbg-rpgmoving.jpg';
-import labBgWetube from '../images/labbg-wetube.jpg';
-import labBgPrismagram from '../images/labbg-prismagram.jpg';
-import labBgModernPirates from '../images/labbg-modernpirates.jpg';
-import labBgCrossRoad from '../images/labbg-crossroad.jpg';
-import labBgMasonry from '../images/labbg-masonry.jpg';
-import labBgRoom311 from '../images/labbg-room311.jpg';
-import labBgConv250 from '../images/labbg-conv250.jpg';
-import labBgBangCard from '../images/labbg-bangcard.jpg';
+import { labSliderIndex } from './lab-slider-script';
 
 class LabSlider extends Component {
-    componentWillMount() {
-        this.laboratories = [
-            {
-                id: "03001",
-                title: "Super Mario Jump!",
-                slug: "mariojump",
-                comment: "JQuery 연습",
-                desc: [
-                    "JQuery를 처음 배우고 나서",
-                    "키보드에 반응하는 무언가를 만들어보고 싶었고",
-                    "첫 시도로 만들어본 연습작.",
-                ],
-                technics: [ "HTML", "CSS", "JQuery" ],
-                thumbnail: labBgMarioJump,
-                date: "2017. 12"
-            },
-            {
-                id: "03002",
-                title: "Supermario Canvas",
-                slug: "supermario",
-                comment: "슈퍼마리오 게임 만들기 연습",
-                desc: [
-                    "모던 자바스크립트(ES6)에 익숙해지기 위해",
-                    "코드를 따라 치며 연습했던 연습작.",
-                    "Promise, map, forEach, async, await등을 이해하는데",
-                    "도움이 되었습니다.",
-                ],
-                technics: [ "Javascript", "ES6", "Canvas" ],
-                thumbnail: labBgMario1,
-                date: "2019. 03",
-            },
-            {
-                id: "03003",
-                title: "WETUBE!",
-                slug: "wetube",
-                comment: "유튜브 따라하기 코딩.",
-                desc: [
-                    "NodeJS와 친해지기 위해 수강했던 강의의 수강작품.", 
-                    "유튜브 클론 코딩.",
-                ],
-                technics: [ "Javascript", "NodeJS", "Express", "MongoDB", "Webpack", "Github", "AWS S3" ],
-                thumbnail: labBgWetube,
-                date: "2019. 04"
-            },
-            {
-                id: "03004",
-                title: "RPG MOVING",
-                slug: "rpg-moving",
-                comment: "RPG 게임 만들기 연습",
-                desc: [
-                    "슈퍼마리오 코딩을 따라 만들어 본 뒤, 혼자서 얼마나 할 수 있을지 궁금하여",
-                    "MDN문서와 Stack flow를 참고하면서",
-                    "바닐라 자바스크립트만을 이용해 직접 만들어본 연습작.",
-                    "이때는 일부러 모던자바스크립트는 사용하지 않음.",
-                ],
-                technics: [ "Javascript", "ES5", "Canvas" ],
-                thumbnail: labBgRpgMoving,
-                date: "2019. 03"
-            },
-            {
-                id: "03005",
-                title: "Modern Pirates",
-                slug: "modern-pirates",
-                comment: "캔버스를 이용한 게임 제작",
-                desc: [
-                    "100% 하드코딩으로 제작한 게임.", 
-                    "포트폴리오 홈에 넣기 위해 만들기 시작하여",
-                    "여가시간을 활용하여 약 2주동안 제작.",
-                ],
-                technics: [ "Javascript", "ES6", "Canvas" ],
-                thumbnail: labBgModernPirates,
-                date: "2019. 05"
-            },
-            {
-                id: "03006",
-                title: "Prismagram",
-                slug: "prismagram",
-                comment: "인스타그램 따라하기 코딩.",
-                desc: [
-                    "React와 친해지기 위해 수강했던 강의의 수강작품.", 
-                    "인스타그램 클론 코딩.",
-                ],
-                technics: [ "Javascript", "React", "NodeJS", "React Native", "Prisma", "GraphQL" ],
-                thumbnail: labBgPrismagram,
-                date: "2019. now"
-            },
-            {
-                id: "03007",
-                title: "BANG! pick a card!",
-                slug: "bangcard",
-                comment: "보드게임 '뱅' 카드뽑기 앱",
-                desc: [
-                    "React와 친해지기 위해 수강했던 강의의 수강작품.", 
-                    "인스타그램 클론 코딩.",
-                ],
-                technics: [ "Javascript", "ES5" ],
-                thumbnail: labBgBangCard,
-                date: "2019. 03"
-            },
-            {
-                id: "03008",
-                title: "Crossroad Card App",
-                slug: "crossroad",
-                comment: "데드오브윈터 크로스로드 카드 앱",
-                desc: [
-                    "가끔 보드게임을 즐기는데,", 
-                    "데드오브윈터라는 게임의 한 카드의 사용성이 너무 안좋아서",
-                    "개선해보고자 앱으로 제작함.",
-                    "결과는 매우 만족.",
-                ],
-                technics: [ "Javascript", "jQuery" ],
-                thumbnail: labBgCrossRoad,
-                date: "2018. 06"
-            },
-            {
-                id: "03009",
-                title: "Conversation Starter 250",
-                slug: "conv250",
-                comment: "대화 주제 250",
-                desc: [
-                    "가끔 지인들과 대화를 할 때,", 
-                    "대화 주제가 떨어지는 경우 이 앱의 도움을 받을 수 있고", 
-                    "혼자 영어회화 공부를 할때에도",
-                    "이 앱의 질문에 대답하는 식으로 영어공부도 가능함.",
-                ],
-                technics: [ "Javascript" ],
-                thumbnail: labBgConv250,
-                date: "2019. 03"
-            },
-            {
-                id: "03010",
-                title: "Masonry Grid Coding",
-                slug: "masonry",
-                comment: "메이슨리 그리드 제작",
-                desc: [
-                    "평소에 좋아하던 그리드 레이아웃인 메이슨리 그리드.", 
-                    "좋아했기 때문에 도전해보고 싶었고",
-                    "브라우저 너비에 따라 여러 그리드로 반응형까지 재미있게 작업함.",
-                ],
-                technics: [ "Javascript", "jQuery" ],
-                thumbnail: labBgMasonry,
-                date: "2018. 12"
-            },
-            {
-                id: "03011",
-                title: "Collision Test I",
-                slug: "collision1",
-                comment: "HTML 캔버스 연습",
-                desc: [
-                    "Canvas를 이용하면",
-                    "재밌는것들을 많이 만들 수 있겠다고 생각하여",
-                    "Javascript와 Canvas를 이해하기 위하여",
-                    "코드를 따라 치며 연습했던 연습작.",
-                ],
-                technics: [ "Javascript", "ES6", "Canvas" ],
-                thumbnail: labBgCollision1,
-                date: "2018. 05"
-            },
-            {
-                id: "03012",
-                title: "Collision Test II",
-                slug: "collision2",
-                comment: "HTML 캔버스 연습",
-                desc: [
-                    "Canvas를 이용하면",
-                    "재밌는것들을 많이 만들 수 있겠다고 생각하여",
-                    "Javascript와 Canvas를 이해하기 위하여", 
-                    "코드를 따라 치며 연습했던 연습작.",
-                ],
-                technics: [ "Javascript", "ES6", "Canvas" ],
-                thumbnail: labBgCollision2,
-                date: "2018. 05"
-            },
-            {
-                id: "03013",
-                title: "Room311",
-                slug: "room311",
-                comment: "311호 자리 뽑기 앱",
-                desc: [
-                    "자리뽑기를 실제로 사용하기 위해 제작.", 
-                    "랜덤으로 뽑고, 사람 수에 따라 중앙 앞자리가 채워질 수 있게 제작.",
-                    "총 3개의 분단이라서 만드는데에 고민이 좀 필요했음.",
-                ],
-                technics: [ "Javascript", "React" ],
-                thumbnail: labBgRoom311,
-                date: "2019. 04"
-            },
-        ];
+    constructor(props) {
+        super(props);
+        this.laboratories = dataLabSliderReverse;
     }
 
     componentDidMount() {
@@ -226,9 +28,9 @@ class LabSlider extends Component {
                     <div className="btn right" id="labSliderBtnRight"></div>
                 </div>
                 <ul className="slider clear-fix">
-                    { this.laboratories.reverse().map((item, key) => {
+                    { this.laboratories.map((item, key) => {
                         return(
-                            <li className={"slider-item" + (key===1 ? ' selected':'') } key={item.id}>
+                            <li className={"slider-item" + (key===labSliderIndex ? ' selected':'') } key={item.id}>
                                 <div className="slider-inner">
                                     <div className="image-wrap"><div className="thumbnail" style={{backgroundImage : 'url(' + item.thumbnail + ')' }}></div></div>
                                     <div className="text-wrap">
@@ -250,7 +52,7 @@ class LabSlider extends Component {
                 <ul className="navigator" id="labSliderNavigator">
                     { this.laboratories.map((item, key) => {
                         return(
-                            <li key={item.id} className={"nav-item" + (key===1 ? ' selected':'') }>
+                            <li key={item.id} className={"nav-item" + (key===labSliderIndex ? ' selected':'') }>
                                 <div className="bar"></div>
                             </li>
                         ) 

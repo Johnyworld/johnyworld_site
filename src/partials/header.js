@@ -4,6 +4,7 @@ import './header.css';
 
 class Header extends Component {
     componentDidMount() {
+        const gnb = document.getElementById('gnb');
         const gnbBtn = document.getElementById('gnbBtn');
         const jsHamberger = document.getElementById('jsHamberger');
 
@@ -21,6 +22,7 @@ class Header extends Component {
         function gnbBtnHandler() {
             if ( gnbBtnClickable ) {
                 callHamberger();
+                gnb.addEventListener('mouseleave', gnbBtnHandler);
                 gnbBtnClickable = false;
                 const lines = this.getElementsByClassName('gnb-btn-line');
 
@@ -37,6 +39,7 @@ class Header extends Component {
                     }, 1000 );
                 } else {
                     gnbBtnClicked = false;
+                    gnb.removeEventListener('mouseleave', gnbBtnHandler);
                     for( let i=0; i<lines.length; i++ ) {
                         lines[i].classList.remove('cue2');
                         setTimeout( function(){
@@ -50,12 +53,14 @@ class Header extends Component {
             }
         }
         gnbBtn.addEventListener('click', gnbBtnHandler);
+        
 
     }
+
     render() {
         return(
             <header>
-                <div className="gnb">
+                <div className="gnb" id="gnb">
                     <div className="gnb-btn" id="gnbBtn">
                         <div className="gnb-btn-lines">
                             <div className="gnb-btn-line line1"></div>
@@ -64,7 +69,7 @@ class Header extends Component {
                         </div>
                     </div>
                     <ul className="hamberger-menu" id="jsHamberger">
-                        <li><Link to="/" className="menu-item">WORKS</Link></li>
+                        <li><Link to="/#works" className="menu-item" id="gnbBtnWorks">WORKS</Link></li>
                         <li className="second"><Link to="/about" className="menu-item">ABOUT</Link></li>
                     </ul>
                 </div>

@@ -4,6 +4,7 @@ const Animate = () => {
     const mountainThird = document.getElementById('jsMtThird');
     const mainText = document.getElementById('jsMaintext');
     const moon = document.getElementById('jsMoon');
+    const gnbBtnWorks = document.getElementById('gnbBtnWorks');
     // const starry = document.getElementById('jsStarry');
     const jsIconWheel = document.getElementById('jsIconWheel');
     const jsBtnTop = document.getElementById('jsBtnTop');
@@ -89,6 +90,14 @@ const Animate = () => {
         requestAnimationFrame(animation);
     }
 
+    const clickedWorks = () => {
+        smoothScroll('#home-Works', 2000);
+        setTimeout(() => {
+            let clean_uri = window.location.href.split('#')[0];
+            window.history.replaceState({}, document.title, clean_uri);    
+        }, 50);
+    }
+
     window.addEventListener( 'scroll', function() {
         let nowScroll = window.scrollY;
         scrollFloating( nowScroll, mountainFirst, 3 );
@@ -109,6 +118,16 @@ const Animate = () => {
     jsBtnTop.addEventListener( 'click', function() {
         smoothScroll('body', 2000);
     });
+
+    gnbBtnWorks.addEventListener( 'click', function() {
+        if ( window.location.pathname === '/' ) {
+            clickedWorks();
+        }
+    })
+
+    if ( window.location.hash === "#works" ) {
+        clickedWorks();
+    }
 
 }
 export default Animate;

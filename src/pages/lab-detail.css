@@ -1,0 +1,23 @@
+body {
+    background-color: #111 !important;
+}
+
+.lab-detail-wrapper .head {
+    padding: 64px 0;
+}
+
+.lab-detail-wrapper h1 {
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 80px;
+    font-weight: 700;
+    letter-spacing: 0;
+    line-height: 1;
+    color: white;
+    text-align: center;
+}
+
+#canvasCollision1,
+#canvasCollision2 {
+    position: fixed;
+    top: 0;
+}

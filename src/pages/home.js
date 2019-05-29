@@ -11,7 +11,7 @@ import './home.css';
 
 class Home extends Component {
     constructor(props) {
-        super(props);
+        super(props);      
         this.homeTextbox = [
             { 
                 title: "Javascript", 
@@ -45,7 +45,7 @@ class Home extends Component {
 
     render() {
         return (
-            <section className="home-wrapper" >
+            <content className="home-wrapper" >
                 <div className="home-main">
                     <div className="layer moon" id="jsMoon">
                         <div className="l-wrapper">
@@ -75,7 +75,7 @@ class Home extends Component {
                         </div>
                     );
                 })}
-            </section>
+            </content>
         )
     }
 }

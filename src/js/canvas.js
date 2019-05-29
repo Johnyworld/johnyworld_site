@@ -55,12 +55,17 @@ const Canvas = () => {
         }
     }
 
+    let canvasFrames;
     function animate() {
-        requestAnimationFrame(animate);
+        canvasFrames = requestAnimationFrame(animate);
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         starFires.forEach(starFire => {
             starFire.update();
         })
+
+        if ( window.location.pathname !== "/" ) {
+            cancelAnimationFrame(canvasFrames);
+        }
     }
     
     init();

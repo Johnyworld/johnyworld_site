@@ -2,10 +2,7 @@ import { WIND, playerA, SCORE } from '../canvas-pirates';
 
 
 
-export const textBoard = () => {
-
-    const canvasPrts = document.getElementById('jsCanvasPirates');
-    const ctxPrts = canvasPrts.getContext('2d');
+export const textBoard = (ctxPrts) => {
 
     let windDir = '';
     

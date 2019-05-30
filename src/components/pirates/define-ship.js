@@ -1,4 +1,4 @@
-import { WIND } from '../canvas-pirates';
+import { WIND } from '../canvas-pirates-script';
 
 class DefineShip {
     constructor(ctx, canvas, Image)  {

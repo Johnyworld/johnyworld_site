@@ -75,6 +75,10 @@ class Home extends Component {
                         </div>
                     );
                 })}
+                <div className="button-top is-hidden" id="jsBtnTop">
+                    <div className="icon"></div>
+                    <p className="f-normal">Top</p>
+                </div>
             </content>
         )
     }

@@ -11,19 +11,13 @@ import './App.css';
 class App extends Component {
     render() {
         return(
-            <div>
-                <Router>
-                    <Header />
-                    <Route exact path="/" component={Home} />
-                    <Route exact path="/works" component={Home} />
-                    <Route path="/about" component={About} />
-                    <Route path="/lab/:id" component={LabDetail} />
-                </Router>
-                <div className="button-top is-hidden" id="jsBtnTop">
-                    <div className="icon"></div>
-                    <p className="f-normal">Top</p>
-                </div>
-            </div>
+            <Router>
+                <Header />
+                <Route exact path="/" component={Home} />
+                <Route exact path="/works" component={Home} />
+                <Route path="/about" component={About} />
+                <Route path="/lab/:id" component={LabDetail} />
+            </Router>
         );
     }
 };

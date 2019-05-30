@@ -53,7 +53,8 @@ const dataLabSlider = [
         ],
         technics: [ "Javascript", "NodeJS", "Express", "MongoDB", "Webpack", "Github", "AWS S3" ],
         thumbnail: labBgWetube,
-        date: "2019. 04"
+        date: "2019. 04",
+        // url: "http://johnyworld-wetube.s3-website.ap-northeast-2.amazonaws.com/"
     },
     {
         id: "03004",
@@ -116,14 +117,15 @@ const dataLabSlider = [
         slug: "crossroad",
         comment: "데드오브윈터 크로스로드 카드 앱",
         desc: [
-            "가끔 보드게임을 즐기는데,", 
             "데드오브윈터라는 게임의 한 카드의 사용성이 너무 안좋아서",
             "개선해보고자 앱으로 제작함.",
             "결과는 매우 만족.",
+            "(이 앱은 '데드 오브 윈터' 보드게임이 필요합니다.)", 
         ],
         technics: [ "Javascript", "jQuery" ],
         thumbnail: labBgCrossRoad,
-        date: "2018. 06"
+        date: "2018. 06",
+        url: "http://dow-crossroad.s3-website.ap-northeast-2.amazonaws.com"
     },
     {
         id: "03009",
@@ -152,7 +154,8 @@ const dataLabSlider = [
         ],
         technics: [ "Javascript", "jQuery" ],
         thumbnail: labBgMasonry,
-        date: "2018. 12"
+        date: "2018. 12",
+        url: "http://jw-masonry-grid.s3-website.ap-northeast-2.amazonaws.com/"
     },
     {
         id: "03011",
@@ -196,7 +199,8 @@ const dataLabSlider = [
         ],
         technics: [ "Javascript", "React" ],
         thumbnail: labBgRoom311,
-        date: "2019. 04"
+        date: "2019. 04",
+        url: "http://room311.s3-website.ap-northeast-2.amazonaws.com/"
     },
 ];
 

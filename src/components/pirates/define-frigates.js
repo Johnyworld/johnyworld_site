@@ -1,4 +1,4 @@
-import { WIND, playerA } from '../canvas-pirates';
+import { WIND, playerA } from '../canvas-pirates-script';
 
 class DefineFrigates {
     constructor(ctx, Image) {

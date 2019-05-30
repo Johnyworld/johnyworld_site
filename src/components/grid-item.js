@@ -3,8 +3,6 @@ import { Link } from 'react-router-dom';
 import './grid-item.css';
 
 class GridItem extends Component {
-
-    
     render() {
         return (
             <Link to={`/works/${this.props.link}`} className="grid-item">

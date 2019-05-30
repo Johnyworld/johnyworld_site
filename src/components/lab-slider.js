@@ -37,7 +37,11 @@ class LabSlider extends Component {
                                         <p className="index c-blue-bright">{ pad(key+1, 2) }<span> / { pad(this.laboratories.length, 2) }</span></p>
                                         <div className="title-wrap">
                                             <h2 className="c-blue-bright">{item.title}</h2>
-                                            <Link to={`/lab/${item.slug}`} className="btn-more"><div className="bg"></div><p className="txt">보러가기</p></Link>
+                                            { item.url ? 
+                                                <a href={item.url} target="blank" className="btn-more"><div className="bg"></div><p className="txt">새창보기</p></a>
+                                                :
+                                                <Link to={`/lab/${item.slug}`} className="btn-more"><div className="bg"></div><p className="txt">보러가기</p></Link>                                                
+                                            }
                                             <p className="comment c-blue-bright">{item.comment}</p>
                                         </div>
                                         <div className="f-normal c-blue-dark">{ item.desc.map((desc, key) => (<p key={`desc${key}`}>{desc}</p>))}</div>

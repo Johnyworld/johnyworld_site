@@ -1,23 +1,15 @@
 import React, { Component } from 'react';
-import canvasPirates from './canvas-pirates';
+import CanvasPirates from './canvas-pirates';
 import LabSlider from '../components/lab-slider';
 import WorksGrid from '../components/works-grid';
 import './home-section-content.css';
 
 class HomeSectionContent extends Component {
-    componentDidMount() {
-        if ( this.props.content === "Javascript" ) {
-            canvasPirates();            
-        }
-    }
-
     render() {
         if ( this.props.content === "Javascript" ) {
             return (
                 <div className="content">
-                    <div className="canvas-pirates-wrap">
-                        <canvas id="jsCanvasPirates"></canvas>
-                    </div>
+                    <CanvasPirates />
                 </div>
             )
         }

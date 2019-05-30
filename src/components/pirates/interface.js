@@ -1,6 +1,4 @@
-import { WIND, playerA, SCORE } from '../canvas-pirates';
-
-
+import { WIND, playerA, SCORE } from '../canvas-pirates-script';
 
 export const textBoard = (ctxPrts) => {
 

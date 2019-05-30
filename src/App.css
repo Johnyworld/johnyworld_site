@@ -4,9 +4,11 @@
 @import url('https://fonts.googleapis.com/css?family=Titillium+Web:400,700&display=swap');
 
 /* Reset */
-body, ul, li, section, div, p, h1, h2, h3, h5 {
+body, ul, li, section, div, p, h1, h2, h3, h5, button {
     padding: 0;
     margin: 0;
+    border: 0;
+    background: none;
 }
 
 * {

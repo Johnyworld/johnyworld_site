@@ -1,4 +1,4 @@
-import { WIND } from '../canvas-pirates';
+import { WIND } from '../canvas-pirates-script';
 
 class CannonBall {
     constructor(ctx, X, Y, Cannon, isEnemy ) {

@@ -5,7 +5,7 @@ import IconWheelBtn from '../components/icon-wheel-btn';
 import HomeSectionContent from '../components/home-section-content';
 
 import Animate from '../js/animate';
-import Canvas from '../js/canvas';
+import CanvasStarfire from '../js/canvas-starfire';
 
 import './home.css';
 
@@ -40,7 +40,7 @@ class Home extends Component {
 
     componentDidMount() {
         Animate();
-        Canvas();
+        CanvasStarfire();
     }
 
     render() {

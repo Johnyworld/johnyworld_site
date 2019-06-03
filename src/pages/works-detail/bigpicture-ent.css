@@ -1,0 +1,12 @@
+.detail-section {
+    padding: 100px 0;
+}
+
+.detail-section .detail-heading {
+    overflow: hidden;
+}
+
+.detail-section .detail-heading > * {
+    float: left;
+    width: 50%;
+}

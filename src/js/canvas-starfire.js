@@ -1,4 +1,4 @@
-const Canvas = () => {
+const CanvasStarfire = () => {
     const canvas = document.getElementById('canvas-starfire');
     const ctx = canvas.getContext('2d');
     ctx.imageSmoothingEnabled = false;
@@ -72,4 +72,4 @@ const Canvas = () => {
     animate();
 }
 
-export default Canvas;
+export default CanvasStarfire;

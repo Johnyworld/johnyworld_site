@@ -34,9 +34,9 @@ class LabSlider extends Component {
                                 <div className="slider-inner">
                                     <div className="image-wrap"><div className="thumbnail" style={{backgroundImage : 'url(' + item.thumbnail + ')' }}></div></div>
                                     <div className="text-wrap">
-                                        <p className="index c-blue-bright">{ pad(key+1, 2) }<span> / { pad(this.laboratories.length, 2) }</span></p>
+                                        <p className="index f-eng">{ pad(key+1, 2) }<span> / { pad(this.laboratories.length, 2) }</span></p>
                                         <div className="title-wrap">
-                                            <h2 className="c-blue-bright">{item.title}</h2>
+                                            <h2>{item.title}</h2>
                                             { item.url ? 
                                                 <a href={item.url} target="blank" className="btn-more"><div className="bg"></div><p className="txt">새창보기</p></a>
                                                 :
@@ -44,20 +44,24 @@ class LabSlider extends Component {
                                             }
                                             <p className="comment c-blue-bright">{item.comment}</p>
                                         </div>
-                                        <div className="f-normal c-blue-dark">{ item.desc.map((desc, key) => (<p key={`desc${key}`}>{desc}</p>))}</div>
-                                        <p className="f-normal c-wine-dark">{item.date}</p>
-                                        <div className="f-normal c-wine-dark">{ item.technics.map((desc, key) => (<span key={`desc${key}`}>{desc} <span className="divide">/</span></span>))}</div>
+                                        <div className="explain f-normal c-blue-dark">{ item.desc.map((desc, key) => (<p key={`desc${key}`}>{desc}</p>))}</div>
+                                        {/* <p className="f-normal f-eng c-wine-dark">{item.date}</p> */}
+                                        <div className="technics-wrap f-normal f-eng c-wine-bright">{ item.technics.map((desc, key) => (<span className="technic" key={`desc${key}`}>{desc}</span>))}</div>
                                     </div>
                                 </div>
                             </li>
                         )
                     })}
                 </ul>
-                <ul className="navigator" id="labSliderNavigator">
+                <ul className="navigator clear-fix" id="labSliderNavigator">
                     { this.laboratories.map((item, key) => {
                         return(
                             <li key={item.id} className={"nav-item" + (key===labSliderIndex ? ' selected':'') }>
                                 <div className="bar"></div>
+                                <div className="bar-hover">
+                                    <img alt="thumbnail" src={item.thumbnail} />
+                                    <p>{item.title}</p>
+                                </div>
                             </li>
                         ) 
                     })}

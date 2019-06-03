@@ -5,8 +5,10 @@ import canvasCollision2Script from './lab-detail/canvas-collision2';
 import Conv250 from './lab-detail/conv250';
 import ModernPiratesDetail from './lab-detail/modern-pirates';
 import BangCard from './lab-detail/bangcard';
+import Gravity from './lab-detail/gravity';
+import Cells from './lab-detail/cells';
 import RpgMoving from './lab-detail/rpg-moving';
-// import MarioKart from './lab-detail/mariokart';
+import MarioKart from './lab-detail/mariokart';
 import './lab-detail.css';
 
 class LabDetail extends Component {
@@ -41,7 +43,9 @@ class LabDetail extends Component {
         if ( this.state.id === 'modern-pirates' ) { labDetailContent = <ModernPiratesDetail /> }
         if ( this.state.id === 'bangcard' ) { labDetailContent = <BangCard /> }
         if ( this.state.id === 'rpg-moving') { labDetailContent = <RpgMoving /> }
-        // if ( this.state.id === 'mariojump') { labDetailContent = <MarioKart /> }
+        if ( this.state.id === 'gravity') { labDetailContent = <Gravity /> }
+        if ( this.state.id === 'cells') { labDetailContent = <Cells /> }
+        if ( this.state.id === 'mariojump') { labDetailContent = <MarioKart /> }
 
         return (
             <div className="lab-detail-wrapper">
@@ -51,7 +55,7 @@ class LabDetail extends Component {
                 <div className="head">
                     <h1>{this.data.title}</h1>
                 </div>
-                <div className="lab-detail-content">
+                <div className="content">
                     {labDetailContent}
                 </div>
             </div>

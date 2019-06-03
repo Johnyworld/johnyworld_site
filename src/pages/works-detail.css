@@ -1,0 +1,76 @@
+.works-detail-wrapper {
+    color: #555;
+}
+
+.works-detail-wrapper .f-title {
+    color: white;
+}
+
+.works-detail-wrapper .key-visual {
+    height: 100vh;
+}
+
+.works-detail-wrapper .key-visual .bg {
+    background-color: #555;
+    background-size: cover;
+    background-position: center;
+    height: 77vh;
+}
+
+.works-detail-wrapper .key-visual .info > * {
+    float: left;
+}
+
+.works-detail-wrapper .key-visual .info .textbox {
+    position: relative;
+    background-color: black;
+    width: 50%;
+    margin-top: -90px;
+    padding-top: 90px;
+}
+
+.works-detail-wrapper .key-visual .info > .textbox > .f-title {
+    position: absolute;
+    text-align: left;
+    font-size: 85px;
+    white-space: nowrap;
+    top: -.7em;
+    left: -.09em;
+}
+
+.works-detail-wrapper .key-visual .info .textbox .f-subhead {
+    color: #3976fe;
+    margin-bottom: 20px;
+}
+
+.works-detail-wrapper .key-visual .info .keywords {
+    color: #aaa;
+    overflow: hidden;
+    margin-top: 50px;
+}
+
+.works-detail-wrapper .key-visual .info .keywords li {
+    float: left;
+    margin-right: 30px;
+}
+
+.works-detail-wrapper .key-visual .info .btn-wrapper {
+    display: block;
+    position: relative;
+    text-align: center;
+    color: white;
+    float: right;
+    transform: translateY(-50%);
+    width: 247px;
+    height: 247px;
+    margin-left: auto;
+    background-color: #3976fe;
+    cursor: pointer;
+}
+
+.works-detail-wrapper .key-visual .info .btn-wrapper .btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate( -50%, -50% );
+}

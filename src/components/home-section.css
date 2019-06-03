@@ -7,6 +7,15 @@
     padding: 100px 0;
 }
 
+.home-section .textbox {
+    transition: 1s;
+    opacity: 1;
+}
+
+.home-section .textbox.is-hidden {
+    opacity: .2;
+}
+
 .home-section .textbox .f-title {
     font-size: 42px;
     font-weight: 300;

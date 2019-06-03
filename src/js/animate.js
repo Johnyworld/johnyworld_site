@@ -8,6 +8,8 @@ const Animate = () => {
     // const starry = document.getElementById('jsStarry');
     const jsIconWheel = document.getElementById('jsIconWheel');
     const jsBtnTop = document.getElementById('jsBtnTop');
+    const homeLiboratory = document.getElementById('home-Laboratory');
+    const homeLiboratoryTextbox = homeLiboratory.getElementsByClassName('textbox')[0];
 
     const windowHeight = window.innerHeight;
 
@@ -32,7 +34,7 @@ const Animate = () => {
         let tf = element.style.transform;
         element.style.transform = tf + 'scale(' + scale/100 + ')'
     }
-    
+
     const scrollFadeOut = ( nowScroll, element, hideTop ) => {
         let ofst = 0;
         if ( element.offsetTop > windowHeight ) {
@@ -98,6 +100,10 @@ const Animate = () => {
         }, 50);
     }
 
+    const getAbsoluteTop = (element) => {
+        return window.pageYOffset + element.getBoundingClientRect().top;
+    }
+
     window.addEventListener( 'scroll', function() {
         let nowScroll = window.scrollY;
         scrollFloating( nowScroll, mountainFirst, 3 );
@@ -108,7 +114,9 @@ const Animate = () => {
         scrollScale( nowScroll, mountainFirst );
         scrollFadeOut( nowScroll, jsIconWheel, 50 );
         scrollFadeIn( nowScroll, jsBtnTop, windowHeight-50 );
-        
+        scrollFadeOut(nowScroll, jsIconWheel, 50);
+        scrollFadeOut(nowScroll, homeLiboratoryTextbox, getAbsoluteTop(homeLiboratoryTextbox)-200);
+
     });
 
     jsIconWheel.addEventListener( 'click', function() {

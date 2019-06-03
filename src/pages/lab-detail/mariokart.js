@@ -1,24 +1,35 @@
 import React, { Component } from 'react';
+import $ from "jquery";
 import rider1Url from '../../images/mariokart/rider-1.png';
 import './mariokart.css';
+
+import mkRider1 from '../../images/mariokart/rider-1.png';
+import mkRider2 from '../../images/mariokart/rider-2.png';
+import mkRider3 from '../../images/mariokart/rider-3.png';
+import mkRider4 from '../../images/mariokart/rider-4.png';
+
+import mkBgLand from '../../images/mariokart/land.jpg';
+import mkBgHell from '../../images/mariokart/hell.jpg';
+import mkBgCastle from '../../images/mariokart/castle.jpg';
+import mkBgDesert from '../../images/mariokart/desert.jpg';
 
 class MarioKart extends Component {
     componentDidMount() {
 
-        const mkStageBtnNext = document.getElementById('mkStageBtnNext');
-        const mkStageBtnPrev = document.getElementById('mkStageBtnPrev');
+        // const mkStageBtnNext = document.getElementById('mkStageBtnNext');
+        // const mkStageBtnPrev = document.getElementById('mkStageBtnPrev');
 
-        var speed = 2;
-        var btndelay = false;
-        var stageArray = [
-            { rider: 'mario', img: 'images/rider-1.png', bg: 'url(images/land.jpg)' },
-            { rider: 'koopa', img: 'images/rider-2.png', bg: 'url(images/hell.jpg)' },
-            { rider: 'peach', img: 'images/rider-3.png', bg: 'url(images/castle.jpg)' },
-            { rider: 'todd', img: 'images/rider-4.png', bg: 'url(images/desert.jpg)' },
+        let speed = 2;
+        let btndelay = false;
+        let stageArray = [
+            { rider: 'mario', img: mkRider1, bg: mkBgLand },
+            { rider: 'koopa', img: mkRider2, bg: mkBgHell },
+            { rider: 'peach', img: mkRider3, bg: mkBgCastle },
+            { rider: 'todd', img: mkRider4, bg: mkBgDesert },
         ];
 
         window.onkeydown = function(event) {
-            var keyCode = event.keyCode;
+            let keyCode = event.keyCode;
             if (keyCode === 37) $('.stage-btn-prev').click();
             if (keyCode === 39) $('.stage-btn-next').click();
             if (keyCode === 38) $('.speedup').click();
@@ -28,15 +39,16 @@ class MarioKart extends Component {
 
         // 배경 무한루프
         window.setInterval(function () {
-            var speedResult = '-=' + speed;
+            let speedResult = '-=' + speed;
             $('.round-frame-bg').css('background-position', speedResult);
         }, 10);
 
         // 현재 스테이지에 맞게 배경 컨트롤
         stageArray.unshift(stageArray.pop());
-        var bgControl = function () {
+        let bgControl = function () {
+            console.log(stageArray);
             $('.round-frame-bg').each(function (index) {
-                $(this).css('background-image', stageArray[index].bg);
+                $(this).css('background-image', 'url(' + stageArray[index].bg + ')' );
             })
         };
         bgControl();
@@ -51,12 +63,12 @@ class MarioKart extends Component {
                     $(this).removeClass('stage-btn-hover')
                 })
             .click(function () {
-                if (btndelay == false) {
+                if (btndelay === false) {
                     btndelay = true;
 
                     // 스테이지 컨트롤
-                    var bgRollAnimation = 0;
-                    var isNext = $(this).hasClass('stage-btn-next');
+                    let bgRollAnimation = 0;
+                    let isNext = $(this).hasClass('stage-btn-next');
                     if (isNext) {
                         stageArray.push(stageArray.shift());
                         bgRollAnimation = -600;
@@ -69,7 +81,7 @@ class MarioKart extends Component {
                     $('.rider').attr('src', stageArray[1].img);
 
                     // 애니메이션
-                    var $frame = $('.round-frame');
+                    let $frame = $('.round-frame');
                     $frame.animate({ marginLeft: bgRollAnimation }, 800, function () {
                         $frame.css({ marginLeft: -300 })
                         bgControl();
@@ -88,9 +100,9 @@ class MarioKart extends Component {
                     $(this).removeClass('btn-hover');
                 })
             .click(function () {
-                if (btndelay == false) {
-                    var isSpeedUp = $(this).hasClass('speedup');
-                    var isSpeedDown = $(this).hasClass('speeddown');
+                if (btndelay === false) {
+                    let isSpeedUp = $(this).hasClass('speedup');
+                    let isSpeedDown = $(this).hasClass('speeddown');
                     // 스피드 업 버튼
                     if (isSpeedUp) {
                         if (speed < 4) {
@@ -124,17 +136,17 @@ class MarioKart extends Component {
                 }
             });
 
-        var actSpeedUp = function (rider) {
+        let actSpeedUp = function (rider) {
             rider.animate({ left: '14%' }, 400)
                 .animate({ left: '0' }, 1100, function () { btndelay = false; });
         }
 
-        var actSpeedDown = function (rider) {
+        let actSpeedDown = function (rider) {
             rider.animate({ left: '-5%' })
                 .animate({ left: '0' }, 800, function () { btndelay = false; });
         }
 
-        var actJump = function (rider) {
+        let actJump = function (rider) {
             rider.animate({ height: '85px' }, 200)
                 .animate({ height: '93px', bottom: '80px' }, 300)
                 .animate({ bottom: '43px' }, 250)
@@ -145,36 +157,36 @@ class MarioKart extends Component {
 
     render() {
         return (
-            <div class="mariokart-wrapper">
-                <div class="stage-wrapper">
-                    <div class="stage-btn stage-btn-next" id="mkStageBtnNext"></div>
-                    <div class="stage-btn stage-btn-prev" id="mkStageBtnPrev"></div>
+            <div className="mariokart-wrapper">
+                <div className="stage-wrapper">
+                    <div className="stage-btn stage-btn-next" id="mkStageBtnNext"></div>
+                    <div className="stage-btn stage-btn-prev" id="mkStageBtnPrev"></div>
                 </div>
-                <div class="round-wrapper">
-                    <div class="round-frame">
-                        <div class="round-frame-bg"></div>
-                        <div class="round-frame-bg round-frame-bg-center"></div>
-                        <div class="round-frame-bg round-frame-bg-r"></div>
+                <div className="round-wrapper">
+                    <div className="round-frame">
+                        <div className="round-frame-bg"></div>
+                        <div className="round-frame-bg round-frame-bg-center"></div>
+                        <div className="round-frame-bg round-frame-bg-r"></div>
                     </div>
-                    <img class="rider" src={rider1Url}></img>
+                    <img className="rider" src={rider1Url} alt="mkrider"></img>
                 </div>
-                    <div class="btn-wrapper">
-                        <div class="btn speeddown"></div>
-                        <div class="btn jump"></div>
-                        <div class="btn speedup"></div>
+                    <div className="btn-wrapper">
+                        <div className="btn speeddown"></div>
+                        <div className="btn jump"></div>
+                        <div className="btn speedup"></div>
                     </div>
-                    <div class="help-wrapper">
-                        <p class="help">KEYBOARD USING GUIDE</p>
-                        <p class="help">
-                            <span class="help-key elp-key-up-down"></span>
+                    <div className="help-wrapper">
+                        <p className="help">KEYBOARD USING GUIDE</p>
+                        <p className="help">
+                            <span className="help-key elp-key-up-down"></span>
                             &#58; SPEED UP&#47;DOWN
                         </p>
-                        <p class="help">
-                            <span class="help-key help-key-left-right"></span>
+                        <p className="help">
+                            <span className="help-key help-key-left-right"></span>
                             &#58; CHANGE CHARACTER
                         </p>
-                        <p class="help">
-                            <span class="help-key help-key-spacebar"></span>
+                        <p className="help">
+                            <span className="help-key help-key-spacebar"></span>
                             &#58; JUMP
                         </p>
                     </div>

@@ -10,7 +10,7 @@ class RpgMoving extends Component {
 
     render() {
         return (
-            <div class="rpg-moving-wrapper">
+            <div className="rpg-moving-wrapper">
                 <canvas id="rpgMovingScreen" width="480" height="320"></canvas>
                 <canvas id="rpgMovingScreen2" width="480" height="320"></canvas>
             </div>

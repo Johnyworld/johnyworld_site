@@ -32,19 +32,19 @@ const rpgMovingScript = () => {
         Utarag = null;
     }
 
-    function showPosition() {
-        var xTimes = 30;
-        var yTimes = 30;
-        for (var x = 0; x < xTimes; x++) {
-            for (var y = 0; y < yTimes; y++) {
-                contextRpg2.font = '8px Open sans';
-                contextRpg2.fillStyle = "black";
-                contextRpg2.fillText(x, TILESET.width * x, TILESET.height * y + 6);
-                contextRpg2.fillStyle = "red";
-                contextRpg2.fillText(' ' + y, TILESET.width * x, TILESET.height * y + 12);
-            }
-        }
-    }
+    // function showPosition() {
+    //     var xTimes = 30;
+    //     var yTimes = 30;
+    //     for (var x = 0; x < xTimes; x++) {
+    //         for (var y = 0; y < yTimes; y++) {
+    //             contextRpg2.font = '8px Open sans';
+    //             contextRpg2.fillStyle = "black";
+    //             contextRpg2.fillText(x, TILESET.width * x, TILESET.height * y + 6);
+    //             contextRpg2.fillStyle = "red";
+    //             contextRpg2.fillText(' ' + y, TILESET.width * x, TILESET.height * y + 12);
+    //         }
+    //     }
+    // }
 
     function drawTilesInit() {
         var imageTile = new Image();
@@ -136,16 +136,16 @@ const rpgMovingScript = () => {
     function update() {
         canvasFrames = requestAnimationFrame(update);
 
-        for (var i = 0; i < TILES.length; i++) {
+        for (let i = 0; i < TILES.length; i++) {
             TILES[i].update();
         }
-        for (var i = 0; i < ENTITIES.length; i++) {
+        for (let i = 0; i < ENTITIES.length; i++) {
             ENTITIES.sort(function (a, b) { return a.box.bottom - b.box.bottom; });
         }
-        for (var i = 0; i < ENTITIES.length; i++) {
+        for (let i = 0; i < ENTITIES.length; i++) {
             ENTITIES[i].update();
         }
-        console.log('rosie');
+
         if (window.location.pathname !== "/lab/rpg-moving") {
             cancelAnimationFrame(canvasFrames);
         }

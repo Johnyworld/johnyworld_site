@@ -1,8 +1,8 @@
-import { TILES, TILESET, ENTITIES, Rosie, OBJECTS, Utarag } from './rpg-moving-script';
+import { TILES, TILESET, ENTITIES, Rosie } from './rpg-moving-script';
 
 function collisionCheck(dir, entity) {
 
-    var CollisionTile = entity.checkCollision();
+    let CollisionTile = entity.checkCollision();
     if (CollisionTile !== false) {
         if (entity.go.up + entity.go.down + entity.go.left + entity.go.right === 1) {
             entity.go.ing = 0;
@@ -15,14 +15,14 @@ function collisionCheck(dir, entity) {
 }
 
 function KeyState(entity) {
-    var GoingLeft = entity.go.left === 1 && entity.go.right === 0;
-    var GoingRight = entity.go.right === 1 && entity.go.left === 0;
-    var GoingUp = entity.go.up === 1 && entity.go.down === 0;
-    var GoingDown = entity.go.down === 1 && entity.go.up === 0;
+    let GoingLeft = entity.go.left === 1 && entity.go.right === 0;
+    let GoingRight = entity.go.right === 1 && entity.go.left === 0;
+    let GoingUp = entity.go.up === 1 && entity.go.down === 0;
+    let GoingDown = entity.go.down === 1 && entity.go.up === 0;
 
     if (GoingLeft || GoingRight || GoingUp || GoingDown) {
 
-        var moving;
+        let moving;
         moving = Math.floor(entity.go.ing / 15);
         entity.go.ing += entity.speed * 1.5;
 
@@ -55,53 +55,63 @@ function KeyState(entity) {
     }
 }
 
-function Vec(x = 0, y = 0) {
-    this.x = x;
-    this.y = y;
-}
-
-function Crop(crop) {
-    this.top = crop[0];
-    this.bottom = crop[1];
-    this.left = crop[2];
-    this.right = crop[3];
-}
-
-function Box() {
-    this.top = 0;
-    this.bottom = 0;
-    this.left = 0;
-    this.right = 0;
-}
-
-function Go() {
-    this.up = 0;
-    this.down = 0;
-    this.left = 0;
-    this.right = 0;
-    this.ing = 0;
-}
-
-function Status(str, con, dex, int, wis, cha) {
-    this.str = str;
-    this.con = con;
-    this.dex = dex;
-    this.int = int;
-    this.wis = wis;
-    this.cha = cha;
-    this.maxHealth = rollDice(1, 6, Math.ceil(this.con / 2));
-    this.maxMana = rollDice(1, 6, Math.ceil(this.wis / 2));
-    this.health = this.maxHealth;
-    this.mana = this.maxMana;
-}
-
 export const rollDice = (times, dice, num) => {
-    var total = 0;
-    for (var i = 0; i < times; i++) {
+    let total = 0;
+    for (let i = 0; i < times; i++) {
         total = total + Math.ceil(Math.random() * dice);
     }
     total = total + num;
     return total;
+}
+
+class Vec {
+    constructor(x = 0, y = 0) {
+        this.x = x;
+        this.y = y;
+    }
+}
+
+class Crop {
+    constructor(crop) {
+        this.top = crop[0];
+        this.bottom = crop[1];
+        this.left = crop[2];
+        this.right = crop[3];
+    }
+}
+
+class Box {
+    constructor() {
+        this.top = 0;
+        this.bottom = 0;
+        this.left = 0;
+        this.right = 0;
+    }
+}
+
+class Go {
+    constructor() {
+        this.up = 0;
+        this.down = 0;
+        this.left = 0;
+        this.right = 0;
+        this.ing = 0;
+    }
+}
+
+class Status {
+    constructor(str, con, dex, int, wis, cha) {
+        this.str = str;
+        this.con = con;
+        this.dex = dex;
+        this.int = int;
+        this.wis = wis;
+        this.cha = cha;
+        this.maxHealth = rollDice(1, 6, Math.ceil(this.con / 2));
+        this.maxMana = rollDice(1, 6, Math.ceil(this.wis / 2));
+        this.health = this.maxHealth;
+        this.mana = this.maxMana;
+    }
 }
 
 export class DefineHuman {
@@ -216,8 +226,8 @@ export class DefineHuman {
 
     showStatus = function () {
         console.log('LEVEL: ' + this.level);
-        console.log('HP: ' + this.stat.health + '/' + this.stat.maxHealth + ' | ' + 'MANA: ' + this.stat.mana + '/' + this.stat.maxMana);
-        console.log('STR: ' + this.stat.str + ' | ' + 'CON: ' + this.stat.con + ' | ' + 'DEX: ' + this.stat.dex + ' | ' + 'INT: ' + this.stat.int + ' | ' + 'WIS: ' + this.stat.wis + ' | ' + 'CHA: ' + this.stat.cha);
+        console.log('HP: ' + this.stat.health + '/' + this.stat.maxHealth + ' | MANA: ' + this.stat.mana + '/' + this.stat.maxMana);
+        console.log('STR: ' + this.stat.str + ' | CON: ' + this.stat.con + ' | DEX: ' + this.stat.dex + ' | INT: ' + this.stat.int + ' | WIS: ' + this.stat.wis + ' | CHA: ' + this.stat.cha);
     }
 
     levelup = function () {
@@ -230,7 +240,7 @@ export class DefineHuman {
 
     checkCollision = function () {
         this.setBox();
-        for (var i = 0; i < TILES.length; i++) {
+        for (let i = 0; i < TILES.length; i++) {
             if (TILES[i].layer === "wall") {
                 if (
                     this.box.right > TILES[i].box.left && // 주인공의 오른쪽면 충돌
@@ -244,7 +254,7 @@ export class DefineHuman {
                 }
             }
         }
-        for (var i = 0; i < ENTITIES.length; i++) {
+        for (let i = 0; i < ENTITIES.length; i++) {
             if (this === ENTITIES[i]) { continue; }
             if (
                 this.box.right > ENTITIES[i].box.left && // 주인공의 오른쪽면 충돌
@@ -306,13 +316,13 @@ export class DefineHuman {
     }
 
     drop(Drop, level) {
-        var x = Drop[0] * TILESET.width;
-        var y = Drop[1] * TILESET.height - this.height + this.crop.top;
+        let x = Drop[0] * TILESET.width;
+        let y = Drop[1] * TILESET.height - this.height + this.crop.top;
         this.pos = new Vec(x, y);
         this.setBox();
         this.draw();
         this.level = 1;
-        for (var i = 1; i < level; i++) {
+        for (let i = 1; i < level; i++) {
             this.levelup();
         }
     }
@@ -338,19 +348,19 @@ export class DefineHuman {
 }
 
 export class DefineObject {
-    constructor(context, image, Object) {
+    constructor(context, image, Obj) {
         this.context = context;
         this.image = image;
-        this.image.src = Object.src;
-        this.name = Object.name;
-        this.crop = new Crop(Object.crop);
+        this.image.src = Obj.src;
+        this.name = Obj.name;
+        this.crop = new Crop(Obj.crop);
         this.go = new Go();
         this.box = new Box();
 
-        this.width = Object.define[0];
-        this.height = Object.define[1];
-        this.tileX = Object.define[2];
-        this.tileY = Object.define[3];
+        this.width = Obj.define[0];
+        this.height = Obj.define[1];
+        this.tileX = Obj.define[2];
+        this.tileY = Obj.define[3];
     }
 
     setBox() {
@@ -374,8 +384,8 @@ export class DefineObject {
     }
 
     drop(Drop, level) {
-        var x = Drop[0] * TILESET.width;
-        var y = Drop[1] * TILESET.height - this.height + this.crop.top;
+        let x = Drop[0] * TILESET.width;
+        let y = Drop[1] * TILESET.height - this.height + this.crop.top;
         this.pos = new Vec(x, y);
         this.setBox();
         this.draw();
@@ -493,26 +503,26 @@ export class DefineObject {
 
 //     this.AnimateWalk = function (moving) {
 //         if (this.dir === 'up') {
-//             var frmX = this.Frames.goNorth[moving].rect[0];
-//             var frmY = this.Frames.goNorth[moving].rect[1];
+//             let frmX = this.Frames.goNorth[moving].rect[0];
+//             let frmY = this.Frames.goNorth[moving].rect[1];
 //             this.tileX = this.drawX * frmX;
 //             this.tileY = this.drawY * frmY;
 //         }
 //         if (this.dir === 'down') {
-//             var frmX = this.Frames.goSouth[moving].rect[0];
-//             var frmY = this.Frames.goSouth[moving].rect[1];
+//             let frmX = this.Frames.goSouth[moving].rect[0];
+//             let frmY = this.Frames.goSouth[moving].rect[1];
 //             this.tileX = this.drawX * frmX;
 //             this.tileY = this.drawY * frmY;
 //         }
 //         if (this.dir === 'left') {
-//             var frmX = this.Frames.goWest[moving].rect[0];
-//             var frmY = this.Frames.goWest[moving].rect[1];
+//             let frmX = this.Frames.goWest[moving].rect[0];
+//             let frmY = this.Frames.goWest[moving].rect[1];
 //             this.tileX = this.drawX * frmX;
 //             this.tileY = this.drawY * frmY;
 //         }
 //         if (this.dir === 'right') {
-//             var frmX = this.Frames.goEast[moving].rect[0];
-//             var frmY = this.Frames.goEast[moving].rect[1];
+//             let frmX = this.Frames.goEast[moving].rect[0];
+//             let frmY = this.Frames.goEast[moving].rect[1];
 //             this.tileX = this.drawX * frmX;
 //             this.tileY = this.drawY * frmY;
 //         }
@@ -556,10 +566,10 @@ export class DefineObject {
 //             this.drawY)
 //     }
 
-//     var collisionGroup = [TILES, OBJECTS];
+//     let collisionGroup = [TILES, OBJECTS];
 //     this.checkCollision = function () {
-//         for (var k = 0; k < collisionGroup; k++) {
-//             for (var i = 0; i < collisionGroup[k].length; i++) {
+//         for (let k = 0; k < collisionGroup; k++) {
+//             for (let i = 0; i < collisionGroup[k].length; i++) {
 //                 if (collisionGroup[k][i].layer === "wall") {
 //                     if (
 //                         this.pos.x + this.width > collisionGroup[k][i].startX * collisionGroup[k][i].width && // 주인공의 오른쪽면 충돌
@@ -632,15 +642,15 @@ export class DefineTile {
         this.startY = startY;
         this.timesX = timesX;
         this.timesY = timesY;
-        for (var x = startX; x < timesX + startX; x++) {
-            for (var y = startY; y < timesY + startY; y++) {
+        for (let x = startX; x < timesX + startX; x++) {
+            for (let y = startY; y < timesY + startY; y++) {
                 this.draw(x, y);
             }
         }
     }
 
     draw(x, y) {
-        var buffer;
+        let buffer;
         if (this.layer === 'over') {
             buffer = this.contextl2;
         } else {

@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { reactRouteScrollTop } from '../js/animate';
+
 import dataLabslider from '../data/data-lab-slider';
 import canvasCollision1Script from './lab-detail/canvas-collision1';
 import canvasCollision2Script from './lab-detail/canvas-collision2';
@@ -9,6 +11,7 @@ import Gravity from './lab-detail/gravity';
 import Cells from './lab-detail/cells';
 import RpgMoving from './lab-detail/rpg-moving';
 import MarioKart from './lab-detail/mariokart';
+
 import './lab-detail.css';
 
 class LabDetail extends Component {
@@ -31,6 +34,7 @@ class LabDetail extends Component {
     }
 
     componentDidMount() {
+        reactRouteScrollTop();
         if ( this.state.id === 'collision1' ) { canvasCollision1Script(); }
         if ( this.state.id === 'collision2' ) { canvasCollision2Script(); }
     }

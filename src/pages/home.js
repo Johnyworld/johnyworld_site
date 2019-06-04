@@ -52,7 +52,7 @@ class Home extends Component {
                             <p className="greeting">님, 찾아주셔서 감사합니다.</p>  
                         </div>
                     </div>
-                    {/* <div className="layer starry" id="jsStarry"></div> */}
+                    <div className="layer starry" id="jsStarry"></div>
                     <canvas id="canvas-starfire"></canvas>
                     <div className="layer mt-third" id="jsMtThird"></div>
                     <div className="layer mt-second" id="jsMtSecond"></div>

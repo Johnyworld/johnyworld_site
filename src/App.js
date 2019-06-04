@@ -6,6 +6,7 @@ import About from './pages/about';
 import LabDetail from './pages/lab-detail';
 import WorksDetail from './pages/works-detail';
 import Header from './partials/header';
+import Footer from './partials/footer';
 
 import './App.css';
  
@@ -19,6 +20,7 @@ class App extends Component {
                 <Route path="/about" component={About} />
                 <Route path="/lab/:id" component={LabDetail} />
                 <Route path="/works/:id" component={WorksDetail} />
+                <Footer />
             </Router>
         );
     }

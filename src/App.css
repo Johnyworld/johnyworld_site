@@ -20,6 +20,7 @@ html {
 
 body {
     background-color: #000;
+    color: #616161;
     font-family: 'Open Sans', 'Noto Sans KR', 'sans-serif';
     letter-spacing: -.04em;
     overflow-x: hidden;
@@ -33,6 +34,11 @@ a {
 
 li {
     list-style-type: none;
+}
+
+::selection {
+    background-color: #be1c7b;
+    color: white;
 }
 
 .l-wrapper-wide {
@@ -125,7 +131,8 @@ li {
 }
 
 .back-btn {
-    position: absolute;
+    color: white;
+    position: fixed;
     top: 64px;
     left: 64px;
     width: 67px;
@@ -136,18 +143,13 @@ li {
 }
 
 .back-btn .arrow {
-    position: absolute;
-    margin: auto;
-    right: 0;
-    top: 0;
-    left: 30%;
-    bottom: 0;
+    margin-left: 20px;
     width: 45px;
     height: 45px;
     opacity: .5;
     transform: rotate(-45deg) scale(1.0);
     transition: .5s;
-    border: 1px solid white;
+    border: 1px solid;
     border-bottom: 0;
     border-right: 0;
 }
@@ -155,7 +157,6 @@ li {
 .back-btn:hover .arrow {
     transform: rotate(-45deg) scale(1.1);
     opacity: 1;
-
 }
 
 .clear-fix::after {

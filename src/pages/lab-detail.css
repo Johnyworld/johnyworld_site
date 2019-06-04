@@ -1,5 +1,6 @@
 .lab-detail-wrapper {
     position: relative;
+    min-height: 100vh;
 }
 
 .lab-detail-wrapper .head {

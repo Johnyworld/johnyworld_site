@@ -1,0 +1,38 @@
+footer {
+    background-color: black;
+    position: relative;
+    text-align: center;
+}
+
+footer .footer-inner {
+    background-color: #192644;
+    color: white;
+    padding: 50px;
+    border-top-left-radius: 60px;
+    border-top-right-radius: 60px;
+}
+
+footer .footer-inner .profile-image {
+    margin-top: -50px;
+    transform: translateY(-50%);
+}
+
+footer .footer-inner .name-wrap {
+    margin-top: -20px;
+}
+
+footer .footer-inner .name-wrap .devide {
+    width: 30px;
+    height: 2px;
+    margin: 20px auto;
+    background-color: white;
+}
+
+footer .footer-inner .info-wrap {
+    color: #818fb1;
+}
+
+footer .footer-inner .copyright {
+    margin-top: 20px;
+    color: #374c7e;
+}

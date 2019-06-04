@@ -1,3 +1,46 @@
+export const reloadRoute = (history, url) => {
+    history.replace(`/reload`);
+    setTimeout(() => {
+        history.replace(url);
+    });
+}
+
+export const reactRouteScrollTop = () => {
+    if ("scrollRestoration" in window.history) {
+        window.history.scrollRestoration = "manual"
+    }
+    window.scrollTo(0, 0);
+}
+
+export const scrollFloating = (nowScroll, element, speed) => {
+    let yy = Math.floor(nowScroll / speed);
+    element.style.transform = 'translateY(' + yy + 'px)';
+}
+
+export const scrollFadeOut = (nowScroll, element, hideTop) => {
+    let ofst = 0;
+    if (element.offsetTop > window.innerHeight) {
+        ofst = element.offsetTop;
+    }
+    if (nowScroll > ofst + hideTop) {
+        element.classList.add('is-hidden');
+    } else {
+        element.classList.remove('is-hidden');
+    }
+}
+
+export const scrollFadeIn = (nowScroll, element, hideTop) => {
+    let ofst = 0;
+    if (element.offsetTop > window.innerHeight) {
+        ofst = element.offsetTop;
+    }
+    if (nowScroll > ofst + hideTop) {
+        element.classList.remove('is-hidden');
+    } else {
+        element.classList.add('is-hidden');
+    }
+}
+
 const Animate = () => {
     const mountainFirst = document.getElementById('jsMtFirst');
     const mountainSecond = document.getElementById('jsMtSecond');
@@ -11,20 +54,13 @@ const Animate = () => {
     const homeLiboratory = document.getElementById('home-Laboratory');
     const homeLiboratoryTextbox = homeLiboratory.getElementsByClassName('textbox')[0];
 
-    const windowHeight = window.innerHeight;
-
     // (function starryRotate() {
     //     var degree = 0;
     //     setInterval(() => {
-    //         degree += 0.1;
+    //         degree += 0.01;
     //         starry.style.transform = 'rotate(' + degree + 'deg)';
-    //     }, 100);
+    //     }, 10);
     // })();
-    
-    const scrollFloating = ( nowScroll, element, speed ) => {
-        let yy = nowScroll / speed;
-        element.style.transform = 'translateY(' + yy + 'px)';
-    }
     
     let scale = 100;
     const scrollScale = ( nowScroll, element ) => {
@@ -33,30 +69,6 @@ const Animate = () => {
         } 
         let tf = element.style.transform;
         element.style.transform = tf + 'scale(' + scale/100 + ')'
-    }
-
-    const scrollFadeOut = ( nowScroll, element, hideTop ) => {
-        let ofst = 0;
-        if ( element.offsetTop > windowHeight ) {
-            ofst = element.offsetTop;
-        } 
-        if ( nowScroll > ofst + hideTop ) {
-            element.classList.add('is-hidden');
-        } else {
-            element.classList.remove('is-hidden');
-        }
-    }
-
-    const scrollFadeIn = ( nowScroll, element, hideTop ) => {
-        let ofst = 0;
-        if ( element.offsetTop > windowHeight ) {
-            ofst = element.offsetTop;
-        } 
-        if ( nowScroll > ofst + hideTop ) {
-            element.classList.remove('is-hidden');
-        } else {
-            element.classList.add('is-hidden');
-        }
     }
 
     const smoothScroll = ( target, duration ) => {
@@ -113,10 +125,9 @@ const Animate = () => {
         scrollFloating( nowScroll, moon, -15 );
         scrollScale( nowScroll, mountainFirst );
         scrollFadeOut( nowScroll, jsIconWheel, 50 );
-        scrollFadeIn( nowScroll, jsBtnTop, windowHeight-50 );
-        scrollFadeOut(nowScroll, jsIconWheel, 50);
-        scrollFadeOut(nowScroll, homeLiboratoryTextbox, getAbsoluteTop(homeLiboratoryTextbox)-200);
-
+        scrollFadeIn(nowScroll, jsBtnTop, window.innerHeight-50 );
+        scrollFadeOut( nowScroll, jsIconWheel, 50);
+        scrollFadeOut( nowScroll, homeLiboratoryTextbox, getAbsoluteTop(homeLiboratoryTextbox)-200);
     });
 
     jsIconWheel.addEventListener( 'click', function() {

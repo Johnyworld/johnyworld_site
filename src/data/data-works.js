@@ -1,14 +1,14 @@
-import worksBgPssd from '../images/worksbg-pssd.jpg'
-import worksBgKrx from '../images/worksbg-krx.jpg'
-import worksBgSamsungTheme from '../images/worksbg-samsung-theme.jpg'
-import worksBgCamping from '../images/worksbg-camping.jpg'
-import worksBgSticon from '../images/worksbg-sticon.jpg'
-import worksBgSoo from '../images/worksbg-soo.jpg'
-import worksBgFanclubCoin from '../images/worksbg-fanclub-coin.jpg'
-import worksBgBigpictureEnt from '../images/worksbg-bigpicture.jpg'
-import worksBgBevl from '../images/worksbg-bevl.jpg'
+import worksBgPssd from '../images/worksbg-pssd.jpg';
+import worksBgKrx from '../images/worksbg-krx.jpg';
+import worksBgSamsungTheme from '../images/worksbg-samsung-theme.jpg';
+import worksBgCamping from '../images/worksbg-camping.jpg';
+import worksBgSticon from '../images/worksbg-sticon.jpg';
+import worksBgSoo from '../images/worksbg-soo.jpg';
+import worksBgFanclubCoin from '../images/worksbg-fanclub-coin.jpg';
+import worksBgBigpictureEnt from '../images/worksbg-bigpicture.jpg';
+import worksBgBevl from '../images/worksbg-bevl.jpg';
 
-import worksKeyBgBigpictureEnt from '../images/works-detail/bigpic-keyvisualbg.jpg'
+import worksKeyBgBigpictureEnt from '../images/works-detail/bigpic-keyvisualbg.jpg';
 
 const dataWorks = [
     {

@@ -7,9 +7,12 @@
     "github": "^14.0.0",
     "jquery": "^3.4.1",
     "react": "^16.8.6",
+    "react-addons-transition-group": "^15.6.2",
     "react-dom": "^16.8.6",
+    "react-motion": "^0.5.2",
     "react-router-dom": "^5.0.0",
-    "react-scripts": "3.0.1"
+    "react-scripts": "3.0.1",
+    "react-transition-group": "^4.1.1"
   },
   "scripts": {
     "start": "react-scripts start",

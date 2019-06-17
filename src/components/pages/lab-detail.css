@@ -1,0 +1,48 @@
+/* Common */
+content.lab-detail {
+    min-width: 100vw;
+    min-height: 100vh;
+    display: block;
+    position: relative;
+    margin: auto;
+    text-align: center;
+}
+
+content.lab-detail h1 {
+    padding-top: 160px;
+}
+
+.lab-center {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    min-width: 900px;
+    min-height: 300px;
+    margin: auto;
+}
+
+#canvasCells,
+#canvasGravity,
+#canvasCollision1,
+#canvasCollision2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* Modern Pirates */
+.modern-pirates-wrap {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    width: 1024px;
+    height: 400px;
+    box-sizing: content-box;
+    border: 1px solid #222;
+}
+
+.modern-pirates-wrap #jsCanvasPirates {
+    image-rendering: pixelated;
+}
+
+.modern-pirates-wrap .modern-pirates-keymap2 {
+    margin-top: 20px;
+}

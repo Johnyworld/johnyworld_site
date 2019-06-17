@@ -1,0 +1,312 @@
+import React, { Component } from 'react';
+import LabSlider from './components/partials/lab-slider';
+
+import { 
+    mouseMoving, 
+    animOutSlideUp, 
+    setMouseHover, 
+    smoothScroll, 
+    animOutFade,
+    // animOutLoading,
+    scrollFloating,
+    slideTranslate } from './components/func/animates';
+import {
+    topBtnHandler } from './components/func/functions';
+
+import './home.css';
+
+class Home extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            loaded : false,
+        }
+    }
+
+    componentDidMount() {
+        this._nowLoading();
+    }
+
+    _definePage() {
+        // Defines
+        const jsMenuTexts = document.getElementById('jsMenuTexts');
+        const jsMenuTextItems = jsMenuTexts.getElementsByClassName('item');
+        const jsMenuCenter = document.getElementById('jsMenuCenter');
+        const jsMenuLeft = document.getElementById('jsMenuLeft');
+        const jsMenuRight = document.getElementById('jsMenuRight');
+        const jsMenuBgLeft = document.getElementById('jsMenuBgLeft');
+        const jsMenuBgRight = document.getElementById('jsMenuBgRight');
+        const jsMenuBgLeftChild = document.getElementById('jsMenuBgLeftChild');
+        const jsMenuBgRightChild = document.getElementById('jsMenuBgRightChild');
+        const jsMenuVerticalLine = document.getElementById('jsMenuVerticalLine');
+        const jsCodeLabBtn = document.getElementById('jsCodeLabBtn');
+        const homeLaboratory = document.getElementById('home-Laboratory');
+        const homeLaboratoryThumbnail = homeLaboratory.getElementsByClassName('image-wrap');
+        const jsLabSliderIndex = document.getElementById('jsLabSliderIndex');
+
+        let canWheel = true;
+        let sectionGnb = true;
+
+        // FUNCTIONS
+        const mainMenuFollowingMouse = (event) => {
+            let mouse = {
+                x : event.clientX,
+                y : event.clientY,
+            }
+            mouseMoving(mouse, jsMenuCenter, 3, 15, true);
+            mouseMoving(mouse, jsMenuLeft, 2, 20, true);
+            mouseMoving(mouse, jsMenuRight, 2, 20, true);
+            mouseMoving(mouse, jsMenuBgLeft, 10, 20, true);
+            mouseMoving(mouse, jsMenuBgRight, 10, 20, true);
+        }
+
+        const mainMenuFocused = (event) => {
+            for (let j = 0; j < jsMenuTextItems.length; j++) {
+                if ( jsMenuTextItems[j] !== event.target ) {
+                    jsMenuTextItems[j].classList.add('dim');
+                }
+            }
+            event.target.classList.add('focused');
+        }
+
+        const mainMenuBlured = (event) => {
+            for (let j = 0; j < jsMenuTextItems.length; j++) {
+                if ( jsMenuTextItems[j] !== event.target ) {
+                    jsMenuTextItems[j].classList.remove('dim');
+                }
+            }
+            event.target.classList.remove('focused');
+        }
+
+        const mainMenuStop = () => {
+            for (let i = 0; i < jsMenuTextItems.length; i++) {
+                jsMenuTextItems[i].style.transform = '';
+            }
+            window.removeEventListener('mousemove', mainMenuFollowingMouse);
+        }
+
+        const mainMenuAddScrollEvent = () => {
+            window.addEventListener( 'scroll', function() {
+                let nowScroll = window.scrollY;
+                scrollFloating(nowScroll, jsMenuCenter, -2);
+                scrollFloating(nowScroll, jsMenuLeft, -3);
+                scrollFloating(nowScroll, jsMenuRight, -4);
+                scrollFloating(nowScroll, jsMenuBgLeft, -8);
+                scrollFloating(nowScroll, jsMenuBgRight, -10);
+            });
+        }
+
+        const mainMenuAddHoverEvent = () => {
+            for (let i = 0; i < jsMenuTextItems.length; i++) {
+                jsMenuTextItems[i].addEventListener( 'mouseover', mainMenuFocused );
+                jsMenuTextItems[i].addEventListener( 'mouseleave', mainMenuBlured );
+            }
+        }
+        
+        const mainMenuRemoveHoverEvent = () => {
+            for (let i = 0; i < jsMenuTextItems.length; i++) {
+                jsMenuTextItems[i].classList.remove('focused', 'dim');
+                jsMenuTextItems[i].removeEventListener( 'mouseover', mainMenuFocused );
+                jsMenuTextItems[i].removeEventListener( 'mouseleave', mainMenuBlured );
+            }
+        }
+
+        // HANDLERS
+        // const handlePageLoaded = () => {
+        //     jsFullScreenWrap01.style.width = '100%';
+        //     jsFullScreenWrap02.style.width = '0%';
+        //     jsLoading.style.display = 'none';
+        //     jsFullScreenWrap01.animate([
+        //         { opacity: 1 },
+        //         { opacity: 0 },
+        //     ], {
+        //         duration: 1000
+        //     });
+        //     setTimeout(() => {
+        //         jsFullScreenWrap01.style.width = '0%';
+        //         jsFullScreenWrap01.style.opacity = '1';
+        //     }, 1000);
+        // }
+
+        const mainCenterMenuClickHandler = () => {
+            canWheel = false;
+            let propsHistory = this.props.history;
+            mainMenuStop();
+            mainMenuRemoveHoverEvent();
+            jsMenuLeft.classList.add('is-hidden');
+            jsMenuRight.classList.add('is-hidden');
+            jsMenuVerticalLine.classList.add('is-hidden');
+            // jsMenuBgWrap.classList.add('is-hidden');
+            animOutSlideUp(jsMenuBgLeftChild);
+            animOutSlideUp(jsMenuBgRightChild);
+            setTimeout( function() { 
+                jsMenuTexts.classList.add('aligned'); 
+                jsMenuLeft.style.display = 'none';
+                jsMenuRight.style.display = 'none';
+            }, 1000 );
+            setTimeout( function() {
+                propsHistory.push('/work#home');
+            }, 2100);
+        }
+
+        const handleMainMenuScrollFloating = () => {
+            mainMenuStop();
+            mainMenuRemoveHoverEvent();
+            mainMenuAddScrollEvent();
+            jsMenuBgLeftChild.style.height = '0';
+            jsMenuBgRightChild.style.height = '0';
+        }
+
+        const codeLabBtnHandler = () => {
+            sectionGnb = false;
+            handleMainMenuScrollFloating();
+            for ( let i=0; i<homeLaboratoryThumbnail.length; i++) {
+                // let dur = 2200 + i*300;
+                slideTranslate(homeLaboratoryThumbnail[i], 200, 0, 2300);
+            }
+            slideTranslate(jsLabSliderIndex, 500, 0, 2300);
+            smoothScroll('#home-Laboratory', 2000);
+            this.props.history.replace('/#study');
+        }
+
+        const handleNotGnbSection = () => {
+            if ( this.props.location.hash === '#study' ) {
+                sectionGnb = false;
+                handleMainMenuScrollFloating();
+                window.scrollTo( 0, window.innerHeight );
+            }
+        }
+
+        const topBtnHandlerAtHome = () => {
+            if (window.location.pathname === "/") {
+                sectionGnb = true;
+                setTimeout( function() {
+                    jsMenuBgLeftChild.style.height = '100%';
+                    jsMenuBgRightChild.style.height = '100%';
+                    mainMenuAddHoverEvent();
+                    window.addEventListener('mousemove', mainMenuFollowingMouse);
+                }, 1500)
+                for ( let i=0; i<homeLaboratoryThumbnail.length; i++) {
+                    // let dur = 2200 + i*300;
+                    slideTranslate(homeLaboratoryThumbnail[i], 0, 200, 2300, 'ease-in');
+                }
+                slideTranslate(jsLabSliderIndex, 0, 500, 2300, 'ease-in');
+                this.props.history.replace('/');
+            }
+        }
+        
+        const wheelHandler = (event) => {
+            if ( canWheel && window.location.pathname === "/" ) {
+                if ( event.deltaY > 0 && sectionGnb ) {
+                    canWheel = false;
+                    codeLabBtnHandler();
+                    setTimeout( function(){ canWheel = true },2500 );
+                } else if ( event.deltaY < 0 && !sectionGnb ) {
+                    canWheel = false;
+                    topBtnHandler();
+                    topBtnHandlerAtHome();
+                    setTimeout( function(){ canWheel = true },2500 );
+                }
+            }
+        }
+
+        
+
+        // EVENT LISTENERS
+        
+
+        window.addEventListener( 'wheel', wheelHandler );
+        window.addEventListener( 'mousemove', mainMenuFollowingMouse );
+        jsMenuCenter.addEventListener( 'click', mainCenterMenuClickHandler );
+        jsCodeLabBtn.addEventListener( 'click', codeLabBtnHandler );
+        mainMenuAddHoverEvent();
+        handleNotGnbSection();
+        setMouseHover(); 
+        // reactRouteScrollTop();
+        document.body.style.overflow= 'hidden';
+
+        //RUN
+        // handlePageLoaded();
+    }
+
+    _nowLoading() {
+        const jsLoading = document.getElementById('jsLoading');
+        const jsFullScreenWrap01 = document.getElementById('jsFullScreenWrap01');
+        const jsFullScreenWrap02 = document.getElementById('jsFullScreenWrap02');
+
+        const handlePageLoaded = () => {
+            jsFullScreenWrap01.style.width = '100%';
+            jsFullScreenWrap02.style.width = '0%';
+            jsLoading.style.display = 'block';
+        }
+
+        const handleLoaded = () => {
+            animOutFade(jsLoading, 1000);
+            setTimeout(() => {
+                this.setState({
+                    loaded: true
+                });
+                this._definePage();
+                jsFullScreenWrap01.animate([
+                    { opacity: 1 },
+                    { opacity: 0 },
+                ], {
+                    duration: 1000
+                });      
+                setTimeout(() => {
+                    jsFullScreenWrap01.style.width = '0%';
+                    jsFullScreenWrap01.style.opacity = '1';
+                    jsLoading.style.display = 'none';
+                    jsLoading.style.opacity = '1';
+                }, 1000);
+            }, 1000);
+        }
+        handlePageLoaded();
+        handleLoaded();
+        
+        // window.addEventListener( 'load', handleLoaded.bind(this));
+    }
+
+    _renderContent() {
+        return (
+            <>
+                <div className="home-main">
+                    <div className="vertical-line" id="jsMenuVerticalLine">
+                        <p>Johnyworld</p>
+                        <div className="line"></div>
+                        <ul className="">
+                            <li>
+                                <a className="c-gray-dark f-eng f-normal" href="https://www.behance.net/johnykim1" target="blank">Behance</a>
+                                <a className="c-gray-dark f-eng f-normal" href="https://github.com/Johnyworld" target="blank">GitHub</a>
+                                <a className="c-gray-dark f-eng f-normal" href="https://codepen.io/johnyworld/" target="blank">Codepen</a>
+                                <button className="f-normal c-wine f-eng f-normal" id="jsCodeLabBtn">Code Study</button>
+                            </li>
+                        </ul>
+                    </div>
+                    <div className="menu-wrapper" id="jsMenuBgWrap">
+                        <div className="item bg left" id="jsMenuBgLeft"><div className="child" id="jsMenuBgLeftChild"></div></div>
+                        <div className="item bg right" id="jsMenuBgRight"><div className="child" id="jsMenuBgRightChild"></div></div>
+                    </div>
+                    <div className="menu-wrapper" id="jsMenuTexts">
+                        <button className="f-bigtitle item left" id="jsMenuLeft">BLOG</button>
+                        <button className="f-bigtitle item center" id="jsMenuCenter">WORK</button>
+                        <button className="f-bigtitle item right" id="jsMenuRight">ABOUT</button>
+                    </div>
+                </div>
+                <div className="home-section" id="home-Laboratory">
+                    <LabSlider />
+                </div>
+            </>
+        )
+    }
+
+    render() {
+        return(
+            <content  className="home-wrapper">
+                {this.state.loaded ? this._renderContent() : '' }
+            </content>
+        )
+    }
+}
+
+export default Home;

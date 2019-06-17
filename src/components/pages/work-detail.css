@@ -1,0 +1,326 @@
+.works-detail-wrapper .l-wrapper { margin-right: 150px; }
+.works-detail-wrapper .l-wrapper-wide { margin-right: 0; }
+.works-detail-wrapper .l-wrapper-narrow { margin-right: 320px; }
+
+.works-detail-wrapper .f-title {
+    color: white;
+}
+
+.viewsite-btn {
+    position: fixed;
+    top: 260px;
+    left: 6%;
+    width: 67px;
+    color: #bbb;
+    z-index: 9998;
+    text-align: center;
+    line-height: 1.2;
+    font-size: 14px;
+    transition: .5s;
+}
+
+.viewsite-btn.is-hidden {
+    display: block;
+    opacity: 0;
+    transform: scale(.5);
+}
+
+.viewsite-btn:hover {
+    color: #ff4b7b;
+    transform: scale(1.2);
+}
+
+.works-detail-wrapper .key-visual {
+    height: 100vh;
+    background-color: #000;
+}
+
+.works-detail-wrapper .key-visual .bg-wrap {
+    position: relative;
+    background-color: #555;
+    height: 82vh;
+    overflow: hidden;
+}
+
+.works-detail-wrapper .key-visual .bg-wrap .bg {
+    position: absolute;
+    top: 0; bottom: 0;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    transform: translateY(0);
+}
+
+.works-detail-wrapper .key-visual .bg-wrap .textbox {
+    position: absolute;
+    text-align: center;
+    bottom: 50px;
+    width: 100%;
+}
+
+.works-detail-wrapper .key-visual .bg-wrap .textbox .f-title {
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 55px;
+    letter-spacing: .2em;
+    white-space: nowrap;
+}
+
+.works-detail-wrapper .key-visual .info {
+    position: relative;
+    text-align: center;
+}
+
+.works-detail-wrapper .key-visual .info .keywords {
+    display: inline-block;
+    color: #aaa;
+    overflow: hidden;
+    margin-top: 50px;
+}
+
+.works-detail-wrapper .key-visual .info .keywords li {
+    float: left;
+    margin-right: 30px;
+}
+
+.works-detail-wrapper .key-visual .info .keywords li:last-child {
+    margin-right: 0; 
+}
+
+.works-detail-wrapper .key-visual .info .keywords li .btn-viewsite {
+    color: #ff4b7b;
+    transition: .3s;
+}
+
+.works-detail-wrapper .key-visual .info .keywords li .btn-viewsite:hover {
+    color: white;
+}
+
+.next-and-prev {
+    margin: 230px 0;
+}
+
+.next-and-prev .btn-wrap {
+    position: relative;
+    float: left;
+    width: 50%;
+    color: white;
+}
+
+.next-and-prev .btn-wrap.next {
+    float: right;
+    padding-left: 50px;
+}
+
+.next-and-prev .btn-wrap.prev {
+    text-align: right;
+    padding-right: 50px;
+}
+
+.next-and-prev .btn-wrap.next > * {
+    float: left;
+}
+
+.next-and-prev .btn-wrap.prev > * {
+    float: right;
+}
+
+.next-and-prev .btn-wrap .radius {
+    position: relative;
+    width: 85px;
+    height: 85px;
+    border-radius: 50px;
+    border: 1px solid;
+    transform: scale(1);
+    transition: .5s;
+    overflow: hidden;
+}
+
+.next-and-prev .btn-wrap .radius .bg {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    background-color: #3976fe;
+    opacity: 0;
+    transition: .5s;
+    background-size: cover;
+}
+
+.next-and-prev .btn-wrap:hover .radius {
+    transform: scale(1.8);
+}
+
+.next-and-prev .btn-wrap:hover .radius .bg {
+    opacity: 1;
+}
+
+.next-and-prev .btn-wrap .stick {
+    position: relative;
+    width: 150px;
+    height: 1px;
+    background-color: #3976fe;;
+    top: 42px;
+    right: 42px;
+}
+
+.next-and-prev .btn-wrap.next .stick {
+    left: 42px;
+    right: auto;
+    background-color: #ff4b7b;
+}
+
+
+.next-and-prev .btn-wrap .text-wrap {
+    margin: 0 30px;
+    transition: .5s;
+}
+
+.next-and-prev .btn-wrap:hover .text-wrap {
+    margin: 0 60px;
+}
+
+.next-and-prev .btn-wrap.next .text-wrap .f-normal {
+    color: #ff4b7b;
+}
+
+.next-and-prev .btn-wrap.prev .text-wrap .f-normal {
+    color: #3976fe;
+}
+
+.detail-section {
+    margin: 150px 0;
+}
+
+.detail-section.full {
+    padding: 150px 0;
+}
+
+.detail-section.key-section {
+    margin-top: 0;
+    padding-top: 120px;
+    background-image: url('../../images/works-detail/works-detail-bg.png');
+    background-repeat: repeat-x;
+    background-size: contain;
+}
+
+.detail-section.info-section {
+    padding-bottom: 150px;
+    border-bottom: 1px solid #222;
+}
+
+.detail-section.design-image-section {
+    padding-bottom: 150px;
+    background-color: #33353a;
+    background-image: url('../../images/works-detail/works-design-bg.png');
+    background-repeat: repeat-x;
+    background-size: auto;
+    background-position: top
+}
+
+.detail-section.design-image-section img {
+    box-shadow: 10px 30px 20px rgba(0,0,0, .35);
+    display: block;
+}
+
+.detail-section img {
+    width: 100%;
+}
+
+.detail-section .f-title {
+    margin-bottom: 15px;
+    margin-top: -.05em;
+}
+
+.detail-section .maintext {
+    font-size: 18px;
+    line-height: 1.8;
+    color: #aaa;
+    padding: 20px 30px;
+    border-left: 10px solid #222;
+}
+
+.detail-section .detail-heading {
+    overflow: hidden;
+}
+
+.detail-section .detail-heading > * {
+    float: left;
+    width: 50%;
+}
+
+.detail-section .detail-heading .f-normal:not(:last-child) {
+    margin-bottom: 20px;
+}
+
+.detail-section .f-normal strong {
+    display: block;
+    color: white;
+    font-weight: 400;
+}
+
+.detail-section .detail-center {
+    text-align: center;
+}
+
+.detail-section .detail-center .f-title {
+    margin-bottom: 30px;
+}
+
+.detail-section .detail-center .f-normal {
+    max-width: 600px;
+    margin: auto;
+}
+
+.detail-section .perspective {
+    transform: rotate(7deg) skewX(-10deg);
+}
+
+.detail-section .perspective.gap {
+    margin: 80px 0 150px;
+}
+
+/* KRX PAGE */
+.detail-section .f-title.krx::before{
+    content: ' ';
+    display: block;
+    width: 30px;
+    height: 30px;
+    margin: 0 auto 50px;
+    background-image: url('../../images/works-detail/krx-seeds-icon.png');
+}
+
+.detail-section .krx-dream {
+    margin: -50px 0;
+}
+
+.detail-section .img-not-wrapped {
+    margin: auto;
+}
+
+.detail-section .krx-img-gap {
+    display: block;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.l-wrapper.krx-tutorial {
+    margin-top: -230px;
+    position: relative;
+}
+
+.krx-tutorial .krx-tut-img:first-child {
+    margin-left: -30vw;
+}
+
+.krx-tutorial .krx-tut-img:last-child {
+    margin-left: 15vw;
+}
+
+.krx-public .krx-tut-img:first-child {
+    margin-left: -10vw;
+}
+
+.krx-public .krx-tut-img:last-child {
+    margin-left: 10vw;
+}

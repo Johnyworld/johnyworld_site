@@ -1,0 +1,272 @@
+export const setMouseHover = () => {
+    const jsMouseChild = document.getElementById('jsMouseChild');
+    const jsAnchors = document.querySelectorAll('a');
+    const jsButtons = [ ...jsAnchors, ...document.querySelectorAll('button') ];
+
+    jsMouseChild.classList.remove('hover');
+
+    window.addEventListener( 'mousemove', function(event) {
+        jsMouseChild.style.transform = 'translate(' + event.clientX + 'px,' + event.clientY + 'px)';
+    });
+    
+    for( let i=0; i<jsButtons.length; i++ ) {
+        jsButtons[i].addEventListener( 'mouseover', function() {
+            jsMouseChild.classList.add('hover');
+        });
+        jsButtons[i].addEventListener( 'mouseleave', function() {
+            jsMouseChild.classList.remove('hover');
+        });
+        
+    }
+}
+
+export const mouseMoving = (mouse, element, speedX, speedY, isNeg) => {
+    let xx = (mouse.x - window.innerWidth / 2) / speedX;
+    let yy = (mouse.y - window.innerHeight / 2) / speedY;
+    if (isNeg) {
+        xx = -xx;
+        yy = -yy;
+    }
+    element.style.transform = 'translate(' + xx + 'px,' + yy + 'px)';
+}
+
+export const slideTranslate = ( element, distance, target, duration, ease='cubic-bezier(.33,.59,.6,1)' ) => {
+    element.animate([
+        { transform: 'translateY('+ distance +'px)' },
+        { transform: 'translateY('+ target +'px)' }
+    ], {
+        duration: duration,
+        easing: ease
+    });
+}
+
+export const scrollFloating = (nowScroll, element, speed) => {
+    let yy = Math.floor(nowScroll / speed);
+    element.style.transform = 'translateY(' + yy + 'px)';
+}
+
+export const scrollFadeOut = (nowScroll, element, hideTop) => {
+    let ofst = 0;
+    if (element.offsetTop > window.innerHeight) {
+        ofst = element.offsetTop;
+    }
+    if (nowScroll > ofst + hideTop) {
+        element.classList.add('is-hidden');
+    } else {
+        element.classList.remove('is-hidden');
+    }
+}
+
+export const scrollFadeIn = (nowScroll, element, hideTop) => {
+    let ofst = 0;
+    if (element.offsetTop > window.innerHeight) {
+        ofst = element.offsetTop;
+    }
+    if (nowScroll > ofst + hideTop) {
+        element.classList.remove('is-hidden');
+    } else {
+        element.classList.add('is-hidden');
+    }
+}
+
+export const scrollScale = (nowScroll, element, scale=100) => {
+    if (nowScroll < 800) {
+        scale = 100 + Math.floor(nowScroll / 3) * 0.1;
+    }
+    let tf = element.style.transform;
+    element.style.transform = tf + 'scale(' + scale / 100 + ')'
+}
+
+export const animOutSlideUp = (element) => {
+    element.style.transform = 'scaleY(0)';
+}
+
+export const animInCrossSlide = (childs) => {
+    for( let i=0; i<childs.length; i++ ) {
+        let transY = 0;
+        if ( i % 5 === 0 ) { transY = -3 }
+        if ( i % 5 === 1 ) { transY = 3 }
+        if ( i % 5 === 2 ) { transY = 2 }
+        if ( i % 5 === 3 ) { transY = 1.5 }
+        if ( i % 5 === 4 ) { transY = -2 }
+        childs[i].style.display = 'inline-block';
+        childs[i].animate(
+            [
+                { transform: 'translateY(' + transY + 'em)' },
+                { transform: 'translateY(0px)' }
+            ], {
+                duration: 1700,
+                easing: 'cubic-bezier(.02,.61,.29,1)'
+            }
+        )
+    }
+} 
+
+export const animOutWidth = (element, duration) => {
+    element.style.left = '0';
+    element.style.right = 'auto';
+    element.animate([
+        { width: '100%' },
+        { width: 0 }
+    ], {
+        duration: duration,
+        easing: 'cubic-bezier(.13,.84,.35,1)'
+    });
+    element.style.width = '0%';
+}
+
+export const animInWidth = (element, duration) => {
+    element.style.left = 'auto';
+    element.style.right = '0';
+    element.animate([
+        { width: 0 },
+        { width: '100%' }
+    ], {
+        duration: duration,
+        easing: 'cubic-bezier(.13,.84,.35,1)'
+    });
+    element.style.width = '100%';
+}
+
+export const animInScale = (element) => {
+    element.animate(
+        [
+            { width: '0%', opacity: '0' },
+            { width: '100%', opacity: '1' }
+        ], {
+            duration: 1200,
+            easing: 'cubic-bezier(.23,.44,.41,.95)'
+        }
+    );
+    element.style.width = '100%';
+    element.style.opacity = '1';
+}
+
+export const animOutFade = ( element, duration, delay ) => {
+    element.style.opacity = 0; 
+    element.animate([
+        { opacity: 1 },
+        { opacity: 0 }
+    ], {
+        duration: duration,
+        delay: delay
+    })
+    element.style.opacity = 0;
+}
+
+export const animInLoading = (jsFullScreenWrap01, jsFullScreenWrap02, jsLoading) => {
+    animInWidth(jsFullScreenWrap02, 1000);
+    setTimeout(() => {
+        animInWidth(jsFullScreenWrap01, 1000);
+        jsLoading.style.display = "block";
+    }, 500);
+}
+
+export const animOutLoading = (jsFullScreenWrap01, jsFullScreenWrap02, jsLoading) => {
+    animOutWidth(jsFullScreenWrap01, 1000);
+    animOutFade(jsLoading, 200);
+    setTimeout(() => {
+        animOutWidth(jsFullScreenWrap02, 1000);
+        jsLoading.style.display = "none";
+        jsLoading.style.opacity = 1;
+    }, 500);
+}
+
+export const getAbsoluteTop = (element) => {
+    return window.pageYOffset + element.getBoundingClientRect().top;
+}
+
+export const rotateInfinity = (element) => {
+    var degree = 0;
+    setInterval(() => {
+        degree += 0.01;
+        element.style.transform = 'rotate(' + degree + 'deg)';
+    }, 10);
+}
+
+export const smoothScroll = (target, duration) => {
+    const Target = document.querySelector(target);
+    const targetPos = Target.offsetTop;
+    // const targetPos = Target.getBoundingClientRect().top;
+    const startPos = window.pageYOffset;
+    const distance = targetPos - startPos;
+    let startTime = null;
+
+    const animation = (currentTime) => {
+        if (startTime === null) startTime = currentTime;
+        const timeElapsed = currentTime - startTime;
+        const run = ease2(timeElapsed, startPos, distance, duration);
+        window.scrollTo(0, run);
+        if (timeElapsed < duration) requestAnimationFrame(animation);
+    }
+
+    // const ease = ( t, b, c, d ) => {
+    //     t /= d / 2;
+    //     if (t < 1) return c / 2 * t * t * t + b;
+    //     t--;
+    //     return -c / 2 * ( t * ( t - 2 ) - 1 ) + b;
+    // }
+
+    const ease2 = (t, b, c, d) => {
+        t /= d / 2;
+        if (t < 1) return c / 2 * t * t * t + b;
+        t -= 2;
+        return c / 2 * (t * t * t + 2) + b;
+    }
+    requestAnimationFrame(animation);
+}
+
+
+const Animate = () => {
+    
+    
+
+    
+
+    // const clickedWorks = () => {
+    //     smoothScroll('#home-Works', 2000);
+    //     setTimeout(() => {
+    //         let clean_uri = window.location.href.split('#')[0];
+    //         window.history.replaceState({}, document.title, clean_uri);    
+    //     }, 50);
+    // }
+
+    
+
+    // window.addEventListener( 'scroll', function() {
+    //     let nowScroll = window.scrollY;
+    //     scrollFloating( nowScroll, mountainFirst, 3 );
+    //     scrollFloating( nowScroll, mountainSecond, 2 );
+    //     scrollFloating( nowScroll, mountainThird, 1.5 );
+    //     scrollFloating( nowScroll, mainText, -3 );
+    //     scrollFloating( nowScroll, moon, -15 );
+    //     scrollScale( nowScroll, mountainFirst, 100 );
+    //     scrollFadeOut( nowScroll, jsIconWheel, 50 );
+    //     scrollFadeIn(nowScroll, jsBtnTop, window.innerHeight-50 );
+    //     scrollFadeOut( nowScroll, jsIconWheel, 50);
+    //     scrollFadeOut( nowScroll, homeLiboratoryTextbox, getAbsoluteTop(homeLiboratoryTextbox)-200);
+    // });
+
+    // jsIconWheel.addEventListener( 'click', function() {
+    //     smoothScroll('#home-Works', 3000);
+    // });
+
+    // jsBtnTop.addEventListener( 'click', function() {
+    //     smoothScroll('body', 2000);
+    // });
+
+    // jsBtnGnbWorks.addEventListener( 'click', function() {
+    //     if ( window.location.pathname === '/' ) {
+    //         clickedWorks();
+    //     }
+    // });
+
+    // if ( window.location.hash === "#works" ) {
+    //     clickedWorks();
+    // }
+
+}
+export default Animate;
+
+
+

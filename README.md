@@ -2,7 +2,7 @@
 	this is my Portfolio Site Code.
 
 ## Made by
-	이 홈페이지를 만드는데에 사용된 기술들입니다.
+이 홈페이지를 만드는데에 사용된 기술들입니다.
 	1. React JS
 	2. Javascript ES6+
 	3. No JQuery

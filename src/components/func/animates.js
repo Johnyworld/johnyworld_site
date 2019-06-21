@@ -184,6 +184,76 @@ export const rotateInfinity = (element) => {
     }, 10);
 }
 
+export class SmoothMouseScroll {
+    constructor(target, speed, smooth) {
+        if (target === document)
+		target = (document.scrollingElement 
+            || document.documentElement 
+            || document.body.parentNode 
+            || document.body) // cross browser support for document scrolling
+      
+        var moving = false
+        var pos = target.scrollTop
+        var frame = target === document.body 
+                && document.documentElement 
+                ? document.documentElement 
+                : target // safari is the new IE
+
+        target.addEventListener('wheel', this.scrolled, { passive: false })
+        target.addEventListener('DOMMouseScroll', this.scrolled, { passive: false })
+
+        this.scrolled = (e) => {
+            console.log('pos');
+            e.preventDefault(); // disable default scrolling
+
+            var delta = this.normalizeWheelDelta(e)
+
+            pos += -delta * speed
+            pos = Math.max(0, Math.min(pos, target.scrollHeight - frame.clientHeight)) // limit scrolling
+            
+            if (!moving) this.update()
+        }
+
+        this.normalizeWheelDelta = (e) => {
+            if(e.detail){
+                if(e.wheelDelta)
+                    return e.wheelDelta/e.detail/40 * (e.detail>0 ? 1 : -1) // Opera
+                else
+                    return -e.detail/3 // Firefox
+            }else
+                return e.wheelDelta/120 // IE,Safari,Chrome
+        }
+
+        this.update = () => {
+            moving = true
+        
+            var delta = (pos - target.scrollTop) / smooth
+        
+            target.scrollTop += delta
+        
+            if (Math.abs(delta) > 0.5)
+                requestFrame(this.update)
+            else
+                moving = false
+        }
+
+        let requestFrame = function() { // requestAnimationFrame cross browser
+            return (
+                window.requestAnimationFrame ||
+                window.webkitRequestAnimationFrame ||
+                window.mozRequestAnimationFrame ||
+                window.oRequestAnimationFrame ||
+                window.msRequestAnimationFrame ||
+                function(func) {
+                    window.setTimeout(func, 1000 / 50);
+                }
+            );
+        }()
+    }
+
+	
+}
+
 export const smoothScroll = (target, duration) => {
     const Target = document.querySelector(target);
     const targetPos = Target.offsetTop;
@@ -223,8 +293,8 @@ const Animate = () => {
 
     
 
-    // const clickedWorks = () => {
-    //     smoothScroll('#home-Works', 2000);
+    // const clickedWork = () => {
+    //     smoothScroll('#home-Work', 2000);
     //     setTimeout(() => {
     //         let clean_uri = window.location.href.split('#')[0];
     //         window.history.replaceState({}, document.title, clean_uri);    
@@ -248,21 +318,21 @@ const Animate = () => {
     // });
 
     // jsIconWheel.addEventListener( 'click', function() {
-    //     smoothScroll('#home-Works', 3000);
+    //     smoothScroll('#home-Work', 3000);
     // });
 
     // jsBtnTop.addEventListener( 'click', function() {
     //     smoothScroll('body', 2000);
     // });
 
-    // jsBtnGnbWorks.addEventListener( 'click', function() {
+    // jsBtnGnbWork.addEventListener( 'click', function() {
     //     if ( window.location.pathname === '/' ) {
-    //         clickedWorks();
+    //         clickedWork();
     //     }
     // });
 
-    // if ( window.location.hash === "#works" ) {
-    //     clickedWorks();
+    // if ( window.location.hash === "#work" ) {
+    //     clickedWork();
     // }
 
 }

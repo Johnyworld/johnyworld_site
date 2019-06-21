@@ -6,16 +6,60 @@ import About from './components/pages/about';
 import RouteWork from './route-work';
 import LabDetail from './components/pages/lab-detail';
 
+// import {SmoothMouseScroll} from './components/func/animates';
+
 import './App.css';
 
 class App extends Component {
 
     componentDidMount() {
-        window.addEventListener( 'wheel', function(event) {
-            if (window.location.pathname !== "/") {
-                window.scrollTo( 0, window.scrollY + Math.floor(event.deltaY / 2) );
-            }
-        })
+        // let canWheel = true;
+        // let wheelVel = 0.1;
+        // let wheelpos = 0;
+
+        // window.addEventListener( 'wheel', function(event) {
+        //     event.preventDefault();
+        //     if (window.location.pathname !== "/") {
+        //         if ( event.deltaY > 0 ) { wheelpos = 7; }
+        //         if ( event.deltaY < 0 ) { wheelpos = -7; }
+                
+        //         if ( canWheel ) {
+        //             canWheel = false;
+        //             if ( event.deltaY > 0 ) {
+        //                 wheelpos = 7;
+        //                 let frames = setInterval( function() {
+        //                     wheelpos -= wheelVel / 8 * wheelpos;
+        //                     console.log(wheelVel, wheelpos);
+        //                     window.scrollTo(0, window.scrollY + wheelpos);
+    
+        //                     if ( wheelpos <= 0.5 ) {
+        //                         canWheel = true;
+        //                         clearInterval(frames);
+        //                     }
+        //                 }, 5);
+        //             } else {
+        //                 wheelpos = -7;
+        //                 let frames = setInterval( function() {
+        //                     wheelpos += -wheelVel / 8 * wheelpos;
+        //                     console.log(wheelVel, wheelpos);
+        //                     window.scrollTo(0, window.scrollY + wheelpos);
+    
+        //                     if ( wheelpos >= -0.5 ) {
+        //                         canWheel = true;
+        //                         clearInterval(frames);
+        //                     }
+        //                 }, 5);
+        //             }
+                    
+        //         } 
+        //     }
+        // }, {passive: false})
+
+        // function init(){
+        //     new SmoothMouseScroll(window, 3200, 45);
+        // }
+
+        // init();
     }
 
     render() {

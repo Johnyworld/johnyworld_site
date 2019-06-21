@@ -211,3 +211,54 @@ header {
         transform: rotate(45deg);
     }
 }
+
+@media screen and ( max-width: 1024px ) {
+    header {
+        width: 100%;
+        pointer-events: none;
+    }
+
+    header * {
+        pointer-events: all;
+    }
+
+    .back-btn {
+        top: 0;
+        left: 0;
+    }
+
+    .gnb-btn {
+        top: 0;
+        right: 0;
+        left: auto;
+    }
+
+    .button-top {
+        right: 50px;
+        bottom: 50px;
+        left: auto;
+        background-color: rgba( 0, 0, 0, .8 );
+        border-radius: 50px;
+    }
+
+    .button-top .icon {
+        margin-top: -4px;
+    }
+
+    .button-top .f-subhead {
+        font-size: 21px;
+    }
+
+    .hamberger-menu {
+        top: 0;
+        bottom: auto;
+        left: auto;
+        right: 50px;
+    }
+
+    .hamberger-menu .menu-item:hover {
+        letter-spacing: 0;
+        transform: none;
+        color: #ddd;
+    }
+}

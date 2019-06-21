@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { setMouseHover, scrollFadeIn, animInLoading } from '../func/animates';
-import { topBtnHandler, homBtnHandler } from '../func/functions';
+import { topBtnHandler } from '../func/functions';
 
 import './header.css';
 
@@ -11,7 +11,7 @@ class Header extends Component {
         const headerButtons = document.getElementsByClassName('header-buttons');
         const jsHeader = document.getElementById('jsHeader');
         const jsBtnTop = document.getElementById('jsBtnTop');
-        const jsBtnHome = document.getElementById('jsBtnHome');
+        // const jsBtnHome = document.getElementById('jsBtnHome');
         const jsBtnBack = document.getElementById('jsBtnBack');
         const jsHamberger = document.getElementById('jsHamberger');
         const jsBtnGnb = document.getElementById('jsBtnGnb');
@@ -92,7 +92,7 @@ class Header extends Component {
                     headerButtons[i].style.opacity = 0;
                     setTimeout( function() {
                         showRightToLeft(headerButtons[i]);
-                    }, 200*i); 
+                    }, 300*i + 1000); 
                 }
             } 
         }
@@ -102,9 +102,9 @@ class Header extends Component {
             if ( showedGnb ) { handleBtnGnb() }
         });
         jsBtnTop.addEventListener('click', topBtnHandler );
-        jsBtnHome.addEventListener( 'click', () => {
-            homBtnHandler( this.props.history );
-        });
+        // jsBtnHome.addEventListener( 'click', () => {
+        //     homBtnHandler( this.props.history );
+        // });
 
         // 뒤로가기 버튼
         jsBtnBack.addEventListener('click', handleBtnGoBack);
@@ -127,14 +127,14 @@ class Header extends Component {
     
     render() {
         const hambergers = [];
-        if (window.location.pathname !== "/work") { hambergers.push( <li className="f-eng-title"><Link to="/work" className="menu-item" id="jsBtnGnbWorks">WORK</Link></li> ); }
-        if (window.location.pathname !== "/about") { hambergers.push( <li className="f-eng-title"><Link to="/about" className="menu-item">ABOUT</Link></li> ); }
-        if (window.location.pathname !== "/blog") { hambergers.push( <li className="f-eng-title"><Link to="/blog" className="menu-item">BLOG</Link></li> ); }
+        if (window.location.pathname !== "/work") { hambergers.push( <li key="toWork" className="f-eng-title"><Link to="/work" className="menu-item" id="jsBtnGnbWork">WORK</Link></li> ); }
+        if (window.location.pathname !== "/about") { hambergers.push( <li key="toAbout" className="f-eng-title"><Link to="/about" className="menu-item">ABOUT</Link></li> ); }
+        if (window.location.pathname !== "/blog") { hambergers.push( <li key="toBlog" className="f-eng-title"><Link to="/blog" className="menu-item">BLOG</Link></li> ); }
 
         return(
             <header id="jsHeader">
-                <button className="header-buttons button-home" id="jsBtnHome">
-                </button>
+                {/* <button className="header-buttons button-home" id="jsBtnHome">
+                </button> */}
                 <button className="header-buttons back-btn" id="jsBtnBack">
                         <div className="arrow"></div>
                 </button>
@@ -147,7 +147,7 @@ class Header extends Component {
                 </button>
                 <ul className="header-buttons hamberger-menu" id="jsHamberger">
                     { hambergers }
-                    {/* <li className="f-eng-title"><Link to="/work" className="menu-item" id="jsBtnGnbWorks">WORK</Link></li>
+                    {/* <li className="f-eng-title"><Link to="/work" className="menu-item" id="jsBtnGnbWork">WORK</Link></li>
                     <li className="f-eng-title second"><Link to="/about" className="menu-item">ABOUT</Link></li>
                     <li className="f-eng-title third"><Link to="/blog" className="menu-item">BLOG</Link></li> */}
                 </ul>

@@ -10,7 +10,7 @@ import {
     setMouseHover, 
     getAbsoluteTop } from '../func/animates';
 import { reactRouteScrollTop } from '../func/functions';
-import dataWorksReverse from '../data/data-works';
+import dataWorkReverse from '../data/data-work';
 import './work.css';
 
 class Work extends Component {
@@ -20,17 +20,15 @@ class Work extends Component {
             loaded : false,
         }
         this.linkTo = null;
-        this.worksReverse = dataWorksReverse;
+        this.workReverse = dataWorkReverse;
         this.history = this.props.history;
         this.wasHome = true;
 
         if ( this.props.location.hash === "#home" ) {
             this.props.history.replace('/work');
-            console.log('was Home');
             
         } else if ( this.props.location.hash !== "#home" ) {
             this.wasHome = false;
-            console.log('was Not Home');
         }
     }
 
@@ -46,25 +44,25 @@ class Work extends Component {
         const jsBigmenuBigtitle = document.getElementById('jsBigmenuBigtitle');
         const jsBigmenuTitle = document.getElementById('jsBigmenuTitle');
         const jsBigmenuTitleString = jsBigmenuTitle.getElementsByTagName('p');
-        const worksItemWrap = document.getElementById('worksItemWrap');
-        const worksItems = worksItemWrap.getElementsByClassName('item');
+        const workItemWrap = document.getElementById('workItemWrap');
+        const workItems = workItemWrap.getElementsByClassName('item');
 
         // FUNCTIONS
-        const showWorksItemWhenScrolling = (nowScroll) => {
-            for (let i=0; i<worksItems.length; i++) {
-                if ( nowScroll+window.innerHeight > getAbsoluteTop(worksItems[i]) && !worksItems[i].classList.contains("show") ) {
-                    worksItems[i].classList.add("show");
-                    animInScale(worksItems[i]);
+        const showWorkItemWhenScrolling = (nowScroll) => {
+            for (let i=0; i<workItems.length; i++) {
+                if ( nowScroll+window.innerHeight > getAbsoluteTop(workItems[i]) && !workItems[i].classList.contains("show") ) {
+                    workItems[i].classList.add("show");
+                    animInScale(workItems[i]);
                 }
             }
         }   
 
-        const showWorksItemWhenLoaded = () => {
-            for (let i=0; i<worksItems.length; i++) {
-                if ( window.innerHeight > getAbsoluteTop(worksItems[i]) && !worksItems[i].classList.contains("show") ) {
-                    worksItems[i].classList.add("show");
+        const showWorkItemWhenLoaded = () => {
+            for (let i=0; i<workItems.length; i++) {
+                if ( window.innerHeight > getAbsoluteTop(workItems[i]) && !workItems[i].classList.contains("show") ) {
+                    workItems[i].classList.add("show");
                     setTimeout( function() {
-                        animInScale(worksItems[i]);
+                        animInScale(workItems[i]);
                     }, (i * 150)+1300)
                 }
             }
@@ -79,21 +77,20 @@ class Work extends Component {
         // Listener
         window.addEventListener('scroll', function () {
             let nowScroll = window.scrollY;
-            for (let i=0; i<worksItems.length; i++) {
+            for (let i=0; i<workItems.length; i++) {
                 if ( i%2 === 1 ) {
-                    scrollFloating( nowScroll, worksItems[i], -10 );
+                    scrollFloating( nowScroll, workItems[i], -10 );
                 } else {
-                    scrollFloating( nowScroll, worksItems[i], -3 );
+                    scrollFloating( nowScroll, workItems[i], -3 );
                 }
             }
-            showWorksItemWhenScrolling(nowScroll);
+            showWorkItemWhenScrolling(nowScroll);
         });
 
         // Run
-        showWorksItemWhenLoaded();
+        showWorkItemWhenLoaded();
         setMouseHover();
         reactRouteScrollTop();
-        document.body.style.overflow= 'hidden';
     }
     
     _noLoadingScreen() {
@@ -135,8 +132,8 @@ class Work extends Component {
         const jsBigmenuBigtitle = document.getElementById('jsBigmenuBigtitle');
         const jsBigmenuTitle = document.getElementById('jsBigmenuTitle');
         const jsLoading = document.getElementById('jsLoading');
-        const worksItemWrap = document.getElementById('worksItemWrap');
-        const worksItems = worksItemWrap.getElementsByClassName('item');
+        const workItemWrap = document.getElementById('workItemWrap');
+        const workItems = workItemWrap.getElementsByClassName('item');
         const headerButtons = document.getElementsByClassName('header-buttons');
         const jsBtnBack = document.getElementById('jsBtnBack');
         const jsBtnGnb = document.getElementById('jsBtnGnb');
@@ -145,9 +142,9 @@ class Work extends Component {
         animOutFade(jsBigmenuBigtitle, 500);
         animOutFade(jsBigmenuTitle, 500);
 
-        for( let i=0; i<worksItems.length; i++ ) {
+        for( let i=0; i<workItems.length; i++ ) {
             setTimeout( function() { 
-                animOutFade(worksItems[i], 500);
+                animOutFade(workItems[i], 500);
             }, i*100)
         }
 
@@ -176,7 +173,7 @@ class Work extends Component {
         return (
             <>
                 <div className="bigmenu-title-wrapper centered" id="jsBigmenuBigtitle">
-                    <h1 className="f-bigtitle">WORK</h1>
+                    <h1 className="f-hugetitle">WORK</h1>
                     <div className="f-title" id="jsBigmenuTitle">
                         <p>고</p>
                         <p>객</p>
@@ -195,9 +192,9 @@ class Work extends Component {
                         <p>.</p>
                     </div>
                 </div>
-                <div className="works-items clear-fix" id="worksItemWrap">
+                <div className="work-items clear-fix" id="workItemWrap">
                     <ul className="l-row gap90 clear-fix">
-                        { this.worksReverse.map( item => {
+                        { this.workReverse.map( item => {
                             // this.linkTo = `/work/${item.slug}`;
                             return (
                                 <li key={`griditem-${item.id}`} className='l-col l-col-6-12'>

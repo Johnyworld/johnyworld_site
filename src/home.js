@@ -53,11 +53,13 @@ class Home extends Component {
                 x : event.clientX,
                 y : event.clientY,
             }
+            if ( window.innerWidth > 1024 ) {
             mouseMoving(mouse, jsMenuCenter, 3, 15, true);
             mouseMoving(mouse, jsMenuLeft, 2, 20, true);
             mouseMoving(mouse, jsMenuRight, 2, 20, true);
             mouseMoving(mouse, jsMenuBgLeft, 10, 20, true);
             mouseMoving(mouse, jsMenuBgRight, 10, 20, true);
+            }
         }
 
         const mainMenuFocused = (event) => {
@@ -82,6 +84,8 @@ class Home extends Component {
             for (let i = 0; i < jsMenuTextItems.length; i++) {
                 jsMenuTextItems[i].style.transform = '';
             }
+            jsMenuBgLeft.style.transform = '';
+            jsMenuBgRight.style.transform = '';
             window.removeEventListener('mousemove', mainMenuFollowingMouse);
         }
 
@@ -112,22 +116,7 @@ class Home extends Component {
         }
 
         // HANDLERS
-        // const handlePageLoaded = () => {
-        //     jsFullScreenWrap01.style.width = '100%';
-        //     jsFullScreenWrap02.style.width = '0%';
-        //     jsLoading.style.display = 'none';
-        //     jsFullScreenWrap01.animate([
-        //         { opacity: 1 },
-        //         { opacity: 0 },
-        //     ], {
-        //         duration: 1000
-        //     });
-        //     setTimeout(() => {
-        //         jsFullScreenWrap01.style.width = '0%';
-        //         jsFullScreenWrap01.style.opacity = '1';
-        //     }, 1000);
-        // }
-
+        //// -------------------------------
         const mainCenterMenuClickHandler = () => {
             canWheel = false;
             let propsHistory = this.props.history;
@@ -210,23 +199,34 @@ class Home extends Component {
             }
         }
 
-        
+        const handleResize = () => {
+            if ( window.innerWidth < 1024 ) {
+                mainMenuStop();
+            } else {
+                window.addEventListener( 'mousemove', mainMenuFollowingMouse );
+            }
+        }
+
+        const handleWheelAtHome = (event) => {
+            if ( window.location.pathname === '/') {
+                event.preventDefault();
+                wheelHandler(event);
+            }
+        }
 
         // EVENT LISTENERS
-        
-
-        window.addEventListener( 'wheel', wheelHandler );
-        window.addEventListener( 'mousemove', mainMenuFollowingMouse );
+        window.addEventListener( 'wheel', handleWheelAtHome, { passive: false });
         jsMenuCenter.addEventListener( 'click', mainCenterMenuClickHandler );
         jsCodeLabBtn.addEventListener( 'click', codeLabBtnHandler );
+        window.addEventListener( 'mousemove', mainMenuFollowingMouse );
+        window.addEventListener( 'resize', handleResize );
+
+        //RUN
         mainMenuAddHoverEvent();
         handleNotGnbSection();
         setMouseHover(); 
-        // reactRouteScrollTop();
-        document.body.style.overflow= 'hidden';
-
-        //RUN
         // handlePageLoaded();
+        // reactRouteScrollTop();
     }
 
     _nowLoading() {
@@ -288,9 +288,9 @@ class Home extends Component {
                         <div className="item bg right" id="jsMenuBgRight"><div className="child" id="jsMenuBgRightChild"></div></div>
                     </div>
                     <div className="menu-wrapper" id="jsMenuTexts">
-                        <button className="f-bigtitle item left" id="jsMenuLeft">BLOG</button>
-                        <button className="f-bigtitle item center" id="jsMenuCenter">WORK</button>
-                        <button className="f-bigtitle item right" id="jsMenuRight">ABOUT</button>
+                        <button className="f-hugetitle item left" id="jsMenuLeft">BLOG</button>
+                        <button className="f-hugetitle item center" id="jsMenuCenter">WORK</button>
+                        <button className="f-hugetitle item right" id="jsMenuRight">ABOUT</button>
                     </div>
                 </div>
                 <div className="home-section" id="home-Laboratory">
@@ -303,7 +303,7 @@ class Home extends Component {
     render() {
         return(
             <content  className="home-wrapper">
-                {this.state.loaded ? this._renderContent() : '' }
+                {this.state.loaded ? this._renderContent() : 'Loading' }
             </content>
         )
     }

@@ -1,129 +1,51 @@
-.works-detail-wrapper .l-wrapper { margin-right: 150px; }
-.works-detail-wrapper .l-wrapper-wide { margin-right: 0; }
-.works-detail-wrapper .l-wrapper-narrow { margin-right: 320px; }
 
-.works-detail-wrapper .f-title {
-    color: white;
-}
+/* COMMON */
+/* -------------------------------------- */
+.work-detail-wrapper { overflow: hidden; }
+.work-detail-wrapper .f-bigtitle { text-transform: uppercase; }
+.work-detail-wrapper .f-subhead { font-size: 45px; }
+.work-detail-wrapper section { margin: 150px 0; }
+.work-detail-wrapper section .text-wrap { padding: 0 7%; }
+.work-detail-wrapper section .text-wrap.title-area > * { margin: 30px 0; }
+.work-detail-wrapper section .text-wrap.title-area > *:first-child { margin-top: 0; }
+.work-detail-wrapper section .text-wrap.title-area > *:last-child { margin-bottom: 0; }
+.work-detail-wrapper section .f-normal:not(:last-child) { margin-bottom: 30px; }
+.work-detail-wrapper section .f-normal strong { display: block; color: white; font-weight: 400; }
+.work-detail-wrapper section img { display: block; width: 100%; }
 
-.viewsite-btn {
-    position: fixed;
-    top: 260px;
-    left: 6%;
-    width: 67px;
-    color: #bbb;
-    z-index: 9998;
-    text-align: center;
-    line-height: 1.2;
-    font-size: 14px;
-    transition: .5s;
-}
+/* WORK DETAIL COMMON */
+/* -------------------------------------- */
 
-.viewsite-btn.is-hidden {
-    display: block;
-    opacity: 0;
-    transform: scale(.5);
-}
 
-.viewsite-btn:hover {
-    color: #ff4b7b;
-    transform: scale(1.2);
-}
+/* WORK DETAIL EACH */
+/* -------------------------------------- */
+.work-detail-wrapper .detail-each section { padding: 150px 0 0; margin: 0; }
+.work-detail-wrapper .detail-each section:nth-child(2n-1) { background-color: #1d1d1d; }
+.work-detail-wrapper .detail-each section:nth-child(2n) { background-color: #111; }
+.work-detail-wrapper .detail-each section.sec-bright { background-color: #222; }
+.work-detail-wrapper .detail-each section > * > * { margin-bottom: 70px; }
+.work-detail-wrapper .detail-each section > *:last-child > *:last-child { margin-bottom: 0px; }
+.work-detail-wrapper .detail-each section .text-wrap .f-title { margin-left: -.12em; margin-bottom: 20px; }
 
-.works-detail-wrapper .key-visual {
-    height: 100vh;
-    background-color: #000;
-}
+/* 사이트보기 버튼 */
+.viewsite-btn { position: fixed; top: 260px; left: 6%; width: 67px; color: #bbb; z-index: 9998; text-align: center; line-height: 1.2; font-size: 14px; transition: .5s; }
+.viewsite-btn.is-hidden { display: block; opacity: 0; transform: scale(.5); }
+.viewsite-btn:hover { color: #ff4b7b; transform: scale(1.2); }
 
-.works-detail-wrapper .key-visual .bg-wrap {
-    position: relative;
-    background-color: #555;
-    height: 82vh;
-    overflow: hidden;
-}
+/* 키워드 */
+.work-detail-wrapper .info .keywords { display: inline-block; color: #aaa; overflow: hidden; }
+.work-detail-wrapper .info .keywords li { float: left; margin-right: 30px; }
+.work-detail-wrapper .info .keywords li:last-child { margin-right: 0; }
+.work-detail-wrapper .info .keywords li .btn-viewsite { color: #ff4b7b; transition: .3s; }
+.work-detail-wrapper .info .keywords li .btn-viewsite:hover { color: white; }
 
-.works-detail-wrapper .key-visual .bg-wrap .bg {
-    position: absolute;
-    top: 0; bottom: 0;
-    width: 100%;
-    background-size: cover;
-    background-position: center;
-    transform: translateY(0);
-}
-
-.works-detail-wrapper .key-visual .bg-wrap .textbox {
-    position: absolute;
-    text-align: center;
-    bottom: 50px;
-    width: 100%;
-}
-
-.works-detail-wrapper .key-visual .bg-wrap .textbox .f-title {
-    text-transform: uppercase;
-    font-weight: 700;
-    font-size: 55px;
-    letter-spacing: .2em;
-    white-space: nowrap;
-}
-
-.works-detail-wrapper .key-visual .info {
-    position: relative;
-    text-align: center;
-}
-
-.works-detail-wrapper .key-visual .info .keywords {
-    display: inline-block;
-    color: #aaa;
-    overflow: hidden;
-    margin-top: 50px;
-}
-
-.works-detail-wrapper .key-visual .info .keywords li {
-    float: left;
-    margin-right: 30px;
-}
-
-.works-detail-wrapper .key-visual .info .keywords li:last-child {
-    margin-right: 0; 
-}
-
-.works-detail-wrapper .key-visual .info .keywords li .btn-viewsite {
-    color: #ff4b7b;
-    transition: .3s;
-}
-
-.works-detail-wrapper .key-visual .info .keywords li .btn-viewsite:hover {
-    color: white;
-}
-
-.next-and-prev {
-    margin: 230px 0;
-}
-
-.next-and-prev .btn-wrap {
-    position: relative;
-    float: left;
-    width: 50%;
-    color: white;
-}
-
-.next-and-prev .btn-wrap.next {
-    float: right;
-    padding-left: 50px;
-}
-
-.next-and-prev .btn-wrap.prev {
-    text-align: right;
-    padding-right: 50px;
-}
-
-.next-and-prev .btn-wrap.next > * {
-    float: left;
-}
-
-.next-and-prev .btn-wrap.prev > * {
-    float: right;
-}
+/* 다음글, 이전글 버튼 */
+.next-and-prev { margin: 230px 0; }
+.next-and-prev .btn-wrap { position: relative; float: left; width: 50%; color: white; }
+.next-and-prev .btn-wrap.next { float: right; padding-left: 50px; }
+.next-and-prev .btn-wrap.prev { text-align: right; padding-right: 50px; }
+.next-and-prev .btn-wrap.next > * { float: left; }
+.next-and-prev .btn-wrap.prev > * { float: right; }
 
 .next-and-prev .btn-wrap .radius {
     position: relative;
@@ -189,7 +111,7 @@
 }
 
 .detail-section {
-    margin: 150px 0;
+    margin: 120px 0;
 }
 
 .detail-section.full {
@@ -199,7 +121,7 @@
 .detail-section.key-section {
     margin-top: 0;
     padding-top: 120px;
-    background-image: url('../../images/works-detail/works-detail-bg.png');
+    background-image: url('../../images/work-detail/work-detail-bg.png');
     background-repeat: repeat-x;
     background-size: contain;
 }
@@ -211,8 +133,8 @@
 
 .detail-section.design-image-section {
     padding-bottom: 150px;
-    background-color: #33353a;
-    background-image: url('../../images/works-detail/works-design-bg.png');
+    background-color: #1f2021;
+    background-image: url('../../images/work-detail/work-design-bg.png');
     background-repeat: repeat-x;
     background-size: auto;
     background-position: top
@@ -287,7 +209,7 @@
     width: 30px;
     height: 30px;
     margin: 0 auto 50px;
-    background-image: url('../../images/works-detail/krx-seeds-icon.png');
+    background-image: url('../../images/work-detail/krx-seeds-icon.png');
 }
 
 .detail-section .krx-dream {
@@ -323,4 +245,17 @@
 
 .krx-public .krx-tut-img:last-child {
     margin-left: 10vw;
+}
+
+@media screen and ( max-width: 1024px ) {
+    .viewsite-btn {
+        top: 20px;
+        left: 9%;
+    }
+
+    .detail-section .f-title {
+        font-size: 50px;
+    }
+
+
 }

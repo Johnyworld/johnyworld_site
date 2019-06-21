@@ -11,7 +11,7 @@ class Moon extends Component {
         const mountainThird = document.getElementById('jsMtThird');
         const mainText = document.getElementById('jsMaintext');
         const moon = document.getElementById('jsMoon');
-        const jsBtnGnbWorks = document.getElementById('jsBtnGnbWorks');
+        const jsBtnGnbWork = document.getElementById('jsBtnGnbWork');
         const starry = document.getElementById('jsStarry');
         const jsIconWheel = document.getElementById('jsIconWheel');
         // const homeLiboratory = document.getElementById('home-Laboratory');
@@ -19,16 +19,16 @@ class Moon extends Component {
         
         rotateInfinity(starry);
 
-        const clickedWorks = () => {
-            smoothScroll('#home-Works', 2000);
+        const clickedWork = () => {
+            smoothScroll('#home-Work', 2000);
             setTimeout(() => {
                 let clean_uri = window.location.href.split('#')[0];
                 window.history.replaceState({}, document.title, clean_uri);
             }, 50);
         }
 
-        if (window.location.hash === "#works") {
-            clickedWorks();
+        if (window.location.hash === "#work") {
+            clickedWork();
         }
 
         window.addEventListener('scroll', function () {
@@ -45,12 +45,12 @@ class Moon extends Component {
         });
 
         jsIconWheel.addEventListener('click', function () {
-            smoothScroll('#home-Works', 3000);
+            smoothScroll('#home-Work', 3000);
         });
 
-        jsBtnGnbWorks.addEventListener('click', function () {
+        jsBtnGnbWork.addEventListener('click', function () {
             if (window.location.pathname === '/') {
-                clickedWorks();
+                clickedWork();
             }
         });
 

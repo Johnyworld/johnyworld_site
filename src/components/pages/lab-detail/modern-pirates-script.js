@@ -213,7 +213,6 @@ const canvasPirates = () => {
                         if (damageSum <= 0) {
                             damageSum = 1;
                         }
-                        console.log('enemy get damages', damage);
                         cannonBalls.splice(i, 1);
                         tempEnemy.hp -= damageSum
                     }
@@ -275,7 +274,6 @@ const canvasPirates = () => {
         let random = Math.floor(Math.random() * 7 - 3) / 100;
         if (WIND.x > 3) { random -= 0.01 }
         if (WIND.x < -3) { random += 0.01 }
-        console.log(WIND.x, random);
         WIND.x += random;
         
     }

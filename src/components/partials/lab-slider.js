@@ -33,7 +33,7 @@ class LabSlider extends Component {
                         let splitTitle = [ splitTitleEach[0], splitTitleExceptFirstOne ];
                         const labTitleRender = splitTitle.map((splitTitleItem, key) => {
                             return ( 
-                                <h2 className="f-eng-title lab-title" key={`labtitle-${key}`}>{splitTitleItem}</h2> 
+                                <h2 className="f-eng-title f-bigtitle lab-title" key={`labtitle-${key}`}>{splitTitleItem}</h2> 
                             )
                         });
                         return(

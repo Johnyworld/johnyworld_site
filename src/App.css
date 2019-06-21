@@ -12,8 +12,8 @@
 }
 
 @font-face { 
-    font-family: 'S-CoreDream-2ExtraLight'; 
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-2ExtraLight.woff') format('woff'); 
+    font-family: 'S-CoreDream-1Thin'; 
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-1Thin.woff') format('woff'); 
     font-weight: normal; 
     font-style: normal; }
 
@@ -41,6 +41,7 @@ body {
     overflow-x: hidden;
     overscroll-behavior: smooth;
     cursor: url(./images/pointer.png) 15 15, auto;
+    touch-action: none;
 }
 
 a {
@@ -69,24 +70,25 @@ button:hover {
     color: white;
 }
 
-.l-wrapper-wide {
-    max-width: 1540px;
-    margin: auto;
+.l-wrapper-full {
+    max-width: 100%;
+    margin-left: 20%;
 }
 
 .l-wrapper {
-    max-width: 1240px;
-    margin: auto;
+    max-width: 100%;
+    margin-left: 20%;
+    margin-right: 5%;
 }
 
 .l-wrapper-narrow {
     max-width: 900px;
-    margin: auto;
+    margin-left: 20%;
 }
 
 .l-row {
     overflow: hidden;
-    margin: 0 -15px;   
+    margin: -15px;   
 }
 
 .l-col {
@@ -98,18 +100,27 @@ button:hover {
 .l-col-3-12 { width: 25% }
 .l-col-4-12 { width: 33.33334% }
 .l-col-2-10 { width: 20% }
-.l-row.gap60 { margin: 0 -30px; }
+.l-row.gap60 { margin: -30px; }
 .l-row.gap60 .l-col { padding: 30px; }
-.l-row.gap90 { margin: 0 -45px; }
+.l-row.gap90 { margin: -45px; }
 .l-row.gap90 .l-col { padding: 45px; }
 
 
-.f-bigtitle {
+.f-hugetitle {
     font-family: 'Squada One', serif;
     font-size: 220px;
     font-weight: 400;
     color: #bbb;
-    line-height: .9;
+    line-height: .8;
+    letter-spacing: 0;
+}
+
+.f-bigtitle {
+    font-family: 'Squada One', serif;
+    font-size: 150px;
+    font-weight: 400;
+    color: #bbb;
+    line-height: .8;
     letter-spacing: 0;
 }
 
@@ -124,6 +135,7 @@ button:hover {
 .f-subhead {
     font-size: 24px;
     font-weight: 300;
+    color: #bbb;
 }
 
 .f-normal {
@@ -234,6 +246,34 @@ button:hover {
         width: 0%;
     }
 }
+
+@media screen and ( max-width: 1540px ) {
+    .l-wrapper {
+        padding: 50px;
+    }
+
+    .work-detail-wrapper .l-wrapper {
+        margin-right: auto;
+    }
+}
+@media screen and ( max-width: 1400px ) {
+    .f-hugetitle {
+        font-size: 180px;
+    }
+}
+
+@media screen and ( max-width: 1300px ) {
+    .f-hugetitle {
+        font-size: 150px;
+    }
+}
+
+@media screen and ( max-width: 1024px ) {
+    .l-row.gap90 .l-col {
+        padding: 25px;
+    }
+}
+
 
 @media screen and ( max-width: 767px ) {
     .hide-m {

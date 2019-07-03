@@ -1,17 +1,21 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import { setMouseHover, scrollFadeIn, animInLoading } from '../func/animates';
 import { topBtnHandler } from '../func/functions';
 
 import './header.css';
 
 class Header extends Component {
+    // constructor(props) {
+    //     super(props);
+    //     this.history = this.props.history;
+    //     console.log(this.history);
+    // }
+
     componentDidMount() {
         // DEFINE
         const headerButtons = document.getElementsByClassName('header-buttons');
         const jsHeader = document.getElementById('jsHeader');
         const jsBtnTop = document.getElementById('jsBtnTop');
-        // const jsBtnHome = document.getElementById('jsBtnHome');
         const jsBtnBack = document.getElementById('jsBtnBack');
         const jsHamberger = document.getElementById('jsHamberger');
         const jsBtnGnb = document.getElementById('jsBtnGnb');
@@ -19,11 +23,12 @@ class Header extends Component {
         const jsFullScreenWrap01 = document.getElementById('jsFullScreenWrap01');
         const jsFullScreenWrap02 = document.getElementById('jsFullScreenWrap02');
         const jsLoading = document.getElementById('jsLoading');
-
+        
         let showedGnb = false;
         let canClickHamberger = true;
         
         // FUNCTIONS
+        // ------------------------------
         const callHamberger = () => {
             if ( jsHamberger.classList.contains('is-active') ) {
                 jsHamberger.classList.remove('is-active');
@@ -49,9 +54,9 @@ class Header extends Component {
         }
 
         // HANDLERS
+        // ------------------------------
         const handleBtnGoBack = () => {
             animInLoading( jsFullScreenWrap01, jsFullScreenWrap02, jsLoading );
-            
             setTimeout(()=>{
                 this.props.goBack();
             }, 1300);
@@ -98,13 +103,11 @@ class Header extends Component {
         }
 
         // LISTENER
+        // ------------------------------
         jsHeader.addEventListener('mouseleave', () => {
             if ( showedGnb ) { handleBtnGnb() }
         });
         jsBtnTop.addEventListener('click', topBtnHandler );
-        // jsBtnHome.addEventListener( 'click', () => {
-        //     homBtnHandler( this.props.history );
-        // });
 
         // 뒤로가기 버튼
         jsBtnBack.addEventListener('click', handleBtnGoBack);
@@ -117,24 +120,15 @@ class Header extends Component {
         jsBtnGnb.addEventListener('click', handleBtnGnb);
 
         // RUN
+        // ------------------------------
         jsLoading.style.display = "none";
-        jsBtnBack.classList.remove('is-hidden');
-        jsBtnGnb.classList.remove('is-hidden');
-        jsHamberger.classList.remove('is-hidden');
         loadHeader();
         setMouseHover();
     }
-    
-    render() {
-        const hambergers = [];
-        if (window.location.pathname !== "/work") { hambergers.push( <li key="toWork" className="f-eng-title"><Link to="/work" className="menu-item" id="jsBtnGnbWork">WORK</Link></li> ); }
-        if (window.location.pathname !== "/about") { hambergers.push( <li key="toAbout" className="f-eng-title"><Link to="/about" className="menu-item">ABOUT</Link></li> ); }
-        if (window.location.pathname !== "/blog") { hambergers.push( <li key="toBlog" className="f-eng-title"><Link to="/blog" className="menu-item">BLOG</Link></li> ); }
 
+    render() {
         return(
             <header id="jsHeader">
-                {/* <button className="header-buttons button-home" id="jsBtnHome">
-                </button> */}
                 <button className="header-buttons back-btn" id="jsBtnBack">
                         <div className="arrow"></div>
                 </button>
@@ -146,10 +140,9 @@ class Header extends Component {
                     </div>
                 </button>
                 <ul className="header-buttons hamberger-menu" id="jsHamberger">
-                    { hambergers }
-                    {/* <li className="f-eng-title"><Link to="/work" className="menu-item" id="jsBtnGnbWork">WORK</Link></li>
-                    <li className="f-eng-title second"><Link to="/about" className="menu-item">ABOUT</Link></li>
-                    <li className="f-eng-title third"><Link to="/blog" className="menu-item">BLOG</Link></li> */}
+                    <li key="toWork" className="f-eng-title"><button className="menu-item" id="jsBtnGnbWork">WORK</button></li>
+                    <li key="toAbout" className="f-eng-title"><button className="menu-item" id="jsBtnGnbAbout">ABOUT</button></li>
+                    <li key="toBlog" className="f-eng-title"><button className="menu-item" id="jsBtnGnbBlog">BLOG</button></li>
                 </ul>
                 <button className="header-buttons button-top is-hidden" id="jsBtnTop">
                     <div className="icon"></div>

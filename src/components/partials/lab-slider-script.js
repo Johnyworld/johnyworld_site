@@ -7,14 +7,20 @@ const labSliderScript = () => {
     const labSliderNavigator = document.getElementById('labSliderNavigator');
     const navItems = labSliderNavigator.getElementsByClassName('nav-item');
     const jsLabSliderIndex = document.getElementById('jsLabSliderIndex');
+    const jsLabSliderIndexTens = document.getElementById('jsLabSliderIndexTens');
+    const jsLabSliderIndexUnits = document.getElementById('jsLabSliderIndexUnits');
+    const jsLabSliderIndexUnitsParagraph = jsLabSliderIndexUnits.getElementsByTagName('p')[0];
+    const labSliderIndexNumHeight = jsLabSliderIndexUnitsParagraph.offsetHeight;
+    
+    jsLabSliderIndex.style.height = labSliderIndexNumHeight+'px';
 
     let itemWidth = sliderItems[0].clientWidth;
     let selectedWidth = window.innerWidth / 100 * 80;
     
-    const pad = (n, width) => {
-        n = n + '';
-        return n.length >= width ? n : new Array(width - n.length + 1).join('0') + n;
-    }
+    // const pad = (n, width) => {
+    //     n = n + '';
+    //     return n.length >= width ? n : new Array(width - n.length + 1).join('0') + n;
+    // }
 
     const hideObject = (object, duration) => {
         setTimeout(function() {
@@ -143,8 +149,14 @@ const labSliderScript = () => {
         }, 10);
 
         // 인덱스 숫자 바꾸기
-        let indexText = pad(newIndex+1, 2);
-        jsLabSliderIndex.innerHTML = indexText;
+        let indexNumberTens = 0;
+        let indexNumberUnits = newIndex+1;
+        if ( indexNumberUnits > 9 ) {
+            indexNumberTens = Math.floor(indexNumberUnits/10);
+            indexNumberUnits = indexNumberUnits - indexNumberTens*10;
+        }
+        jsLabSliderIndexTens.style.transform = 'translateY(-'+ indexNumberTens*labSliderIndexNumHeight +'px)'
+        jsLabSliderIndexUnits.style.transform = 'translateY(-'+ indexNumberUnits*labSliderIndexNumHeight +'px)'
     }
     
     window.addEventListener( 'resize', function() {
@@ -155,6 +167,7 @@ const labSliderScript = () => {
         }
     });
     
+    labSliderInit(0, 1);
     labSliderButtonEvents();
     setLabSliderPosition(labSliderIndex);
     movingLabSliderTexts(labSliderIndex);

@@ -159,6 +159,11 @@ header {
     color: #ddd;
 }
 
+.hamberger-menu .menu-item.is-disabled {
+    opacity: .2;
+    pointer-events: none;
+}
+
 /* Top 버튼 */
 .button-top {
     transition: .5s;

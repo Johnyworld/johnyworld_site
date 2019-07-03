@@ -1,5 +1,9 @@
-# Welcome to johnyworld
+# Welcome to Johnyworld
 	this is my Portfolio Site Code.
+	5년차 디자이너, 그리고 웹프론트엔드 개발자.
+	그리고 Node JS 공부중입니다.
+	아직 많이 부족한 실력이지만, 인정받는 개발자가 되기 위해 노력하고있습니다.
+
 
 ## Made by
 이 홈페이지를 만드는데에 사용된 기술들입니다.
@@ -20,7 +24,9 @@
 ### ABOUT
 풀스택 개발자를 꿈꾸는 웹 프론트엔드 개발자 김재환에 대한 모든 것.
 1. Philosophy
+   + 
 2. Skills
+   + 
 3. History
 4. License & Awards
 

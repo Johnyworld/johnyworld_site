@@ -1,21 +1,16 @@
-content.subpage-content {
-    display: block;
-    margin-left: auto;
-    width: 75%;
-    min-height: 100vh;
-}
-
 .bigmenu-title-wrapper {
     position: absolute;
     left: 25%;
     transition: 1.6s;
     margin-top: 80px;
+    margin-left: -.5em;
     z-index: 500;
 }
 
 .bigmenu-title-wrapper.centered {
     left: 50%;
     transform: translateX( -50% );   
+    margin-left: 0;
 }
 
 .bigmenu-title-wrapper .f-title {
@@ -42,10 +37,7 @@ content.subpage-content {
 
 .work-items .item {
     display: block;
-    width: 0%;
     height: 450px;
-    background-color: #252525;
-    opacity: 0;
 }
 
 .work-items .l-col:nth-child(2n) {
@@ -57,8 +49,10 @@ content.subpage-content {
 .grid-item {
     display: block;
     position: relative;
-    width: 100%;
     height: 100%;
+    width: 0;
+    opacity: 0;
+    transition: 1.5s;
     overflow: hidden;
 }
 
@@ -122,7 +116,7 @@ content.subpage-content {
 }
 
 @media screen and ( max-width: 1024px ) {
-    content.subpage-content {
+    main.subpage-content {
         margin-left: 0;
         width: 100%;
     }

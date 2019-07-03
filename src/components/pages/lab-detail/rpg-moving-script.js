@@ -150,10 +150,14 @@ const rpgMovingScript = () => {
             cancelAnimationFrame(canvasFrames);
         }
     }
-    reset();
-    objectInit();
-    drawTilesInit();
-    update();
+
+    // RUN
+    if ( window.location.pathname === '/lab/rpg-moving' ) {
+        reset();
+        objectInit();
+        drawTilesInit();
+        update();
+    }
 }
 
 export default rpgMovingScript;

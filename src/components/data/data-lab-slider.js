@@ -3,8 +3,8 @@ import labBgMarioJump from '../../images/labbg-mariojump.jpg';
 import labBgCollision2 from '../../images/labbg-collision2.jpg';
 // import labBgMario1 from '../../images/labbg-mario1.jpg';
 import labBgRpgMoving from '../../images/labbg-rpgmoving.jpg';
-import labBgWetube from '../../images/labbg-wetube.jpg';
-import labBgPrismagram from '../../images/labbg-prismagram.jpg';
+// import labBgWetube from '../../images/labbg-wetube.jpg';
+// import labBgPrismagram from '../../images/labbg-prismagram.jpg';
 import labBgModernPirates from '../../images/labbg-modernpirates.jpg';
 import labBgCrossRoad from '../../images/labbg-crossroad.jpg';
 import labBgMasonry from '../../images/labbg-masonry.jpg';
@@ -29,18 +29,18 @@ const dataLabSlider = [
         thumbnail: labBgMarioJump,
         date: "2017. 12"
     },
-    {
-        id: "03002",
-        title: "Moon",
-        slug: "moon",
-        comment: "패럴렉스 스크롤 연습",
-        desc: [
-            "패럴렉스 스크롤 연습",
-        ],
-        technics: ["Javascript"],
-        thumbnail: labBgMarioJump,
-        date: "2019. 04"
-    },
+    // {
+    //     id: "03002",
+    //     title: "Moon",
+    //     slug: "moon",
+    //     comment: "패럴렉스 스크롤 연습",
+    //     desc: [
+    //         "패럴렉스 스크롤 연습",
+    //     ],
+    //     technics: ["Javascript"],
+    //     thumbnail: labBgMarioJump,
+    //     date: "2019. 04"
+    // },
     // {
     //     id: "03002",
     //     title: "Supermario Canvas",
@@ -56,20 +56,20 @@ const dataLabSlider = [
     //     thumbnail: labBgMario1,
     //     date: "2019. 03",
     // },
-    {
-        id: "03003",
-        title: "WETUBE!",
-        slug: "wetube",
-        comment: "유튜브 따라하기 코딩.",
-        desc: [
-            "NodeJS와 친해지기 위해 수강했던 강의의 수강작품.",
-            "유튜브 클론 코딩.",
-        ],
-        technics: ["Javascript", "NodeJS", "Express", "MongoDB", "Webpack", "Github", "AWS S3"],
-        thumbnail: labBgWetube,
-        date: "2019. 04",
-        // url: "http://johnyworld-wetube.s3-website.ap-northeast-2.amazonaws.com/"
-    },
+    // {
+    //     id: "03003",
+    //     title: "WETUBE!",
+    //     slug: "wetube",
+    //     comment: "유튜브 따라하기 코딩.",
+    //     desc: [
+    //         "NodeJS와 친해지기 위해 수강했던 강의의 수강작품.",
+    //         "유튜브 클론 코딩.",
+    //     ],
+    //     technics: ["Javascript", "NodeJS", "Express", "MongoDB", "Webpack", "Github", "AWS S3"],
+    //     thumbnail: labBgWetube,
+    //     date: "2019. 04",
+    //     // url: "http://johnyworld-wetube.s3-website.ap-northeast-2.amazonaws.com/"
+    // },
     {
         id: "03004",
         title: "RPG MOVING",
@@ -85,19 +85,19 @@ const dataLabSlider = [
         thumbnail: labBgRpgMoving,
         date: "2019. 03"
     },
-    {
-        id: "03006",
-        title: "Prismagram",
-        slug: "prismagram",
-        comment: "인스타그램 따라하기 코딩.",
-        desc: [
-            "React와 친해지기 위해 수강했던 강의의 수강작품.", 
-            "인스타그램 클론 코딩.",
-        ],
-        technics: [ "Javascript", "React", "NodeJS", "React Native", "Prisma", "GraphQL" ],
-        thumbnail: labBgPrismagram,
-        date: "2019. now"
-    },
+    // {
+    //     id: "03006",
+    //     title: "Prismagram",
+    //     slug: "prismagram",
+    //     comment: "인스타그램 따라하기 코딩.",
+    //     desc: [
+    //         "React와 친해지기 위해 수강했던 강의의 수강작품.", 
+    //         "인스타그램 클론 코딩.",
+    //     ],
+    //     technics: [ "Javascript", "React", "NodeJS", "React Native", "Prisma", "GraphQL" ],
+    //     thumbnail: labBgPrismagram,
+    //     date: "2019. now"
+    // },
     {
         id: "03007",
         title: "BANG! pick a card!",
@@ -157,20 +157,6 @@ const dataLabSlider = [
         date: "2018. 12",
         url: "http://jw-masonry-grid.s3-website.ap-northeast-2.amazonaws.com/"
     },
-    {
-        id: "03005",
-        title: "Modern Pirates",
-        slug: "modern-pirates",
-        comment: "캔버스를 이용한 게임 제작",
-        desc: [
-            "100% 하드코딩으로 제작한 게임.",
-            "포트폴리오 홈에 넣기 위해 만들기 시작하여",
-            "여가시간을 활용하여 약 2주동안 제작.",
-        ],
-        technics: ["Javascript", "ES6", "Canvas"],
-        thumbnail: labBgModernPirates,
-        date: "2019. 05"
-    },
     // {
     //     id: "03011",
     //     title: "Cells",
@@ -225,6 +211,20 @@ const dataLabSlider = [
         technics: [ "Javascript", "ES6", "Canvas" ],
         thumbnail: labBgCollision2,
         date: "2018. 05"
+    },
+    {
+        id: "03005",
+        title: "Modern Pirates",
+        slug: "modern-pirates",
+        comment: "캔버스를 이용한 게임 제작",
+        desc: [
+            "100% 하드코딩으로 제작한 게임.",
+            "포트폴리오 홈에 넣기 위해 만들기 시작하여",
+            "여가시간을 활용하여 약 2주동안 제작.",
+        ],
+        technics: ["Javascript", "ES6", "Canvas"],
+        thumbnail: labBgModernPirates,
+        date: "2019. 05"
     },
     {
         id: "03015",

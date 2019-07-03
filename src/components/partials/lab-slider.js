@@ -1,10 +1,12 @@
 /* eslint-disable no-loop-func */
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+
 import './lab-slider.css';
 import dataLabSliderReverse from '../data/data-lab-slider';
 import labSliderScript from './lab-slider-script';
 import { labSliderIndex } from './lab-slider-script';
+import { animInLoading } from '../func/animates';
+
 class LabSlider extends Component {
     constructor(props) {
         super(props);
@@ -15,8 +17,20 @@ class LabSlider extends Component {
         labSliderScript();
     }
 
+    handleViewLabDetail(linkTo) {
+        const jsFullScreenWrap01 = document.getElementById('jsFullScreenWrap01');
+        const jsFullScreenWrap02 = document.getElementById('jsFullScreenWrap02');
+        const jsLoading = document.getElementById('jsLoading');
+
+        animInLoading( jsFullScreenWrap01, jsFullScreenWrap02, jsLoading );
+
+        setTimeout(() => {
+            let propsHistory = this.props.history;
+            propsHistory.push('/lab/' + linkTo);
+        }, 1300);
+    }
+
     render() {
-        
         return(
             <div className="lab-slider-wrapper clear-fix">
                 <div className="btn-wrap">
@@ -44,12 +58,15 @@ class LabSlider extends Component {
                                     </div>
                                     <div className="text-wrap">
                                         { item.url 
-                                            ? <a className="title-wrap" href={item.url}>
+                                            ? <a className="title-wrap" href={item.url} target="blank">
                                                 {labTitleRender}
                                             </a>
-                                            : <Link to={`/lab/${item.slug}`} className="title-wrap">
+                                            : <button className="title-wrap" onClick={ this.handleViewLabDetail.bind(this, `${item.slug}`) }>
                                                 {labTitleRender}
-                                            </Link>
+                                            </button>
+                                            // : <Link to={`/lab/${item.slug}`} className="title-wrap">
+                                            //     {labTitleRender}
+                                            // </Link>
                                         }
                                         <div className="explain f-normal c-gray-dark">
                                             <p className="comment c-gray-bright">{item.comment}</p>
@@ -63,7 +80,32 @@ class LabSlider extends Component {
                         )
                     })}
                 </ul>
-                <p className="index f-eng" id="jsLabSliderIndex">02</p>
+                <div className="index-wrap" id="jsLabSliderIndex">
+                    <div className="index tens f-eng" id="jsLabSliderIndexTens">
+                        <p>0</p>
+                        <p>1</p>
+                        <p>2</p>
+                        <p>3</p>
+                        <p>4</p>
+                        <p>5</p>
+                        <p>6</p>
+                        <p>7</p>
+                        <p>8</p>
+                        <p>9</p>
+                    </div>
+                    <div className="index units f-eng" id="jsLabSliderIndexUnits">
+                        <p>0</p>
+                        <p>1</p>
+                        <p>2</p>
+                        <p>3</p>
+                        <p>4</p>
+                        <p>5</p>
+                        <p>6</p>
+                        <p>7</p>
+                        <p>8</p>
+                        <p>9</p>
+                    </div>
+                </div>
                 <ul className="navigator clear-fix" id="labSliderNavigator">
                     { this.laboratories.map((item, key) => {
                         return(

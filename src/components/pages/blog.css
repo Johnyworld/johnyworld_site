@@ -1,0 +1,8 @@
+.blog-items { padding: 420px 5% 200px 0; }
+.blog-item { border-top: 1px solid #222; padding: 40px 0 50px; }
+.inner { padding: 10px 0 80px; }
+
+.blog-code { font-family: "Consolas"; padding: 5px 10px; background-color: #2b2e33; color: #ccc; letter-spacing: 0; line-height: 1.6; white-space: nowrap; overflow-x: scroll; }
+.blog-code .tab { display: inline-block; width: 40px; }
+
+.blog-inner-paragraph:not(:first-child) { margin: 20px 0; }

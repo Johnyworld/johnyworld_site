@@ -1,8 +1,6 @@
 /* Import */
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:100,300,400,600,800');
-@import url('http://fonts.googleapis.com/earlyaccess/notosanskr.css');
-@import url('https://fonts.googleapis.com/css?family=Nixie+One&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Squada+One&display=swap');
+@import url('https://db.onlinewebfonts.com/c/1db29588408eadbd4406aae9238555eb?family=Consolas');
 
 @font-face { 
     font-family: 'S-CoreDream-3Light'; 
@@ -15,7 +13,15 @@
     font-family: 'S-CoreDream-1Thin'; 
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-1Thin.woff') format('woff'); 
     font-weight: normal; 
-    font-style: normal; }
+    font-style: normal; 
+}
+
+@font-face { 
+    font-family: 'S-CoreDream-9Black'; 
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-9Black.woff') format('woff'); 
+    font-weight: normal; 
+    font-style: normal; 
+}
 
 /* Reset */
 body, ul, li, section, div, p, h1, h2, h3, h5, button {
@@ -35,9 +41,8 @@ html {
 
 body {
     background-color: #111;
-    color: #616161;
+    color: #bbb;
     font-family: 'S-CoreDream-3Light', 'sans-serif';
-    letter-spacing: -.04em;
     overflow-x: hidden;
     overscroll-behavior: smooth;
     cursor: url(./images/pointer.png) 15 15, auto;
@@ -75,6 +80,11 @@ button:hover {
     margin-left: 20%;
 }
 
+.l-wrapper-sticked {
+    max-width: 100%;
+    margin-left: 25%;
+}
+
 .l-wrapper {
     max-width: 100%;
     margin-left: 20%;
@@ -97,8 +107,11 @@ button:hover {
     padding: 15px;
 }
 
+.l-col-2-12 { width: 16.66667% }
 .l-col-3-12 { width: 25% }
 .l-col-4-12 { width: 33.33334% }
+.l-col-8-12 { width: 66.66667% }
+.l-col-12-12 { width: 100% }
 .l-col-2-10 { width: 20% }
 .l-row.gap60 { margin: -30px; }
 .l-row.gap60 .l-col { padding: 30px; }
@@ -110,18 +123,18 @@ button:hover {
     font-family: 'Squada One', serif;
     font-size: 220px;
     font-weight: 400;
-    color: #bbb;
     line-height: .8;
     letter-spacing: 0;
+    text-transform: uppercase;
 }
 
 .f-bigtitle {
     font-family: 'Squada One', serif;
     font-size: 150px;
     font-weight: 400;
-    color: #bbb;
     line-height: .8;
     letter-spacing: 0;
+    text-transform: uppercase;
 }
 
 .f-title {
@@ -129,19 +142,28 @@ button:hover {
     font-size: 75px;
     font-weight: 200;
     line-height: 1.2;
-    color: #bbb;
+}
+
+.f-heading {
+    font-size: 45px;
+    font-weight: 300;
 }
 
 .f-subhead {
     font-size: 24px;
     font-weight: 300;
-    color: #bbb;
+    line-height: 1.6;
 }
 
 .f-normal {
     font-family: 'S-CoreDream-3Light', serif;
     font-size: 18px;
     line-height: 1.9;
+    color: #777;
+}
+
+.f-normal strong {
+    color: #ccc;
 }
 
 .f-eng {
@@ -151,6 +173,10 @@ button:hover {
 .f-eng-title {
     font-family: 'Squada One', serif;
     letter-spacing: 0;
+}
+
+.f-bold {
+    font-family: 'S-CoreDream-9Black'; 
 }
 
 .c-blue-dark { color: #5c709e; }
@@ -248,11 +274,7 @@ button:hover {
 }
 
 @media screen and ( max-width: 1540px ) {
-    .l-wrapper {
-        padding: 50px;
-    }
-
-    .work-detail-wrapper .l-wrapper {
+    .subpage-content .l-wrapper {
         margin-right: auto;
     }
 }

@@ -340,15 +340,6 @@ const canvasPirates = () => {
     switchGameState(GAME_STATE_TITLE);
 
     let canvasFrames;
-    const runningGameHome = () => {
-        canvasFrames = requestAnimationFrame(runningGameHome);
-        runGame();
-
-        if ( window.location.pathname !== "/" ) {
-            cancelAnimationFrame(canvasFrames);
-        }
-    }
-
     const runningGame = () => {
         canvasFrames = requestAnimationFrame(runningGame);
         runGame();
@@ -358,7 +349,6 @@ const canvasPirates = () => {
         }
     }
 
-    if (window.location.pathname === "/") { runningGameHome(); }
     if (window.location.pathname === "/lab/modern-pirates") { runningGame(); }
 }
 

@@ -1,0 +1,88 @@
+.about-wrapper { padding-top: 420px; }
+
+/* COMMON */
+/* -------------------------------------- */
+.skill-item-container:not(:last-child) { margin-bottom: 50px; }
+.skill-item-container > *:not(:last-child) { margin-bottom: 20px; }
+.skill-item-container .skill-logo { width: 36px; height: 36px; float: left; margin-right: 20px; }
+.skill-item-container .f-subhead { font-family: 'S-CoreDream-9Black'; }
+.skill-item-container .f-normal span { display: inline-block; margin-right: 10px; }
+
+/* EACH SECTION */
+/* -------------------------------------- */
+.subpage-content section.sec-skills .skill-category-container { padding-bottom: 70px; margin-bottom: 70px; border-bottom: 1px solid #222; }
+.subpage-content section.sec-skills .skill-category-container:last-child { padding-bottom: 0; margin-bottom: 0; border-bottom: 0; }
+.subpage-content section.sec-skills .f-heading { font-family: 'S-CoreDream-9Black'; line-height: .8; }
+
+.skill-part._title { display: flex; align-items: center; }
+
+.skill-level-wrap { height: 2px; width: 50%; margin-left: auto; background-color: #333; }
+.skill-level-wrap .skill-level-bar { height: 2px; background-color: #777; transition: 1s; }
+.skill-level-wrap .skill-level-bar.is-disabled { width: 0 !important; }
+
+.subpage-content section.sec-instagram {
+    margin: 200px 0 400px;
+}
+
+.about-wrapper .sec-keyvisual .floating-image-wrap {
+    width: 0;
+    height: 25vw;
+    overflow: hidden;
+    transition: 1.5s;
+}
+
+.about-wrapper .sec-keyvisual .floating-image-wrap .floating-image {
+    width: 80vw;
+}
+
+.about-wrapper .sec-instagram .l-row {
+    overflow: visible;
+}
+
+.about-wrapper .sec-instagram .insta-image-wrap {
+    overflow: hidden;
+    position: relative;
+    /* background-color: #222; */
+}
+
+.about-wrapper .sec-instagram .insta-image {
+    background-size: cover;
+    transition: .5s;
+    opacity: 0;
+    width: 0;
+    transition: 1s;
+}
+
+.about-wrapper .sec-instagram .insta-caption {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    bottom: 0;
+    padding: 50px;
+    color: white;
+    opacity: 0;
+    transition: 1.5s;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    word-break: break-word;
+    line-height: 2em;
+    height: 17em;
+}
+
+.about-wrapper .sec-instagram .insta-image-wrap:hover .insta-image {
+    transform: scale(1.1);
+    opacity: .2 !important;
+    transition: .3s;
+}
+
+.about-wrapper .sec-instagram .insta-image-wrap:hover .insta-caption {
+    opacity: 1;
+}
+
+.about-wrapper .sec-contact .f-subhead {
+    line-height: 2.3;
+}

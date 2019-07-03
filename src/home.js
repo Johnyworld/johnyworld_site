@@ -7,7 +7,6 @@ import {
     setMouseHover, 
     smoothScroll, 
     animOutFade,
-    // animOutLoading,
     scrollFloating,
     slideTranslate } from './components/func/animates';
 import {
@@ -46,6 +45,7 @@ class Home extends Component {
 
         let canWheel = true;
         let sectionGnb = true;
+        let propsHistory = this.props.history;
 
         // FUNCTIONS
         const mainMenuFollowingMouse = (event) => {
@@ -117,27 +117,6 @@ class Home extends Component {
 
         // HANDLERS
         //// -------------------------------
-        const mainCenterMenuClickHandler = () => {
-            canWheel = false;
-            let propsHistory = this.props.history;
-            mainMenuStop();
-            mainMenuRemoveHoverEvent();
-            jsMenuLeft.classList.add('is-hidden');
-            jsMenuRight.classList.add('is-hidden');
-            jsMenuVerticalLine.classList.add('is-hidden');
-            // jsMenuBgWrap.classList.add('is-hidden');
-            animOutSlideUp(jsMenuBgLeftChild);
-            animOutSlideUp(jsMenuBgRightChild);
-            setTimeout( function() { 
-                jsMenuTexts.classList.add('aligned'); 
-                jsMenuLeft.style.display = 'none';
-                jsMenuRight.style.display = 'none';
-            }, 1000 );
-            setTimeout( function() {
-                propsHistory.push('/work#home');
-            }, 2100);
-        }
-
         const handleMainMenuScrollFloating = () => {
             mainMenuStop();
             mainMenuRemoveHoverEvent();
@@ -214,9 +193,79 @@ class Home extends Component {
             }
         }
 
+        const mainCenterMenuClickHandler = () => {
+            canWheel = false;
+            mainMenuStop();
+            mainMenuRemoveHoverEvent();
+            jsMenuLeft.classList.add('is-hidden');
+            jsMenuRight.classList.add('is-hidden');
+            jsMenuVerticalLine.classList.add('is-hidden');
+            animOutSlideUp(jsMenuBgLeftChild);
+            animOutSlideUp(jsMenuBgRightChild);
+            setTimeout( function() { 
+                jsMenuTexts.classList.add('aligned'); 
+            }, 1000 );
+            setTimeout( function() {
+                propsHistory.push('/work#home');
+            }, 2100);
+        }
+
+        const mainLeftMenuClickHandler = () => {
+            canWheel = false;
+            mainMenuStop();
+            mainMenuRemoveHoverEvent();
+            jsMenuCenter.classList.add('is-hidden');
+            jsMenuRight.classList.add('is-hidden');
+            jsMenuVerticalLine.classList.add('is-hidden');
+            jsMenuBgLeftChild.classList.add('cue1');
+            animOutSlideUp(jsMenuBgRightChild);
+            setTimeout( function() {
+                jsMenuLeft.classList.add('aligned'); 
+            }, 900);
+            setTimeout( function() {
+                jsMenuBgLeftChild.classList.add('cue2');
+            }, 1000);
+            setTimeout( function() {
+                jsMenuBgLeftChild.classList.add('cue3');
+            }, 1800);
+            setTimeout( function() { 
+                jsMenuTexts.classList.add('aligned'); 
+            }, 2300 );
+            setTimeout( function() {
+                propsHistory.push('/blog#home');
+            }, 3500);
+        }
+
+        const mainRightMenuClickHandler = () => {
+            canWheel = false;
+            mainMenuStop();
+            mainMenuRemoveHoverEvent();
+            jsMenuLeft.classList.add('is-hidden');
+            jsMenuCenter.classList.add('is-hidden');
+            jsMenuVerticalLine.classList.add('is-hidden');
+            animOutSlideUp(jsMenuBgLeftChild);
+            setTimeout( function() {
+                jsMenuRight.classList.add('aligned');
+            }, 700);
+            setTimeout( function() {
+                jsMenuBgRightChild.classList.add('cue1');
+            }, 900);
+            setTimeout( function() {
+                jsMenuTexts.classList.add('aligned'); 
+            }, 2000);
+            setTimeout( function() {
+                jsMenuBgRightChild.classList.add('cue2');
+            }, 2100);
+            setTimeout( function() {
+                propsHistory.push('/about#home');
+            }, 3200);
+        }
+
         // EVENT LISTENERS
         window.addEventListener( 'wheel', handleWheelAtHome, { passive: false });
         jsMenuCenter.addEventListener( 'click', mainCenterMenuClickHandler );
+        jsMenuLeft.addEventListener( 'click', mainLeftMenuClickHandler );
+        jsMenuRight.addEventListener( 'click', mainRightMenuClickHandler );
         jsCodeLabBtn.addEventListener( 'click', codeLabBtnHandler );
         window.addEventListener( 'mousemove', mainMenuFollowingMouse );
         window.addEventListener( 'resize', handleResize );
@@ -279,7 +328,7 @@ class Home extends Component {
                                 <a className="c-gray-dark f-eng f-normal" href="https://www.behance.net/johnykim1" target="blank">Behance</a>
                                 <a className="c-gray-dark f-eng f-normal" href="https://github.com/Johnyworld" target="blank">GitHub</a>
                                 <a className="c-gray-dark f-eng f-normal" href="https://codepen.io/johnyworld/" target="blank">Codepen</a>
-                                <button className="f-normal c-wine f-eng f-normal" id="jsCodeLabBtn">Code Study</button>
+                                <button className="f-normal c-wine f-eng f-bold" id="jsCodeLabBtn">Toy Project</button>
                             </li>
                         </ul>
                     </div>
@@ -294,7 +343,7 @@ class Home extends Component {
                     </div>
                 </div>
                 <div className="home-section" id="home-Laboratory">
-                    <LabSlider />
+                    <LabSlider history={this.props.history} />
                 </div>
             </>
         )

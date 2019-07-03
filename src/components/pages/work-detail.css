@@ -1,31 +1,34 @@
 
 /* COMMON */
 /* -------------------------------------- */
-.work-detail-wrapper { overflow: hidden; }
-.work-detail-wrapper .f-bigtitle { text-transform: uppercase; }
-.work-detail-wrapper .f-subhead { font-size: 45px; }
-.work-detail-wrapper section { margin: 150px 0; }
-.work-detail-wrapper section .text-wrap { padding: 0 7%; }
-.work-detail-wrapper section .text-wrap.title-area > * { margin: 30px 0; }
-.work-detail-wrapper section .text-wrap.title-area > *:first-child { margin-top: 0; }
-.work-detail-wrapper section .text-wrap.title-area > *:last-child { margin-bottom: 0; }
-.work-detail-wrapper section .f-normal:not(:last-child) { margin-bottom: 30px; }
-.work-detail-wrapper section .f-normal strong { display: block; color: white; font-weight: 400; }
-.work-detail-wrapper section img { display: block; width: 100%; }
+.subpage-content { overflow: hidden; }
+.subpage-content section { margin: 150px 0; }
+.subpage-content section .text-wrap .f-title { margin-left: -.12em; margin-bottom: 20px; }
+.subpage-content section .text-wrap .f-heading { margin-bottom: 20px; }
+.subpage-content section .text-wrap .f-normal:not(:last-child) { margin-bottom: 30px; }
+.subpage-content section .text-wrap .f-normal strong { display: block; color: white; font-weight: 400; }
+.subpage-content section .text-wrap.title-area > * { margin: 30px 0; }
+.subpage-content section .text-wrap.title-area > *:first-child { margin-top: 0; }
+.subpage-content section .text-wrap.title-area > *:last-child { margin-bottom: 0; }
+.subpage-content section img { display: block; width: 100%; }
+.subpage-content section .image-wrap { overflow: hidden; }
 
-/* WORK DETAIL COMMON */
-/* -------------------------------------- */
-
+/* for Text Animate */
+.text-wrap { padding: 0 7%; margin-bottom: 30px; }
 
 /* WORK DETAIL EACH */
 /* -------------------------------------- */
-.work-detail-wrapper .detail-each section { padding: 150px 0 0; margin: 0; }
-.work-detail-wrapper .detail-each section:nth-child(2n-1) { background-color: #1d1d1d; }
-.work-detail-wrapper .detail-each section:nth-child(2n) { background-color: #111; }
-.work-detail-wrapper .detail-each section.sec-bright { background-color: #222; }
-.work-detail-wrapper .detail-each section > * > * { margin-bottom: 70px; }
-.work-detail-wrapper .detail-each section > *:last-child > *:last-child { margin-bottom: 0px; }
-.work-detail-wrapper .detail-each section .text-wrap .f-title { margin-left: -.12em; margin-bottom: 20px; }
+.subpage-content .detail-each section { padding: 150px 0 0; margin: 0; }
+.subpage-content .detail-each section:nth-child(2n-1) { background-color: #1d1d1d; }
+.subpage-content .detail-each section:nth-child(2n) { background-color: #111; }
+.subpage-content .detail-each section.sec-bright { background-color: #222; }
+.subpage-content .detail-each section > * > * { margin-bottom: 70px; }
+.subpage-content .detail-each section > *:last-child > *:last-child { margin-bottom: 0px; }
+
+.jsTitleChildren { opacity: 0; transform: translateY(50px); transition: 1s; }
+.jsTitleChildren.is-appear { opacity: 1; transform: translateY(0); }
+.jsTextAppear { opacity: 0; transform: translateY(50px); transition: 1s; }
+.jsTextAppear.is-appear { opacity: 1; transform: translateY(0); }
 
 /* 사이트보기 버튼 */
 .viewsite-btn { position: fixed; top: 260px; left: 6%; width: 67px; color: #bbb; z-index: 9998; text-align: center; line-height: 1.2; font-size: 14px; transition: .5s; }
@@ -33,11 +36,11 @@
 .viewsite-btn:hover { color: #ff4b7b; transform: scale(1.2); }
 
 /* 키워드 */
-.work-detail-wrapper .info .keywords { display: inline-block; color: #aaa; overflow: hidden; }
-.work-detail-wrapper .info .keywords li { float: left; margin-right: 30px; }
-.work-detail-wrapper .info .keywords li:last-child { margin-right: 0; }
-.work-detail-wrapper .info .keywords li .btn-viewsite { color: #ff4b7b; transition: .3s; }
-.work-detail-wrapper .info .keywords li .btn-viewsite:hover { color: white; }
+.subpage-content .info .keywords { display: inline-block; color: #aaa; overflow: hidden; }
+.subpage-content .info .keywords li { float: left; margin-right: 30px; }
+.subpage-content .info .keywords li:last-child { margin-right: 0; }
+.subpage-content .info .keywords li .btn-viewsite { color: #ff4b7b; transition: .3s; }
+.subpage-content .info .keywords li .btn-viewsite:hover { color: white; }
 
 /* 다음글, 이전글 버튼 */
 .next-and-prev { margin: 230px 0; }
@@ -108,122 +111,6 @@
 
 .next-and-prev .btn-wrap.prev .text-wrap .f-normal {
     color: #3976fe;
-}
-
-.detail-section {
-    margin: 120px 0;
-}
-
-.detail-section.full {
-    padding: 150px 0;
-}
-
-.detail-section.key-section {
-    margin-top: 0;
-    padding-top: 120px;
-    background-image: url('../../images/work-detail/work-detail-bg.png');
-    background-repeat: repeat-x;
-    background-size: contain;
-}
-
-.detail-section.info-section {
-    padding-bottom: 150px;
-    border-bottom: 1px solid #222;
-}
-
-.detail-section.design-image-section {
-    padding-bottom: 150px;
-    background-color: #1f2021;
-    background-image: url('../../images/work-detail/work-design-bg.png');
-    background-repeat: repeat-x;
-    background-size: auto;
-    background-position: top
-}
-
-.detail-section.design-image-section img {
-    box-shadow: 10px 30px 20px rgba(0,0,0, .35);
-    display: block;
-}
-
-.detail-section img {
-    width: 100%;
-}
-
-.detail-section .f-title {
-    margin-bottom: 15px;
-    margin-top: -.05em;
-}
-
-.detail-section .maintext {
-    font-size: 18px;
-    line-height: 1.8;
-    color: #aaa;
-    padding: 20px 30px;
-    border-left: 10px solid #222;
-}
-
-.detail-section .detail-heading {
-    overflow: hidden;
-}
-
-.detail-section .detail-heading > * {
-    float: left;
-    width: 50%;
-}
-
-.detail-section .detail-heading .f-normal:not(:last-child) {
-    margin-bottom: 20px;
-}
-
-.detail-section .f-normal strong {
-    display: block;
-    color: white;
-    font-weight: 400;
-}
-
-.detail-section .detail-center {
-    text-align: center;
-}
-
-.detail-section .detail-center .f-title {
-    margin-bottom: 30px;
-}
-
-.detail-section .detail-center .f-normal {
-    max-width: 600px;
-    margin: auto;
-}
-
-.detail-section .perspective {
-    transform: rotate(7deg) skewX(-10deg);
-}
-
-.detail-section .perspective.gap {
-    margin: 80px 0 150px;
-}
-
-/* KRX PAGE */
-.detail-section .f-title.krx::before{
-    content: ' ';
-    display: block;
-    width: 30px;
-    height: 30px;
-    margin: 0 auto 50px;
-    background-image: url('../../images/work-detail/krx-seeds-icon.png');
-}
-
-.detail-section .krx-dream {
-    margin: -50px 0;
-}
-
-.detail-section .img-not-wrapped {
-    margin: auto;
-}
-
-.detail-section .krx-img-gap {
-    display: block;
-    margin-top: 50px;
-    margin-bottom: 50px;
 }
 
 .l-wrapper.krx-tutorial {

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { reactRouteScrollTop } from '../func/functions';
 import { setMouseHover, animOutLoading } from '../func/animates';
 import dataLabslider from '../data/data-lab-slider';
-import Header from '../partials/header';
 
 import canvasCollision1Script from './lab-detail/canvas-collision1';
 import canvasCollision2Script from './lab-detail/canvas-collision2';
@@ -59,7 +58,7 @@ class LabDetail extends Component {
                     loaded: true
                 });
                 animOutLoading( jsFullScreenWrap01, jsFullScreenWrap02, jsLoading );
-                this._definePage();
+                this._animates();
             }, 1000);
         }
         handlePageLoaded();
@@ -68,7 +67,7 @@ class LabDetail extends Component {
         // window.addEventListener( 'load', handleLoaded.bind(this));
     }
 
-    _definePage() {
+    _animates() {
         reactRouteScrollTop();
         if ( this.state.id === 'collision1' ) { canvasCollision1Script(); }
         if ( this.state.id === 'collision2' ) { canvasCollision2Script(); }
@@ -90,7 +89,6 @@ class LabDetail extends Component {
 
         return (
             <>
-                <Header goBack={this.goBack} />
                 <content className="lab-detail">
                     <h1 className="lab-detail-title f-title f-eng-title">{this.data.title}</h1>
                     {labDetailContent}

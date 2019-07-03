@@ -1,5 +1,3 @@
-
-
 .lab-slider-wrapper {
     position: absolute;
     top: 55%;
@@ -7,19 +5,26 @@
     width: 100%;
 }
 
-.lab-slider-wrapper .index {
+.lab-slider-wrapper .index-wrap {
     position: absolute;
-    z-index: 50;
-    top: 65px;
-    font-size: 170px;
-    line-height: 1;
+    top: 67px;
     left: 16%;
+    overflow: hidden;
+    font-size: 150px;
+    line-height: 1;
+    z-index: 50;
+    font-family: 'S-CoreDream-3Light', serif;
 }
+
+.lab-slider-wrapper .index-wrap .index {
+    display: inline-block;
+    transition: 1.8s;
+}
+
 
 .lab-slider-wrapper .lab-title {
     position: relative;
     margin-left: -1.3em;
-    text-transform: uppercase;
     color: #fff;
     white-space: nowrap;
     transition: 1.8s;
@@ -140,7 +145,8 @@
     position: relative;
     transition: .5s;
     display: inline-block;
-    margin: 60px 0 80px;
+    margin: 60px 0 60px;
+    text-align: left;
 }
 
 .lab-slider-wrapper .slider-item .text-wrap .title-wrap .btn-more {

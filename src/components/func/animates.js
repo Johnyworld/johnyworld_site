@@ -122,24 +122,86 @@ export const animInWidth = (element, duration) => {
         { width: 0 },
         { width: '100%' }
     ], {
-        duration: duration,
+        duration : duration,
         easing: 'cubic-bezier(.13,.84,.35,1)'
     });
     element.style.width = '100%';
 }
 
-export const animInScale = (element) => {
-    element.animate(
-        [
-            { width: '0%', opacity: '0' },
-            { width: '100%', opacity: '1' }
-        ], {
-            duration: 1200,
-            easing: 'cubic-bezier(.23,.44,.41,.95)'
+export const animInAllOfTexts = (allOfTextWrap, delay) => {
+    setTimeout( function() {
+        animInTextGradientByTurnHandler( allOfTextWrap );
+        for ( let i=0; i<allOfTextWrap.length; i++ ) {
+            const allOfTextWrapEachColumn = allOfTextWrap[i].getElementsByClassName('l-col');
+            animInTextGradientByTurnHandler( allOfTextWrapEachColumn );
+        }  
+    }, delay);
+}
+
+export const animInTextGradientByTurnHandler = (elements) => {
+    const animInTextGradientByTurn = (nowScroll, elements) => {
+        for ( let i=0; i<elements.length; i++ ) {
+            let YY = window.pageYOffset + elements[i].getBoundingClientRect().top;
+            if ( YY < window.innerHeight ) {
+                setTimeout( function() {
+                    elements[i].classList.add('is-appear');
+                }, i*200);
+                continue;
+            }
+            if ( YY < nowScroll + window.innerHeight ) {
+                setTimeout( function() {
+                    elements[i].classList.add('is-appear');
+                }, elements[i].offsetLeft/2);
+            }
         }
-    );
+    }
+    animInTextGradientByTurn( 0, elements );
+    window.addEventListener('scroll', function(event) {
+        let nowScroll = window.scrollY;
+        animInTextGradientByTurn( nowScroll, elements );
+    });
+}
+
+export const animInWidthByTurnHandler = (elements) => {
+    const animInWidthByTurn = (nowScroll, elements) => {
+        for ( let i=0; i<elements.length; i++ ) {
+            let YY = window.pageYOffset + elements[i].getBoundingClientRect().top;
+            if ( YY < nowScroll + window.innerHeight ) {
+                animInScale(elements[i]);
+            }
+        }
+    }
+    animInWidthByTurn( 0, elements );
+    window.addEventListener('scroll', function(event) {
+        let nowScroll = window.scrollY;
+        animInWidthByTurn( nowScroll, elements );
+    });
+}
+
+export const animInScale = (element) => {
+    element.animate([
+        { width: 0, opacity: 0 },
+        { width: '100%', opacity: '1' }
+    ], {
+        easing: 'cubic-bezier(.23,.44,.41,.95)'
+    });
     element.style.width = '100%';
     element.style.opacity = '1';
+}
+
+export const animInFade = ( element, duration, delay ) => {
+    element.style.opacity = 0; 
+    element.animate([
+        { opacity: 0 },
+        { opacity: 1 }
+    ], {
+        duration: duration,
+        delay: delay
+    })
+    setTimeout( function() {
+        element.style.opacity = 1;
+    }, delay);
+    
 }
 
 export const animOutFade = ( element, duration, delay ) => {
@@ -287,56 +349,7 @@ export const smoothScroll = (target, duration) => {
 }
 
 
-const Animate = () => {
-    
-    
 
-    
-
-    // const clickedWork = () => {
-    //     smoothScroll('#home-Work', 2000);
-    //     setTimeout(() => {
-    //         let clean_uri = window.location.href.split('#')[0];
-    //         window.history.replaceState({}, document.title, clean_uri);    
-    //     }, 50);
-    // }
-
-    
-
-    // window.addEventListener( 'scroll', function() {
-    //     let nowScroll = window.scrollY;
-    //     scrollFloating( nowScroll, mountainFirst, 3 );
-    //     scrollFloating( nowScroll, mountainSecond, 2 );
-    //     scrollFloating( nowScroll, mountainThird, 1.5 );
-    //     scrollFloating( nowScroll, mainText, -3 );
-    //     scrollFloating( nowScroll, moon, -15 );
-    //     scrollScale( nowScroll, mountainFirst, 100 );
-    //     scrollFadeOut( nowScroll, jsIconWheel, 50 );
-    //     scrollFadeIn(nowScroll, jsBtnTop, window.innerHeight-50 );
-    //     scrollFadeOut( nowScroll, jsIconWheel, 50);
-    //     scrollFadeOut( nowScroll, homeLiboratoryTextbox, getAbsoluteTop(homeLiboratoryTextbox)-200);
-    // });
-
-    // jsIconWheel.addEventListener( 'click', function() {
-    //     smoothScroll('#home-Work', 3000);
-    // });
-
-    // jsBtnTop.addEventListener( 'click', function() {
-    //     smoothScroll('body', 2000);
-    // });
-
-    // jsBtnGnbWork.addEventListener( 'click', function() {
-    //     if ( window.location.pathname === '/' ) {
-    //         clickedWork();
-    //     }
-    // });
-
-    // if ( window.location.hash === "#work" ) {
-    //     clickedWork();
-    // }
-
-}
-export default Animate;
 
 
 

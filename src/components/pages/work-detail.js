@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import dataWorkReverse from '../data/data-work';
 import './work-detail.css';
-import { scrollFadeIn, setMouseHover, animInLoading, animOutLoading } from '../func/animates';
+import { scrollFadeIn, setMouseHover, animInLoading, animOutLoading, 
+    animInAllOfTexts } from '../func/animates';
 import { reloadRoute, reactRouteScrollTop } from '../func/functions';
 
 import BigpictureEnt from './work-detail/bigpicture-ent';
@@ -52,34 +53,6 @@ class WorkDetail extends Component {
             this.init();
             this.render();
         }
-
-        // this.clickPrev = () => {
-        //     const jsFullScreenWrap01 = document.getElementById('jsFullScreenWrap01');
-        //     const jsFullScreenWrap02 = document.getElementById('jsFullScreenWrap02');
-        //     const jsLoading = document.getElementById('jsLoading');
-        //     let prevUrl = '/work/' + this.prev.slug.toString();
-        //     let history = this.props.history;
-
-        //     animInLoading( jsFullScreenWrap01, jsFullScreenWrap02, jsLoading );
-        
-        //     setTimeout(function(){
-        //         reloadRoute(history, prevUrl);
-        //     }, 2300);
-        // }
-
-        // this.clickNext = () => {
-        //     const jsFullScreenWrap01 = document.getElementById('jsFullScreenWrap01');
-        //     const jsFullScreenWrap02 = document.getElementById('jsFullScreenWrap02');
-        //     const jsLoading = document.getElementById('jsLoading');
-        //     let nextUrl = '/work/' + this.next.slug.toString();
-        //     let history = this.props.history;
-
-        //     animInLoading( jsFullScreenWrap01, jsFullScreenWrap02, jsLoading );
-
-        //     setTimeout(function(){
-        //         reloadRoute(history, nextUrl);
-        //     }, 2100);
-        // }
             
         this.loadRoute();
     }    
@@ -89,13 +62,14 @@ class WorkDetail extends Component {
         this._nowLoading();
     }
 
-    _definePage() {
+    _animates() {
         const jsFullScreenWrap01 = document.getElementById('jsFullScreenWrap01');
         const jsFullScreenWrap02 = document.getElementById('jsFullScreenWrap02');
         const jsLoading = document.getElementById('jsLoading');
         const jsViewsiteBtn = document.getElementById('jsViewsiteBtn');
         const jsBtnNext = document.getElementById('jsBtnNext');
         const jsBtnPrev = document.getElementById('jsBtnPrev');
+        const jsTextAppear = document.getElementsByClassName('jsTextAppear');
 
         // HANDLER
         const handleClickPrev = () => {
@@ -142,6 +116,14 @@ class WorkDetail extends Component {
         handlePageLoaded();
         reactRouteScrollTop();
         setMouseHover();
+        animInAllOfTexts(jsTextAppear, 800);
+        // setTimeout( function() {
+        //     for ( let i=0; i<jsTitleAreaChildren.length; i++ ) {
+        //         setTimeout( function() {
+        //             jsTitleAreaChildren[i].classList.add('is-appear');
+        //         }, i*150)
+        //     }
+        // }, 800)
     }
 
     _nowLoading() {
@@ -161,13 +143,12 @@ class WorkDetail extends Component {
                     loaded: true
                 });
                 animOutLoading( jsFullScreenWrap01, jsFullScreenWrap02, jsLoading );
-                this._definePage();
+                this._animates();
             }, 1000);
         }
 
         handlePageLoaded();
         handleLoaded();
-        // window.addEventListener( 'load', handleLoaded.bind(this));
     }
 
     _renderContent() {
@@ -180,6 +161,26 @@ class WorkDetail extends Component {
         if (this.state.id === 'samsung-pssd') { workDetailContent = <Pssd /> }
         if (this.state.id === 'camping-poster') { workDetailContent = <Camping /> }
 
+        let splitTitle = this.data.title.split(' ');
+        console.log(splitTitle);
+        const sumTitle = () => {
+            return(
+                <>
+                    { splitTitle.map((item, key)=>{
+                        console.log(item);
+                        return(
+                            <div>aaa</div>
+                            // key === 0
+                            // ? <>{item}<br /></>
+                            // : <>{item}&nbsp;</>
+                        )
+                    })}
+                </>
+            )
+        }
+        console.log(sumTitle);
+        
+
         return (
             <>
                 {this.data.url
@@ -189,13 +190,13 @@ class WorkDetail extends Component {
                     <div className="detail-main">
                         <section>
                             <div className="l-wrapper">
-                                <div className="text-wrap title-area">
-                                    <h1 className="f-bigtitle f-eng-title">{this.data.title}</h1>
-                                    <p className="f-subhead">{this.data.comment}</p>
-                                    <div className="info">
+                                <div className="text-wrap title-area" id="jsTitleArea">
+                                    <h1 className="f-bigtitle f-eng-title jsTitleChildren jsTextAppear">{ splitTitle.map((item, key) => key === 0 ? <>{item}<br /></> : <>{item}&nbsp;</> )}</h1>
+                                    <p className="f-heading jsTitleChildren jsTextAppear">{this.data.comment}</p>
+                                    <div className="info jsTitleChildren jsTextAppear">
                                         <ul className="keywords f-normal">
-                                            {this.data.keywords.map((item, index) => {
-                                                return (<li key={`list-${index}`}>{item}</li>)
+                                            {this.data.keywords.map((item, key) => {
+                                                return (<li key={`list-${key}`}>{item}</li>)
                                             })}
                                             {this.data.url ?
                                             <li><a href={this.data.url} target="blank" className="btn-viewsite">사이트 보기 ></a></li> 
@@ -217,11 +218,11 @@ class WorkDetail extends Component {
                             <div className="l-wrapper">
                                 <div className="text-wrap">
                                     <ul className="l-row">
-                                        <li className="l-col l-col-6-12"><h2 className="f-title">프로젝트<br />개요</h2></li>
+                                        <li className="l-col l-col-6-12"><h2 className="f-title jsTextAppear">프로젝트<br />개요</h2></li>
                                         <li className="l-col l-col-6-12">
                                             { this.data.summary.map( (item, key) => {
                                                 return (
-                                                    <p key={'summary-item'+{key}} className="f-normal">
+                                                    <p key={'summary-item'+{key}} className="f-normal jsTextAppear">
                                                         <strong>{item.title}</strong>
                                                         { item.desc.map( (descItem, key) => <>{descItem}<br /></> ) }
                                                     </p>
@@ -280,7 +281,7 @@ class WorkDetail extends Component {
 
     render() {
         return(
-            <main className="work-detail-wrapper">
+            <main className="subpage-content">
                 {this.state.loaded ? this._renderContent() : 'loading...' }
             </main>
         )

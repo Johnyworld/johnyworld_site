@@ -40,6 +40,41 @@ export const slideTranslate = ( element, distance, target, duration, ease='cubic
     });
 }
 
+// 패럴렉스 이미지
+// ---------------------------------------
+export const scrollParallaxImages = ( elements ) => {
+    // 부모 자식 엘리먼트의 비율과 윈도우 높이에 대한 비율에 맞에 페럴렉스 되는 함수입니다.
+    // 부모엘리먼트 : elements 매개변수는 부모 엘리먼트의 className을 받습니다. overflow: hidden 필수.
+    // 자식엘리먼트 : 부모엘리먼트 태그 안에 자식엘리먼트 (이미지) jsScrollParallaxImage 클래스가 있어야 함.
+    // 부모엘리먼트보다 자식엘리먼트의 height 값이 커야합니다.
+    const parallaxImages = ( nowScroll, elements ) => {
+        for ( let i=0; i<elements.length; i++ ) {
+            let elementImage = elements[i].getElementsByClassName('jsScrollParallaxImage');
+            let min = window.pageYOffset + elements[i].getBoundingClientRect().top - window.innerHeight + elements[i].offsetHeight;
+    
+            for ( let j=0; j<elementImage.length; j++ ) {
+                let gap = elements[i].offsetHeight - elementImage[j].offsetHeight;
+                let wrapperTop = window.pageYOffset + elements[i].getBoundingClientRect().top;
+                let elementTop = wrapperTop + gap;
+                let moveRatio = (wrapperTop-min) / (elementTop-min); 
+                let trans = nowScroll - min - ((nowScroll-min) / moveRatio);
+    
+                elementImage[j].style.marginTop = gap + 'px';
+                elementImage[j].style.transform = "translateY("+ trans +"px)"
+            }
+        }
+    }
+    setTimeout(()=>{
+        parallaxImages( window.scrollY, elements );
+    }, 10)
+    window.addEventListener('scroll', function(event) {
+        let nowScroll = window.scrollY;
+        parallaxImages( nowScroll, elements );
+    });
+}
+
+// 스크롤 애니메이션들
+// ---------------------------------------
 export const scrollFloating = (nowScroll, element, speed) => {
     let yy = Math.floor(nowScroll / speed);
     element.style.transform = 'translateY(' + yy + 'px)';
@@ -77,6 +112,8 @@ export const scrollScale = (nowScroll, element, scale=100) => {
     element.style.transform = tf + 'scale(' + scale / 100 + ')'
 }
 
+// 등장 or 퇴장 애니메이션들
+// ---------------------------------------
 export const animOutSlideUp = (element) => {
     element.style.transform = 'scaleY(0)';
 }
@@ -128,18 +165,10 @@ export const animInWidth = (element, duration) => {
     element.style.width = '100%';
 }
 
-export const animInAllOfTexts = (allOfTextWrap, delay) => {
-    setTimeout( function() {
-        animInTextGradientByTurnHandler( allOfTextWrap );
-        for ( let i=0; i<allOfTextWrap.length; i++ ) {
-            const allOfTextWrapEachColumn = allOfTextWrap[i].getElementsByClassName('l-col');
-            animInTextGradientByTurnHandler( allOfTextWrapEachColumn );
-        }  
-    }, delay);
-}
-
-export const animInTextGradientByTurnHandler = (elements) => {
-    const animInTextGradientByTurn = (nowScroll, elements) => {
+// is-appear 클래스로 나타나는 애니메이션 
+// ---------------------------------------
+export const animInAppear = (elements, delay) => {
+    const animInAppearByTurn = (nowScroll, elements) => {
         for ( let i=0; i<elements.length; i++ ) {
             let YY = window.pageYOffset + elements[i].getBoundingClientRect().top;
             if ( YY < window.innerHeight ) {
@@ -155,38 +184,13 @@ export const animInTextGradientByTurnHandler = (elements) => {
             }
         }
     }
-    animInTextGradientByTurn( 0, elements );
-    window.addEventListener('scroll', function(event) {
-        let nowScroll = window.scrollY;
-        animInTextGradientByTurn( nowScroll, elements );
-    });
-}
-
-export const animInWidthByTurnHandler = (elements) => {
-    const animInWidthByTurn = (nowScroll, elements) => {
-        for ( let i=0; i<elements.length; i++ ) {
-            let YY = window.pageYOffset + elements[i].getBoundingClientRect().top;
-            if ( YY < nowScroll + window.innerHeight ) {
-                animInScale(elements[i]);
-            }
-        }
-    }
-    animInWidthByTurn( 0, elements );
-    window.addEventListener('scroll', function(event) {
-        let nowScroll = window.scrollY;
-        animInWidthByTurn( nowScroll, elements );
-    });
-}
-
-export const animInScale = (element) => {
-    element.animate([
-        { width: 0, opacity: 0 },
-        { width: '100%', opacity: '1' }
-    ], {
-        easing: 'cubic-bezier(.23,.44,.41,.95)'
-    });
-    element.style.width = '100%';
-    element.style.opacity = '1';
+    setTimeout(() => {
+        animInAppearByTurn( 0, elements );
+        window.addEventListener('scroll', function(event) {
+            let nowScroll = window.scrollY;
+            animInAppearByTurn( nowScroll, elements );
+        });
+    }, delay);
 }
 
 export const animInFade = ( element, duration, delay ) => {
@@ -234,18 +238,8 @@ export const animOutLoading = (jsFullScreenWrap01, jsFullScreenWrap02, jsLoading
     }, 500);
 }
 
-export const getAbsoluteTop = (element) => {
-    return window.pageYOffset + element.getBoundingClientRect().top;
-}
-
-export const rotateInfinity = (element) => {
-    var degree = 0;
-    setInterval(() => {
-        degree += 0.01;
-        element.style.transform = 'rotate(' + degree + 'deg)';
-    }, 10);
-}
-
+// 마우스 스크롤 스무드
+// ---------------------------------------
 export class SmoothMouseScroll {
     constructor(target, speed, smooth) {
         if (target === document)
@@ -312,10 +306,10 @@ export class SmoothMouseScroll {
             );
         }()
     }
-
-	
 }
 
+// 타겟의 높이값으로 이동하는 애니메이션
+// ---------------------------------------
 export const smoothScroll = (target, duration) => {
     const Target = document.querySelector(target);
     const targetPos = Target.offsetTop;

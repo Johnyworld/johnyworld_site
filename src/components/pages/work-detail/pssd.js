@@ -1,14 +1,46 @@
 import React, { Component } from 'react';
 
-import pssd01 from '../../../images/work-detail/pssd-01.jpg';
-import pssd02 from '../../../images/work-detail/pssd-02.jpg';
-import pssd03 from '../../../images/work-detail/pssd-03.jpg';
+import styleColors from '../../../images/work-detail-bigpic/bigpic-style-color.png';
+import styleFonts from '../../../images/work-detail-bigpic/bigpic-style-fonts.png';
+import styleIcons from '../../../images/work-detail-bigpic/bigpic-style-icons.png';
+import styleButtons from '../../../images/work-detail-bigpic/bigpic-style-buttons.png';
+import pssd01 from '../../../images/work-detail-pssd/pssd-01.jpg';
+import pssd02 from '../../../images/work-detail-pssd/pssd-02.jpg';
+import pssd03 from '../../../images/work-detail-pssd/pssd-03.jpg';
 
 class Pssd extends Component {
     render() {
         return (
             <div className="detail-each">
-                <section>
+                <section className="sec-padded-end sec-style-guide">
+                    <div className="l-wrapper">
+                        <div className="text-wrap">
+                            <div className="l-row">
+                                <div className="l-col l-col-6-12 jsAppearBtT"><p className="f-subhead f-bold">Colors</p></div>
+                                <div className="l-col l-col-6-12 jsAppearBtT"><img src={styleColors} alt="스타일-색상" /></div>
+                            </div>
+                        </div>
+                        <div className="text-wrap">
+                            <div className="l-row">
+                                <div className="l-col l-col-6-12 jsAppearBtT"><p className="f-subhead f-bold">Fonts</p></div>
+                                <div className="l-col l-col-6-12 jsAppearBtT"><img src={styleFonts} alt="스타일-폰트" /></div>
+                            </div>
+                        </div>
+                        <div className="text-wrap">
+                            <div className="l-row">
+                                <div className="l-col l-col-6-12 jsAppearBtT"><p className="f-subhead f-bold">Icons</p></div>
+                                <div className="l-col l-col-6-12 jsAppearBtT"><img src={styleIcons} alt="스타일-아이콘" /></div>
+                            </div>
+                        </div>
+                        <div className="text-wrap">
+                            <div className="l-row">
+                                <div className="l-col l-col-6-12 jsAppearBtT"><p className="f-subhead f-bold">Buttons</p></div>
+                                <div className="l-col l-col-6-12 jsAppearBtT"><img src={styleButtons} alt="스타일-버튼" /></div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section className="sec-padded-end">
                     <div className="l-wrapper">
                         <div className="text-wrap">
                             <h2 className="f-title">쉽고 차분한 진행 과정</h2>
@@ -17,7 +49,7 @@ class Pssd extends Component {
                         <img src={pssd01} alt="designimg" />
                     </div>
                 </section>
-                <section>
+                <section className="sec-padded-end">
                     <div className="l-wrapper">
                         <div className="text-wrap">
                             <h2 className="f-title">손쉬운 사용자 관리 프로세스</h2>

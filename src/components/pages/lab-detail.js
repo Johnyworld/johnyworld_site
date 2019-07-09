@@ -12,7 +12,6 @@ import Gravity from './lab-detail/gravity';
 import Cells from './lab-detail/cells';
 import RpgMoving from './lab-detail/rpg-moving';
 import MarioKart from './lab-detail/mariokart';
-import Moon from './lab-detail/moon';
 
 
 import './lab-detail.css';
@@ -85,7 +84,6 @@ class LabDetail extends Component {
         if ( this.state.id === 'gravity') { labDetailContent = <Gravity /> }
         if ( this.state.id === 'cells') { labDetailContent = <Cells /> }
         if ( this.state.id === 'mariojump') { labDetailContent = <MarioKart /> }
-        if ( this.state.id === 'moon') { labDetailContent = <Moon /> }
 
         return (
             <>

@@ -1,12 +1,17 @@
 import React, { Component } from 'react';
 import dataWorkReverse from '../data/data-work';
 import './work-detail.css';
-import { scrollFadeIn, setMouseHover, animInLoading, animOutLoading, 
-    animInAllOfTexts } from '../func/animates';
+import { scrollFadeIn, 
+    setMouseHover, 
+    scrollParallaxImages,
+    scrollFloating,
+    animInLoading, 
+    animOutLoading, 
+    animInAppear } from '../func/animates';
 import { reloadRoute, reactRouteScrollTop } from '../func/functions';
 
+import deviceMobileBg from '../../images/work-detail/devices-mobile.png';
 import BigpictureEnt from './work-detail/bigpicture-ent';
-import Bevl from './work-detail/bevl';
 import FanclubCoin from './work-detail/fanclub-coin';
 import Soohan from './work-detail/soohan';
 import Krx from './work-detail/krx';
@@ -69,7 +74,9 @@ class WorkDetail extends Component {
         const jsViewsiteBtn = document.getElementById('jsViewsiteBtn');
         const jsBtnNext = document.getElementById('jsBtnNext');
         const jsBtnPrev = document.getElementById('jsBtnPrev');
-        const jsTextAppear = document.getElementsByClassName('jsTextAppear');
+        const jsAppearBtT = document.getElementsByClassName('jsAppearBtT');
+        const jsAppearSlideToR = document.getElementsByClassName('jsAppearSlideToR');
+        const jsMobileMockup = document.getElementById('jsMobileMockup');
 
         // HANDLER
         const handleClickPrev = () => {
@@ -80,7 +87,7 @@ class WorkDetail extends Component {
         
             setTimeout(function(){
                 reloadRoute(history, prevUrl);
-            }, 2300);
+            }, 1300);
         }
 
         const handleClickNext = () => {
@@ -91,7 +98,7 @@ class WorkDetail extends Component {
 
             setTimeout(function(){
                 reloadRoute(history, nextUrl);
-            }, 2100);
+            }, 1300);
         }
 
         const handlePageLoaded = () => {
@@ -104,6 +111,9 @@ class WorkDetail extends Component {
         // LISTENER
         window.addEventListener('scroll', function () {
             let nowScroll = window.scrollY;
+            if (jsMobileMockup) {
+                scrollFloating( nowScroll, jsMobileMockup, -5 );
+            }
             if (jsViewsiteBtn) {
                 scrollFadeIn(nowScroll, jsViewsiteBtn, window.innerHeight+500 );
             }
@@ -116,14 +126,9 @@ class WorkDetail extends Component {
         handlePageLoaded();
         reactRouteScrollTop();
         setMouseHover();
-        animInAllOfTexts(jsTextAppear, 800);
-        // setTimeout( function() {
-        //     for ( let i=0; i<jsTitleAreaChildren.length; i++ ) {
-        //         setTimeout( function() {
-        //             jsTitleAreaChildren[i].classList.add('is-appear');
-        //         }, i*150)
-        //     }
-        // }, 800)
+        animInAppear(jsAppearBtT, 800);
+        animInAppear(jsAppearSlideToR, 1500);
+        scrollParallaxImages( jsAppearSlideToR );
     }
 
     _nowLoading() {
@@ -154,32 +159,13 @@ class WorkDetail extends Component {
     _renderContent() {
         let workDetailContent = null;
         if (this.state.id === 'bigpicture-ent') { workDetailContent = <BigpictureEnt /> }
-        if (this.state.id === 'bevl') { workDetailContent = <Bevl /> }
         if (this.state.id === 'fanclub-coin') { workDetailContent = <FanclubCoin /> }
         if (this.state.id === 'soo-clinic') { workDetailContent = <Soohan /> }
         if (this.state.id === 'krx') { workDetailContent = <Krx /> }
         if (this.state.id === 'samsung-pssd') { workDetailContent = <Pssd /> }
         if (this.state.id === 'camping-poster') { workDetailContent = <Camping /> }
 
-        let splitTitle = this.data.title.split(' ');
-        console.log(splitTitle);
-        const sumTitle = () => {
-            return(
-                <>
-                    { splitTitle.map((item, key)=>{
-                        console.log(item);
-                        return(
-                            <div>aaa</div>
-                            // key === 0
-                            // ? <>{item}<br /></>
-                            // : <>{item}&nbsp;</>
-                        )
-                    })}
-                </>
-            )
-        }
-        console.log(sumTitle);
-        
+        let splitTitle = this.data.title.split(' ');      
 
         return (
             <>
@@ -188,12 +174,14 @@ class WorkDetail extends Component {
                 : ''}
                 <div className="container">
                     <div className="detail-main">
+                        {/* 제목 섹션 */}
+                        {/* ----------------------------- */}
                         <section>
                             <div className="l-wrapper">
                                 <div className="text-wrap title-area" id="jsTitleArea">
-                                    <h1 className="f-bigtitle f-eng-title jsTitleChildren jsTextAppear">{ splitTitle.map((item, key) => key === 0 ? <>{item}<br /></> : <>{item}&nbsp;</> )}</h1>
-                                    <p className="f-heading jsTitleChildren jsTextAppear">{this.data.comment}</p>
-                                    <div className="info jsTitleChildren jsTextAppear">
+                                    <h1 className="f-bigtitle f-eng-title jsTitleChildren jsAppearBtT">{ splitTitle.map((item, key) => key === 0 ? <>{item}<br /></> : <>{item}&nbsp;</> )}</h1>
+                                    <p className="f-heading jsTitleChildren jsAppearBtT">{this.data.comment}</p>
+                                    <div className="info jsTitleChildren jsAppearBtT">
                                         <ul className="keywords f-normal">
                                             {this.data.keywords.map((item, key) => {
                                                 return (<li key={`list-${key}`}>{item}</li>)
@@ -206,11 +194,24 @@ class WorkDetail extends Component {
                                 </div>
                             </div>
                         </section>  
-                        <section className="sct-mockup-image">
+
+                        {/* 목업 섹션 */}
+                        {/* ----------------------------- */}
+                        <section>
                             <div className="l-wrapper">
-                                <div className="bgimg-wrap">
-                                    <div className="bgimg" style={{ backgroundColor: '#333', height: 628 }}></div>
-                                    {/* <div className="bgimg" style={{ backgroundImage: 'url(' + this.data.keyvisual + ')' }}></div> */}
+                                <div className="mockup-wrap">
+                                    <div className="bgimg-wrap jsAppearSlideToR">
+                                        <div className="bgimg" style={{ backgroundImage: 'url(' + this.data.screen + ')' }}></div>
+                                    </div>
+                                    {
+                                        this.data.mobileScreen ?
+                                        <div id="jsMobileMockup" >
+                                            <div className="mobile-img jsAppearBtT" style={{ backgroundImage: 'url(' + deviceMobileBg + ')' }}>
+                                                <div className="mobile-img-screen" style={{ backgroundImage: 'url(' + this.data.mobileScreen + ')' }}></div>
+                                            </div>
+                                        </div>
+                                        : ''
+                                    }
                                 </div>
                             </div>
                         </section>
@@ -218,11 +219,11 @@ class WorkDetail extends Component {
                             <div className="l-wrapper">
                                 <div className="text-wrap">
                                     <ul className="l-row">
-                                        <li className="l-col l-col-6-12"><h2 className="f-title jsTextAppear">프로젝트<br />개요</h2></li>
+                                        <li className="l-col l-col-6-12"><h2 className="f-title jsAppearBtT">프로젝트<br />개요</h2></li>
                                         <li className="l-col l-col-6-12">
                                             { this.data.summary.map( (item, key) => {
                                                 return (
-                                                    <p key={'summary-item'+{key}} className="f-normal jsTextAppear">
+                                                    <p key={'summary-item'+{key}} className="f-normal jsAppearBtT">
                                                         <strong>{item.title}</strong>
                                                         { item.desc.map( (descItem, key) => <>{descItem}<br /></> ) }
                                                     </p>
@@ -235,8 +236,8 @@ class WorkDetail extends Component {
                         </section>
                         <section>
                             <div className="l-wrapper-full">
-                                <div className="bgimg-wrap">
-                                    <div className="bgimg" style={{ backgroundColor: '#333', height: 485 }}></div>
+                                <div className="bgimg-wrap jsAppearSlideToR" style={{ height: 420 }}>
+                                    <div className="bgimg jsScrollParallaxImage" style={{ backgroundImage: 'url(' + this.data.keyvisual + ')', height: 530 }}></div>
                                 </div>
                             </div>
                         </section>

@@ -14,21 +14,28 @@
 .subpage-content section .image-wrap { overflow: hidden; }
 
 /* for Text Animate */
-.text-wrap { padding: 0 7%; margin-bottom: 30px; }
+.text-wrap { margin: 0 7%; margin-bottom: 30px; }
 
-/* WORK DETAIL EACH */
+/* WORK DETAIL Each Section */
 /* -------------------------------------- */
 .subpage-content .detail-each section { padding: 150px 0 0; margin: 0; }
 .subpage-content .detail-each section:nth-child(2n-1) { background-color: #1d1d1d; }
 .subpage-content .detail-each section:nth-child(2n) { background-color: #111; }
-.subpage-content .detail-each section.sec-bright { background-color: #222; }
-.subpage-content .detail-each section > * > * { margin-bottom: 70px; }
-.subpage-content .detail-each section > *:last-child > *:last-child { margin-bottom: 0px; }
 
-.jsTitleChildren { opacity: 0; transform: translateY(50px); transition: 1s; }
-.jsTitleChildren.is-appear { opacity: 1; transform: translateY(0); }
-.jsTextAppear { opacity: 0; transform: translateY(50px); transition: 1s; }
-.jsTextAppear.is-appear { opacity: 1; transform: translateY(0); }
+/* 섹션별 */
+.subpage-content .detail-each section.sec-bright { background-color: #222; }
+.subpage-content .detail-each section.sec-padded-end { padding-bottom: 150px; }
+.subpage-content .detail-each section.sec-style-guide .text-wrap:not(:last-child) { padding-bottom: 70px; border-bottom: 1px solid #292929; }
+.subpage-content .detail-each section.sec-style-guide img { display: block; width: auto; }
+.subpage-content .detail-each section > * > *:not(:last-child) { margin-bottom: 70px; }
+.subpage-content .detail-each section > *:last-child > *:last-child:not(.l-row) { margin-bottom: 0px; }
+
+/* 목업 */
+.mockup-wrap { position: relative; }
+.mockup-wrap .bgimg { background-size: cover; width: 1140px; height: 895px; margin: 0 auto 0 15%; }
+.mockup-wrap .mobile-img { position: absolute; bottom: -8em; left: 0; background-size: cover; height: 670px; width: 380px;  }
+.mockup-wrap .mobile-img:hover { opacity: 0; }
+.mockup-wrap .mobile-img-screen { margin: 15px; width: 268px; height: 579px; background-size: cover; }
 
 /* 사이트보기 버튼 */
 .viewsite-btn { position: fixed; top: 260px; left: 6%; width: 67px; color: #bbb; z-index: 9998; text-align: center; line-height: 1.2; font-size: 14px; transition: .5s; }
@@ -133,6 +140,13 @@
 .krx-public .krx-tut-img:last-child {
     margin-left: 10vw;
 }
+
+/* WORK DETAIL Each Pages */
+/* -------------------------------------- */
+/* 빅픽처 엔터테인먼트 */
+.biglogo-svg-wrap { width: 100%; padding: 60px 0 80px; background-color: #282828; }
+.biglogo-svg { display: block; width: 40%; height: 40%; margin: 0 auto; }
+
 
 @media screen and ( max-width: 1024px ) {
     .viewsite-btn {

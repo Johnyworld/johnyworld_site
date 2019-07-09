@@ -1,3 +1,4 @@
+// Thumbnails
 import workBgPssd from '../../images/workbg-pssd.jpg';
 import workBgKrx from '../../images/workbg-krx.jpg';
 import workBgSamsungTheme from '../../images/workbg-samsung-theme.jpg';
@@ -5,15 +6,30 @@ import workBgCamping from '../../images/workbg-camping.jpg';
 import workBgSoohan from '../../images/workbg-soo.jpg';
 import workBgFanclubCoin from '../../images/workbg-fanclub-coin.jpg';
 import workBgBigpictureEnt from '../../images/workbg-bigpicture.jpg';
-import workBgBevl from '../../images/workbg-bevl.jpg';
 
-import workKeyBgBigpictureEnt from '../../images/work-detail/bigpic-keyvisualbg.jpg';
-import workKeyBgBevl from '../../images/work-detail/bevl-keyvisualbg.jpg';
-import workKeyBgFanclubCoin from '../../images/work-detail/fancoin-keyvisualbg.jpg';
-import workKeyBgSoohan from '../../images/work-detail/soohan-keyvisualbg.jpg';
+// Keyvisualds
+import workKeyBgBigpictureEnt from '../../images/work-detail-bigpic/bigpic-keyvisualbg.jpg';
+import workKeyBgFanclubCoin from '../../images/work-detail-fancoin/fancoin-keyvisualbg.jpg';
+import workKeyBgSoohan from '../../images/work-detail-soohan/soohan-keyvisualbg.jpg';
 import workKeyBgKrx from '../../images/work-detail/krx-keyvisualbg.jpg';
-import workKeyBgPssd from '../../images/work-detail/pssd-keyvisualbg.jpg';
-import workKeyBgCamping from '../../images/work-detail/camping-keyvisualbg.jpg';
+import workKeyBgPssd from '../../images/work-detail-pssd/pssd-keyvisualbg.jpg';
+import workKeyBgCamping from '../../images/work-detail-camping/camping-keyvisualbg.jpg';
+
+// KeyScreens
+import workScreenBigpictureEnt from '../../images/work-detail-bigpic/bigpic-devices.jpg';
+import workScreenFanclubCoin from '../../images/work-detail-fancoin/fancoin-devices.jpg';
+import workScreenSoohan from '../../images/work-detail-soohan/soohan-devices.jpg';
+import workScreenKrx from '../../images/work-detail/krx-devices.jpg';
+import workScreenPssd from '../../images/work-detail-pssd/pssd-devices.jpg';
+import workScreenCamping from '../../images/work-detail-camping/camping-devices.jpg';
+
+// MobileScreens
+import workMobileBigpictureEnt from '../../images/work-detail-bigpic/bigpic-devices-mobile.jpg';
+import workMobileFanclubCoin from '../../images/work-detail-fancoin/fancoin-devices-mobile.jpg';
+import workMobileSoohan from '../../images/work-detail-soohan/soohan-devices-mobile.jpg';
+// import workMobileKrx from '../../images/work-detail/krx-devices-mobile.jpg';
+// import workMobilePssd from '../../images/work-detail/pssd-devices-mobile.jpg';
+import workMobileCamping from '../../images/work-detail-camping/camping-devices-mobile.jpg';
 
 const dataWork = [
     {
@@ -37,6 +53,8 @@ const dataWork = [
         category2: "Character & Map illustration",
         thumbnail: workBgCamping,
         keyvisual: workKeyBgCamping,
+        screen: workScreenCamping,
+        mobileScreen: workMobileCamping,
         date: "2014. 07"
     },
     {
@@ -88,6 +106,7 @@ const dataWork = [
         category2: "UX, UI Design",
         thumbnail: workBgKrx, 
         keyvisual: workKeyBgKrx,
+        screen: workScreenKrx,
         date: "2014. 12"
     },
     {
@@ -113,6 +132,7 @@ const dataWork = [
         category2: "UI Design",
         thumbnail: workBgPssd, 
         keyvisual: workKeyBgPssd,
+        screen: workScreenPssd,
         date: "2014. 08"
     },
     {
@@ -138,34 +158,10 @@ const dataWork = [
         category2: "Web Design + Wordpress",
         thumbnail: workBgSoohan,
         keyvisual: workKeyBgSoohan,
+        screen: workScreenSoohan,
+        mobileScreen: workMobileSoohan,
         date: "2018. ??",
         url: "http://soo-clinic.kr/"
-    },
-    {
-        id: "05007",
-        title: "Video Lightbox Plugin",
-        slug: "bevl",
-        comment: "비디오 라이트박스 슬라이드 플러그인 개발 (빅픽처엔터테인먼트 삽입)",
-        desc: [
-            "설명1",
-            "설명2",
-        ],
-        summary: [
-            { title:"참여인원", desc:["1명"] },
-            { title:"내 업무범위", desc:["기획, 디자인, 개발 - 100%"] },
-            { title:"플러그인 개발", desc:["클라이언트의 요청에 따라 비디오 라이트박스 플러그인을 개발했습니다. 기존의 비디오 재생 플러그인들은 디자인과 인터페이스도 맞지 않았고 특히나 네이버TV를 재생하게 해주는 플러그인이 존재하지 않았습니다. 그래서 직접 개발했습니다. 메인페이지에는 슬라이더로 보여주고, 상세페이지는 그리드로 보여줍니다."] },
-            { title:"관리자페이지", desc:["클라이언트가 직접 카테고리를 추가하고 영상을 관리할 수 있도록 관리자페이지를 구성하였습니다. 영상을 추가, 삭제하고 순서 변경이 가능합니다."] },
-            { title:"반응형", desc:["디바이스와 창 크기에 따라 메인페이지의 슬라이드와 상세페이지의 그리드는 각각 한 라인에서 보여주는 컨텐츠 수가 달라집니다."] },
-            { title:"사용자 인터페이스", desc:["무한 루핑되는 슬라이드. 마우스는 물론 모바일에서 터치로도 슬라이딩이 가능하여 사용하는데에 이질감이 없도록 제작했습니다."] },
-        ],
-        keywords: [
-            "워드프레스", "플러그인 개발", "관리자페이지 구현", "슬라이더 디자인"
-        ],
-        category1: "Wordpress Plugins",
-        category2: "Wordpress Development",
-        thumbnail: workBgBevl,
-        keyvisual: workKeyBgBevl,
-        date: "2018. ??"
     },
     {
         id: "05008",
@@ -177,10 +173,9 @@ const dataWork = [
             "설명2",
         ],
         summary: [
-            { title: "참여인원", desc: ["2명"] },
-            { title: "내 업무범위", desc: ["기획 - 80%", "디자인 - 50%", "워드프레스 개발 - 100%" ] },
+            { title: "참여인원", desc: ["1명"] },
+            { title: "내 업무범위", desc: ["기획 - 100%", "디자인 - 100%", "워드프레스 개발 - 100%" ] },
             { title: "디자인", desc: ["기존의 많은 엔터테인먼트 사이트들은 일관된 유행을 따르고 있었는데, 현시점의 트렌드와는 맞지 않는 디자인이라 판단하고, 좀 더 트렌디하고 차별된 디자인 레이아웃을 적용했습니다. 다양하게 사진을 배치하기보다는 컨텐츠에 집중 할 수 있도록 가벼운 배경 이미지들을 적용하여 제작했습니다."] },
-            { title: "사용자 인터페이스", desc: ["팬들이 사이트를 방문했을때 원하는 아티스트의 정보를 빠르게 찾을 수 있고, 지루한 정보들 보다는 재미있고 다양한 미디어들을 볼 수 있습니다."] },
             { title: "워드프레스 플러그인 개발", desc: ["클라이언트의 요청에 따라 비디오 라이트박스 플러그인을 개발했습니다. 메인페이지에는 슬라이더로 보여주고, 상세페이지는 그리드로 보여줍니다. 클라이언트가 직접 카테고리를 추가하고 영상을 관리할 수 있도록 관리자페이지도 구성하였습니다."] },
         ],
         keywords: [
@@ -190,6 +185,8 @@ const dataWork = [
         category2: "Web Design + Wordpress",
         thumbnail: workBgBigpictureEnt,
         keyvisual: workKeyBgBigpictureEnt,
+        screen: workScreenBigpictureEnt,
+        mobileScreen: workMobileBigpictureEnt,
         date: "2018. ??",
         url: "http://bigpicture-ent.com/"
     },
@@ -216,6 +213,9 @@ const dataWork = [
         category2: "Web Design + Wordpress",
         thumbnail: workBgFanclubCoin,
         keyvisual: workKeyBgFanclubCoin,
+        screen: workScreenFanclubCoin,
+        mobileScreen: workMobileFanclubCoin,
+        darkPage: true,
         date: "2019. 05",
         url: "https://fanclubcoin.com/"
     },

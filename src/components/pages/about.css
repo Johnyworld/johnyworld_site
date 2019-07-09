@@ -25,10 +25,7 @@
 }
 
 .about-wrapper .sec-keyvisual .floating-image-wrap {
-    width: 0;
     height: 25vw;
-    overflow: hidden;
-    transition: 1.5s;
 }
 
 .about-wrapper .sec-keyvisual .floating-image-wrap .floating-image {
@@ -47,10 +44,6 @@
 
 .about-wrapper .sec-instagram .insta-image {
     background-size: cover;
-    transition: .5s;
-    opacity: 0;
-    width: 0;
-    transition: 1s;
 }
 
 .about-wrapper .sec-instagram .insta-caption {

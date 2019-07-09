@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import SubpageHeading from '../partials/subpage-heading';
-import { animInCrossSlide, animOutLoading, animInAllOfTexts } from '../func/animates';
+import { animInCrossSlide, animOutLoading, animInAppear } from '../func/animates';
 import dataBlogReverse from '../data/data-blog';
 import './blog.css';
 
@@ -69,7 +69,7 @@ class Blog extends Component {
         const jsBigmenuTitleString = jsBigmenuTitle.getElementsByTagName('p');
         const jsBtnGnbBlog = document.getElementById('jsBtnGnbBlog');
         const blogContents = document.getElementsByClassName('blog-content');
-        const jsTextAppear = document.getElementsByClassName('jsTextAppear');
+        const jsAppearBtT = document.getElementsByClassName('jsAppearBtT');
         
         // FUNCTIONS
         const showSubpageHeading = () => {
@@ -89,7 +89,7 @@ class Blog extends Component {
         }
 
         // RUN
-        animInAllOfTexts(jsTextAppear, 1500);
+        animInAppear(jsAppearBtT, 1500);
         jsBtnGnbBlog.classList.add('is-disabled');
         showSubpageHeading();
         blogDataInit();
@@ -102,7 +102,7 @@ class Blog extends Component {
                 <div className="blog-items">
                     {this.dataBlogReverse.map((item, key) => {
                         return (
-                            <div className="blog-item jsTextAppear">
+                            <div className="blog-item jsAppearBtT">
                                 <ul className="l-row">
                                     <li className="l-col l-col-4-12">
                                         <h2 className="f-subhead title">{item.title}</h2>

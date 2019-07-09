@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 
-import camping01 from '../../../images/work-detail/camping-01.jpg';
-import camping02 from '../../../images/work-detail/camping-02.jpg';
-import camping03 from '../../../images/work-detail/camping-03.jpg';
+import camping01 from '../../../images/work-detail-camping/camping-01.jpg';
+import camping02 from '../../../images/work-detail-camping/camping-02.jpg';
+import camping03 from '../../../images/work-detail-camping/camping-03.jpg';
 
 class Camping extends Component {
     render() {
         return (
             <div className="detail-each">
-                <section>
+                <section className="sec-padded-end">
                     <div className="l-wrapper">
                         <div className="text-wrap">
                             <h2 className="f-title">디바인 리조트</h2>
@@ -16,8 +16,14 @@ class Camping extends Component {
                         </div>
                     </div>
                     <img src={camping01} alt="designimg" className="krx-img-gap" />
-                    <div className="l-wrapper">
+                </section>
+                <section className="sec-padded-end">
+                    <div className="l-wrapper-center">
                         <img src={camping02} alt="designimg" />
+                    </div>
+                </section>
+                <section className="sec-padded-end">
+                    <div className="l-wrapper-center">
                         <img src={camping03} alt="designimg" />
                     </div>
                 </section>

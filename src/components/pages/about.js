@@ -7,10 +7,9 @@ import {
     animInCrossSlide, 
     setMouseHover, 
     scrollFloating, 
-    getAbsoluteTop, 
-    animInWidthByTurnHandler,
-    animInAllOfTexts,
-    animInTextGradientByTurnHandler } from '../func/animates';
+    scrollParallaxImages,
+    animInAppear } from '../func/animates';
+import { getAbsoluteTop } from '../func/functions';
 import dataAboutSkills from '../data/data-aboutskills';
 import './about.css';
 import skillSprites from '../../images/about-skill-logos.png';
@@ -92,11 +91,9 @@ class About extends Component {
         const jsBtnGnbAbout = document.getElementById('jsBtnGnbAbout');
         const jsSecInstagram = document.getElementById('jsSecInstagram');
         const InstaImagesWrap = document.getElementsByClassName('insta-image-wrap');
-        const InstaImages = document.getElementsByClassName('insta-image');
         const floatingImagesWrap = document.getElementsByClassName('floating-image-wrap');
-        const jsSectionSkills = document.getElementById('jsSectionSkills');
-        const jsSectionSkillsColumns = jsSectionSkills.getElementsByClassName('l-col');
-        const jsTextAppear = document.getElementsByClassName('jsTextAppear');
+        const jsAppearBtT = document.getElementsByClassName('jsAppearBtT');
+        const jsAppearSlideToR = document.getElementsByClassName('jsAppearSlideToR');
         const skillLevelBar = document.getElementsByClassName('skill-level-bar');
 
         // FUNCTIONS
@@ -108,26 +105,6 @@ class About extends Component {
             setTimeout( function() {
                 animInCrossSlide(jsBigmenuTitleString);
             }, 800);
-        }
-
-        const scrollFloatingImages = ( nowScroll, elements ) => {
-            // 부모 자식 엘리먼트의 비율과 윈도우 높이에 대한 비율에 맞에 페럴렉스 되는 함수입니다.
-            // 사용법 : elements는 wrap의 className을 보내고, 그 안에 img 태그가 있어야 함.
-            for ( let i=0; i<elements.length; i++ ) {
-                let elementImage = elements[i].getElementsByTagName('img');
-                let min = window.pageYOffset + elements[i].getBoundingClientRect().top - window.innerHeight + elements[i].offsetHeight;
-
-                for ( let j=0; j<elementImage.length; j++ ) {
-                    let gap = elements[i].offsetHeight - elementImage[j].offsetHeight;
-                    let wrapperTop = window.pageYOffset + elements[i].getBoundingClientRect().top;
-                    let elementTop = wrapperTop + gap;
-                    let moveRatio = (wrapperTop-min) / (elementTop-min); 
-                    let trans = nowScroll - min - ((nowScroll-min) / moveRatio);
-
-                    elementImage[j].style.marginTop = gap + 'px';
-                    elementImage[j].style.transform = "translateY("+ trans +"px)"
-                }
-            }
         }
 
         const skillLevelBarShow = (nowScroll, elements) => {
@@ -155,7 +132,6 @@ class About extends Component {
                     scrollFloating(nowScroll-absoluteTop, InstaImagesWrap[i], 12);
                 }
             }
-            scrollFloatingImages( nowScroll, floatingImagesWrap );
             skillLevelBarShow( nowScroll, skillLevelBar )
         })
 
@@ -163,19 +139,9 @@ class About extends Component {
         jsBtnGnbAbout.classList.add('is-disabled');
         showSubpageHeading();
         setMouseHover(); 
-        animInAllOfTexts(jsTextAppear, 1500);
-        setTimeout( function() {
-            animInWidthByTurnHandler( floatingImagesWrap );
-            animInWidthByTurnHandler( InstaImages );
-        }, 1500)
-
-        setTimeout( function() {
-            animInTextGradientByTurnHandler( jsSectionSkillsColumns );   
-        }, 2000)        
-
-        setTimeout( function() {
-            scrollFloatingImages( window.scrollY, floatingImagesWrap );
-        },10)
+        animInAppear(jsAppearBtT, 2000);
+        animInAppear(jsAppearSlideToR, 1500);
+        scrollParallaxImages( floatingImagesWrap );
     }
 
     _renderContent() {
@@ -193,21 +159,26 @@ class About extends Component {
                     <SubpageHeading hugetitle="ABOUT" subtext="꿈은 크고, 그것을 실행하는 사람." />
                 </div>
                 <div className="about-wrapper">
+                    {/* 키비주얼 */}
+                    {/* ------------------------------ */}
                     <section className="sec-keyvisual">
                         <div className="l-wrapper">
                             <div className="text-wrap">
-                                <p className="f-normal jsTextAppear">
+                                <p className="f-normal jsAppearBtT">
                                     세상을, 생활을 더 낫게 만들고 싶은 꿈은 결코 낡지 않습니다.<br />
                                     나를 필요로 하는 곳에서, 생각하고, 스케치하고, 설계하고, 만들어냅니다.
                                 </p>
                             </div>
                         </div>
                         <div className="l-wrapper-full">
-                            <div className="floating-image-wrap">
-                                <img className="floating-image" src={imgAboutKey} alt="어바웃키비주얼" />
+                            <div className="floating-image-wrap jsAppearSlideToR">
+                                <img className="floating-image jsScrollParallaxImage" src={imgAboutKey} alt="어바웃키비주얼" />
                             </div>
                         </div>
                     </section>
+
+                    {/* 스킬 */}
+                    {/* ------------------------------ */}
                     <section className="sec-skills" id="jsSectionSkills">
                         <div className="l-wrapper">
                             <div className="text-wrap">
@@ -216,7 +187,7 @@ class About extends Component {
                                     <div className="skill-category-container">
                                         <ul className="l-row">
                                             <li className="l-col l-col-6-12"> 
-                                                <h3 className="f-heading jsTextAppear">{category}</h3>
+                                                <h3 className="f-heading jsAppearBtT">{category}</h3>
                                             </li>
                                             <li className="l-col l-col-6-12"> 
                                                 {dataAboutSkills.map((item, key) => {
@@ -224,14 +195,14 @@ class About extends Component {
                                                         item.category === category ?
                                                         <div className={`category-${item.category} skill-item-container`}>
                                                             <div className="skill-part _title">
-                                                                <div className="skill-logo jsTextAppear" style={{ backgroundImage: 'url('+skillSprites+')', backgroundPosition: item.bgPosition }}></div>
-                                                                <h3 className="f-subhead jsTextAppear" style={{color: item.color }}>{item.skillName}</h3>
-                                                                <div className="skill-level-wrap jsTextAppear">
+                                                                <div className="skill-logo jsAppearBtT" style={{ backgroundImage: 'url('+skillSprites+')', backgroundPosition: item.bgPosition }}></div>
+                                                                <h3 className="f-subhead jsAppearBtT" style={{color: item.color }}>{item.skillName}</h3>
+                                                                <div className="skill-level-wrap jsAppearBtT">
                                                                     <div className="skill-level-bar is-disabled" style={{ width: item.skillLevel * 10 + '%' , backgroundColor: item.color }}></div>
                                                                 </div>
                                                             </div>
                                                             <div className="skill-part _text">
-                                                                <p className="f-normal jsTextAppear">{item.desc}</p>
+                                                                <p className="f-normal jsAppearBtT">{item.desc}</p>
                                                             </div>
                                                         </div>
                                                         : ''
@@ -245,15 +216,19 @@ class About extends Component {
                             </div>
                         </div>
                     </section>
+
+                    {/* 인스타그램 */}
+                    {/* ------------------------------ */}
                     <section className="sec-instagram" id="jsSecInstagram">
                         <div className="l-wrapper">
                             <ul className="l-row gap90 clear-fix">
                                 { this.state.instaImages.map((item, key) => {
+                                    console.log(item.caption.text.indexOf('coding')); 
                                     return (
                                         key < 6 ? <li className="l-col l-col-4-12 insta-image-li">
                                             <a href={item.link} target="blank">
                                                 <div className="insta-image-wrap">
-                                                    <div className="insta-image" style={{backgroundImage: 'url('+item.images.standard_resolution.url+')', paddingTop: '100%'}}></div>
+                                                    <div className="insta-image jsAppearSlideToR" style={{backgroundImage: 'url('+item.images.standard_resolution.url+')', paddingTop: '100%'}}></div>
                                                     <p className="insta-caption f-normal">{item.caption.text}</p>
                                                 </div>
                                             </a>
@@ -264,6 +239,9 @@ class About extends Component {
                             </ul>
                         </div>
                     </section>
+
+                    {/* 컨택트 */}
+                    {/* ------------------------------ */}
                     <section className="sec-contact">
                         <div className="l-wrapper">
                             <div className="text-wrap">
@@ -292,7 +270,7 @@ class About extends Component {
         return(
             <main className="subpage-content">
                 {this.state.loaded ? this._renderContent() : 'Loading...' }
-            </main>   
+            </main>
         )
     }
 }

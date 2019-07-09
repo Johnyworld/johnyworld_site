@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import workDesignSoohan from '../../../images/work-detail/soohan-design.jpg';
+import workDesignSoohan from '../../../images/work-detail-soohan/soohan-design.jpg';
 
 class Soohan extends Component {
     render() {

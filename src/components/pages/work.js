@@ -6,7 +6,7 @@ import {
     animOutFade,
     animOutLoading,
     scrollFloating, 
-    animInWidthByTurnHandler,
+    animInAppear,
     setMouseHover } from '../func/animates';
 import { reactRouteScrollTop } from '../func/functions';
 import dataWorkReverse from '../data/data-work';
@@ -70,8 +70,6 @@ class Work extends Component {
         }
         handlePageLoaded();
         handleLoaded();
-        
-        // window.addEventListener( 'load', handleLoaded.bind(this));
     }
 
     _animates() {
@@ -80,8 +78,8 @@ class Work extends Component {
         const jsBigmenuTitleString = jsBigmenuTitle.getElementsByTagName('p');
         const workItemWrap = document.getElementById('workItemWrap');
         const workItems = workItemWrap.getElementsByClassName('item');
-        const workItemsInner = workItemWrap.getElementsByClassName('grid-item');
         const jsBtnGnbWork = document.getElementById('jsBtnGnbWork');
+        const jsAppearSlideToR = document.getElementsByClassName('jsAppearSlideToR');
 
         // FUNCTIONS
         const showSubpageHeading = () => {
@@ -107,7 +105,7 @@ class Work extends Component {
         });
 
         // Run
-        setTimeout( function() { animInWidthByTurnHandler(workItemsInner); }, 1800);
+        animInAppear(jsAppearSlideToR, 1800);
         jsBtnGnbWork.classList.add('is-disabled');
         showSubpageHeading();
         setMouseHover();
@@ -166,7 +164,7 @@ class Work extends Component {
                             return (
                                 <li key={`griditem-${item.id}`} className='l-col l-col-6-12'>
                                     <div className="item">
-                                        <button className="grid-item" onClick={this.goToDetail.bind(this, item.slug)}>
+                                        <button className="grid-item jsAppearSlideToR" onClick={this.goToDetail.bind(this, item.slug)}>
                                             <div className="background" style={{backgroundImage: 'url(' + item.thumbnail + ')'}}></div>
                                             <div className="textbox">
                                                 <div className="top">

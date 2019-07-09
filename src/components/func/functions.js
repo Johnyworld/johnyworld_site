@@ -24,6 +24,10 @@ export const homBtnHandler = ( history ) => {
     reloadRoute( history, '/' );
 }
 
-
+// 높이값 받기
+// ---------------------------------------
+export const getAbsoluteTop = (element) => {
+    return window.pageYOffset + element.getBoundingClientRect().top;
+}
 
 

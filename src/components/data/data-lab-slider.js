@@ -31,18 +31,6 @@ const dataLabSlider = [
     },
     // {
     //     id: "03002",
-    //     title: "Moon",
-    //     slug: "moon",
-    //     comment: "패럴렉스 스크롤 연습",
-    //     desc: [
-    //         "패럴렉스 스크롤 연습",
-    //     ],
-    //     technics: ["Javascript"],
-    //     thumbnail: labBgMarioJump,
-    //     date: "2019. 04"
-    // },
-    // {
-    //     id: "03002",
     //     title: "Supermario Canvas",
     //     slug: "supermario",
     //     comment: "슈퍼마리오 게임 만들기 연습",

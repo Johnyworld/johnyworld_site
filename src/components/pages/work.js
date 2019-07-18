@@ -155,8 +155,9 @@ class Work extends Component {
 
     _renderContent() {
         return (
+            <>
+            <SubpageHeading hugetitle="WORK" subtext="고객을 위한 하나의 생각들." />
             <div className="l-wrapper-sticked">
-                <SubpageHeading hugetitle="WORK" subtext="고객을 위한 하나의 생각들." />
                 <div className="work-items clear-fix" id="workItemWrap">
                     <ul className="l-row gap90 clear-fix">
                         { this.workReverse.map( item => {
@@ -182,6 +183,7 @@ class Work extends Component {
                     </ul>
                 </div>
             </div>
+            </>
         )
     }
 

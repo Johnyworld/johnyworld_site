@@ -29,65 +29,22 @@ const dataLabSlider = [
         thumbnail: labBgMarioJump,
         date: "2017. 12"
     },
-    // {
-    //     id: "03002",
-    //     title: "Supermario Canvas",
-    //     slug: "supermario",
-    //     comment: "슈퍼마리오 게임 만들기 연습",
-    //     desc: [
-    //         "모던 자바스크립트(ES6)에 익숙해지기 위해",
-    //         "코드를 따라 치며 연습했던 연습작.",
-    //         "Promise, map, forEach, async, await등을 이해하는데",
-    //         "도움이 되었습니다.",
-    //     ],
-    //     technics: [ "Javascript", "ES6", "Canvas" ],
-    //     thumbnail: labBgMario1,
-    //     date: "2019. 03",
-    // },
-    // {
-    //     id: "03003",
-    //     title: "WETUBE!",
-    //     slug: "wetube",
-    //     comment: "유튜브 따라하기 코딩.",
-    //     desc: [
-    //         "NodeJS와 친해지기 위해 수강했던 강의의 수강작품.",
-    //         "유튜브 클론 코딩.",
-    //     ],
-    //     technics: ["Javascript", "NodeJS", "Express", "MongoDB", "Webpack", "Github", "AWS S3"],
-    //     thumbnail: labBgWetube,
-    //     date: "2019. 04",
-    //     // url: "http://johnyworld-wetube.s3-website.ap-northeast-2.amazonaws.com/"
-    // },
     {
-        id: "03004",
-        title: "RPG MOVING",
-        slug: "rpg-moving",
-        comment: "RPG 게임 만들기 연습",
+        id: "03002",
+        title: "Bubble Collision",
+        slug: "collision2",
+        comment: "버블 콜리션",
         desc: [
-            "캔버스를 공부하면서", 
-            "게임을 만들어보고 싶다는 생각에",
-            "자바스크립트만을 이용해 직접 만들어 본 연습작.",
-            "MDN문서와 Stack flow만을 참고하면서 제작.",
+            "충돌판정을 공부하고",
+            "공부한 내용을 바탕으로 응용하여 제작한",
+            "캔버스 연습작.", 
         ],
-        technics: [ "Javascript", "ES5", "Canvas" ],
-        thumbnail: labBgRpgMoving,
-        date: "2019. 03"
+        technics: [ "Javascript", "ES6", "Canvas" ],
+        thumbnail: labBgCollision2,
+        date: "2018. 05"
     },
-    // {
-    //     id: "03006",
-    //     title: "Prismagram",
-    //     slug: "prismagram",
-    //     comment: "인스타그램 따라하기 코딩.",
-    //     desc: [
-    //         "React와 친해지기 위해 수강했던 강의의 수강작품.", 
-    //         "인스타그램 클론 코딩.",
-    //     ],
-    //     technics: [ "Javascript", "React", "NodeJS", "React Native", "Prisma", "GraphQL" ],
-    //     thumbnail: labBgPrismagram,
-    //     date: "2019. now"
-    // },
     {
-        id: "03007",
+        id: "03003",
         title: "BANG! pick a card!",
         slug: "bangcard",
         comment: "뱅 카드뽑기 앱",
@@ -97,10 +54,11 @@ const dataLabSlider = [
         ],
         technics: [ "Javascript", "ES5" ],
         thumbnail: labBgBangCard,
+        url: "http://bang-pickcard.s3-website.ap-northeast-2.amazonaws.com/",
         date: "2019. 03"
     },
     {
-        id: "03008",
+        id: "03004",
         title: "Crossroad Card",
         slug: "crossroad",
         comment: "데드오브윈터 크로스로드 카드 앱",
@@ -116,7 +74,7 @@ const dataLabSlider = [
         url: "http://dow-crossroad.s3-website.ap-northeast-2.amazonaws.com"
     },
     {
-        id: "03009",
+        id: "03005",
         title: "Conversation Starter",
         slug: "conv250",
         comment: "250개의 랜덤 대화주제",
@@ -128,10 +86,27 @@ const dataLabSlider = [
         ],
         technics: [ "Javascript" ],
         thumbnail: labBgConv250,
+        url: "http://conv-250.s3-website.ap-northeast-2.amazonaws.com/",
         date: "2019. 03"
     },
     {
-        id: "03010",
+        id: "03006",
+        title: "RPG MOVING",
+        slug: "rpg-moving",
+        comment: "RPG 게임 만들기 연습",
+        desc: [
+            "기본 자바스크립트만을 이용해 직접 만들어 본 연습작.", 
+            "모든 코드를 직접 짰고, 주 목적이 게임제작은 아니기 때문에",
+            "캐릭터 이동, 충돌판정 등 기본적인 것 까지만 구현.",
+            "MDN문서와 Stack flow를 참고하면서 제작.",
+        ],
+        technics: [ "Javascript", "ES5", "Canvas" ],
+        thumbnail: labBgRpgMoving,
+        url: "http://rpg-moving.s3-website.ap-northeast-2.amazonaws.com/",
+        date: "2019. 03"
+    },
+    {
+        id: "03007",
         title: "Masonry Grid",
         slug: "masonry",
         comment: "직접 고민하여 만든 메이슨리 그리드",
@@ -145,77 +120,22 @@ const dataLabSlider = [
         date: "2018. 12",
         url: "http://jw-masonry-grid.s3-website.ap-northeast-2.amazonaws.com/"
     },
-    // {
-    //     id: "03011",
-    //     title: "Cells",
-    //     slug: "cells",
-    //     comment: "세포놀이",
-    //     desc: [
-    //         "강의를 보고 따라 만든 연습작.",
-    //     ],
-    //     technics: ["Javascript", "ES6", "Canvas"],
-    //     thumbnail: labBgCells,
-    //     date: "2018. 05",
-    // },
-    // {
-    //     id: "03012",
-    //     title: "Gravity",
-    //     slug: "gravity",
-    //     comment: "중력 구현",
-    //     desc: [
-    //         "강의를 보고 따라 만든 연습작.",
-    //         "이때 중력을 구현하는 공식을 이해하고",
-    //         "게임을 만들기 위한 준비를 시작.",
-    //     ],
-    //     technics: ["Javascript", "ES6", "Canvas"],
-    //     thumbnail: labBgGravity,
-    //     date: "2018. 05",
-    // },
-    // {
-    //     id: "03013",
-    //     title: "Collision Test I",
-    //     slug: "collision1",
-    //     comment: "HTML 캔버스 연습",
-    //     desc: [
-    //         "Canvas를 이용하면",
-    //         "재밌는것들을 많이 만들 수 있겠다고 생각하여",
-    //         "Javascript와 Canvas를 이해하기 위하여",
-    //         "코드를 따라 치며 연습했던 연습작.",
-    //     ],
-    //     technics: [ "Javascript", "ES6", "Canvas" ],
-    //     thumbnail: labBgCollision1,
-    //     date: "2018. 05"
-    // },
     {
-        id: "03014",
-        title: "Bubble Collision",
-        slug: "collision2",
-        comment: "버블 콜리션",
-        desc: [
-            "충돌판정을 공부하고",
-            "공부한 내용을 바탕으로 응용하여 제작한",
-            "캔버스 연습작.", 
-        ],
-        technics: [ "Javascript", "ES6", "Canvas" ],
-        thumbnail: labBgCollision2,
-        date: "2018. 05"
-    },
-    {
-        id: "03005",
+        id: "03008",
         title: "Modern Pirates",
         slug: "modern-pirates",
         comment: "캔버스를 이용한 게임 제작",
         desc: [
-            "100% 하드코딩으로 제작한 게임.",
-            "포트폴리오 홈에 넣기 위해 만들기 시작하여",
+            "여러 문서들을 참고하여 100% 직접 제작한 게임.",
             "여가시간을 활용하여 약 2주동안 제작.",
         ],
         technics: ["Javascript", "ES6", "Canvas"],
         thumbnail: labBgModernPirates,
+        url: "http://modern-pirates.s3-website.ap-northeast-2.amazonaws.com/",
         date: "2019. 05"
     },
     {
-        id: "03015",
+        id: "03009",
         title: "Room311",
         slug: "room311",
         comment: "311호 자리 뽑기",

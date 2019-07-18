@@ -30,6 +30,8 @@ class Home extends Component {
         // Defines
         const jsMenuTexts = document.getElementById('jsMenuTexts');
         const jsMenuTextItems = jsMenuTexts.getElementsByClassName('item');
+        const jsMenuBtnLeft = document.getElementById('jsMenuBtnLeft');
+        const jsMenuBtnRight = document.getElementById('jsMenuBtnRight');
         const jsMenuCenter = document.getElementById('jsMenuCenter');
         const jsMenuLeft = document.getElementById('jsMenuLeft');
         const jsMenuRight = document.getElementById('jsMenuRight');
@@ -200,8 +202,8 @@ class Home extends Component {
             jsMenuLeft.classList.add('is-hidden');
             jsMenuRight.classList.add('is-hidden');
             jsMenuVerticalLine.classList.add('is-hidden');
-            animOutSlideUp(jsMenuBgLeftChild);
-            animOutSlideUp(jsMenuBgRightChild);
+            jsMenuBgLeftChild.style.height = '0';
+            jsMenuBgRightChild.style.height = '0';
             setTimeout( function() { 
                 jsMenuTexts.classList.add('aligned'); 
             }, 1000 );
@@ -220,7 +222,7 @@ class Home extends Component {
             jsMenuBgLeftChild.classList.add('cue1');
             animOutSlideUp(jsMenuBgRightChild);
             setTimeout( function() {
-                jsMenuLeft.classList.add('aligned'); 
+                jsMenuBtnLeft.classList.add('aligned'); 
             }, 900);
             setTimeout( function() {
                 jsMenuBgLeftChild.classList.add('cue2');
@@ -245,7 +247,7 @@ class Home extends Component {
             jsMenuVerticalLine.classList.add('is-hidden');
             animOutSlideUp(jsMenuBgLeftChild);
             setTimeout( function() {
-                jsMenuRight.classList.add('aligned');
+                jsMenuBtnRight.classList.add('aligned');
             }, 700);
             setTimeout( function() {
                 jsMenuBgRightChild.classList.add('cue1');
@@ -336,10 +338,10 @@ class Home extends Component {
                         <div className="item bg left" id="jsMenuBgLeft"><div className="child" id="jsMenuBgLeftChild"></div></div>
                         <div className="item bg right" id="jsMenuBgRight"><div className="child" id="jsMenuBgRightChild"></div></div>
                     </div>
-                    <div className="menu-wrapper" id="jsMenuTexts">
-                        <button className="f-hugetitle item left" id="jsMenuLeft">BLOG</button>
-                        <button className="f-hugetitle item center" id="jsMenuCenter">WORK</button>
-                        <button className="f-hugetitle item right" id="jsMenuRight">ABOUT</button>
+                    <div className="menu-wrapper clear-fix" id="jsMenuTexts">
+                        <div className="menu-btn left" id="jsMenuBtnLeft"><button className="f-hugetitle item left" id="jsMenuLeft">BLOG</button></div>
+                        <div className="menu-btn center" id="jsMenuBtnCenter"><button className="f-hugetitle item center" id="jsMenuCenter">WORK</button></div>
+                        <div className="menu-btn right" id="jsMenuBtnRight"><button className="f-hugetitle item right" id="jsMenuRight">ABOUT</button></div>
                     </div>
                 </div>
                 <div className="home-section" id="home-Laboratory">

@@ -68,14 +68,14 @@
 
 .lab-slider-wrapper .slider {
     text-align: left;
-    height: 600px;
+    height: 60vh;
     margin-left: 10vw;
     position: relative;
 }
 
 .lab-slider-wrapper .btn-wrap {
     position: absolute;
-    height: 600px;
+    height: 60vh;
     top: 0;
     width: 100%;
 }
@@ -108,7 +108,7 @@
 }
 
 .lab-slider-wrapper .slider-item {
-    width: 600px;
+    width: 60vh;
     position: absolute;
     opacity: .15;
     transition: 1.5s;
@@ -126,13 +126,14 @@
 }
 
 .lab-slider-wrapper .slider-item .image-wrap .thumbnail {
-    width: 600px;
-    height: 600px;
+    width: 60vh;
+    height: 60vh;
     margin-left: auto;
     transform: scale(.9);
     transition: 1.5s;
     background-color: #34373d;
     background-position: center;
+    background-size: cover;
 }
 
 .lab-slider-wrapper .slider-item .text-wrap {
@@ -145,7 +146,7 @@
     position: relative;
     transition: .5s;
     display: inline-block;
-    margin: 60px 0 60px;
+    margin: 5vh 0 5vh;
     text-align: left;
 }
 
@@ -189,7 +190,7 @@
 }
 
 .lab-slider-wrapper .slider-item .text-wrap .explain {
-    margin-bottom: 50px;
+    margin-bottom: 5vh;
 }
 
 .lab-slider-wrapper .slider-item .text-wrap .explain p {
@@ -229,7 +230,7 @@
 
 .lab-slider-wrapper .navigator {
     display: inline-block;
-    margin-top: 100px;
+    margin-top: 15vh;
 }
 
 .lab-slider-wrapper .navigator .nav-item {
@@ -287,7 +288,7 @@
     background-color: #ff4b7b;
 }
 
-@media screen and ( max-width: 1024px ) {
+@media screen and ( max-width: 1023px ) {
     .lab-slider-wrapper .slider-inner > div {
         width: 100%;
         float: none;
@@ -297,8 +298,6 @@
     }
 
     .lab-slider-wrapper .slider-item .image-wrap .thumbnail {
-        width: 300px;
-        height: 300px;
         margin: 0;
     }
 

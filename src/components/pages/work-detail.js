@@ -200,8 +200,8 @@ class WorkDetail extends Component {
                         <section>
                             <div className="l-wrapper">
                                 <div className="mockup-wrap">
-                                    <div className="bgimg-wrap jsAppearSlideToR">
-                                        <img className="bgimg" alt="목업" src={this.data.screen} />
+                                    <div className="mockup-img-wrap jsAppearSlideToR">
+                                        <img className="mockup-img" alt="목업" src={this.data.screen} />
                                     </div>
                                     {
                                         this.data.mobileScreen ?
@@ -218,7 +218,7 @@ class WorkDetail extends Component {
 
                         {/* 프로젝트 개요 섹션 */}
                         {/* ----------------------------- */}
-                        <section className="summary">
+                        <section className="sec-summary">
                             <div className="l-wrapper">
                                 <div className="text-wrap">
                                     <ul className="l-row">
@@ -237,6 +237,9 @@ class WorkDetail extends Component {
                                 </div>
                             </div>
                         </section>
+
+                        {/* 키비주얼 섹션 */}
+                        {/* ----------------------------- */}
                         <section className="sec-detail-keyvisual">
                             <div className="l-wrapper-full">
                                 <div className="bgimg-wrap jsAppearSlideToR">

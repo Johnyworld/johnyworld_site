@@ -91,7 +91,6 @@ class About extends Component {
         const jsBtnGnbAbout = document.getElementById('jsBtnGnbAbout');
         const jsSecInstagram = document.getElementById('jsSecInstagram');
         const InstaImagesWrap = document.getElementsByClassName('insta-image-wrap');
-        const floatingImagesWrap = document.getElementsByClassName('floating-image-wrap');
         const jsAppearBtT = document.getElementsByClassName('jsAppearBtT');
         const jsAppearSlideToR = document.getElementsByClassName('jsAppearSlideToR');
         const skillLevelBar = document.getElementsByClassName('skill-level-bar');
@@ -120,6 +119,7 @@ class About extends Component {
         // LISTENERS
         window.addEventListener('scroll', function(event) {
             let nowScroll = window.scrollY;
+            if ( window.innerWidth >= 1024 )
             for ( let i=0; i<InstaImagesWrap.length; i++ ) {
                 let absoluteTop = getAbsoluteTop(jsSecInstagram) - window.innerHeight/4;
                 if ( i % 3 === 0 ) {
@@ -135,13 +135,19 @@ class About extends Component {
             skillLevelBarShow( nowScroll, skillLevelBar )
         })
 
+        window.addEventListener( 'resize', () => {
+            for ( let i=0; i<InstaImagesWrap.length; i++ ) {
+                InstaImagesWrap[i].style.transform = 'translateY(0)'
+            }
+        })
+
         // RUN
         jsBtnGnbAbout.classList.add('is-disabled');
         showSubpageHeading();
         setMouseHover(); 
         animInAppear(jsAppearBtT, 2000);
         animInAppear(jsAppearSlideToR, 1500);
-        scrollParallaxImages( floatingImagesWrap );
+        scrollParallaxImages( jsAppearSlideToR );
     }
 
     _renderContent() {
@@ -155,9 +161,7 @@ class About extends Component {
         }
         return(
             <>
-                <div className="l-wrapper-full">
-                    <SubpageHeading hugetitle="ABOUT" subtext="꿈은 크고, 그것을 실행하는 사람." />
-                </div>
+                <SubpageHeading hugetitle="ABOUT" subtext="꿈은 크고, 그것을 실행하는 사람." />
                 <div className="about-wrapper">
                     {/* 키비주얼 */}
                     {/* ------------------------------ */}
@@ -165,15 +169,14 @@ class About extends Component {
                         <div className="l-wrapper">
                             <div className="text-wrap">
                                 <p className="f-normal jsAppearBtT">
-                                    세상을, 생활을 더 낫게 만들고 싶은 꿈은 결코 낡지 않습니다.<br />
+                                    세상을, 생활을 더 낫게 만들고 싶은 꿈은 결코 낡지 않습니다.<br className="dis-m" />
                                     나를 필요로 하는 곳에서, 생각하고, 스케치하고, 설계하고, 만들어냅니다.
                                 </p>
                             </div>
                         </div>
                         <div className="l-wrapper-full">
-                            <div className="floating-image-wrap jsAppearSlideToR">
-                                <div className="floating-image jsScrollParallaxImage" style={{ backgroundImage: 'url(' + imgAboutKey + ')' }} />
-                                {/* <img className="floating-image jsScrollParallaxImage" src={imgAboutKey} alt="어바웃키비주얼" /> */}
+                            <div className="bgimg-wrap jsAppearSlideToR">
+                                <div className="bgimg jsScrollParallaxImage" style={{ backgroundImage: 'url(' + imgAboutKey + ')' }} />
                             </div>
                         </div>
                     </section>
@@ -187,10 +190,10 @@ class About extends Component {
                                     return (
                                     <div className="skill-category-container">
                                         <ul className="l-row">
-                                            <li className="l-col l-col-6-12"> 
+                                            <li className="l-col l-col-6-12 l-col-m-12-12"> 
                                                 <h3 className="f-heading jsAppearBtT">{category}</h3>
                                             </li>
-                                            <li className="l-col l-col-6-12"> 
+                                            <li className="l-col l-col-6-12 l-col-m-12-12"> 
                                                 {dataAboutSkills.map((item, key) => {
                                                     return (
                                                         item.category === category ?
@@ -226,7 +229,7 @@ class About extends Component {
                                 { this.state.instaImages.map((item, key) => {
                                     console.log(item.caption.text.indexOf('coding')); 
                                     return (
-                                        key < 6 ? <li className="l-col l-col-4-12 insta-image-li">
+                                        key < 6 ? <li className="l-col l-col-4-12 l-col-m-6-12 insta-image-li">
                                             <a href={item.link} target="blank">
                                                 <div className="insta-image-wrap">
                                                     <div className="insta-image jsAppearSlideToR" style={{backgroundImage: 'url('+item.images.standard_resolution.url+')', paddingTop: '100%'}}></div>

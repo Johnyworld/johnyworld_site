@@ -3,11 +3,12 @@
 /* -------------------------------------- */
 .subpage-content { overflow: hidden; }
 .subpage-content section { margin: 150px 0; }
+.subpage-content section.sec-summary .f-normal strong { display: block; }
 .subpage-content section .text-wrap { margin: 0 7%; margin-bottom: 30px; }
 .subpage-content section .text-wrap .f-title { margin-left: -.12em; margin-bottom: 20px; }
 .subpage-content section .text-wrap .f-heading { margin-bottom: 20px; }
 .subpage-content section .text-wrap .f-normal:not(:last-child) { margin-bottom: 30px; }
-.subpage-content section .text-wrap .f-normal strong { display: block; color: white; font-weight: 400; }
+.subpage-content section .text-wrap .f-normal strong { color: white; font-weight: 400; }
 .subpage-content section .text-wrap.title-area > * { margin: 30px 0; }
 .subpage-content section .text-wrap.title-area > *:first-child { margin-top: 0; }
 .subpage-content section .text-wrap.title-area > *:last-child { margin-bottom: 0; }
@@ -16,9 +17,11 @@
 .subpage-content section .bgimg { background-size: cover; background-position: center; }
 @media screen and ( max-width: 1023px ) {
     .subpage-content { padding-top: 30px }
+    .subpage-content section .text-wrap { margin: 0 5%; margin-bottom: 20px; }
 }
 @media screen and ( max-width: 767px ) {
     .subpage-content section { margin: 80px 0; }
+    .subpage-content section .text-wrap { margin: 0 3%; margin-bottom: 15px; }
     .subpage-content section .text-wrap.title-area > * { margin: 30px 0; }
 }
 
@@ -45,25 +48,29 @@
 
 /* 목업 */
 .mockup-wrap { position: relative; }
-.mockup-wrap .bgimg { width: 63vw; margin: 0 auto 0 12vw; }
+.mockup-wrap .mockup-img { width: 63vw; margin: 0 auto 0 12vw; }
 .mockup-wrap .mobile-img { position: absolute; bottom: -8em; left: 0; background-size: cover; width: 27%;  }
 .mockup-wrap .mobile-img:hover { opacity: 0; }
 .mockup-wrap .mobile-img-screen { margin: 4%; width: 70.5%; background-size: cover; }
 @media screen and ( max-width: 1023px ) {
-    .mockup-wrap .bgimg { width: 90vw; margin: 0; }
+    .mockup-wrap .mockup { width: 90vw; margin: 0; }
 }
 
 @media screen and ( max-width: 767px ) {
     .mockup-wrap .mobile-img { display: none; }
 }
 
-
 /* 키비주얼 */
-.sec-detail-keyvisual .bgimg-wrap { height: 40vh; }
-.sec-detail-keyvisual .bgimg { width: 80vw; height: 50vh; }
+.bgimg-wrap { height: 40vh; }
+.bgimg { width: 80vw; height: 50vh; }
 @media screen and ( max-width: 1023px ) {
     .subpage-content section.sec-detail-keyvisual { margin-bottom: 1px; }
-    .sec-detail-keyvisual .bgimg { width: 100vw; }
+    .bgimg-wrap { height: 30vh; }
+    .bgimg { width: 100vw; height: 40vh; }
+}
+@media screen and ( max-width: 767px ) {
+    .bgimg-wrap { height: 20vh; }
+    .bgimg { height: 30vh; }
 }
 
 /* 사이트보기 버튼 */

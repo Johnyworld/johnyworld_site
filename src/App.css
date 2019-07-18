@@ -128,6 +128,7 @@ button:hover { cursor: inherit; }
 @media screen and ( max-width: 1023px ) {
     header::before { content: ' '; position: absolute; top: 0; height: 67px; width: 100%; z-index: 0; background-color: rgba( 0, 0, 0, .8 ); } 
 
+    .l-col-t-6-12 { width: 50%; }
     .l-col-t-12-12 { width: 100%; }
 
     .l-wrapper-full { margin-left: 0%; }
@@ -149,6 +150,7 @@ button:hover { cursor: inherit; }
     .l-row.gap60 .l-col { padding: 15px; }
     .l-row.gap90 { margin: -23px; }
     .l-row.gap90 .l-col { padding: 23px; }
+    .l-col-m-6-12 { width: 50%; }
     .l-col-m-12-12 { width: 100%; }
 
     .f-hugetitle { font-size: 110px; }

@@ -1,4 +1,4 @@
-.blog-items { padding: 420px 5% 200px 0; }
+.blog-items { padding-top: 320px; padding-bottom: 200px; }
 .blog-item { border-top: 1px solid #222; padding: 40px 0 50px; }
 .inner { padding: 10px 0 80px; }
 
@@ -6,7 +6,3 @@
 .blog-code .tab { display: inline-block; width: 40px; }
 
 .blog-inner-paragraph:not(:first-child) { margin: 20px 0; }
-
-@media screen and ( max-width: 1023px ) {
-    .blog-items { padding-left: 5%; }
-}

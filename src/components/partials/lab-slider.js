@@ -5,7 +5,7 @@ import './lab-slider.css';
 import dataLabSliderReverse from '../data/data-lab-slider';
 import labSliderScript from './lab-slider-script';
 import { labSliderIndex } from './lab-slider-script';
-import { animInLoading } from '../func/animates';
+import { animInLoading, smoothScroll } from '../func/animates';
 
 class LabSlider extends Component {
     constructor(props) {
@@ -13,8 +13,20 @@ class LabSlider extends Component {
         this.laboratories = dataLabSliderReverse;
     }
 
+    labSliderResize () {
+        console.log(window.location.hash);
+        if ( window.location.hash === '#study' ) {
+            smoothScroll('#home-Laboratory', 1000);
+        }
+    }
+
     componentDidMount() {
         labSliderScript();
+        window.addEventListener( 'resize', this.labSliderResize );
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener( 'resize', this.labSliderResize );
     }
 
     handleViewLabDetail(linkTo) {

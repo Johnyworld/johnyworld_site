@@ -112,11 +112,7 @@
         margin-left: 0;
         width: 100%;
     }
-    .bigmenu-title-wrapper {
-        left: 0;
-        padding: 0 30px;
-        margin-top: 67px;
-    }
+    .bigmenu-title-wrapper { left: 7%; padding: 0 30px; margin-top: 67px; }
 
     .work-items { padding-top: 95px; }
     .work-items .item { height: 32vw; }
@@ -124,6 +120,7 @@
 }
 
 @media screen and ( max-width: 767px ) {
+    .bigmenu-title-wrapper { left: 4%; }
     .bigmenu-title-wrapper .f-title {
         font-size: 40px;
     }

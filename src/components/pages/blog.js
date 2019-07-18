@@ -97,28 +97,30 @@ class Blog extends Component {
 
     _renderContent() {
         return(
-            <div className="l-wrapper-sticked">
+            <>
                 <SubpageHeading hugetitle="BLOG" subtext="자유롭게 써내려가는 개발 일지." />
-                <div className="blog-items">
-                    {this.dataBlogReverse.map((item, key) => {
-                        return (
-                            <div className="blog-item jsAppearBtT">
-                                <ul className="l-row">
-                                    <li className="l-col l-col-4-12">
-                                        <h2 className="f-subhead title">{item.title}</h2>
-                                        <p className="f-normal f-eng c-blue-bright category">{item.category}</p>
-                                        <p className="f-normal date">{item.date}</p>
-                                    </li>
-                                    <li className="l-col l-col-8-12">
-                                        <p className="f-normal c-wine-bright">{item.hash.map((hashitem) => `#${hashitem} `)}</p>
-                                        <div className="f-normal blog-content"></div>
-                                    </li>
-                                </ul>
-                            </div>
-                        )
-                    })}
-                </div>
-            </div>
+                <section className="blog-items">
+                    <div className="l-wrapper">
+                        {this.dataBlogReverse.map((item, key) => {
+                            return (
+                                <div className="text-wrap blog-item">
+                                    <ul className="l-row">
+                                        <li className="l-col l-col-4-12 l-col-m-12-12 jsAppearBtT">
+                                            <h2 className="f-subhead title">{item.title}</h2>
+                                            <p className="f-normal f-eng c-blue-bright category">{item.category}</p>
+                                            <p className="f-normal date">{item.date}</p>
+                                        </li>
+                                        <li className="l-col l-col-8-12 l-col-m-12-12 jsAppearBtT">
+                                            <p className="f-normal c-wine-bright">{item.hash.map((hashitem) => `#${hashitem} `)}</p>
+                                            <div className="f-normal blog-content"></div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            )
+                        })}
+                    </div>
+                </section>
+            </>
         )
     }
 

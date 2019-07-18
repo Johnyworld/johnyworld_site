@@ -33,7 +33,7 @@ const labSliderScript = () => {
             ], { duration: duration }
         );
     }
-    
+
     const showObject = (object, duration) => {
         object.style.display = 'block';
         setTimeout(function() {
@@ -159,13 +159,15 @@ const labSliderScript = () => {
         jsLabSliderIndexUnits.style.transform = 'translateY(-'+ indexNumberUnits*labSliderIndexNumHeight +'px)'
     }
     
-    window.addEventListener( 'resize', function() {
+    const resizeSlider = () => {
         if ( sliderItems[0] ) {
             itemWidth = sliderItems[0].clientWidth;
             selectedWidth = window.innerWidth / 100 * 80;
             setLabSliderPosition(labSliderIndex);
         }
-    });
+    }
+
+    window.addEventListener( 'resize', resizeSlider );
     
     labSliderInit(labSliderIndex-1, labSliderIndex);
     labSliderButtonEvents();

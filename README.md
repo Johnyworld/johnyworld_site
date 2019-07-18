@@ -8,7 +8,7 @@
 ## Made by
 이 홈페이지를 만드는데에 사용된 기술들입니다.
 1. React JS
-2. Javascript ES6+
+2. Modern Javascript (ES6+)
 3. All Designed by me
 4. 95% Hard Coding (No JQuery, No Bootstrap)
 
@@ -29,7 +29,7 @@
 ### BLOG
 자유롭게 이것저것 써내려가는 개발 일지.
 
-### Code Study
+### Toy Project
 스터디하고 만들고 있는 다양한 작업물들입니다. 간단한 게임도 있습니다.
 
 

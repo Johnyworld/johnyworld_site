@@ -20,13 +20,18 @@ export const setMouseHover = () => {
     }
 }
 
-export const mouseMoving = (mouse, element, speedX, speedY, isNeg) => {
+export const mouseMoving = (mouse, element, speedX, speedY, isNeg, isCenter) => {
     let xx = (mouse.x - window.innerWidth / 2) / speedX;
     let yy = (mouse.y - window.innerHeight / 2) / speedY;
+    if (isCenter) {
+        xx = xx + element.clientWidth/2
+        yy = yy + element.clientHeight/2
+    }
     if (isNeg) {
         xx = -xx;
         yy = -yy;
     }
+    
     element.style.transform = 'translate(' + xx + 'px,' + yy + 'px)';
 }
 

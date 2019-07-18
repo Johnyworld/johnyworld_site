@@ -120,6 +120,12 @@ class Header extends Component {
         });
 
         jsBtnGnb.addEventListener('click', handleBtnGnb);
+        window.addEventListener( 'popstate', function(e) {
+            console.log('popstate!')
+            e.preventDefault();
+            e.stopPropagation();
+        }, {passive: false});
+
 
         // RUN
         // ------------------------------

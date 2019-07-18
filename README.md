@@ -9,12 +9,8 @@
 이 홈페이지를 만드는데에 사용된 기술들입니다.
 1. React JS
 2. Javascript ES6+
-3. No JQuery
-4. No Bootsrtap
-5. MongoDB & Mongoose
-6. Redux
-7. All Designed by me
-8. 95% Hard Coding
+3. All Designed by me
+4. 95% Hard Coding (No JQuery, No Bootstrap)
 
 ## Pages
 

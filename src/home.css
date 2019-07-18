@@ -84,12 +84,12 @@
 .menu-wrapper .item.bg { position: absolute; top: 50%; left: 0; width: 300px; height: 500px; }
 .menu-wrapper .item.bg.right { right: 0; left: auto; }
 .menu-wrapper .item.bg .child { transform: translate( -50%, -50%); width: 100%; height: 100%; background-color: #222e3e; transition: 1.2s; transition-timing-function: cubic-bezier(.72,0,.19,1); }
-.menu-wrapper .item.bg.left .child.cue1 { transform: translate(-50%, -50%) scaleY(2.5); }
-.menu-wrapper .item.bg.left .child.cue2 { transform: translate(0, -50%) scaleY(2.5); width: 120vw; }
-.menu-wrapper .item.bg.left .child.cue3 { transform: translate(0, -50%) scaleY(2.5) scaleX(0); transform-origin: right; }
+.menu-wrapper .item.bg.left .child.cue1 { transform: translate(-50%, -50%); height: 100vh; }
+.menu-wrapper .item.bg.left .child.cue2 { transform: translate(0, -50%); width: 120vw; }
+.menu-wrapper .item.bg.left .child.cue3 { transform: translate(0, -50%) scaleX(0); transform-origin: right; }
 .menu-wrapper .item.bg.right .child { transform: translate( 50%, -50%); }
-.menu-wrapper .item.bg.right .child.cue1 { transform: translateY(-50%) translateX(-60vw) scaleX(12); }
-.menu-wrapper .item.bg.right .child.cue2 { transform: translateY(-50%) translateX(-60vw) scaleX(12) scaleY(0); }
+.menu-wrapper .item.bg.right .child.cue1 { transform: translateY(-50%) translateX(-97vw); width: 120vw; transform-origin: right; }
+.menu-wrapper .item.bg.right .child.cue2 { transform: translateY(-50%) translateX(-97vw) scaleY(0); }
 
 @media screen and ( max-width: 1024px ) {
     .menu-wrapper .menu-btn.left { left: 50%; top: 35% }

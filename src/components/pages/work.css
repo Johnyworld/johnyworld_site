@@ -25,11 +25,10 @@
 
 .work-items {
     position: relative;
-    top: 270px;
+    top: 28vh;
     margin-bottom: 470px;
     padding-top: 135px;
     width: 100%;
-    overflow: hidden;
 }
 .work-items .l-row {
     overflow: visible;

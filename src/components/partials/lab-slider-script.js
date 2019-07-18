@@ -10,8 +10,7 @@ const labSliderScript = () => {
     const jsLabSliderIndexTens = document.getElementById('jsLabSliderIndexTens');
     const jsLabSliderIndexUnits = document.getElementById('jsLabSliderIndexUnits');
     const jsLabSliderIndexUnitsParagraph = jsLabSliderIndexUnits.getElementsByTagName('p')[0];
-    const labSliderIndexNumHeight = jsLabSliderIndexUnitsParagraph.offsetHeight;
-    
+    let labSliderIndexNumHeight = jsLabSliderIndexUnitsParagraph.offsetHeight;
     jsLabSliderIndex.style.height = labSliderIndexNumHeight+'px';
 
     let itemWidth = sliderItems[0].clientWidth;
@@ -123,6 +122,17 @@ const labSliderScript = () => {
         }
     }
     
+    const indexControll = (newIndex) => {       
+        let indexNumberTens = 0;
+        let indexNumberUnits = newIndex+1;
+        if ( indexNumberUnits > 9 ) {
+            indexNumberTens = Math.floor(indexNumberUnits/10);
+            indexNumberUnits = indexNumberUnits - indexNumberTens*10;
+        }
+        jsLabSliderIndexTens.style.transform = 'translateY(-'+ indexNumberTens*labSliderIndexNumHeight +'px)'
+        jsLabSliderIndexUnits.style.transform = 'translateY(-'+ indexNumberUnits*labSliderIndexNumHeight +'px)'
+    }
+
     const labSliderInit = (oldIndex, newIndex) => {
         // 좌우 화살표 보이기, 감추기
         if ( newIndex === 0 ) { hideObject(labSliderBtnLeft, 700); }
@@ -149,14 +159,7 @@ const labSliderScript = () => {
         }, 10);
 
         // 인덱스 숫자 바꾸기
-        let indexNumberTens = 0;
-        let indexNumberUnits = newIndex+1;
-        if ( indexNumberUnits > 9 ) {
-            indexNumberTens = Math.floor(indexNumberUnits/10);
-            indexNumberUnits = indexNumberUnits - indexNumberTens*10;
-        }
-        jsLabSliderIndexTens.style.transform = 'translateY(-'+ indexNumberTens*labSliderIndexNumHeight +'px)'
-        jsLabSliderIndexUnits.style.transform = 'translateY(-'+ indexNumberUnits*labSliderIndexNumHeight +'px)'
+        indexControll(newIndex);
     }
     
     const resizeSlider = () => {
@@ -164,6 +167,7 @@ const labSliderScript = () => {
             itemWidth = sliderItems[0].clientWidth;
             selectedWidth = window.innerWidth / 100 * 80;
             setLabSliderPosition(labSliderIndex);
+            indexControll(labSliderIndex);
         }
     }
 

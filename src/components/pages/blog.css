@@ -6,3 +6,7 @@
 .blog-code .tab { display: inline-block; width: 40px; }
 
 .blog-inner-paragraph:not(:first-child) { margin: 20px 0; }
+
+@media screen and ( max-width: 1023px ) {
+    .blog-items { padding-left: 5%; }
+}

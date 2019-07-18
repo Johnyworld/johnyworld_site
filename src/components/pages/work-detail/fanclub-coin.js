@@ -15,13 +15,13 @@ class FanclubCoin extends Component {
                         <div className="text-wrap">
                             <div className="l-row">
                                 <div className="l-col l-col-6-12 jsAppearBtT"><p className="f-subhead f-bold">Colors</p></div>
-                                <div className="l-col l-col-6-12 jsAppearBtT"><img src={styleColors} alt="스타일-색상" /></div>
+                                <div className="l-col l-col-6-12 jsAppearBtT"><img src={styleColors} style={{ maxWidth: 521, maxHeight: 155 }} alt="스타일-색상" /></div>
                             </div>
                         </div>
                         <div className="text-wrap">
                             <div className="l-row">
                                 <div className="l-col l-col-6-12 jsAppearBtT"><p className="f-subhead f-bold">Fonts</p></div>
-                                <div className="l-col l-col-6-12 jsAppearBtT"><img src={styleFonts} alt="스타일-폰트" /></div>
+                                <div className="l-col l-col-6-12 jsAppearBtT"><img src={styleFonts} style={{ maxWidth: 579, maxHeight: 324 }} alt="스타일-폰트" /></div>
                             </div>
                         </div>
                     </div>

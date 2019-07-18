@@ -1,62 +1,62 @@
 import React, { Component } from 'react';
 
-import krxDream from '../../../images/work-detail/krx-dream.jpg';
-import krxStoryboard from '../../../images/work-detail/krx-storyboard.jpg';
-import krxO2o from '../../../images/work-detail/krx-o2o.jpg';
-import krxIntro from '../../../images/work-detail/krx-intro.jpg';
-import krxPast from '../../../images/work-detail/krx-past.jpg';
-import krxTutorial01 from '../../../images/work-detail/krx-tutorial-01.jpg';
-import krxTutorial02 from '../../../images/work-detail/krx-tutorial-02.jpg';
-import krxTutorial03 from '../../../images/work-detail/krx-tutorial-03.jpg';
-import krxTutorial04 from '../../../images/work-detail/krx-tutorial-04.jpg';
-import krxTradingTut01 from '../../../images/work-detail/krx-trading-tut-01.jpg';
-import krxTradingTut02 from '../../../images/work-detail/krx-trading-tut-02.jpg';
-import krxTradingInvestor00 from '../../../images/work-detail/krx-trading-investor-00.jpg';
-import krxTradingInvestor01 from '../../../images/work-detail/krx-trading-investor-01.jpg';
-import krxTradingInvestor02 from '../../../images/work-detail/krx-trading-investor-02.jpg';
-import krxTradingInvestor03 from '../../../images/work-detail/krx-trading-investor-03.jpg';
-import krxTradingInvestor04 from '../../../images/work-detail/krx-trading-investor-04.jpg';
-import krxTradingKrx00 from '../../../images/work-detail/krx-trading-krx-00.jpg';
-import krxTradingKrx02 from '../../../images/work-detail/krx-trading-krx-02.jpg';
-import krxTradingKrx03 from '../../../images/work-detail/krx-trading-krx-03.jpg';
-import krxTradingKrx04 from '../../../images/work-detail/krx-trading-krx-04.jpg';
-import krxPublic01 from '../../../images/work-detail/krx-public-01.jpg';
-import krxPublic02 from '../../../images/work-detail/krx-public-02.jpg';
-import krxPublic03 from '../../../images/work-detail/krx-public-03.jpg';
-import krxPublic04 from '../../../images/work-detail/krx-public-04.jpg';
-import krxPublic05 from '../../../images/work-detail/krx-public-05.jpg';
-import krxPublic06 from '../../../images/work-detail/krx-public-06.jpg';
-import krxPublic07 from '../../../images/work-detail/krx-public-07.jpg';
-import krxDerivativesTut from '../../../images/work-detail/krx-derivatives-tutorial.jpg';
-import krxDerivativesSeed from '../../../images/work-detail/krx-derivatives-seeds.jpg';
-import krxDerivativesSeed01 from '../../../images/work-detail/krx-derivatives-seeds-01.jpg';
-import krxDerivativesSeed02 from '../../../images/work-detail/krx-derivatives-seeds-02.jpg';
-import krxDerivativesSeed03 from '../../../images/work-detail/krx-derivatives-seeds-03.jpg';
-import krxDerivativesSeed04 from '../../../images/work-detail/krx-derivatives-seeds-04.jpg';
-import krxDerivativesSeedTablet from '../../../images/work-detail/krx-derivatives-seeds-tablet.jpg';
-import krxBig701 from '../../../images/work-detail/krx-big7-01.jpg';
-import krxBig702 from '../../../images/work-detail/krx-big7-02.jpg';
+import krxDream from '../../../images/work-detail-krx/krx-dream.png';
+import krxStoryboard from '../../../images/work-detail-krx/krx-storyboard.jpg';
+import krxO2o from '../../../images/work-detail-krx/krx-o2o.png';
+import krxIntro from '../../../images/work-detail-krx/krx-intro.jpg';
+import krxPast from '../../../images/work-detail-krx/krx-past.jpg';
+import krxTutorial01 from '../../../images/work-detail-krx/krx-tutorial-01.jpg';
+import krxTutorial02 from '../../../images/work-detail-krx/krx-tutorial-02.jpg';
+import krxTutorial03 from '../../../images/work-detail-krx/krx-tutorial-03.jpg';
+import krxTutorial04 from '../../../images/work-detail-krx/krx-tutorial-04.jpg';
+import krxTradingTut01 from '../../../images/work-detail-krx/krx-trading-tut-01.jpg';
+import krxTradingTut02 from '../../../images/work-detail-krx/krx-trading-tut-02.jpg';
+import krxTradingInvestor00 from '../../../images/work-detail-krx/krx-trading-investor-00.jpg';
+import krxTradingInvestor01 from '../../../images/work-detail-krx/krx-trading-investor-01.jpg';
+import krxTradingInvestor02 from '../../../images/work-detail-krx/krx-trading-investor-02.jpg';
+import krxTradingInvestor03 from '../../../images/work-detail-krx/krx-trading-investor-03.jpg';
+import krxTradingInvestor04 from '../../../images/work-detail-krx/krx-trading-investor-04.jpg';
+import krxTradingKrx00 from '../../../images/work-detail-krx/krx-trading-krx-00.jpg';
+import krxTradingKrx02 from '../../../images/work-detail-krx/krx-trading-krx-02.jpg';
+import krxTradingKrx03 from '../../../images/work-detail-krx/krx-trading-krx-03.jpg';
+import krxTradingKrx04 from '../../../images/work-detail-krx/krx-trading-krx-04.jpg';
+import krxPublic01 from '../../../images/work-detail-krx/krx-public-01.jpg';
+import krxPublic02 from '../../../images/work-detail-krx/krx-public-02.jpg';
+import krxPublic03 from '../../../images/work-detail-krx/krx-public-03.jpg';
+import krxPublic04 from '../../../images/work-detail-krx/krx-public-04.jpg';
+import krxPublic05 from '../../../images/work-detail-krx/krx-public-05.jpg';
+import krxPublic06 from '../../../images/work-detail-krx/krx-public-06.jpg';
+import krxPublic07 from '../../../images/work-detail-krx/krx-public-07.jpg';
+import krxDerivativesTut from '../../../images/work-detail-krx/krx-derivatives-tutorial.jpg';
+import krxDerivativesSeed from '../../../images/work-detail-krx/krx-derivatives-seeds.jpg';
+import krxDerivativesSeed01 from '../../../images/work-detail-krx/krx-derivatives-seeds-01.jpg';
+import krxDerivativesSeed02 from '../../../images/work-detail-krx/krx-derivatives-seeds-02.jpg';
+import krxDerivativesSeed03 from '../../../images/work-detail-krx/krx-derivatives-seeds-03.jpg';
+import krxDerivativesSeed04 from '../../../images/work-detail-krx/krx-derivatives-seeds-04.jpg';
+import krxDerivativesSeedTablet from '../../../images/work-detail-krx/krx-derivatives-seeds-tablet.jpg';
+import krxBig701 from '../../../images/work-detail-krx/krx-big7-01.jpg';
+import krxBig702 from '../../../images/work-detail-krx/krx-big7-02.jpg';
 
 class Krx extends Component {
     render() {
         return (
             <div className="detail-each">
-                <section>
+                <section className="sec-padded-end">
                     <div className="l-wrapper">
                         <div className="text-wrap">
                             <h2 className="f-title krx">O2O Exhivision</h2>
                             <p className="f-normal"><strong>오프라인 전시의 시/공간적 한계를 극복하기 위한 새로운 형태의 전시방법론.</strong>1. 오프라인 전시의 한계(공간,시간)를 극복하여 효율적인 전시운영<br />2. 정보 예습을 통한 집중력 향상과 자기주도적 관람<br />3. 관람객의 지속적인 관심을 유도하여 재방문율 증가</p>
                         </div>
-                        <img src={krxO2o} alt="designimg" />
+                        <img src={krxO2o} style={{ maxWidth: 1100, maxHeight: 431 }} alt="designimg" />
                     </div>
                 </section>
-                <section>
+                <section className="sec-padded-end">
                     <div className="l-wrapper">
                         <div className="text-wrap">
                             <h2 className="f-title krx">12개의 씨앗을 든 시간여행자</h2>
                             <p className="f-normal"><strong>12개의 씨앗은 12개의 최초 상장 기업을 상징합니다.</strong>12개의 씨앗이 자라는 과정을 통해 KRX의 60년 역사와 미래를 체험합니다. 한손에 쥐어진 씨앗을 보며 한국 경제성장의 주인공이 되어보길 꿈꿉니다.</p>
                         </div>
-                        <img src={krxDream} alt="designimg" />
+                        <img src={krxDream} style={{ maxWidth: 1100, maxHeight: 678 }} alt="designimg" />
                     </div>
                 </section>
                 <section>

@@ -25,11 +25,13 @@
 }
 
 .about-wrapper .sec-keyvisual .floating-image-wrap {
-    height: 25vw;
+    height: 50vh;
 }
 
 .about-wrapper .sec-keyvisual .floating-image-wrap .floating-image {
+    height: 60vh;
     width: 80vw;
+    background-size: cover;
 }
 
 .about-wrapper .sec-instagram .l-row {

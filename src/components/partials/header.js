@@ -80,15 +80,17 @@ class Header extends Component {
         }
 
         const showRightToLeft = (element) => {
-            element.style.opacity = 0;
-            element.animate([
-                { opacity: 0, transform: 'translateX(100px)' },
-                { opacity: 1, transform: 'translateX(0px)' },
-            ], {
-                duration: 1500,
-                easing: 'cubic-bezier(.33,.78,.41,1)'
-            });
-            element.style.opacity = 1;
+            if ( element ) {
+                element.style.opacity = 0;
+                element.animate([
+                    { opacity: 0, transform: 'translateX(100px)' },
+                    { opacity: 1, transform: 'translateX(0px)' },
+                ], {
+                    duration: 1500,
+                    easing: 'cubic-bezier(.33,.78,.41,1)'
+                });
+                element.style.opacity = 1;
+            }
         }
 
         const loadHeader = () => {

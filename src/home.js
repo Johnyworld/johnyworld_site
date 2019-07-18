@@ -273,7 +273,7 @@ class Home extends Component {
         //RUN
         mainMenuAddHoverEvent();
         handleNotGnbSection();
-        setMouseHover(); 
+        setMouseHover();
         // handlePageLoaded();
         // reactRouteScrollTop();
     }

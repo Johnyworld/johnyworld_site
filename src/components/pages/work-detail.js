@@ -179,7 +179,7 @@ class WorkDetail extends Component {
                         <section>
                             <div className="l-wrapper">
                                 <div className="text-wrap title-area" id="jsTitleArea">
-                                    <h1 className="f-bigtitle f-eng-title jsTitleChildren jsAppearBtT">{ splitTitle.map((item, key) => key === 0 ? <>{item}<br /></> : <>{item}&nbsp;</> )}</h1>
+                                    <h1 className="f-bigtitle f-eng-title jsTitleChildren jsAppearBtT">{ splitTitle.map((item, key) => key === 0 ? <span key={`detail-title-${key}`}>{item}<br /></span> : <span key={`detail-title-${key}`}>{item}&nbsp;</span> )}</h1>
                                     <p className="f-heading jsTitleChildren jsAppearBtT">{this.data.comment}</p>
                                     <div className="info jsTitleChildren jsAppearBtT">
                                         <ul className="keywords f-normal">
@@ -201,13 +201,13 @@ class WorkDetail extends Component {
                             <div className="l-wrapper">
                                 <div className="mockup-wrap">
                                     <div className="bgimg-wrap jsAppearSlideToR">
-                                        <div className="bgimg" style={{ backgroundImage: 'url(' + this.data.screen + ')' }}></div>
+                                        <img className="bgimg" alt="목업" src={this.data.screen} />
                                     </div>
                                     {
                                         this.data.mobileScreen ?
                                         <div id="jsMobileMockup" >
                                             <div className="mobile-img jsAppearBtT" style={{ backgroundImage: 'url(' + deviceMobileBg + ')' }}>
-                                                <div className="mobile-img-screen" style={{ backgroundImage: 'url(' + this.data.mobileScreen + ')' }}></div>
+                                                <img className="mobile-img-screen" alt="목업-모바일" src={this.data.mobileScreen} />
                                             </div>
                                         </div>
                                         : ''
@@ -215,17 +215,20 @@ class WorkDetail extends Component {
                                 </div>
                             </div>
                         </section>
+
+                        {/* 프로젝트 개요 섹션 */}
+                        {/* ----------------------------- */}
                         <section className="summary">
                             <div className="l-wrapper">
                                 <div className="text-wrap">
                                     <ul className="l-row">
-                                        <li className="l-col l-col-6-12"><h2 className="f-title jsAppearBtT">프로젝트<br />개요</h2></li>
-                                        <li className="l-col l-col-6-12">
+                                        <li className="l-col l-col-6-12 l-col-m-12-12"><h2 className="f-title jsAppearBtT">프로젝트 <br className="dis-m" />개요</h2></li>
+                                        <li className="l-col l-col-6-12 l-col-m-12-12">
                                             { this.data.summary.map( (item, key) => {
                                                 return (
-                                                    <p key={'summary-item'+{key}} className="f-normal jsAppearBtT">
+                                                    <p key={`summary-item-${key}`} className="f-normal jsAppearBtT">
                                                         <strong>{item.title}</strong>
-                                                        { item.desc.map( (descItem, key) => <>{descItem}<br /></> ) }
+                                                        { item.desc.map( (descItem, key) => <span key={`${item.title}-${key}`}>{descItem}<br /></span> ) }
                                                     </p>
                                                 )
                                             })}
@@ -234,10 +237,10 @@ class WorkDetail extends Component {
                                 </div>
                             </div>
                         </section>
-                        <section>
+                        <section className="sec-detail-keyvisual">
                             <div className="l-wrapper-full">
-                                <div className="bgimg-wrap jsAppearSlideToR" style={{ height: 420 }}>
-                                    <div className="bgimg jsScrollParallaxImage" style={{ backgroundImage: 'url(' + this.data.keyvisual + ')', height: 530 }}></div>
+                                <div className="bgimg-wrap jsAppearSlideToR">
+                                    <div className="bgimg jsScrollParallaxImage" style={{ backgroundImage: 'url(' + this.data.keyvisual + ')' }}></div>
                                 </div>
                             </div>
                         </section>
@@ -248,7 +251,7 @@ class WorkDetail extends Component {
                     <div className="l-wrapper-wide">
                         {
                             this.next ? 
-                                <div className="btn-wrap next" id="jsBtnNext" /*onClick={this.clickNext}*/>
+                                <div className="btn-wrap next" id="jsBtnNext" >
                                     <div className="stick"></div>
                                     <div className="radius">
                                         <div className="bg" style={{ backgroundImage: 'url(' + this.next.thumbnail + ')' }}></div>
@@ -262,7 +265,7 @@ class WorkDetail extends Component {
                         }
                         {
                             this.prev ?
-                                <div className="btn-wrap prev" id="jsBtnPrev" /*onClick={this.clickPrev}*/>
+                                <div className="btn-wrap prev" id="jsBtnPrev" >
                                     <div className="stick"></div>
                                     <div className="radius">
                                         <div className="bg" style={{ backgroundImage: 'url(' + this.prev.thumbnail + ')' }}></div>

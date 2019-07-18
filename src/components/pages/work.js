@@ -170,7 +170,7 @@ class Work extends Component {
                                                 <div className="top">
                                                 </div>
                                                 <div className="bottom">
-                                                    <h3 className="f-subhead f-eng-title">{item.title}</h3>
+                                                    <h3 className="f-heading f-eng-title">{item.title}</h3>
                                                     <p className="f-normal f-eng category">{item.category2}</p>
                                                 </div>
                                             </div>

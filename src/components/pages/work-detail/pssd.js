@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import styleColors from '../../../images/work-detail-bigpic/bigpic-style-color.png';
 import styleFonts from '../../../images/work-detail-bigpic/bigpic-style-fonts.png';
-import styleIcons from '../../../images/work-detail-bigpic/bigpic-style-icons.png';
+import styleIcons from '../../../images/work-detail-bigpic/bigpic-style-icons.jpg';
 import styleButtons from '../../../images/work-detail-bigpic/bigpic-style-buttons.png';
 import pssd01 from '../../../images/work-detail-pssd/pssd-01.jpg';
 import pssd02 from '../../../images/work-detail-pssd/pssd-02.jpg';

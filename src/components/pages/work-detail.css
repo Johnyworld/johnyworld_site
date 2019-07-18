@@ -3,6 +3,7 @@
 /* -------------------------------------- */
 .subpage-content { overflow: hidden; }
 .subpage-content section { margin: 150px 0; }
+.subpage-content section .text-wrap { margin: 0 7%; margin-bottom: 30px; }
 .subpage-content section .text-wrap .f-title { margin-left: -.12em; margin-bottom: 20px; }
 .subpage-content section .text-wrap .f-heading { margin-bottom: 20px; }
 .subpage-content section .text-wrap .f-normal:not(:last-child) { margin-bottom: 30px; }
@@ -12,30 +13,58 @@
 .subpage-content section .text-wrap.title-area > *:last-child { margin-bottom: 0; }
 .subpage-content section img { display: block; width: 100%; }
 .subpage-content section .image-wrap { overflow: hidden; }
-
-/* for Text Animate */
-.text-wrap { margin: 0 7%; margin-bottom: 30px; }
+.subpage-content section .bgimg { background-size: cover; background-position: center; }
+@media screen and ( max-width: 1023px ) {
+    .subpage-content { padding-top: 30px }
+}
+@media screen and ( max-width: 767px ) {
+    .subpage-content section { margin: 80px 0; }
+    .subpage-content section .text-wrap.title-area > * { margin: 30px 0; }
+}
 
 /* WORK DETAIL Each Section */
 /* -------------------------------------- */
 .subpage-content .detail-each section { padding: 150px 0 0; margin: 0; }
 .subpage-content .detail-each section:nth-child(2n-1) { background-color: #1d1d1d; }
 .subpage-content .detail-each section:nth-child(2n) { background-color: #111; }
+@media screen and ( max-width: 767px ) {
+    .subpage-content .detail-each section { padding-top: 80px }
+}
 
 /* 섹션별 */
 .subpage-content .detail-each section.sec-bright { background-color: #222; }
 .subpage-content .detail-each section.sec-padded-end { padding-bottom: 150px; }
 .subpage-content .detail-each section.sec-style-guide .text-wrap:not(:last-child) { padding-bottom: 70px; border-bottom: 1px solid #292929; }
-.subpage-content .detail-each section.sec-style-guide img { display: block; width: auto; }
 .subpage-content .detail-each section > * > *:not(:last-child) { margin-bottom: 70px; }
 .subpage-content .detail-each section > *:last-child > *:last-child:not(.l-row) { margin-bottom: 0px; }
+@media screen and ( max-width: 767px ) {
+    .subpage-content .detail-each section.sec-style-guide .text-wrap:not(:last-child) { padding-bottom: 30px; }
+    .subpage-content .detail-each section > * > *:not(:last-child) { margin-bottom: 30px; }
+}
+
 
 /* 목업 */
 .mockup-wrap { position: relative; }
-.mockup-wrap .bgimg { background-size: cover; width: 1140px; height: 895px; margin: 0 auto 0 15%; }
-.mockup-wrap .mobile-img { position: absolute; bottom: -8em; left: 0; background-size: cover; height: 670px; width: 380px;  }
+.mockup-wrap .bgimg { width: 63vw; margin: 0 auto 0 12vw; }
+.mockup-wrap .mobile-img { position: absolute; bottom: -8em; left: 0; background-size: cover; width: 27%;  }
 .mockup-wrap .mobile-img:hover { opacity: 0; }
-.mockup-wrap .mobile-img-screen { margin: 15px; width: 268px; height: 579px; background-size: cover; }
+.mockup-wrap .mobile-img-screen { margin: 4%; width: 70.5%; background-size: cover; }
+@media screen and ( max-width: 1023px ) {
+    .mockup-wrap .bgimg { width: 90vw; margin: 0; }
+}
+
+@media screen and ( max-width: 767px ) {
+    .mockup-wrap .mobile-img { display: none; }
+}
+
+
+/* 키비주얼 */
+.sec-detail-keyvisual .bgimg-wrap { height: 40vh; }
+.sec-detail-keyvisual .bgimg { width: 80vw; height: 50vh; }
+@media screen and ( max-width: 1023px ) {
+    .subpage-content section.sec-detail-keyvisual { margin-bottom: 1px; }
+    .sec-detail-keyvisual .bgimg { width: 100vw; }
+}
 
 /* 사이트보기 버튼 */
 .viewsite-btn { position: fixed; top: 260px; left: 6%; width: 67px; color: #bbb; z-index: 9998; text-align: center; line-height: 1.2; font-size: 14px; transition: .5s; }
@@ -147,16 +176,9 @@
 .biglogo-svg-wrap { width: 100%; padding: 60px 0 80px; background-color: #282828; }
 .biglogo-svg { display: block; width: 40%; height: 40%; margin: 0 auto; }
 
-
-@media screen and ( max-width: 1024px ) {
+@media screen and ( max-width: 1023px ) {
     .viewsite-btn {
         top: 20px;
         left: 9%;
     }
-
-    .detail-section .f-title {
-        font-size: 50px;
-    }
-
-
 }

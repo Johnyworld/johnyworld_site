@@ -167,7 +167,7 @@ const labSliderScript = () => {
         }
     });
     
-    labSliderInit(0, 1);
+    labSliderInit(labSliderIndex-1, labSliderIndex);
     labSliderButtonEvents();
     setLabSliderPosition(labSliderIndex);
     movingLabSliderTexts(labSliderIndex);

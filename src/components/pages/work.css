@@ -37,7 +37,7 @@
 
 .work-items .item {
     display: block;
-    height: 450px;
+    height: 23vw;
 }
 
 .work-items .l-col:nth-child(2n) {
@@ -88,12 +88,8 @@
     bottom: 10%;
 }
 
-.grid-item .textbox .f-subhead {
-    font-size: 42px;
+.grid-item .textbox .f-heading {
     text-transform: uppercase;
-    line-height: 1.1;
-    margin-bottom: 10px;
-    
 }
 
 .grid-item .textbox .f-normal {
@@ -106,10 +102,9 @@
     color: #ff75a3;
 }
 
-@media screen and ( max-width: 1300px ) {
-    .bigmenu-title-wrapper .f-title {
-        font-size: 50px;
-    }
+@media screen and ( max-width: 1400px ) {
+    .work-items { top: 210px; }
+    .bigmenu-title-wrapper .f-title { font-size: 50px; }
 }
 
 @media screen and ( max-width: 1024px ) {
@@ -123,13 +118,9 @@
         margin-top: 67px;
     }
 
-    .work-items {
-        padding-top: 95px;
-    }
+    .work-items { padding-top: 95px; }
+    .work-items .item { height: 32vw; }
 
-    .work-items .item {
-        height: 50vw;
-    }
 }
 
 @media screen and ( max-width: 767px ) {

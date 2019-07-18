@@ -11,7 +11,7 @@ import workBgBigpictureEnt from '../../images/workbg-bigpicture.jpg';
 import workKeyBgBigpictureEnt from '../../images/work-detail-bigpic/bigpic-keyvisualbg.jpg';
 import workKeyBgFanclubCoin from '../../images/work-detail-fancoin/fancoin-keyvisualbg.jpg';
 import workKeyBgSoohan from '../../images/work-detail-soohan/soohan-keyvisualbg.jpg';
-import workKeyBgKrx from '../../images/work-detail/krx-keyvisualbg.jpg';
+import workKeyBgKrx from '../../images/work-detail-krx/krx-keyvisualbg.jpg';
 import workKeyBgPssd from '../../images/work-detail-pssd/pssd-keyvisualbg.jpg';
 import workKeyBgCamping from '../../images/work-detail-camping/camping-keyvisualbg.jpg';
 
@@ -19,7 +19,7 @@ import workKeyBgCamping from '../../images/work-detail-camping/camping-keyvisual
 import workScreenBigpictureEnt from '../../images/work-detail-bigpic/bigpic-devices.jpg';
 import workScreenFanclubCoin from '../../images/work-detail-fancoin/fancoin-devices.jpg';
 import workScreenSoohan from '../../images/work-detail-soohan/soohan-devices.jpg';
-import workScreenKrx from '../../images/work-detail/krx-devices.jpg';
+import workScreenKrx from '../../images/work-detail-krx/krx-devices.jpg';
 import workScreenPssd from '../../images/work-detail-pssd/pssd-devices.jpg';
 import workScreenCamping from '../../images/work-detail-camping/camping-devices.jpg';
 
@@ -27,8 +27,6 @@ import workScreenCamping from '../../images/work-detail-camping/camping-devices.
 import workMobileBigpictureEnt from '../../images/work-detail-bigpic/bigpic-devices-mobile.jpg';
 import workMobileFanclubCoin from '../../images/work-detail-fancoin/fancoin-devices-mobile.jpg';
 import workMobileSoohan from '../../images/work-detail-soohan/soohan-devices-mobile.jpg';
-// import workMobileKrx from '../../images/work-detail/krx-devices-mobile.jpg';
-// import workMobilePssd from '../../images/work-detail/pssd-devices-mobile.jpg';
 import workMobileCamping from '../../images/work-detail-camping/camping-devices-mobile.jpg';
 
 const dataWork = [

@@ -155,7 +155,7 @@ class About extends Component {
         }
         return(
             <>
-                <div className="l-wrapper-wide">
+                <div className="l-wrapper-full">
                     <SubpageHeading hugetitle="ABOUT" subtext="꿈은 크고, 그것을 실행하는 사람." />
                 </div>
                 <div className="about-wrapper">
@@ -172,7 +172,8 @@ class About extends Component {
                         </div>
                         <div className="l-wrapper-full">
                             <div className="floating-image-wrap jsAppearSlideToR">
-                                <img className="floating-image jsScrollParallaxImage" src={imgAboutKey} alt="어바웃키비주얼" />
+                                <div className="floating-image jsScrollParallaxImage" style={{ backgroundImage: 'url(' + imgAboutKey + ')' }} />
+                                {/* <img className="floating-image jsScrollParallaxImage" src={imgAboutKey} alt="어바웃키비주얼" /> */}
                             </div>
                         </div>
                     </section>

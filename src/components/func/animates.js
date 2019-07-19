@@ -35,16 +35,6 @@ export const mouseMoving = (mouse, element, speedX, speedY, isNeg, isCenter) => 
     element.style.transform = 'translate(' + xx + 'px,' + yy + 'px)';
 }
 
-export const slideTranslate = ( element, distance, target, duration, ease='cubic-bezier(.33,.59,.6,1)' ) => {
-    element.animate([
-        { transform: 'translateY('+ distance +'px)' },
-        { transform: 'translateY('+ target +'px)' }
-    ], {
-        duration: duration,
-        easing: ease
-    });
-}
-
 // 패럴렉스 이미지
 // ---------------------------------------
 export const scrollParallaxImages = ( elements ) => {
@@ -217,16 +207,10 @@ export const animInFade = ( element, duration, delay ) => {
     
 }
 
-export const animOutFade = ( element, duration, delay ) => {
-    element.style.opacity = 0; 
-    element.animate([
-        { opacity: 1 },
-        { opacity: 0 }
-    ], {
-        duration: duration,
-        delay: delay
-    })
-    element.style.opacity = 0;
+export const animOutFade = ( element, delay ) => {
+    setTimeout(()=> {
+        element.style.opacity = 0;
+    }, delay);
 }
 
 export const animInLoading = (jsFullScreenWrap01, jsFullScreenWrap02, jsLoading) => {

@@ -12,6 +12,13 @@ header {
     width: 67px;
     height: 67px;
     padding: 22px; 
+    opacity: 0;
+    transform: translateX(100px);
+    transition: all cubic-bezier(.33,.78,.41,1) 1.5s;
+}
+.header-buttons.cue1 {
+    opacity: 1;
+    transform: translateX(0);
 }
 
 /* 뒤로가기 버튼 */
@@ -39,8 +46,8 @@ header {
 /* 햄버거메뉴 버튼 */
 .gnb-btn {
     bottom: 160px;
-    transition: .5s;
-    transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    /* transition: .5s; */
+    /* transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55); */
 }
 
 .gnb-btn .gnb-btn-lines {

@@ -16,36 +16,6 @@ const labSliderScript = () => {
     let itemWidth = sliderItems[0].clientWidth;
     let selectedWidth = window.innerWidth / 100 * 80;
     
-    // const pad = (n, width) => {
-    //     n = n + '';
-    //     return n.length >= width ? n : new Array(width - n.length + 1).join('0') + n;
-    // }
-
-    const hideObject = (object, duration) => {
-        setTimeout(function() {
-            object.style.display = 'none';
-        }, duration);
-        object.animate(
-            [
-                {opacity: 1},
-                {opacity: 0}
-            ], { duration: duration }
-        );
-    }
-
-    const showObject = (object, duration) => {
-        object.style.display = 'block';
-        setTimeout(function() {
-            object.style.display = 'block';
-        }, duration);
-        object.animate(
-            [
-                {opacity: 0},
-                {opacity: 1}
-            ], { duration: duration }
-        );
-    }
-    
     const movingLabSliderTexts = (newIndex) => {
         for ( let i=0; i<sliderItems.length; ++i ) {
             let labsliderTitles = sliderItems[i].querySelectorAll('h2');
@@ -135,10 +105,10 @@ const labSliderScript = () => {
 
     const labSliderInit = (oldIndex, newIndex) => {
         // 좌우 화살표 보이기, 감추기
-        if ( newIndex === 0 ) { hideObject(labSliderBtnLeft, 700); }
-        if ( oldIndex === 0 && newIndex >= 1 ) { showObject(labSliderBtnLeft, 700); }
-        if ( newIndex === sliderItems.length-1 ) { hideObject(labSliderBtnRight, 700); }
-        if ( oldIndex === sliderItems.length-1 && newIndex <= sliderItems.length-2 ) { showObject(labSliderBtnRight, 700); }
+        if ( newIndex === 0 ) { labSliderBtnLeft.classList.add('is-hidden'); }
+        if ( oldIndex === 0 && newIndex >= 1 ) { labSliderBtnLeft.classList.remove('is-hidden'); }
+        if ( newIndex === sliderItems.length-1 ) { labSliderBtnRight.classList.add('is-hidden'); }
+        if ( oldIndex === sliderItems.length-1 && newIndex <= sliderItems.length-2 ) { labSliderBtnRight.classList.remove('is-hidden'); }
     
         // Selected 클래스 추가
         for( let i=0; i<sliderItems.length; i++ ) {
@@ -152,8 +122,6 @@ const labSliderScript = () => {
         setLabSliderPosition(newIndex);
     
         // 텍스트 애니메이션
-        hideObject(sliderItems[oldIndex].getElementsByClassName('text-wrap')[0], 700);
-        showObject(sliderItems[newIndex].getElementsByClassName('text-wrap')[0], 700);
         setTimeout( function(){
             movingLabSliderTexts(newIndex);
         }, 10);

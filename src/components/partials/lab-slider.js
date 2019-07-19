@@ -43,6 +43,7 @@ class LabSlider extends Component {
     }
 
     render() {
+        console.log(window.location.hash)
         return(
             <div className="lab-slider-wrapper clear-fix">
                 <div className="btn-wrap">
@@ -65,7 +66,7 @@ class LabSlider extends Component {
                         return(
                             <li className={"slider-item" + (key===labSliderIndex ? ' selected':'') } key={item.id}>
                                 <div className="slider-inner">
-                                    <div className="image-wrap">
+                                    <div className={"image-wrap" + ( window.location.hash === "#study" ? "" : " slide-hide" )}>
                                         <div className="thumbnail" style={{backgroundImage : 'url(' + item.thumbnail + ')' }}></div>
                                     </div>
                                     <div className="text-wrap">
@@ -95,7 +96,7 @@ class LabSlider extends Component {
                         )
                     })}
                 </ul>
-                <div className="index-wrap" id="jsLabSliderIndex">
+                <div className={"index-wrap" + ( window.location.hash === "#study" ? "" : " slide-hide" )} id="jsLabSliderIndex">
                     <div className="index tens f-eng" id="jsLabSliderIndexTens">
                         <p>0</p>
                         <p>1</p>

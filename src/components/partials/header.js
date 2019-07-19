@@ -81,26 +81,16 @@ class Header extends Component {
 
         const showRightToLeft = (element) => {
             if ( element ) {
-                element.style.opacity = 0;
-                element.animate([
-                    { opacity: 0, transform: 'translateX(100px)' },
-                    { opacity: 1, transform: 'translateX(0px)' },
-                ], {
-                    duration: 1500,
-                    easing: 'cubic-bezier(.33,.78,.41,1)'
-                });
-                element.style.opacity = 1;
+                element.classList.add('cue1');
             }
         }
-
+        
         const loadHeader = () => {
             for( let i=0; i<headerButtons.length; i++ ) {
-                if ( !headerButtons[i].classList.contains('is-hidden') ) {
-                    headerButtons[i].style.opacity = 0;
-                    setTimeout( function() {
-                        showRightToLeft(headerButtons[i]);
-                    }, 300*i + 1000); 
-                }
+                headerButtons[i].classList.remove('cue1');
+                setTimeout( function() {
+                    showRightToLeft(headerButtons[i]);
+                }, 300*i + 2300); 
             } 
         }
 

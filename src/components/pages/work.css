@@ -1,7 +1,7 @@
 .bigmenu-title-wrapper {
     position: absolute;
     left: 25%;
-    transition: 1.6s;
+    transition: all 1.6s, opacity 1s;
     margin-top: 80px;
     margin-left: -.5em;
     z-index: 500;
@@ -17,6 +17,7 @@
     position: absolute;
     white-space: nowrap;
     overflow: hidden;
+    transition: opacity 1s;
 }
 
 .bigmenu-title-wrapper .f-title p {
@@ -37,6 +38,7 @@
 .work-items .item {
     display: block;
     height: 23vw;
+    transition: opacity 1s;
 }
 
 .work-items .l-col:nth-child(2n) {

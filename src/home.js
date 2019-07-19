@@ -7,8 +7,7 @@ import {
     setMouseHover, 
     smoothScroll, 
     animOutFade,
-    scrollFloating,
-    slideTranslate } from './components/func/animates';
+    scrollFloating } from './components/func/animates';
 import {
     topBtnHandler } from './components/func/functions';
 
@@ -131,10 +130,9 @@ class Home extends Component {
             sectionGnb = false;
             handleMainMenuScrollFloating();
             for ( let i=0; i<homeLaboratoryThumbnail.length; i++) {
-                // let dur = 2200 + i*300;
-                slideTranslate(homeLaboratoryThumbnail[i], 200, 0, 2300);
+                homeLaboratoryThumbnail[i].classList.remove('slide-hide');
             }
-            slideTranslate(jsLabSliderIndex, 500, 0, 2300);
+            jsLabSliderIndex.classList.remove('slide-hide');
             smoothScroll('#home-Laboratory', 2000);
             this.props.history.replace('/#study');
         }
@@ -157,10 +155,9 @@ class Home extends Component {
                     window.addEventListener('mousemove', mainMenuFollowingMouse);
                 }, 1500)
                 for ( let i=0; i<homeLaboratoryThumbnail.length; i++) {
-                    // let dur = 2200 + i*300;
-                    slideTranslate(homeLaboratoryThumbnail[i], 0, 200, 2300, 'ease-in');
+                    homeLaboratoryThumbnail[i].classList.add('slide-hide');
                 }
-                slideTranslate(jsLabSliderIndex, 0, 500, 2300, 'ease-in');
+                jsLabSliderIndex.classList.add('slide-hide');
                 this.props.history.replace('/');
             }
         }
@@ -292,24 +289,21 @@ class Home extends Component {
         }
 
         const handleLoaded = () => {
-            animOutFade(jsLoading, 1000);
+            animOutFade(jsLoading, 300);
             setTimeout(() => {
                 this.setState({
                     loaded: true
                 });
                 this._definePage();
-                jsFullScreenWrap01.animate([
-                    { opacity: 1 },
-                    { opacity: 0 },
-                ], {
-                    duration: 1000
-                });      
+                jsFullScreenWrap01.style.transition = '1.5s';
+                jsFullScreenWrap01.style.opacity = '0';
                 setTimeout(() => {
+                    jsFullScreenWrap01.style.transition = '0s';
                     jsFullScreenWrap01.style.width = '0%';
                     jsFullScreenWrap01.style.opacity = '1';
                     jsLoading.style.display = 'none';
                     jsLoading.style.opacity = '1';
-                }, 1000);
+                }, 1500);
             }, 1000);
         }
         handlePageLoaded();

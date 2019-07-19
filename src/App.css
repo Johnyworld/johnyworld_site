@@ -92,7 +92,7 @@ button:hover { cursor: inherit; }
 #jsFullScreenWrap02 { position: absolute; width: 0%; height: 100%; right: 0; }
 #jsFullScreenWrap01 { background-color: #111; }
 #jsFullScreenWrap02 { background-color: #296cff; }
-#jsLoading { width: 1%; height: 1px; position: absolute; margin: auto; top: 0; right: 40%; bottom: 0; background-color: white; display: none; animation-name: loading; animation-duration: 1.2s; animation-iteration-count: infinite; animation-timing-function: ease-in-out; }
+#jsLoading { width: 1%; height: 1px; position: absolute; margin: auto; top: 0; right: 40%; transition: 1s; bottom: 0; background-color: white; display: none; animation-name: loading; animation-duration: 1.2s; animation-iteration-count: infinite; animation-timing-function: ease-in-out; }
 
 /* for Animations */
 /* -------------------------------------- */

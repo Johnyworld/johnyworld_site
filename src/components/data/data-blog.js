@@ -93,6 +93,20 @@ const dataBlog = [
         `,
     },
     {
+        title: "숫자 앞에 0 붙이기",
+        category: "Today I Learned",
+        date: "2019. 7. 19. Fri.",
+        hash: [ "자바스크립트", "리액트", "포트폴리오", "Dotenv" ],
+        desc: `<p class="blog-inner-paragraph"></p>
+        <div class="blog-inner-paragraph blog-code">
+            const pad = (n, width) => {<br />
+                <span class="tab"></span>n = n + '';<br />
+                <span class="tab"></span>return n.length >= width ? n : new Array(width - n.length + 1).join('0') + n;<br />
+            }
+        </div>
+        `,
+    },
+    {
         title: "IOS Form CSS",
         category: "Today I Learned",
         date: "2019. 7. 19. Fri.",
@@ -104,6 +118,5 @@ const dataBlog = [
         `,
     }
 ]
-
 const dataBlogReverse = dataBlog.reverse();
 export default dataBlogReverse;

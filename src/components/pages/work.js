@@ -131,10 +131,6 @@ class Work extends Component {
                 animOutFade(workItems[i], 500);
             }, i*100)
         }
-
-        for( let i=0; i<headerButtons.length; i++ ) {
-            headerButtons[i].classList.add('is-hidden');
-        }
         
         jsLoading.style.display = "block";
         

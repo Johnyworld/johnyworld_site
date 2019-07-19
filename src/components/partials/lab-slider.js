@@ -85,7 +85,10 @@ class LabSlider extends Component {
                                             { item.desc.map((desc, key) => (<p className="explain-p" key={`desc${key}`}>{desc}</p>))}
                                         </div>
                                         {/* <p className="f-normal f-eng c-wine-dark">{item.date}</p> */}
-                                        <div className="technics-wrap f-normal f-eng c-blue-bright">{ item.technics.map((desc, key) => (<span className="technic" key={`desc${key}`}>{desc}</span>))}</div>
+                                        <div className="technics-wrap f-normal f-eng c-blue-bright">
+                                            { item.git ? <a href={item.git} target="blank"><span className="git technic">GitHub</span></a> : '' }
+                                            { item.technics.map((desc, key) => (<span className="technic" key={`desc${key}`}>{desc}</span>))}
+                                        </div>
                                     </div>
                                 </div>
                             </li>

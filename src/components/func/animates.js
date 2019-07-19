@@ -175,19 +175,21 @@ export const animInWidth = (element, duration) => {
 export const animInAppear = (elements, delay) => {
     const animInAppearByTurn = (nowScroll, elements) => {
         for ( let i=0; i<elements.length; i++ ) {
-            if ( elements[i] ) {
-                let YY = window.pageYOffset + elements[i].getBoundingClientRect().top;
-                if ( YY < window.innerHeight ) {
-                    setTimeout( function() {
+            let YY = window.pageYOffset + elements[i].getBoundingClientRect().top;
+            if ( YY < window.innerHeight ) {
+                setTimeout( function() {
+                    if ( elements[i] ) {
                         elements[i].classList.add('is-appear');
-                    }, i*200);
-                    continue;
-                }
-                if ( YY < nowScroll + window.innerHeight ) {
-                    setTimeout( function() {
+                    }
+                }, i*200);
+                continue;
+            }
+            if ( YY < nowScroll + window.innerHeight ) {
+                setTimeout( function() {
+                    if ( elements[i] ) {
                         elements[i].classList.add('is-appear');
-                    }, elements[i].offsetLeft/2);
-                }
+                    }
+                }, elements[i].offsetLeft/2);
             }
         }
     }

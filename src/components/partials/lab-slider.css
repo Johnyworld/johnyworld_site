@@ -210,6 +210,11 @@
     font-size: 18px;
 }
 
+.lab-slider-wrapper .slider-item .text-wrap .technic.git {
+    color: white;
+    font-family: 'S-CoreDream-9Black'; 
+}
+
 .lab-slider-wrapper .slider-item.selected {
     padding-left: 150px;
     width: 80vw;

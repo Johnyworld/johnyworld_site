@@ -91,6 +91,17 @@ const dataBlog = [
         <p class="blog-inner-paragraph">그렇게 포기하고 다음 날이 됐다. 퇴근 후. 친구가 일하는 Wework에 와서 친구 옆에서 작업을 하기 위해 맥북을 켰고, 어제의 문제를 해결하기 위해 또 문서들을 뒤지기 시작했다. 그러다가 뭔가 시도해보려고 VSC를 켜고 다시 시도.</p>
         <p class="blog-inner-paragraph"><strong>"어? 되네?"</strong> 근데 웃긴건, 어제 했던 시도와 같은 방법으로 시도한 것이었다. 어젠 그렇게 안되다가 같은 방법으로 오늘은 된다. 어제와 달라진 것은 VSC를 껐다 켰다는 것. 어쨌든 문서에서 설명한 대로 했고, 잘 실행 된다. 내 인스타그램 API Key는 이제 비밀스럽다.</p>
         `,
+    },
+    {
+        title: "IOS Form CSS",
+        category: "Today I Learned",
+        date: "2019. 7. 19. Fri.",
+        hash: [ "자바스크립트", "리액트", "포트폴리오", "Dotenv" ],
+        desc: `<p class="blog-inner-paragraph">Room311 웹앱을 개발하는 과정에서 Submit버튼에 대한 CSS가 자꾸 적용이 되지 않아서 답답했었는데 답을 찾았다. CSS RESET 단계에 아래 코드를 추가해주면 된다.</p>
+        <div class="blog-inner-paragraph blog-code">
+            input[type=submit] {-webkit-appearance:none;}
+        </div>
+        `,
     }
 ]
 

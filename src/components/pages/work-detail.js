@@ -201,7 +201,7 @@ class WorkDetail extends Component {
                             <div className="l-wrapper">
                                 <div className="mockup-wrap">
                                     <div className="mockup-img-wrap jsAppearSlideToR">
-                                        <img className="mockup-img" alt="목업" src={this.data.screen} />
+                                        <img className={'mockup-img' + (this.data.mobileScreen ? ' with-mobile' :'') } alt="목업" src={this.data.screen} />
                                     </div>
                                     {
                                         this.data.mobileScreen ?

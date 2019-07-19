@@ -118,7 +118,8 @@ const dataLabSlider = [
         technics: [ "Javascript", "jQuery" ],
         thumbnail: labBgMasonry,
         date: "2018. 12",
-        url: "http://jw-masonry-grid.s3-website.ap-northeast-2.amazonaws.com/"
+        url: "http://jw-masonry-grid.s3-website.ap-northeast-2.amazonaws.com/",
+        git: "https://github.com/Johnyworld/masonlygrid"
     },
     {
         id: "03008",
@@ -132,7 +133,8 @@ const dataLabSlider = [
         technics: ["Javascript", "ES6", "Canvas"],
         thumbnail: labBgModernPirates,
         url: "http://modern-pirates.s3-website.ap-northeast-2.amazonaws.com/",
-        date: "2019. 05"
+        date: "2019. 05",
+        git: "https://github.com/Johnyworld/modern-pirates"
     },
     {
         id: "03009",
@@ -147,7 +149,8 @@ const dataLabSlider = [
         technics: ["Javascript", "React JS"],
         thumbnail: labBgRoom311,
         date: "2019. 04",
-        url: "http://room311.s3-website.ap-northeast-2.amazonaws.com/"
+        url: "http://room311.s3-website.ap-northeast-2.amazonaws.com/",
+        git: "https://github.com/Johnyworld/room311"
     },
 ];
 

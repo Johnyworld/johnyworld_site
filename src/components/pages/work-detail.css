@@ -13,6 +13,9 @@
 .subpage-content section .text-wrap.title-area > *:first-child { margin-top: 0; }
 .subpage-content section .text-wrap.title-area > *:last-child { margin-bottom: 0; }
 .subpage-content section img { display: block; width: 100%; }
+.subpage-content section iframe { display: block; }
+.subpage-content section .center-wrap { width: 100%; padding: 60px 0 80px; background-color: #282828; }
+.subpage-content section .center-wrap img { margin: 0 auto; }
 .subpage-content section .image-wrap { overflow: hidden; }
 .subpage-content section .bgimg { background-size: cover; background-position: center; }
 @media screen and ( max-width: 1023px ) {
@@ -30,6 +33,7 @@
 .subpage-content .detail-each section { padding: 150px 0 0; margin: 0; }
 .subpage-content .detail-each section:nth-child(2n-1) { background-color: #1d1d1d; }
 .subpage-content .detail-each section:nth-child(2n) { background-color: #111; }
+.subpage-content .detail-each section:nth-child(2n) .center-wrap { background-color: #191919; }
 @media screen and ( max-width: 767px ) {
     .subpage-content .detail-each section { padding-top: 80px }
 }
@@ -38,7 +42,7 @@
 .subpage-content .detail-each section.sec-bright { background-color: #222; }
 .subpage-content .detail-each section.sec-padded-end { padding-bottom: 150px; }
 .subpage-content .detail-each section.sec-style-guide .text-wrap:not(:last-child) { padding-bottom: 70px; border-bottom: 1px solid #292929; }
-.subpage-content .detail-each section > * > *:not(:last-child) { margin-bottom: 70px; }
+.subpage-content .detail-each section > * > * { margin-bottom: 70px; }
 .subpage-content .detail-each section > *:last-child > *:last-child:not(.l-row) { margin-bottom: 0px; }
 @media screen and ( max-width: 767px ) {
     .subpage-content .detail-each section.sec-style-guide .text-wrap:not(:last-child) { padding-bottom: 30px; }
@@ -48,16 +52,20 @@
 
 /* 목업 */
 .mockup-wrap { position: relative; }
-.mockup-wrap .mockup-img { width: 63vw; margin: 0 auto 0 12vw; }
-.mockup-wrap .mobile-img { position: absolute; bottom: -8em; left: 0; background-size: cover; width: 27%;  }
+.mockup-wrap .mockup-img { width: 70vw; }
+.mockup-wrap .mockup-img.with-mobile { width: 63vw; margin: 0 auto 0 12vw; }
+.mockup-wrap .mobile-img { position: absolute; bottom: -8em; left: 0; background-size: cover; width: 27%; }
 .mockup-wrap .mobile-img:hover { opacity: 0; }
 .mockup-wrap .mobile-img-screen { margin: 4%; width: 70.5%; background-size: cover; }
 @media screen and ( max-width: 1023px ) {
     .mockup-wrap .mockup { width: 90vw; margin: 0; }
+    .mockup-wrap .mockup-img { width: 90vw; }
+    .mockup-wrap .mockup-img.with-mobile { width: 75vw; }
 }
 
 @media screen and ( max-width: 767px ) {
     .mockup-wrap .mobile-img { display: none; }
+    .mockup-wrap .mockup-img.with-mobile { width: 90vw; margin: 0; }
 }
 
 /* 키비주얼 */
@@ -156,31 +164,9 @@
     color: #3976fe;
 }
 
-.l-wrapper.krx-tutorial {
-    margin-top: -230px;
-    position: relative;
-}
-
-.krx-tutorial .krx-tut-img:first-child {
-    margin-left: -30vw;
-}
-
-.krx-tutorial .krx-tut-img:last-child {
-    margin-left: 15vw;
-}
-
-.krx-public .krx-tut-img:first-child {
-    margin-left: -10vw;
-}
-
-.krx-public .krx-tut-img:last-child {
-    margin-left: 10vw;
-}
-
 /* WORK DETAIL Each Pages */
 /* -------------------------------------- */
 /* 빅픽처 엔터테인먼트 */
-.biglogo-svg-wrap { width: 100%; padding: 60px 0 80px; background-color: #282828; }
 .biglogo-svg { display: block; width: 40%; height: 40%; margin: 0 auto; }
 
 @media screen and ( max-width: 1023px ) {

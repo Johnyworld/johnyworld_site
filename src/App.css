@@ -32,6 +32,7 @@ button:hover { cursor: inherit; }
 .l-wrapper-sticked { max-width: 100%; margin-left: 25%; }
 .l-wrapper { max-width: 100%; margin-left: 20%; margin-right: 5%; }
 .l-wrapper-center { max-width: 100%; margin: 0 15%; }
+.l-wrapper-center img { margin: 0 auto; }
 .l-row { margin: -15px; }
 .l-row::after { content: ' '; display: block; clear: both; }
 .l-col { width: 50%; float: left; padding: 15px; }

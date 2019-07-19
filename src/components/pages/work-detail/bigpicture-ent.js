@@ -71,9 +71,9 @@ class BigpictureEnt extends Component {
                             </div>
                         </div>
                         <div className="text-wrap">
-                            <p className="f-normal"><strong>SVG 애니메이션</strong>벡터방식의 이미지인 SVG를 사용하여, 색상이 차차 변하는 그라데이션 애니메이션을 부여하여 홈페이지에 생동감을 주었습니다.</p>
+                            <p className="f-normal"><strong>SVG 애니메이션<br /></strong>벡터방식의 이미지인 SVG를 사용하여, 색상이 차차 변하는 그라데이션 애니메이션을 부여하여 홈페이지에 생동감을 주었습니다.</p>
                         </div>
-                        <div className="biglogo-svg-wrap">
+                        <div className="center-wrap">
                             <div className="text-wrap c-wine-bright">텍스트의 색상이 변합니다.</div>
                             <BigpictureLogoSVG />
                         </div>
@@ -83,7 +83,7 @@ class BigpictureEnt extends Component {
                     <div className="l-wrapper">
                         <div className="text-wrap">
                             <h2 className="f-title jsAppearBtT">플러그인 개발</h2>
-                            <p className="f-normal jsAppearBtT"><strong>각 아티스트별 미디어 관리 플러그인</strong>기존 워드프레스 플러그인중에는 네이버TV의 영상을 임포트 하고, <br className="dis-m" />한번에 관리할 수 있는 플러그인의 부재로, 필요에 따라 개발 시작. <br className="dis-m" />메인페이지는 슬라이더, 상세페이지는 그리드. 클라이언트를 위한 관리자페이지 구성.</p>
+                            <p className="f-normal jsAppearBtT"><strong>각 아티스트별 미디어 관리 플러그인<br /></strong>기존 워드프레스 플러그인중에는 네이버TV의 영상을 임포트 하고, <br className="dis-m" />한번에 관리할 수 있는 플러그인의 부재로, 필요에 따라 개발 시작. <br className="dis-m" />메인페이지는 슬라이더, 상세페이지는 그리드. 클라이언트를 위한 관리자페이지 구성.</p>
                         </div>
                         <ul className="l-row gap60">
                             <li className="l-col l-col-6-12 l-col-t-12-12">
@@ -94,7 +94,7 @@ class BigpictureEnt extends Component {
                             </li>
                         </ul>
                         <div className="text-wrap">
-                            <p className="f-normal jsAppearBtT"><strong>관리자페이지</strong>아티스트 이름을 카테고리로 지정하여 <br className="dis-m" />유튜브 / 비메오 / 네이버TV 링크를 가져와, <br className="dis-m" />iframe으로 보여줍니다.</p>
+                            <p className="f-normal jsAppearBtT"><strong>관리자페이지<br /></strong>아티스트 이름을 카테고리로 지정하여 <br className="dis-m" />유튜브 / 비메오 / 네이버TV 링크를 가져와, <br className="dis-m" />iframe으로 보여줍니다.</p>
                         </div>
                         <img src={bevl03} className="jsAppearBtT" alt="designimg" />
                         <img src={bevl02} className="jsAppearBtT" alt="designimg" />

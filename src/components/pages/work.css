@@ -22,6 +22,7 @@
 
 .bigmenu-title-wrapper .f-title p {
     display: none;
+    transition-timing-function: cubic-bezier(.02,.61,.29,1);
 }
 
 .work-items {

@@ -109,10 +109,6 @@ export const scrollScale = (nowScroll, element, scale=100) => {
 
 // 등장 or 퇴장 애니메이션들
 // ---------------------------------------
-export const animOutSlideUp = (element) => {
-    element.style.transform = 'scaleY(0)';
-}
-
 export const animInCrossSlide = (childs) => {
     for( let i=0; i<childs.length; i++ ) {
         let transY = 0;
@@ -122,42 +118,62 @@ export const animInCrossSlide = (childs) => {
         if ( i % 5 === 3 ) { transY = 1.5 }
         if ( i % 5 === 4 ) { transY = -2 }
         childs[i].style.display = 'inline-block';
-        childs[i].animate(
-            [
-                { transform: 'translateY(' + transY + 'em)' },
-                { transform: 'translateY(0px)' }
-            ], {
-                duration: 1700,
-                easing: 'cubic-bezier(.02,.61,.29,1)'
-            }
-        )
+        childs[i].style.transition = '0s';
+        childs[i].style.transform = 'translateY(' + transY + 'em)';
+        setTimeout(()=>{
+            childs[i].style.transition = '1.7s';
+            setTimeout(()=>{
+                childs[i].style.transform = 'translateY(0px)';
+            }, 10)
+        }, 10)
+        
     }
 } 
 
-export const animOutWidth = (element, duration) => {
+// 로딩화면 관련 애니메이션
+// ------------------------------------
+export const animOutWidth = (element) => {
+    element.style.transition = 'all cubic-bezier(.13,.84,.35,1) 1s';
     element.style.left = '0';
     element.style.right = 'auto';
-    element.animate([
-        { width: '100%' },
-        { width: 0 }
-    ], {
-        duration: duration,
-        easing: 'cubic-bezier(.13,.84,.35,1)'
-    });
     element.style.width = '0%';
+    setTimeout(() => {
+        element.style.transition = '0s';
+    }, 1000);
 }
 
-export const animInWidth = (element, duration) => {
+export const animInWidth = (element) => {
+    element.style.transition = 'all cubic-bezier(.13,.84,.35,1) 1s';
     element.style.left = 'auto';
     element.style.right = '0';
-    element.animate([
-        { width: 0 },
-        { width: '100%' }
-    ], {
-        duration : duration,
-        easing: 'cubic-bezier(.13,.84,.35,1)'
-    });
     element.style.width = '100%';
+    setTimeout(() => {
+        element.style.transition = '0s';
+    }, 1000);
+}
+
+export const setBeforeLoading = (wrap01, wrap02, lodingBar) => {
+    wrap01.style.width = '100%';
+    wrap02.style.width = '100%';
+    lodingBar.style.display = 'block';
+}
+
+
+// 헤더 관련 애니메이션
+// ------------------------------------
+const showRightToLeft = (element) => {
+    if ( element ) {
+        element.classList.add('cue1');
+    }
+}
+
+export const loadHeader = (headerButtons) => {
+    for( let i=0; i<headerButtons.length; i++ ) {
+        headerButtons[i].classList.remove('cue1');
+        setTimeout( function() {
+            showRightToLeft(headerButtons[i]);
+        }, 300*i + 2300); 
+    } 
 }
 
 // is-appear 클래스로 나타나는 애니메이션 
@@ -190,21 +206,6 @@ export const animInAppear = (elements, delay) => {
             animInAppearByTurn( nowScroll, elements );
         });
     }, delay);
-}
-
-export const animInFade = ( element, duration, delay ) => {
-    element.style.opacity = 0; 
-    element.animate([
-        { opacity: 0 },
-        { opacity: 1 }
-    ], {
-        duration: duration,
-        delay: delay
-    })
-    setTimeout( function() {
-        element.style.opacity = 1;
-    }, delay);
-    
 }
 
 export const animOutFade = ( element, delay ) => {

@@ -1,16 +1,14 @@
 import React, { Component } from 'react';
-import { setMouseHover, scrollFadeIn, animInLoading } from '../func/animates';
+import { 
+    setMouseHover, 
+    scrollFadeIn, 
+    loadHeader,
+    animInLoading } from '../func/animates';
 import { topBtnHandler } from '../func/functions';
 
 import './header.css';
 
 class Header extends Component {
-    // constructor(props) {
-    //     super(props);
-    //     this.history = this.props.history;
-    //     console.log(this.history);
-    // }
-
     componentDidMount() {
         // DEFINE
         const headerButtons = document.getElementsByClassName('header-buttons');
@@ -79,21 +77,6 @@ class Header extends Component {
             }
         }
 
-        const showRightToLeft = (element) => {
-            if ( element ) {
-                element.classList.add('cue1');
-            }
-        }
-        
-        const loadHeader = () => {
-            for( let i=0; i<headerButtons.length; i++ ) {
-                headerButtons[i].classList.remove('cue1');
-                setTimeout( function() {
-                    showRightToLeft(headerButtons[i]);
-                }, 300*i + 2300); 
-            } 
-        }
-
         // LISTENER
         // ------------------------------
         jsHeader.addEventListener('mouseleave', () => {
@@ -110,17 +93,11 @@ class Header extends Component {
         });
 
         jsBtnGnb.addEventListener('click', handleBtnGnb);
-        window.addEventListener( 'popstate', function(e) {
-            console.log('popstate!')
-            e.preventDefault();
-            e.stopPropagation();
-        }, {passive: false});
-
 
         // RUN
         // ------------------------------
         jsLoading.style.display = "none";
-        loadHeader();
+        loadHeader(headerButtons);
         setMouseHover();
     }
 

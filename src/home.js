@@ -3,10 +3,10 @@ import LabSlider from './components/partials/lab-slider';
 
 import { 
     mouseMoving, 
-    animOutSlideUp, 
     setMouseHover, 
     smoothScroll, 
     animOutFade,
+    setBeforeLoading,
     scrollFloating } from './components/func/animates';
 import {
     topBtnHandler } from './components/func/functions';
@@ -217,7 +217,7 @@ class Home extends Component {
             jsMenuRight.classList.add('is-hidden');
             jsMenuVerticalLine.classList.add('is-hidden');
             jsMenuBgLeftChild.classList.add('cue1');
-            animOutSlideUp(jsMenuBgRightChild);
+            jsMenuBgRightChild.style.height = '0';
             setTimeout( function() {
                 jsMenuBtnLeft.classList.add('aligned'); 
             }, 900);
@@ -242,7 +242,7 @@ class Home extends Component {
             jsMenuLeft.classList.add('is-hidden');
             jsMenuCenter.classList.add('is-hidden');
             jsMenuVerticalLine.classList.add('is-hidden');
-            animOutSlideUp(jsMenuBgLeftChild);
+            jsMenuBgLeftChild.style.height = '0';
             setTimeout( function() {
                 jsMenuBtnRight.classList.add('aligned');
             }, 700);
@@ -273,7 +273,6 @@ class Home extends Component {
         mainMenuAddHoverEvent();
         handleNotGnbSection();
         setMouseHover();
-        // handlePageLoaded();
         // reactRouteScrollTop();
     }
 
@@ -281,12 +280,6 @@ class Home extends Component {
         const jsLoading = document.getElementById('jsLoading');
         const jsFullScreenWrap01 = document.getElementById('jsFullScreenWrap01');
         const jsFullScreenWrap02 = document.getElementById('jsFullScreenWrap02');
-
-        const handlePageLoaded = () => {
-            jsFullScreenWrap01.style.width = '100%';
-            jsFullScreenWrap02.style.width = '0%';
-            jsLoading.style.display = 'block';
-        }
 
         const handleLoaded = () => {
             animOutFade(jsLoading, 300);
@@ -297,16 +290,19 @@ class Home extends Component {
                 this._definePage();
                 jsFullScreenWrap01.style.transition = '1.5s';
                 jsFullScreenWrap01.style.opacity = '0';
+                jsFullScreenWrap02.style.width = '0';
                 setTimeout(() => {
                     jsFullScreenWrap01.style.transition = '0s';
                     jsFullScreenWrap01.style.width = '0%';
                     jsFullScreenWrap01.style.opacity = '1';
                     jsLoading.style.display = 'none';
                     jsLoading.style.opacity = '1';
+                    // jsFullScreenWrap01.style.transition = '1s';
                 }, 1500);
             }, 1000);
         }
-        handlePageLoaded();
+
+        setBeforeLoading(jsFullScreenWrap01, jsFullScreenWrap02, jsLoading);
         handleLoaded();
         
         // window.addEventListener( 'load', handleLoaded.bind(this));

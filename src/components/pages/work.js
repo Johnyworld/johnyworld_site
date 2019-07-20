@@ -7,6 +7,8 @@ import {
     animOutLoading,
     scrollFloating, 
     animInAppear,
+    loadHeader,
+    setBeforeLoading,
     setMouseHover } from '../func/animates';
 import { reactRouteScrollTop } from '../func/functions';
 import dataWorkReverse from '../data/data-work';
@@ -52,13 +54,8 @@ class Work extends Component {
         const jsLoading = document.getElementById('jsLoading');
         const jsFullScreenWrap01 = document.getElementById('jsFullScreenWrap01');
         const jsFullScreenWrap02 = document.getElementById('jsFullScreenWrap02');
-
-        const handlePageLoaded = () => {
-            jsFullScreenWrap01.style.width = '100%';
-            jsFullScreenWrap02.style.width = '100%';
-            jsLoading.style.display = 'block';
-        }
-
+        const headerButtons = document.getElementsByClassName('header-buttons');
+        
         const handleLoaded = () => {
             setTimeout(() => {
                 this.setState({
@@ -68,8 +65,10 @@ class Work extends Component {
                 this._animates();
             }, 1000);
         }
-        handlePageLoaded();
+
+        setBeforeLoading(jsFullScreenWrap01, jsFullScreenWrap02, jsLoading);
         handleLoaded();
+        loadHeader(headerButtons);
     }
 
     _animates() {
@@ -133,7 +132,10 @@ class Work extends Component {
         }
         
         jsLoading.style.display = "block";
-        
+
+        for( let i=0; i<headerButtons.length; i++ ) {
+            headerButtons[i].classList.add('is-hidden');
+        }
 
         setTimeout(() => {
             let propsHistory = this.props.history;

@@ -89,9 +89,9 @@ button:hover { cursor: inherit; }
 
 /* Loading Screen */
 #jsFullScreenWrap01,
-#jsFullScreenWrap02 { position: absolute; width: 0%; height: 100%; right: 0; }
+#jsFullScreenWrap02 { position: absolute; width: 100%; height: 100%; right: 0; }
 #jsFullScreenWrap01 { background-color: #111; }
-#jsFullScreenWrap02 { background-color: #296cff; }
+#jsFullScreenWrap02 { background-color: #2e3f64; }
 #jsLoading { width: 1%; height: 1px; position: absolute; margin: auto; top: 0; right: 40%; transition: 1s; bottom: 0; background-color: white; display: none; animation-name: loading; animation-duration: 1.2s; animation-iteration-count: infinite; animation-timing-function: ease-in-out; }
 
 /* for Animations */
@@ -100,6 +100,8 @@ button:hover { cursor: inherit; }
 .jsTitleChildren.is-appear { opacity: 1; transform: translateY(0); }
 .jsAppearBtT { opacity: 0; transform: translateY(80px) skewY(-3deg); transition: 1s; }
 .jsAppearBtT.is-appear { opacity: 1; transform: translateY(0); }
+.jsAppearFadein { opacity: 0; transition: 1s; }
+.jsAppearFadein.is-appear { opacity: 1; }
 .jsAppearSlideToR { opacity: 0; width: 0; overflow: hidden; transition: 1.5s; }
 .jsAppearSlideToR.is-appear { opacity: 1; width: 100%; }
 @keyframes loading {

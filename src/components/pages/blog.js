@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import SubpageHeading from '../partials/subpage-heading';
-import { animInCrossSlide, animOutLoading, animInAppear } from '../func/animates';
+import { animInCrossSlide, animOutLoading, animInAppear, setBeforeLoading } from '../func/animates';
 import dataBlogReverse from '../data/data-blog';
 import './blog.css';
 
@@ -43,12 +43,6 @@ class Blog extends Component {
         const jsFullScreenWrap01 = document.getElementById('jsFullScreenWrap01');
         const jsFullScreenWrap02 = document.getElementById('jsFullScreenWrap02');
 
-        const handlePageLoaded = () => {
-            jsFullScreenWrap01.style.width = '100%';
-            jsFullScreenWrap02.style.width = '100%';
-            jsLoading.style.display = 'block';
-        }
-
         const handleLoaded = () => {
             setTimeout(() => {
                 this.setState({
@@ -58,7 +52,8 @@ class Blog extends Component {
                 this._animates();
             }, 1000);
         }
-        handlePageLoaded();
+
+        setBeforeLoading(jsFullScreenWrap01, jsFullScreenWrap02, jsLoading);
         handleLoaded();
     }
 
@@ -70,6 +65,7 @@ class Blog extends Component {
         const jsBtnGnbBlog = document.getElementById('jsBtnGnbBlog');
         const blogContents = document.getElementsByClassName('blog-content');
         const jsAppearBtT = document.getElementsByClassName('jsAppearBtT');
+        const jsAppearFadein = document.getElementsByClassName('jsAppearFadein');
         
         // FUNCTIONS
         const showSubpageHeading = () => {
@@ -90,6 +86,7 @@ class Blog extends Component {
 
         // RUN
         animInAppear(jsAppearBtT, 1500);
+        animInAppear(jsAppearFadein, 1500);
         jsBtnGnbBlog.classList.add('is-disabled');
         showSubpageHeading();
         blogDataInit();
@@ -103,7 +100,7 @@ class Blog extends Component {
                     <div className="l-wrapper">
                         {this.dataBlogReverse.map((item, key) => {
                             return (
-                                <div className="text-wrap blog-item">
+                                <div className="text-wrap blog-item jsAppearFadein">
                                     <ul className="l-row">
                                         <li className="l-col l-col-4-12 l-col-m-12-12 jsAppearBtT">
                                             <h2 className="f-subhead title">{item.title}</h2>

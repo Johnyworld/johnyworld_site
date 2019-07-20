@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { reactRouteScrollTop } from '../func/functions';
-import { setMouseHover, animOutLoading } from '../func/animates';
+import { setMouseHover, animOutLoading, setBeforeLoading } from '../func/animates';
 import dataLabslider from '../data/data-lab-slider';
 
 import canvasCollision1Script from './lab-detail/canvas-collision1';
@@ -45,12 +45,6 @@ class LabDetail extends Component {
         const jsFullScreenWrap01 = document.getElementById('jsFullScreenWrap01');
         const jsFullScreenWrap02 = document.getElementById('jsFullScreenWrap02');
 
-        const handlePageLoaded = () => {
-            jsFullScreenWrap01.style.width = '100%';
-            jsFullScreenWrap02.style.width = '100%';
-            jsLoading.style.display = 'block';
-        }
-
         const handleLoaded = () => {
             setTimeout(() => {
                 this.setState({
@@ -60,7 +54,8 @@ class LabDetail extends Component {
                 this._animates();
             }, 1000);
         }
-        handlePageLoaded();
+
+        setBeforeLoading(jsFullScreenWrap01, jsFullScreenWrap02, jsLoading);
         handleLoaded();
         
         // window.addEventListener( 'load', handleLoaded.bind(this));

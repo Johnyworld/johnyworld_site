@@ -8,6 +8,7 @@ import {
     setMouseHover, 
     scrollFloating, 
     scrollParallaxImages,
+    setBeforeLoading,
     animInAppear } from '../func/animates';
 import { getAbsoluteTop } from '../func/functions';
 import dataAboutSkills from '../data/data-aboutskills';
@@ -64,12 +65,6 @@ class About extends Component {
         const jsFullScreenWrap01 = document.getElementById('jsFullScreenWrap01');
         const jsFullScreenWrap02 = document.getElementById('jsFullScreenWrap02');
 
-        const handlePageLoaded = () => {
-            jsFullScreenWrap01.style.width = '100%';
-            jsFullScreenWrap02.style.width = '100%';
-            jsLoading.style.display = 'block';
-        }
-
         const handleLoaded = () => {
             setTimeout(() => {
                 this.setState({
@@ -79,7 +74,8 @@ class About extends Component {
                 this._animates();
             }, 1000);
         }
-        handlePageLoaded();
+
+        setBeforeLoading(jsFullScreenWrap01, jsFullScreenWrap02, jsLoading);
         handleLoaded();
     }
 

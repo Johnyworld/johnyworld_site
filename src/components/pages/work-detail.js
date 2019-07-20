@@ -5,6 +5,8 @@ import { scrollFadeIn,
     setMouseHover, 
     scrollParallaxImages,
     scrollFloating,
+    setBeforeLoading,
+    loadHeader,
     animInLoading, 
     animOutLoading, 
     animInAppear } from '../func/animates';
@@ -62,7 +64,6 @@ class WorkDetail extends Component {
         this.loadRoute();
     }    
 
-
     componentDidMount() {
         this._nowLoading();
     }
@@ -100,13 +101,6 @@ class WorkDetail extends Component {
                 reloadRoute(history, nextUrl);
             }, 1300);
         }
-
-        const handlePageLoaded = () => {
-            jsFullScreenWrap01.style.width = '100%';
-            jsFullScreenWrap02.style.width = '100%';
-            jsLoading.style.display = 'block';
-            animOutLoading( jsFullScreenWrap01, jsFullScreenWrap02, jsLoading );    
-        }
         
         // LISTENER
         window.addEventListener('scroll', function () {
@@ -122,8 +116,7 @@ class WorkDetail extends Component {
         if ( jsBtnNext ) { jsBtnNext.addEventListener('click', handleClickNext); }
         if ( jsBtnPrev ) { jsBtnPrev.addEventListener('click', handleClickPrev); }
 
-        // RUN
-        handlePageLoaded();
+        // RUN  
         reactRouteScrollTop();
         setMouseHover();
         animInAppear(jsAppearBtT, 800);
@@ -135,12 +128,7 @@ class WorkDetail extends Component {
         const jsLoading = document.getElementById('jsLoading');
         const jsFullScreenWrap01 = document.getElementById('jsFullScreenWrap01');
         const jsFullScreenWrap02 = document.getElementById('jsFullScreenWrap02');
-
-        const handlePageLoaded = () => {
-            jsFullScreenWrap01.style.width = '100%';
-            jsFullScreenWrap02.style.width = '100%';
-            jsLoading.style.display = 'block';
-        }
+        const headerButtons = document.getElementsByClassName('header-buttons');
 
         const handleLoaded = () => {
             setTimeout(() => {
@@ -152,8 +140,9 @@ class WorkDetail extends Component {
             }, 1000);
         }
 
-        handlePageLoaded();
+        setBeforeLoading(jsFullScreenWrap01, jsFullScreenWrap02, jsLoading);
         handleLoaded();
+        loadHeader(headerButtons);
     }
 
     _renderContent() {

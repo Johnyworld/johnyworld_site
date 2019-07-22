@@ -313,14 +313,15 @@ class Home extends Component {
             <>
                 <div className="home-main">
                     <div className="vertical-line" id="jsMenuVerticalLine">
-                        <p>Johnyworld</p>
+                        <div className="links">
+                            <a className="c-gray-dark f-eng f-normal" href="https://www.behance.net/johnykim1" target="blank">Behance</a>
+                            <a className="c-gray-dark f-eng f-normal" href="https://github.com/Johnyworld" target="blank">GitHub</a>
+                            <a className="c-gray-dark f-eng f-normal" href="https://codepen.io/johnyworld/" target="blank">Codepen</a>
+                        </div>
                         <div className="line"></div>
-                        <ul className="">
+                        <ul>
                             <li>
-                                <a className="c-gray-dark f-eng f-normal" href="https://www.behance.net/johnykim1" target="blank">Behance</a>
-                                <a className="c-gray-dark f-eng f-normal" href="https://github.com/Johnyworld" target="blank">GitHub</a>
-                                <a className="c-gray-dark f-eng f-normal" href="https://codepen.io/johnyworld/" target="blank">Codepen</a>
-                                <button className="f-normal c-wine f-eng f-bold" id="jsCodeLabBtn">Toy Project</button>
+                                <button className="f-subhead c-wine f-eng-title" id="jsCodeLabBtn">Toy Development</button>
                             </li>
                         </ul>
                     </div>
@@ -334,7 +335,7 @@ class Home extends Component {
                         <div className="menu-btn right" id="jsMenuBtnRight"><button className="f-hugetitle item right" id="jsMenuRight">ABOUT</button></div>
                     </div>
                 </div>
-                <div className="home-section" id="home-Laboratory">
+                <div className="home-section home-Laboratory" id="home-Laboratory">
                     <LabSlider history={this.props.history} />
                 </div>
             </>

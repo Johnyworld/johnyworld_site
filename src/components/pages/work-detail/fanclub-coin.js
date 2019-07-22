@@ -29,8 +29,8 @@ class FanclubCoin extends Component {
                 <section className="sec-bright">
                     <div className="l-wrapper">
                         <div className="text-wrap">
-                            <h2 className="f-title jsAppearBtT">디자인</h2>
-                            <p className="f-normal jsAppearBtT"><strong>뭐시기</strong>거시기</p>
+                            <h2 className="f-title jsAppearBtT">랜딩페이지</h2>
+                            {/* <p className="f-normal jsAppearBtT"><strong>뭐시기<br /></strong>거시기</p> */}
                         </div>
                         <img className="jsAppearBtT" src={workDesignFanclubCoin1} alt="designimg" />
                         <img className="jsAppearBtT" src={workDesignFanclubCoin2} alt="designimg" />

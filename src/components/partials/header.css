@@ -148,6 +148,10 @@ header {
     transform: skew( -19deg ) translateY( 150px );
 }
 
+.hamberger-menu li:nth-child(4) {
+    transform: skew( -21deg ) translateY( 175px );
+}
+
 .hamberger-menu.is-active li {
     opacity: 1;
     pointer-events: all;
@@ -156,6 +160,7 @@ header {
 
 .hamberger-menu .menu-item {
     font-size: 42px;
+    white-space: nowrap;
     display: block;
     letter-spacing: 0em;
     transition: .5s;
@@ -268,6 +273,11 @@ header {
         bottom: auto;
         left: auto;
         right: 50px;
+    }
+
+    .hamberger-menu li {
+        background-color: #000;
+        padding: .2em .5em .2em .7em;
     }
 
     .hamberger-menu .menu-item:hover {

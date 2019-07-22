@@ -26,6 +26,7 @@ class Routes extends Component {
         const jsBtnGnbWork = document.getElementById('jsBtnGnbWork');
         const jsBtnGnbAbout = document.getElementById('jsBtnGnbAbout');
         const jsBtnGnbBlog = document.getElementById('jsBtnGnbBlog');
+        const jsBtnGnbToy = document.getElementById('jsBtnGnbToy');
         const jsFullScreenWrap01 = document.getElementById('jsFullScreenWrap01');
         const jsFullScreenWrap02 = document.getElementById('jsFullScreenWrap02');
         const jsLoading = document.getElementById('jsLoading');
@@ -36,6 +37,7 @@ class Routes extends Component {
             if (event.target.id === 'jsBtnGnbWork') { href = '/work'; }
             if (event.target.id === 'jsBtnGnbAbout') { href = '/about'; }
             if (event.target.id === 'jsBtnGnbBlog') { href = '/blog'; }
+            if (event.target.id === 'jsBtnGnbToy') { href = '/#study'; }
             
             animInLoading( jsFullScreenWrap01, jsFullScreenWrap02, jsLoading );
 
@@ -43,12 +45,14 @@ class Routes extends Component {
                 jsBtnGnbWork.classList.remove('is-disabled');
                 jsBtnGnbAbout.classList.remove('is-disabled');
                 jsBtnGnbBlog.classList.remove('is-disabled');
+                jsBtnGnbToy.classList.remove('is-disabled');
                 reloadRoute(this.history, href);
             }, 1300);
         }
         jsBtnGnbWork.addEventListener( 'click', handleBtnHamberger );
         jsBtnGnbAbout.addEventListener( 'click', handleBtnHamberger );
         jsBtnGnbBlog.addEventListener( 'click', handleBtnHamberger );
+        jsBtnGnbToy.addEventListener( 'click', handleBtnHamberger );
     }
     
 

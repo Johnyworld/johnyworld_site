@@ -56,11 +56,12 @@
     height: 100%;
 }
 
+.home-main #jsCodeLabBtn { font-size: 28px; padding: 0em .5em; }
+
 .home-section {
     position: relative;
     color: white;
     text-align: center;
-    background-color: #111;
     min-height: 100vh;
 }
 /* 메인메뉴 */

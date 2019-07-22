@@ -4,6 +4,8 @@ import styleColors from '../../../images/work-detail-soohan/soohan-style-color.p
 import styleFonts from '../../../images/work-detail-soohan/soohan-style-fonts.png';
 import styleButtons from '../../../images/work-detail-soohan/soohan-style-buttons.png';
 import workDesignSoohan from '../../../images/work-detail-soohan/soohan-design.jpg';
+import soohanSub01 from '../../../images/work-detail-soohan/soohan-sub01.jpg';
+import soohanSub02 from '../../../images/work-detail-soohan/soohan-sub02.jpg';
 
 class Soohan extends Component {
     render() {
@@ -47,10 +49,10 @@ class Soohan extends Component {
                         </div>
                         <ul className="l-row gap60">
                             <li className="l-col l-col-6-12">
-                                <img src={workDesignSoohan} alt="designimg" />
+                                <img src={soohanSub01} alt="designimg" />
                             </li>
                             <li className="l-col l-col-6-12">
-                                <img src={workDesignSoohan} alt="designimg" />
+                                <img src={soohanSub02} alt="designimg" />
                             </li>
                         </ul>
                     </div>

@@ -71,7 +71,8 @@ const dataLabSlider = [
         technics: [ "Javascript", "jQuery" ],
         thumbnail: labBgCrossRoad,
         date: "2018. 06",
-        url: "http://dow-crossroad.s3-website.ap-northeast-2.amazonaws.com"
+        url: "http://dow-crossroad.s3-website.ap-northeast-2.amazonaws.com",
+        git: "https://github.com/Johnyworld/dowcrossroad"
     },
     {
         id: "03005",
@@ -87,6 +88,7 @@ const dataLabSlider = [
         technics: [ "Javascript" ],
         thumbnail: labBgConv250,
         url: "http://conv-250.s3-website.ap-northeast-2.amazonaws.com/",
+        git: "https://github.com/Johnyworld/conv250",
         date: "2019. 03"
     },
     {
@@ -103,6 +105,7 @@ const dataLabSlider = [
         technics: [ "Javascript", "ES5", "Canvas" ],
         thumbnail: labBgRpgMoving,
         url: "http://rpg-moving.s3-website.ap-northeast-2.amazonaws.com/",
+        git: "https://github.com/Johnyworld/rpg-moving",
         date: "2019. 03"
     },
     {

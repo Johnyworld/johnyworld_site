@@ -172,6 +172,7 @@ class WorkDetail extends Component {
                                     <p className="f-heading jsTitleChildren jsAppearBtT">{this.data.comment}</p>
                                     <div className="info jsTitleChildren jsAppearBtT">
                                         <ul className="keywords f-normal">
+                                            <li>{this.data.date}</li>
                                             {this.data.keywords.map((item, key) => {
                                                 return (<li key={`list-${key}`}>{item}</li>)
                                             })}
@@ -240,10 +241,10 @@ class WorkDetail extends Component {
                     {workDetailContent}
                 </div>
                 <div className="next-and-prev clear-fix">
-                    <div className="l-wrapper-wide">
+                    <div className="l-wrapper">
                         {
                             this.next ? 
-                                <div className="btn-wrap next" id="jsBtnNext" >
+                                <button className="btn-wrap next clear-fix" id="jsBtnNext" >
                                     <div className="stick"></div>
                                     <div className="radius">
                                         <div className="bg" style={{ backgroundImage: 'url(' + this.next.thumbnail + ')' }}></div>
@@ -252,12 +253,12 @@ class WorkDetail extends Component {
                                         <p className="f-normal">NEXT</p>
                                         <p className="f-subhead">{this.next.title}</p>
                                     </div>
-                                </div>
+                                </button>
                             : ''
                         }
                         {
                             this.prev ?
-                                <div className="btn-wrap prev" id="jsBtnPrev" >
+                                <button className="btn-wrap prev clear-fix" id="jsBtnPrev" >
                                     <div className="stick"></div>
                                     <div className="radius">
                                         <div className="bg" style={{ backgroundImage: 'url(' + this.prev.thumbnail + ')' }}></div>
@@ -266,7 +267,7 @@ class WorkDetail extends Component {
                                         <p className="f-normal">PREV</p>
                                         <p className="f-subhead">{this.prev.title}</p>
                                     </div>
-                                </div>
+                                </button>
                             : ''
                         }
                     </div>

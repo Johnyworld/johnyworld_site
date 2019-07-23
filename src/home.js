@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import LabSlider from './components/partials/lab-slider';
+import ToySliderMobile from './components/partials/toy-slider-mobile.js';
 
 import { 
     mouseMoving, 
     setMouseHover, 
     smoothScroll, 
     animOutFade,
+    animInLoading,
     setBeforeLoading,
     scrollFloating } from './components/func/animates';
 import {
@@ -19,13 +21,35 @@ class Home extends Component {
         this.state = {
             loaded : false,
         }
+        this.isMobile = navigator.userAgent.match(/(iPad)|(iPhone)|(iPod)|(android)|(webOS)/i);
     }
 
     componentDidMount() {
         this._nowLoading();
     }
 
-    _definePage() {
+    _mobileFuncs() {
+        const jsLoading = document.getElementById('jsLoading');
+        const jsFullScreenWrap01 = document.getElementById('jsFullScreenWrap01');
+        const jsFullScreenWrap02 = document.getElementById('jsFullScreenWrap02');
+        const jsMobileMenu01 = document.getElementById('jsMobileMenu01');
+        const jsMobileMenu02 = document.getElementById('jsMobileMenu02');
+        const jsMobileMenu03 = document.getElementById('jsMobileMenu03');
+        let propsHistory = this.props.history;
+        
+        const handleBtnGoBack = (btn) => {
+            animInLoading( jsFullScreenWrap01, jsFullScreenWrap02, jsLoading );
+            setTimeout(()=>{
+                propsHistory.push('/' + btn);
+            }, 1300);
+        }
+
+        jsMobileMenu01.addEventListener( 'click', handleBtnGoBack.bind(this, 'work'));
+        jsMobileMenu02.addEventListener( 'click', handleBtnGoBack.bind(this, 'about'));
+        jsMobileMenu03.addEventListener( 'click', handleBtnGoBack.bind(this, 'blog'));
+    }
+
+    _animate() {
         // Defines
         const jsMenuTexts = document.getElementById('jsMenuTexts');
         const jsMenuTextItems = jsMenuTexts.getElementsByClassName('item');
@@ -287,7 +311,8 @@ class Home extends Component {
                 this.setState({
                     loaded: true
                 });
-                this._definePage();
+                if ( !this.isMobile ) { this._animate();}
+                else { this._mobileFuncs(); }
                 jsFullScreenWrap01.style.transition = '1.5s';
                 jsFullScreenWrap01.style.opacity = '0';
                 jsFullScreenWrap02.style.width = '0';
@@ -342,12 +367,49 @@ class Home extends Component {
         )
     }
 
-    render() {
-        return(
-            <content  className="home-wrapper">
-                {this.state.loaded ? this._renderContent() : 'Loading' }
-            </content>
+    _renderMobile() {
+        return (
+            <>
+                <div className="home-mobile-main">
+                    <div className="l-wrapper">
+                        <ul className="l-row">
+                            <li className="l-col l-col-8-12">
+                                <button className="f-bigtitle item" id="jsMobileMenu01">WORK</button>
+                                <button className="f-bigtitle item" id="jsMobileMenu02">ABOUT</button>
+                                <button className="f-bigtitle item" id="jsMobileMenu03">BLOG</button>
+                            </li>
+                            <li className="l-col l-col-4-12">
+                                <a className="link-item c-gray-dark f-eng f-normal" href="https://www.behance.net/johnykim1" target="blank">Behance</a>
+                                <a className="link-item c-gray-dark f-eng f-normal" href="https://github.com/Johnyworld" target="blank">GitHub</a>
+                                <a className="link-item c-gray-dark f-eng f-normal" href="https://codepen.io/johnyworld/" target="blank">Codepen</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div className="home-mobile-toy-wrap">
+                    <div className="l-wrapper">
+                        <h2 className="f-title f-eng-title c-blue-bright">TOY DEVELOPMENT</h2>
+                    </div>
+                    <ToySliderMobile history={this.props.history} />
+                </div>
+            </>
         )
+    }
+
+    render() {
+        if ( this.isMobile ) {
+            return(
+                <content className="home-wrapper">
+                    {this.state.loaded ? this._renderMobile() : 'Loading' }
+                </content>
+            )
+        } else {
+            return(
+                <content className="home-wrapper">
+                    {this.state.loaded ? this._renderContent() : 'Loading' }
+                </content>
+            )
+        }
     }
 }
 

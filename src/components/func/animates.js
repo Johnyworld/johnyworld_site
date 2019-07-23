@@ -253,7 +253,6 @@ export class SmoothMouseScroll {
         target.addEventListener('DOMMouseScroll', this.scrolled, { passive: false })
 
         this.scrolled = (e) => {
-            console.log('pos');
             e.preventDefault(); // disable default scrolling
 
             var delta = this.normalizeWheelDelta(e)

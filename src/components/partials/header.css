@@ -135,7 +135,6 @@ header {
 
 .hamberger-menu li {   
     opacity: 0;
-    pointer-events: none;
     transition: 1s;
     transform: skew( -15deg ) translateY( 100px );
 }
@@ -152,10 +151,17 @@ header {
     transform: skew( -21deg ) translateY( 175px );
 }
 
+.hamberger-menu li button {
+    pointer-events: none;
+}
+
 .hamberger-menu.is-active li {
     opacity: 1;
-    pointer-events: all;
     transform: skew( 0 ) translateY( 0 );
+}
+
+.hamberger-menu.is-active li button {
+    pointer-events: all;
 }
 
 .hamberger-menu .menu-item {
@@ -286,3 +292,4 @@ header {
         color: #ddd;
     }
 }
+

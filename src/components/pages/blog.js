@@ -26,7 +26,6 @@ class Blog extends Component {
         } else {
             this._nowLoading();
         }
-        // console.log(this.dataBlogReverse[1].desc[1].cont)
     }
 
     _noLoadingScreen() {

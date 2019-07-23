@@ -43,11 +43,10 @@ class About extends Component {
         const token = process.env.REACT_APP_INSTA_TOKEN;
         Axios.get('https://api.instagram.com/v1/users/self/media/recent/?access_token=' + token)
             .then(res => {
-                console.log(res.data.data);
                 this.setState({ instaImages: res.data.data });
             })
             .catch(err => {
-                console.log(err)
+                alert(err);
             })
     }
 
@@ -223,7 +222,6 @@ class About extends Component {
                         <div className="l-wrapper">
                             <ul className="l-row gap90 clear-fix">
                                 { this.state.instaImages.map((item, key) => {
-                                    console.log(item.caption.text.indexOf('coding')); 
                                     return (
                                         key < 6 ? <li className="l-col l-col-4-12 l-col-m-6-12 insta-image-li">
                                             <a href={item.link} target="blank">
@@ -246,12 +244,12 @@ class About extends Component {
                         <div className="l-wrapper">
                             <div className="text-wrap">
                                 <ul className="l-row">
-                                    <li className="l-col l-col-6-12">
+                                    <li className="l-col l-col-6-12 l-col-m-12-12">
                                         <h3 className="f-heading">
                                             함께<br />특별한 경험들을<br />만들어요.
                                         </h3>
                                     </li>
-                                    <li className="l-col l-col-6-12">
+                                    <li className="l-col l-col-6-12 l-col-m-12-12">
                                         <p className="f-subhead">
                                             johnyworld@naver.com<br />
                                             +82 10 4806 3340<br />

@@ -7,7 +7,6 @@ class SubpageHeading extends Component {
             hugetitle: this.props.hugetitle,
             subtext: this.props.subtext.split('')
         }
-        // console.log(this.state.subtext)
     }
 
     render() {

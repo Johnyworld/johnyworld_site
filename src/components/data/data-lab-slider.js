@@ -45,16 +45,17 @@ const dataLabSlider = [
     },
     {
         id: "03003",
-        title: "BANG! pick a card!",
+        title: "BANG! Card Picker!",
         slug: "bangcard",
         comment: "뱅 카드뽑기 앱",
         desc: [
-            "보드게임 '뱅'을 플레이할 때", 
-            "필요하다고 생각하여 앱으로 제작.",
+            "보드게임 '뱅'에서 '카드펼치기' 단계를 대신 해주는 앱.", 
+            "더 이상 카드 무의미하게 다음 카드를 버릴 필요가 없습니다.", 
         ],
         technics: [ "Javascript", "ES5" ],
         thumbnail: labBgBangCard,
         url: "http://bang-pickcard.s3-website.ap-northeast-2.amazonaws.com/",
+        git: "https://github.com/Johnyworld/bang-cardpicker",
         date: "2019. 03"
     },
     {

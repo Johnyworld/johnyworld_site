@@ -1,47 +1,41 @@
 /* eslint-disable no-loop-func */
 import React, { Component } from 'react';
 
-import './lab-slider.css';
 import dataLabSliderReverse from '../data/data-lab-slider';
-import labSliderScript from './lab-slider-script';
 import { labSliderIndex } from './lab-slider-script';
-import { animInLoading, smoothScroll } from '../func/animates';
 
-class LabSlider extends Component {
+class ToySliderMobile extends Component {
     constructor(props) {
         super(props);
         this.laboratories = dataLabSliderReverse;
     }
 
-    labSliderResize () {
-        if ( window.location.hash === '#study' ) {
-            smoothScroll('#home-Laboratory', 1000);
-        }
-    }
-
     componentDidMount() {
-        labSliderScript();
-        window.addEventListener( 'resize', this.labSliderResize );
-    }
-
-    componentWillUnmount() {
-        window.removeEventListener( 'resize', this.labSliderResize );
-    }
-
-    handleViewLabDetail(linkTo) {
-        const jsFullScreenWrap01 = document.getElementById('jsFullScreenWrap01');
-        const jsFullScreenWrap02 = document.getElementById('jsFullScreenWrap02');
-        const jsLoading = document.getElementById('jsLoading');
-
-        animInLoading( jsFullScreenWrap01, jsFullScreenWrap02, jsLoading );
-
-        setTimeout(() => {
-            let propsHistory = this.props.history;
-            propsHistory.push('/lab/' + linkTo);
-        }, 1300);
+        const jsMobileToySlider = document.getElementById('jsMobileToySlider');
+        const mobileSliderItems = jsMobileToySlider.getElementsByClassName('slider-item');
+        const sliderItemWidth = mobileSliderItems[0].clientWidth;
+        console.log( jsMobileToySlider.style, (sliderItemWidth + sliderItemWidth/6) * this.laboratories.length + 50 );
+        jsMobileToySlider.style.width = (sliderItemWidth + 20) * this.laboratories.length + 'px';
     }
 
     render() {
+        return(
+            <div className="mobile-toy-slider-wrap">
+                <div className="mobile-toy-slider" id="jsMobileToySlider">
+                    { this.laboratories.map((item, key) => {
+                        return (
+                            <a key={'slider-item-'+key} className="slider-item" href={item.url} target="blank" style={{ backgroundImage: 'url('+item.thumbnail+')' }}>
+                                <h3 className="f-heading f-eng-title c-white">{item.title}</h3>
+                                <a className="git f-normal c-white" href={item.git} target="blank">View GitHub</a>
+                            </a>
+                        )
+                    })}
+                </div>
+            </div>
+        )
+    }
+
+    rendernnn() {
         return(
             <div className="lab-slider-wrapper clear-fix">
                 <div className="btn-wrap">
@@ -140,4 +134,4 @@ class LabSlider extends Component {
     }
 }
 
-export default LabSlider;
+export default ToySliderMobile;

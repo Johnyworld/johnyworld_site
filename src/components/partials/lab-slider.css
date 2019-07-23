@@ -306,6 +306,18 @@
     background-color: #ff4b7b;
 }
 
+@media screen and ( max-width: 1400px ) {
+    .lab-slider-wrapper .btn {
+        width: 60px;
+        height: 120px;
+        background-size: 120px;
+    }
+
+    .lab-slider-wrapper .btn.right {
+        background-position: -60px 0;
+    }
+}
+
 @media screen and ( max-width: 1280px ) {
     .lab-slider-wrapper .slider-item .image-wrap .thumbnail {
         margin: 0;
@@ -342,16 +354,6 @@
         margin-left: 0;
     }
 
-    .lab-slider-wrapper .btn {
-        width: 60px;
-        height: 120px;
-        background-size: 120px;
-    }
-
-    .lab-slider-wrapper .btn.right {
-        background-position: -60px 0;
-    }
-
     .lab-slider-wrapper .slider-item .text-wrap .explain {
         display: none;
     }
@@ -372,8 +374,7 @@
     }
 
     .lab-slider-wrapper .btn-wrap {
-        top: auto;
-        bottom: -120px;
+        display: none;
     }
     
 }

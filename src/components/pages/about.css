@@ -15,6 +15,7 @@
 .subpage-content section.sec-skills .f-heading { font-family: 'S-CoreDream-9Black'; line-height: .8; }
 
 .skill-part._title { display: flex; align-items: center; }
+.skill-part._title .f-subhead { white-space: nowrap; }
 
 .skill-level-wrap { height: 2px; width: 50%; margin-left: auto; background-color: #333; }
 .skill-level-wrap .skill-level-bar { height: 2px; background-color: #777; transition: 1s; }
@@ -89,4 +90,5 @@
 
 @media screen and ( max-width: 767px ) {
     .about-wrapper { padding-top: 180px; }
+    .skill-level-wrap { width: 35%; }
 }

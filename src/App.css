@@ -70,6 +70,7 @@ button:hover { cursor: inherit; }
 .c-wine-bright { color: #ff4b7b; }
 .c-gray-dark { color: #555; }
 .c-gray-bright { color: #aaa; }
+.c-white { color: white; }
 .bc-dark { background-color: #333; }
 .bc-black { background-color: #0a0a0a; }
 
@@ -136,7 +137,7 @@ button:hover { cursor: inherit; }
 
     .l-wrapper-full { margin-left: 0%; }
     .l-wrapper-sticked { margin-left: 0%; }
-    .l-wrapper { margin-left: 5%; margin-right: 5%; }
+    .l-wrapper { margin-left: 30px; margin-right: 30px; }
     .l-wrapper-center { margin: 0 5%; }
 
     .l-row.gap90 .l-col { padding: 25px; }
@@ -149,10 +150,11 @@ button:hover { cursor: inherit; }
 }
 
 @media screen and ( max-width: 767px ) {
+    .l-wrapper { margin-left: 20px; margin-right: 20px; }
     .l-row.gap60 { margin: -15px; }
     .l-row.gap60 .l-col { padding: 15px; }
-    .l-row.gap90 { margin: -23px; }
-    .l-row.gap90 .l-col { padding: 23px; }
+    .l-row.gap90 { margin: -20px; }
+    .l-row.gap90 .l-col { padding: 20px; }
     .l-col-m-6-12 { width: 50%; }
     .l-col-m-12-12 { width: 100%; }
 
@@ -167,5 +169,5 @@ button:hover { cursor: inherit; }
     .hide-m { visibility: hidden; }
     .show-m { visibility: visible; }
 
-    
+    .mouse-child-wrapper #jsMouseChild { display: none; }
 }

@@ -1,3 +1,4 @@
+.home-wrapper { max-width: 100vw; }
 .home-main {
     position: relative;
     height: 100vh;
@@ -97,3 +98,20 @@
     .menu-wrapper .menu-btn.right { right: 50%; top: 65% }
     .menu-wrapper.aligned .menu-btn { top: 97px; }
 }
+
+/* 모바일 전용 */
+/* --------------------------------- */
+.home-mobile-main { margin-top: 80px; width: 100vw; }
+.home-mobile-main .f-bigtitle { margin-bottom: 20px; }
+.home-mobile-main .link-item { display: block; cursor: pointer; border-bottom: 1px solid #444; padding-bottom: 15px; margin-bottom: 15px; margin-top: 6px; line-height: 1; }
+
+
+/* 모바일 토이 슬라이더 */
+.home-mobile-toy-wrap { position: absolute; top: 70vh; }
+.home-mobile-toy-wrap .f-title { margin-bottom: 10px; }
+.mobile-toy-slider-wrap { width: 100vw; height: 60vw; margin-bottom: 10vh; overflow-y: hidden; overflow-x: scroll; -ms-overflow-style: none; }
+.mobile-toy-slider-wrap::-webkit-scrollbar { display:none; } 
+.mobile-toy-slider { width: 200vw; height: 60vw; margin-left: 20px;  }
+.mobile-toy-slider .slider-item { display: block; background-color: #444; background-size: cover; background-position: center; position: relative; width: 60vw; height: 60vw; margin-right: 20px; float: left; }
+.mobile-toy-slider .slider-item .f-heading { position: absolute; top: 15px; left: 15px; }
+.mobile-toy-slider .slider-item .git { position: absolute; bottom: 15px; left: 15px; line-height: 1.1; }

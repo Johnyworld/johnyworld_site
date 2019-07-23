@@ -15,20 +15,20 @@ class Soohan extends Component {
                     <div className="l-wrapper">
                         <div className="text-wrap">
                             <div className="l-row">
-                                <div className="l-col l-col-6-12 jsAppearBtT"><p className="f-subhead f-bold">Colors</p></div>
-                                <div className="l-col l-col-6-12 jsAppearBtT"><img src={styleColors} style={{ maxWidth: 521, maxHeight: 155 }} alt="스타일-색상" /></div>
+                                <div className="l-col l-col-6-12 l-col-m-12-12 jsAppearBtT"><p className="f-subhead f-bold">Colors</p></div>
+                                <div className="l-col l-col-6-12 l-col-m-12-12 jsAppearBtT"><img src={styleColors} style={{ maxWidth: 521, maxHeight: 155 }} alt="스타일-색상" /></div>
                             </div>
                         </div>
                         <div className="text-wrap">
                             <div className="l-row">
-                                <div className="l-col l-col-6-12 jsAppearBtT"><p className="f-subhead f-bold">Fonts</p></div>
-                                <div className="l-col l-col-6-12 jsAppearBtT"><img src={styleFonts} style={{ maxWidth: 598, maxHeight: 265 }} alt="스타일-폰트" /></div>
+                                <div className="l-col l-col-6-12 l-col-m-12-12 jsAppearBtT"><p className="f-subhead f-bold">Fonts</p></div>
+                                <div className="l-col l-col-6-12 l-col-m-12-12 jsAppearBtT"><img src={styleFonts} style={{ maxWidth: 598, maxHeight: 265 }} alt="스타일-폰트" /></div>
                             </div>
                         </div>
                         <div className="text-wrap">
                             <div className="l-row">
-                                <div className="l-col l-col-6-12 jsAppearBtT"><p className="f-subhead f-bold">Buttons</p></div>
-                                <div className="l-col l-col-6-12 jsAppearBtT"><img src={styleButtons} style={{ maxWidth: 320, maxHeight: 115 }} alt="스타일-버튼" /></div>
+                                <div className="l-col l-col-6-12 l-col-m-12-12 jsAppearBtT"><p className="f-subhead f-bold">Buttons</p></div>
+                                <div className="l-col l-col-6-12 l-col-m-12-12 jsAppearBtT"><img src={styleButtons} style={{ maxWidth: 320, maxHeight: 115 }} alt="스타일-버튼" /></div>
                             </div>
                         </div>
                     </div>
@@ -48,10 +48,10 @@ class Soohan extends Component {
                             <h2 className="f-title">서브페이지</h2>
                         </div>
                         <ul className="l-row gap60">
-                            <li className="l-col l-col-6-12">
+                            <li className="l-col l-col-6-12 l-col-m-12-12">
                                 <img src={soohanSub01} alt="designimg" />
                             </li>
-                            <li className="l-col l-col-6-12">
+                            <li className="l-col l-col-6-12 l-col-m-12-12">
                                 <img src={soohanSub02} alt="designimg" />
                             </li>
                         </ul>

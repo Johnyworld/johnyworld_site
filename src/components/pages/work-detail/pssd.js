@@ -16,20 +16,20 @@ class Pssd extends Component {
                     <div className="l-wrapper">
                         <div className="text-wrap">
                             <div className="l-row">
-                                <div className="l-col l-col-6-12 jsAppearBtT"><p className="f-subhead f-bold">Colors</p></div>
-                                <div className="l-col l-col-6-12 jsAppearBtT"><img src={styleColors} style={{ maxWidth: 323, maxHeight: 155 }} alt="스타일-색상" /></div>
+                                <div className="l-col l-col-6-12 l-col-m-12-12 jsAppearBtT"><p className="f-subhead f-bold">Colors</p></div>
+                                <div className="l-col l-col-6-12 l-col-m-12-12 jsAppearBtT"><img src={styleColors} style={{ maxWidth: 323, maxHeight: 155 }} alt="스타일-색상" /></div>
                             </div>
                         </div>
                         <div className="text-wrap">
                             <div className="l-row">
-                                <div className="l-col l-col-6-12 jsAppearBtT"><p className="f-subhead f-bold">Pattern</p></div>
-                                <div className="l-col l-col-6-12 jsAppearBtT"><img src={stylePattern} style={{ maxWidth: 349, maxHeight: 62 }} alt="스타일-패턴" /></div>
+                                <div className="l-col l-col-6-12 l-col-m-12-12 jsAppearBtT"><p className="f-subhead f-bold">Pattern</p></div>
+                                <div className="l-col l-col-6-12 l-col-m-12-12 jsAppearBtT"><img src={stylePattern} style={{ maxWidth: 349, maxHeight: 62 }} alt="스타일-패턴" /></div>
                             </div>
                         </div>
                         <div className="text-wrap">
                             <div className="l-row">
-                                <div className="l-col l-col-6-12 jsAppearBtT"><p className="f-subhead f-bold">Icons</p></div>
-                                <div className="l-col l-col-6-12 jsAppearBtT"><img src={styleIcons} style={{ maxWidth: 252, maxHeight: 94 }} alt="스타일-아이콘" /></div>
+                                <div className="l-col l-col-6-12 l-col-m-12-12 jsAppearBtT"><p className="f-subhead f-bold">Icons</p></div>
+                                <div className="l-col l-col-6-12 l-col-m-12-12 jsAppearBtT"><img src={styleIcons} style={{ maxWidth: 252, maxHeight: 94 }} alt="스타일-아이콘" /></div>
                             </div>
                         </div>
                         {/* <div className="text-wrap">

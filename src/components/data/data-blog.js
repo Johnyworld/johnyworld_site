@@ -123,6 +123,29 @@ const dataBlog = [
         date: "2019. 7. 21. Sun.",
         hash: [ "Javascript" ],
         desc: `<p class="blog-inner-paragraph">포트폴리오를 진행하면서 ES6 문법중 <span class="blog-code">Element.animate()</span> 문법을 사용했었는데, 크로스브라우징 점검 과정에서 <strong>Safari, Chrome for iOS, ie</strong> 등 많은 브라우저에서 지원되지 않는 다는 것을 발견하고 모두 다른 방법으로 수정하였다. 쓰면 안되는 문법이었다 ㅠㅠ</p>`,
+    },
+    {
+        title: "더블클릭 확대 방지",
+        category: "Today I Learned",
+        date: "2019. 7. 23. Tue.",
+        hash: [ "Javascript" ],
+        desc: `<p class="blog-inner-paragraph">버튼을 많이 누르게 되는 앱에는 꼭 필요한 기능이다.</p>
+        <div class="blog-inner-paragraph blog-code">
+            /* for HTML */<br />
+            &#60;meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/&#62;
+        </div>
+        <div class="blog-inner-paragraph blog-code">
+            // for javascript<br />
+            var lastTouchEnd = 0;<br />
+            document.documentElement.addEventListener('touchend', function (event) {<br />
+                <span class="tab"></span>var now = (new Date()).getTime();<br />
+                <span class="tab"></span>if (now - lastTouchEnd <= 300) {<br />
+                    <span class="tab"></span><span class="tab"></span>event.preventDefault();<br />
+                <span class="tab"></span>}<br />
+                <span class="tab"></span>lastTouchEnd = now;<br />
+            }, false);
+        </div>
+        `,
     }
 ]
 const dataBlogReverse = dataBlog.reverse();

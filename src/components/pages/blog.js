@@ -20,6 +20,7 @@ class Blog extends Component {
             this.wasHome = false;
         }
     }
+    
     componentDidMount() {
         if (this.wasHome) {
             this._noLoadingScreen();
@@ -99,7 +100,7 @@ class Blog extends Component {
                     <div className="l-wrapper">
                         {this.dataBlogReverse.map((item, key) => {
                             return (
-                                <div className="text-wrap blog-item jsAppearFadein">
+                                <div key={'blog-item-'+key} className="text-wrap blog-item jsAppearFadein">
                                     <ul className="l-row">
                                         <li className="l-col l-col-4-12 l-col-m-12-12 jsAppearBtT">
                                             <h2 className="f-subhead title">{item.title}</h2>

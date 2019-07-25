@@ -151,6 +151,7 @@ header {
     transform: skew( -21deg ) translateY( 175px );
 }
 
+.hamberger-menu li,
 .hamberger-menu li button {
     pointer-events: none;
 }
@@ -160,6 +161,7 @@ header {
     transform: skew( 0 ) translateY( 0 );
 }
 
+.hamberger-menu.is-active li,
 .hamberger-menu.is-active li button {
     pointer-events: all;
 }
@@ -237,7 +239,7 @@ header {
     }
 }
 
-@media screen and ( max-width: 1024px ) {
+@media screen and ( max-width: 1023px ) {
     header {
         width: 100%;
         pointer-events: none;
@@ -293,3 +295,9 @@ header {
     }
 }
 
+@media screen and ( max-width: 767px ) {
+    .button-top {
+        right: 30px;
+        bottom: 30px;
+    }
+}

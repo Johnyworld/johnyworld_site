@@ -18,7 +18,7 @@ body, ul, li, section, div, p, h1, h2, h3, h5, button {
     padding: 0; margin: 0; border: 0; background: none; }
 * { box-sizing: border-box; }
 html { overscroll-behavior: smooth; }
-body { background-color: #111; color: #bbb; font-family: 'S-CoreDream-3Light', 'sans-serif'; overflow-x: hidden; overscroll-behavior: smooth; cursor: url('./images/pointer.png') 15 15, auto; touch-action: none; }
+body { background-color: #111; color: #bbb; font-family: 'S-CoreDream-3Light', 'sans-serif'; cursor: url('./images/pointer.png') 15 15, auto; }
 a { text-decoration: none; color: inherit; }
 li { list-style-type: none; }
 button { outline: none; font-family: inherit; color: inherit; font-size: inherit; }
@@ -83,6 +83,10 @@ button:hover { cursor: inherit; }
 
 /* ETC. */
 /* -------------------------------------- */
+main.subpage-content {
+    overflow-x: hidden;
+}
+
 /* Mouse Follower */
 .mouse-child-wrapper { position: fixed; width: 100%; top: 0; bottom: 0; z-index: 9999; pointer-events: none; }
 .mouse-child-wrapper #jsMouseChild { position: absolute; width: 4px; height: 4px; background-color: rgb(42, 199, 42); border-radius: 4px; top: -2px; left: -2px; transition: .5s; transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1); }
@@ -93,7 +97,15 @@ button:hover { cursor: inherit; }
 #jsFullScreenWrap02 { position: absolute; width: 100%; height: 100%; right: 0; }
 #jsFullScreenWrap01 { background-color: #111; }
 #jsFullScreenWrap02 { background-color: #2e3f64; }
-#jsLoading { width: 1%; height: 1px; position: absolute; margin: auto; top: 0; right: 40%; transition: 1s; bottom: 0; background-color: white; display: none; animation-name: loading; animation-duration: 1.2s; animation-iteration-count: infinite; animation-timing-function: ease-in-out; }
+#jsLoading { width: 20%; height: 1px; position: absolute; margin: auto; top: 0; right: 40%; bottom: 0; background-color: white; display: none; transform: scaleX(0); transform-origin: right;
+    transform-origin: right;
+    animation: loading 1.5s ease-in-out infinite 0s;
+    -ms-animation: loading 1.5s ease-in-out infinite 0s;
+    -webkit-animation: loading 1.5s ease-in-out infinite 0s; 
+}
+#jsLoading.stop {
+    animation-direction: normal;
+}
 
 /* for Animations */
 /* -------------------------------------- */
@@ -106,10 +118,11 @@ button:hover { cursor: inherit; }
 .jsAppearSlideToR { opacity: 0; width: 0; overflow: hidden; transition: 1.5s; }
 .jsAppearSlideToR.is-appear { opacity: 1; width: 100%; }
 @keyframes loading {
-    0% { width: 0%; }
-    40% { width: 20%; }
-    80% { width: 0%; right: auto; left: 40%; }
-    100% { width: 0%; }
+    0% { transform: scaleX(0); transform-origin: right; }
+    30% { transform: scaleX(1); transform-origin: right; }
+    50% { transform: scaleX(1); transform-origin: left; }
+    80% { transform: scaleX(0); transform-origin: left; }
+    100% { transform: scaleX(0); }
 }
 
 /* Media Query */
@@ -147,6 +160,8 @@ button:hover { cursor: inherit; }
     .f-title { font-size: 55px; }
     .f-heading { font-size: 35px; }
     .f-subhead { font-size: 28px; }
+
+    main.subpage-content { margin-left: 0; width: 100vw; }
 }
 
 @media screen and ( max-width: 767px ) {

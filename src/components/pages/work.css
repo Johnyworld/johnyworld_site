@@ -28,7 +28,7 @@
 .work-items {
     position: relative;
     top: 28vh;
-    margin-bottom: 470px;
+    margin-bottom: 350px;
     padding-top: 135px;
     width: 100%;
 }
@@ -45,8 +45,6 @@
 .work-items .l-col:nth-child(2n) {
     transform: translateY(-25%);
 }
-
-
 
 .grid-item {
     display: block;
@@ -104,34 +102,39 @@
     color: #ff75a3;
 }
 
+.portfolio-history { margin-bottom: 300px; }
+.portfolio-history section .text-wrap .f-heading { font-size: 65px; margin-bottom: 70px; }
+.portfolio-history section .text-wrap .link a { display: inline-block; border-bottom: 1px solid #333; transition: .5s; }
+.portfolio-history section .text-wrap .link a:hover { color: #aaa; border-color: #b34260; }
+
 @media screen and ( max-width: 1400px ) {
     .work-items { top: 210px; }
     .bigmenu-title-wrapper .f-title { font-size: 50px; }
 }
 
-@media screen and ( max-width: 1024px ) {
-    main.subpage-content {
-        margin-left: 0;
-        width: 100%;
-    }
+@media screen and ( max-width: 1023px ) {
     .bigmenu-title-wrapper { left: 0; padding-left: 45px; margin-top: 67px; margin-left: -0.3em; }
-
-    .work-items { padding-top: 95px; }
+    .work-items { padding-top: 95px; margin-bottom: 300px; }
     .work-items .item { height: 32vw; }
-
+    .portfolio-history { margin-bottom: 200px; }
 }
 
 @media screen and ( max-width: 767px ) {
     .bigmenu-title-wrapper { padding-left: 30px; }
-    .bigmenu-title-wrapper .f-title {
-        font-size: 40px;
-    }
+    .bigmenu-title-wrapper .f-title { font-size: 40px; }
+    .grid-item .textbox { opacity: .7; background-color: transparent; }
+    .grid-item .textbox .category { display: none; }
+    .grid-item .textbox .f-heading { font-size: 17px; width: 42vw; }
+    .portfolio-history section .text-wrap .f-heading { font-size: 38px; margin-bottom: 50px; }
+    .portfolio-history section .text-wrap .link:not(:last-child) { margin-bottom: 15px; }
 }
 
 @media screen and ( max-width: 500px ) {
     .bigmenu-title-wrapper .f-title {
-        font-size: 25px;
+        font-size: 21px;
+        margin-left: 2px;
     }
+
     .work-items {
         padding-top: 50px;
     }

@@ -1,41 +1,120 @@
 import React, { Component } from 'react';
 
-import krxDream from '../../../images/work-detail-krx/krx-dream.png';
-import krxStoryboard from '../../../images/work-detail-krx/krx-storyboard.jpg';
-import krxO2o from '../../../images/work-detail-krx/krx-o2o.png';
-import krxIntro from '../../../images/work-detail-krx/krx-intro.jpg';
-import krxPast from '../../../images/work-detail-krx/krx-past.jpg';
-import krxTutorial01 from '../../../images/work-detail-krx/krx-tutorial-01.jpg';
-import krxTutorial02 from '../../../images/work-detail-krx/krx-tutorial-02.jpg';
-import krxTutorial03 from '../../../images/work-detail-krx/krx-tutorial-03.jpg';
-import krxTutorial04 from '../../../images/work-detail-krx/krx-tutorial-04.jpg';
-import krxTradingTut01 from '../../../images/work-detail-krx/krx-trading-tut-01.jpg';
-import krxTradingTut02 from '../../../images/work-detail-krx/krx-trading-tut-02.jpg';
-import krxTradingInvestor00 from '../../../images/work-detail-krx/krx-trading-investor-00.jpg';
-import krxTradingInvestor01 from '../../../images/work-detail-krx/krx-trading-investor-01.jpg';
-import krxTradingInvestor02 from '../../../images/work-detail-krx/krx-trading-investor-02.jpg';
-import krxTradingInvestor03 from '../../../images/work-detail-krx/krx-trading-investor-03.jpg';
-import krxTradingInvestor04 from '../../../images/work-detail-krx/krx-trading-investor-04.jpg';
-import krxTradingKrx00 from '../../../images/work-detail-krx/krx-trading-krx-00.jpg';
-import krxTradingKrx02 from '../../../images/work-detail-krx/krx-trading-krx-02.jpg';
-import krxTradingKrx03 from '../../../images/work-detail-krx/krx-trading-krx-03.jpg';
-import krxTradingKrx04 from '../../../images/work-detail-krx/krx-trading-krx-04.jpg';
-import krxPublic01 from '../../../images/work-detail-krx/krx-public-01.jpg';
-import krxPublic02 from '../../../images/work-detail-krx/krx-public-02.jpg';
-import krxPublic03 from '../../../images/work-detail-krx/krx-public-03.jpg';
-import krxPublic04 from '../../../images/work-detail-krx/krx-public-04.jpg';
-import krxPublic05 from '../../../images/work-detail-krx/krx-public-05.jpg';
-import krxPublic06 from '../../../images/work-detail-krx/krx-public-06.jpg';
-import krxPublic07 from '../../../images/work-detail-krx/krx-public-07.jpg';
-import krxDerivativesTut from '../../../images/work-detail-krx/krx-derivatives-tutorial.jpg';
-import krxDerivativesSeed from '../../../images/work-detail-krx/krx-derivatives-seeds.jpg';
-import krxDerivativesSeed01 from '../../../images/work-detail-krx/krx-derivatives-seeds-01.jpg';
-import krxDerivativesSeed02 from '../../../images/work-detail-krx/krx-derivatives-seeds-02.jpg';
-import krxDerivativesSeed03 from '../../../images/work-detail-krx/krx-derivatives-seeds-03.jpg';
-import krxDerivativesSeed04 from '../../../images/work-detail-krx/krx-derivatives-seeds-04.jpg';
-import krxDerivativesSeedTablet from '../../../images/work-detail-krx/krx-derivatives-seeds-tablet.jpg';
-import krxBig701 from '../../../images/work-detail-krx/krx-big7-01.jpg';
-import krxBig702 from '../../../images/work-detail-krx/krx-big7-02.jpg';
+// import krxDream from '../../../images/work-detail-krx/krx-dream.png';
+// import krxStoryboard from '../../../images/work-detail-krx/krx-storyboard.jpg';
+// import krxO2o from '../../../images/work-detail-krx/krx-o2o.png';
+// import krxIntro from '../../../images/work-detail-krx/krx-intro.jpg';
+// import krxPast from '../../../images/work-detail-krx/krx-past.jpg';
+// import krxTutorial01 from '../../../images/work-detail-krx/krx-tutorial-01.jpg';
+// import krxTutorial02 from '../../../images/work-detail-krx/krx-tutorial-02.jpg';
+// import krxTutorial03 from '../../../images/work-detail-krx/krx-tutorial-03.jpg';
+// import krxTutorial04 from '../../../images/work-detail-krx/krx-tutorial-04.jpg';
+// import krxTradingTut01 from '../../../images/work-detail-krx/krx-trading-tut-01.jpg';
+// import krxTradingTut02 from '../../../images/work-detail-krx/krx-trading-tut-02.jpg';
+// import krxTradingInvestor00 from '../../../images/work-detail-krx/krx-trading-investor-00.jpg';
+// import krxTradingInvestor01 from '../../../images/work-detail-krx/krx-trading-investor-01.jpg';
+// import krxTradingInvestor02 from '../../../images/work-detail-krx/krx-trading-investor-02.jpg';
+// import krxTradingInvestor03 from '../../../images/work-detail-krx/krx-trading-investor-03.jpg';
+// import krxTradingInvestor04 from '../../../images/work-detail-krx/krx-trading-investor-04.jpg';
+// import krxTradingKrx00 from '../../../images/work-detail-krx/krx-trading-krx-00.jpg';
+// import krxTradingKrx02 from '../../../images/work-detail-krx/krx-trading-krx-02.jpg';
+// import krxTradingKrx03 from '../../../images/work-detail-krx/krx-trading-krx-03.jpg';
+// import krxTradingKrx04 from '../../../images/work-detail-krx/krx-trading-krx-04.jpg';
+// import krxPublic01 from '../../../images/work-detail-krx/krx-public-01.jpg';
+// import krxPublic02 from '../../../images/work-detail-krx/krx-public-02.jpg';
+// import krxPublic03 from '../../../images/work-detail-krx/krx-public-03.jpg';
+// import krxPublic04 from '../../../images/work-detail-krx/krx-public-04.jpg';
+// import krxPublic05 from '../../../images/work-detail-krx/krx-public-05.jpg';
+// import krxPublic06 from '../../../images/work-detail-krx/krx-public-06.jpg';
+// import krxPublic07 from '../../../images/work-detail-krx/krx-public-07.jpg';
+// import krxDerivativesTut from '../../../images/work-detail-krx/krx-derivatives-tutorial.jpg';
+// import krxDerivativesSeed from '../../../images/work-detail-krx/krx-derivatives-seeds.jpg';
+// import krxDerivativesSeed01 from '../../../images/work-detail-krx/krx-derivatives-seeds-01.jpg';
+// import krxDerivativesSeed02 from '../../../images/work-detail-krx/krx-derivatives-seeds-02.jpg';
+// import krxDerivativesSeed03 from '../../../images/work-detail-krx/krx-derivatives-seeds-03.jpg';
+// import krxDerivativesSeed04 from '../../../images/work-detail-krx/krx-derivatives-seeds-04.jpg';
+// import krxDerivativesSeedTablet from '../../../images/work-detail-krx/krx-derivatives-seeds-tablet.jpg';
+// import krxBig701 from '../../../images/work-detail-krx/krx-big7-01.jpg';
+// import krxBig702 from '../../../images/work-detail-krx/krx-big7-02.jpg';
+
+let krxDream, krxStoryboard, krxO2o, krxIntro, krxPast, krxTutorial01, krxTutorial02, krxTutorial03, krxTutorial04, krxTradingTut01, krxTradingTut02, krxTradingInvestor00, krxTradingInvestor01, krxTradingInvestor02, krxTradingInvestor03, krxTradingInvestor04, krxTradingKrx00, krxTradingKrx02, krxTradingKrx03, krxTradingKrx04, krxPublic01, krxPublic02, krxPublic03, krxPublic04, krxPublic05, krxPublic06, krxPublic07, krxDerivativesTut, krxDerivativesSeed, krxDerivativesSeed01, krxDerivativesSeed02, krxDerivativesSeed03, krxDerivativesSeed04, krxDerivativesSeedTablet, krxBig701, krxBig702;
+const isMobile = navigator.userAgent.match(/(iPad)|(iPhone)|(iPod)|(android)|(webOS)/i);
+if ( isMobile ) {
+    krxDream = require( '../../../mobile-images/work-detail-krx/krx-dream.png' );
+    krxStoryboard = require( '../../../mobile-images/work-detail-krx/krx-storyboard.jpg' );
+    krxO2o = require( '../../../mobile-images/work-detail-krx/krx-o2o.png' );
+    krxIntro = require( '../../../mobile-images/work-detail-krx/krx-intro.jpg' );
+    krxPast = require( '../../../mobile-images/work-detail-krx/krx-past.jpg' );
+    krxTutorial01 = require( '../../../mobile-images/work-detail-krx/krx-tutorial-01.jpg' );
+    krxTutorial02 = require( '../../../mobile-images/work-detail-krx/krx-tutorial-02.jpg' );
+    krxTutorial03 = require( '../../../mobile-images/work-detail-krx/krx-tutorial-03.jpg' );
+    krxTutorial04 = require( '../../../mobile-images/work-detail-krx/krx-tutorial-04.jpg' );
+    krxTradingTut01 = require( '../../../mobile-images/work-detail-krx/krx-trading-tut-01.jpg' );
+    krxTradingTut02 = require( '../../../mobile-images/work-detail-krx/krx-trading-tut-02.jpg' );
+    krxTradingInvestor00 = require( '../../../mobile-images/work-detail-krx/krx-trading-investor-00.jpg' );
+    krxTradingInvestor01 = require( '../../../mobile-images/work-detail-krx/krx-trading-investor-01.jpg' );
+    krxTradingInvestor02 = require( '../../../mobile-images/work-detail-krx/krx-trading-investor-02.jpg' );
+    krxTradingInvestor03 = require( '../../../mobile-images/work-detail-krx/krx-trading-investor-03.jpg' );
+    krxTradingInvestor04 = require( '../../../mobile-images/work-detail-krx/krx-trading-investor-04.jpg' );
+    krxTradingKrx00 = require( '../../../mobile-images/work-detail-krx/krx-trading-krx-00.jpg' );
+    krxTradingKrx02 = require( '../../../mobile-images/work-detail-krx/krx-trading-krx-02.jpg' );
+    krxTradingKrx03 = require( '../../../mobile-images/work-detail-krx/krx-trading-krx-03.jpg' );
+    krxTradingKrx04 = require( '../../../mobile-images/work-detail-krx/krx-trading-krx-04.jpg' );
+    krxPublic01 = require( '../../../mobile-images/work-detail-krx/krx-public-01.jpg' );
+    krxPublic02 = require( '../../../mobile-images/work-detail-krx/krx-public-02.jpg' );
+    krxPublic03 = require( '../../../mobile-images/work-detail-krx/krx-public-03.jpg' );
+    krxPublic04 = require( '../../../mobile-images/work-detail-krx/krx-public-04.jpg' );
+    krxPublic05 = require( '../../../mobile-images/work-detail-krx/krx-public-05.jpg' );
+    krxPublic06 = require( '../../../mobile-images/work-detail-krx/krx-public-06.jpg' );
+    krxPublic07 = require( '../../../mobile-images/work-detail-krx/krx-public-07.jpg' );
+    krxDerivativesTut = require( '../../../mobile-images/work-detail-krx/krx-derivatives-tutorial.jpg' );
+    krxDerivativesSeed = require( '../../../mobile-images/work-detail-krx/krx-derivatives-seeds.jpg' );
+    krxDerivativesSeed01 = require( '../../../mobile-images/work-detail-krx/krx-derivatives-seeds-01.jpg' );
+    krxDerivativesSeed02 = require( '../../../mobile-images/work-detail-krx/krx-derivatives-seeds-02.jpg' );
+    krxDerivativesSeed03 = require( '../../../mobile-images/work-detail-krx/krx-derivatives-seeds-03.jpg' );
+    krxDerivativesSeed04 = require( '../../../mobile-images/work-detail-krx/krx-derivatives-seeds-04.jpg' );
+    krxDerivativesSeedTablet = require( '../../../mobile-images/work-detail-krx/krx-derivatives-seeds-tablet.jpg' );
+    krxBig701 = require( '../../../mobile-images/work-detail-krx/krx-big7-01.jpg' );
+    krxBig702 = require( '../../../mobile-images/work-detail-krx/krx-big7-02.jpg' );
+} else {
+    krxDream = require( '../../../images/work-detail-krx/krx-dream.png' );
+    krxStoryboard = require( '../../../images/work-detail-krx/krx-storyboard.jpg' );
+    krxO2o = require( '../../../images/work-detail-krx/krx-o2o.png' );
+    krxIntro = require( '../../../images/work-detail-krx/krx-intro.jpg' );
+    krxPast = require( '../../../images/work-detail-krx/krx-past.jpg' );
+    krxTutorial01 = require( '../../../images/work-detail-krx/krx-tutorial-01.jpg' );
+    krxTutorial02 = require( '../../../images/work-detail-krx/krx-tutorial-02.jpg' );
+    krxTutorial03 = require( '../../../images/work-detail-krx/krx-tutorial-03.jpg' );
+    krxTutorial04 = require( '../../../images/work-detail-krx/krx-tutorial-04.jpg' );
+    krxTradingTut01 = require( '../../../images/work-detail-krx/krx-trading-tut-01.jpg' );
+    krxTradingTut02 = require( '../../../images/work-detail-krx/krx-trading-tut-02.jpg' );
+    krxTradingInvestor00 = require( '../../../images/work-detail-krx/krx-trading-investor-00.jpg' );
+    krxTradingInvestor01 = require( '../../../images/work-detail-krx/krx-trading-investor-01.jpg' );
+    krxTradingInvestor02 = require( '../../../images/work-detail-krx/krx-trading-investor-02.jpg' );
+    krxTradingInvestor03 = require( '../../../images/work-detail-krx/krx-trading-investor-03.jpg' );
+    krxTradingInvestor04 = require( '../../../images/work-detail-krx/krx-trading-investor-04.jpg' );
+    krxTradingKrx00 = require( '../../../images/work-detail-krx/krx-trading-krx-00.jpg' );
+    krxTradingKrx02 = require( '../../../images/work-detail-krx/krx-trading-krx-02.jpg' );
+    krxTradingKrx03 = require( '../../../images/work-detail-krx/krx-trading-krx-03.jpg' );
+    krxTradingKrx04 = require( '../../../images/work-detail-krx/krx-trading-krx-04.jpg' );
+    krxPublic01 = require( '../../../images/work-detail-krx/krx-public-01.jpg' );
+    krxPublic02 = require( '../../../images/work-detail-krx/krx-public-02.jpg' );
+    krxPublic03 = require( '../../../images/work-detail-krx/krx-public-03.jpg' );
+    krxPublic04 = require( '../../../images/work-detail-krx/krx-public-04.jpg' );
+    krxPublic05 = require( '../../../images/work-detail-krx/krx-public-05.jpg' );
+    krxPublic06 = require( '../../../images/work-detail-krx/krx-public-06.jpg' );
+    krxPublic07 = require( '../../../images/work-detail-krx/krx-public-07.jpg' );
+    krxDerivativesTut = require( '../../../images/work-detail-krx/krx-derivatives-tutorial.jpg' );
+    krxDerivativesSeed = require( '../../../images/work-detail-krx/krx-derivatives-seeds.jpg' );
+    krxDerivativesSeed01 = require( '../../../images/work-detail-krx/krx-derivatives-seeds-01.jpg' );
+    krxDerivativesSeed02 = require( '../../../images/work-detail-krx/krx-derivatives-seeds-02.jpg' );
+    krxDerivativesSeed03 = require( '../../../images/work-detail-krx/krx-derivatives-seeds-03.jpg' );
+    krxDerivativesSeed04 = require( '../../../images/work-detail-krx/krx-derivatives-seeds-04.jpg' );
+    krxDerivativesSeedTablet = require( '../../../images/work-detail-krx/krx-derivatives-seeds-tablet.jpg' );
+    krxBig701 = require( '../../../images/work-detail-krx/krx-big7-01.jpg' );
+    krxBig702 = require( '../../../images/work-detail-krx/krx-big7-02.jpg' );
+}
+
 
 class Krx extends Component {
     render() {
@@ -88,7 +167,7 @@ class Krx extends Component {
                             <p className="f-normal"><strong>명동거래소 풍경속에 관람객을 실시간 합성으로 참여형 전시<br /></strong>격탁 후 에는 그때 당시의 소개영상으로 마치 과거로 온듯 한 체험 제공합니다. 거래소에서의 합성된 자신의 모습을 찍으며 단순히 보고 가는것이 아닌 그 이상의 가치를 제공합니다.</p>
                         </div>
                         <img src={krxPast} alt="designimg" />
-                        <iframe title="60s" width="100%" height="315" src="https://www.youtube.com/embed/XawoQWU2h0Y" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe title="60s" style={{ width: '100%', height: '25vw' }} src="https://www.youtube.com/embed/XawoQWU2h0Y" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                 </section>
                 <section>
@@ -102,7 +181,7 @@ class Krx extends Component {
                     <div className="l-wrapper">
                         <img src={krxTradingTut01} alt="designimg" className="krx-tut-img" />
                         <img src={krxTradingTut02} alt="designimg" className="krx-tut-img" />
-                        <iframe title="krx-tutorial" width="100%" height="315" src="https://www.youtube.com/embed/iwAna8HFayA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe title="krx-tutorial" style={{ width: '100%', height: '25vw' }} src="https://www.youtube.com/embed/iwAna8HFayA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                     <div className="l-wrapper">
                         <div className="text-wrap">
@@ -132,7 +211,7 @@ class Krx extends Component {
                                 <li className="l-col l-col-4-12 l-col-m-6-12"><img src={krxTradingKrx04} alt="designimg" /></li>
                             </ul>
                         </div>
-                        <iframe title="krx-market-tutorial" width="100%" height="640" src="https://www.youtube.com/embed/yZ_UaCLNuTk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe title="krx-market-tutorial" style={{ width: '100%', height: '47vw' }} src="https://www.youtube.com/embed/yZ_UaCLNuTk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                 </section>
                 <section>
@@ -162,7 +241,7 @@ class Krx extends Component {
                     <div>
                         <img src={krxDerivativesTut} alt="designimg" />
                         <div className="l-wrapper">
-                            <iframe title="krx-pa-tutorial" width="100%" height="640" src="https://www.youtube.com/embed/79_Dag4Gp8k" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <iframe title="krx-pa-tutorial" style={{ width: '100%', height: '70vw' }} src="https://www.youtube.com/embed/79_Dag4Gp8k" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         </div>
                     </div>
                     <div className="l-wrapper">
@@ -184,8 +263,8 @@ class Krx extends Component {
                                 <li className="l-col l-col-6-12"><img src={krxDerivativesSeed04} alt="designimg" /></li>
                             </ul>
                         </div>
-                        <iframe title="krxSeed1" width="100%" height="315" src="https://www.youtube.com/embed/YhsO20Z66aI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        <iframe title="krxSeed2" width="100%" height="570" src="https://www.youtube.com/embed/I3EctvHmLvc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe title="krxSeed1" style={{ width: '100%', height: '30vw' }} src="https://www.youtube.com/embed/YhsO20Z66aI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe title="krxSeed2" style={{ width: '100%', height: '47vw' }} src="https://www.youtube.com/embed/I3EctvHmLvc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>  
                 </section>
                 <section>
@@ -196,7 +275,7 @@ class Krx extends Component {
                         </div>
                         <img src={krxBig701} alt="designimg" />
                         <img src={krxBig702} alt="designimg" />
-                        <iframe title="krx-global" width="100%" height="450" src="https://www.youtube.com/embed/ZV9aIXi_yr4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe title="krx-global" style={{ width: '100%', height: '35vw' }} src="https://www.youtube.com/embed/ZV9aIXi_yr4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                 </section>
             </div>

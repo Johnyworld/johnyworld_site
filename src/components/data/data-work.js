@@ -1,33 +1,99 @@
 // Thumbnails
-import workBgPssd from '../../images/workbg-pssd.jpg';
-import workBgKrx from '../../images/workbg-krx.jpg';
-import workBgSamsungTheme from '../../images/workbg-samsung-theme.jpg';
-import workBgCamping from '../../images/workbg-camping.jpg';
-import workBgSoohan from '../../images/workbg-soo.jpg';
-import workBgFanclubCoin from '../../images/workbg-fanclub-coin.jpg';
-import workBgBigpictureEnt from '../../images/workbg-bigpicture.jpg';
+// import workBgPssd from '../../images/workbg-pssd.jpg';
+// import workBgKrx from '../../images/workbg-krx.jpg';
+// import workBgSamsungTheme from '../../images/workbg-samsung-theme.jpg';
+// import workBgCamping from '../../images/workbg-camping.jpg';
+// import workBgSoohan from '../../images/workbg-soo.jpg';
+// import workBgFanclubCoin from '../../images/workbg-fanclub-coin.jpg';
+// import workBgBigpictureEnt from '../../images/workbg-bigpicture.jpg';
 
 // Keyvisualds
-import workKeyBgBigpictureEnt from '../../images/work-detail-bigpic/bigpic-keyvisualbg.jpg';
-import workKeyBgFanclubCoin from '../../images/work-detail-fancoin/fancoin-keyvisualbg.jpg';
-import workKeyBgSoohan from '../../images/work-detail-soohan/soohan-keyvisualbg.jpg';
-import workKeyBgKrx from '../../images/work-detail-krx/krx-keyvisualbg.jpg';
-import workKeyBgPssd from '../../images/work-detail-pssd/pssd-keyvisualbg.jpg';
-import workKeyBgCamping from '../../images/work-detail-camping/camping-keyvisualbg.jpg';
+// import workKeyBgBigpictureEnt from '../../images/work-detail-bigpic/bigpic-keyvisualbg.jpg';
+// import workKeyBgFanclubCoin from '../../images/work-detail-fancoin/fancoin-keyvisualbg.jpg';
+// import workKeyBgSoohan from '../../images/work-detail-soohan/soohan-keyvisualbg.jpg';
+// import workKeyBgKrx from '../../images/work-detail-krx/krx-keyvisualbg.jpg';
+// import workKeyBgPssd from '../../images/work-detail-pssd/pssd-keyvisualbg.jpg';
+// import workKeyBgCamping from '../../images/work-detail-camping/camping-keyvisualbg.jpg';
 
 // KeyScreens
-import workScreenBigpictureEnt from '../../images/work-detail-bigpic/bigpic-devices.jpg';
-import workScreenFanclubCoin from '../../images/work-detail-fancoin/fancoin-devices.jpg';
-import workScreenSoohan from '../../images/work-detail-soohan/soohan-devices.jpg';
-import workScreenKrx from '../../images/work-detail-krx/krx-devices.jpg';
-import workScreenPssd from '../../images/work-detail-pssd/pssd-devices.jpg';
-import workScreenCamping from '../../images/work-detail-camping/camping-devices.jpg';
+// import workScreenBigpictureEnt from '../../images/work-detail-bigpic/bigpic-devices.jpg';
+// import workScreenFanclubCoin from '../../images/work-detail-fancoin/fancoin-devices.jpg';
+// import workScreenSoohan from '../../images/work-detail-soohan/soohan-devices.jpg';
+// import workScreenKrx from '../../images/work-detail-krx/krx-devices.jpg';
+// import workScreenPssd from '../../images/work-detail-pssd/pssd-devices.jpg';
+// import workScreenCamping from '../../images/work-detail-camping/camping-devices.jpg';
 
 // MobileScreens
-import workMobileBigpictureEnt from '../../images/work-detail-bigpic/bigpic-devices-mobile.jpg';
-import workMobileFanclubCoin from '../../images/work-detail-fancoin/fancoin-devices-mobile.jpg';
-import workMobileSoohan from '../../images/work-detail-soohan/soohan-devices-mobile.jpg';
-import workMobileCamping from '../../images/work-detail-camping/camping-devices-mobile.jpg';
+// import workMobileBigpictureEnt from '../../images/work-detail-bigpic/bigpic-devices-mobile.jpg';
+// import workMobileFanclubCoin from '../../images/work-detail-fancoin/fancoin-devices-mobile.jpg';
+// import workMobileSoohan from '../../images/work-detail-soohan/soohan-devices-mobile.jpg';
+// import workMobileCamping from '../../images/work-detail-camping/camping-devices-mobile.jpg';
+
+let workScreenBigpictureEnt, workScreenFanclubCoin, workScreenSoohan, workScreenPssd, workScreenKrx, workScreenCamping;
+let workMobileSoohan, workMobileBigpictureEnt, workMobileFanclubCoin, workMobileCamping;
+let workBgPssd, workBgKrx, workBgCamping, workBgSoohan, workBgFanclubCoin, workBgBigpictureEnt;
+// workBgSamsungTheme
+let workKeyBgBigpictureEnt, workKeyBgFanclubCoin, workKeyBgSoohan, workKeyBgKrx, workKeyBgPssd, workKeyBgCamping
+const isMobile = navigator.userAgent.match(/(iPad)|(iPhone)|(iPod)|(android)|(webOS)/i);
+if ( isMobile ) {
+    // Thumnails
+    workBgPssd = require( '../../mobile-images/workbg-pssd.jpg' );
+    workBgKrx = require( '../../mobile-images/workbg-krx.jpg' );
+    // workBgSamsungTheme = require( '../../mobile-images/workbg-samsung-theme.jpg' );
+    workBgCamping = require( '../../mobile-images/workbg-camping.jpg' );
+    workBgSoohan = require( '../../mobile-images/workbg-soo.jpg' );
+    workBgFanclubCoin = require( '../../mobile-images/workbg-fanclub-coin.jpg' );
+    workBgBigpictureEnt = require( '../../mobile-images/workbg-bigpicture.jpg' );
+
+    // Keyvisualds
+    workKeyBgBigpictureEnt = require( '../../mobile-images/work-detail-bigpic/bigpic-keyvisualbg.jpg' );
+    workKeyBgFanclubCoin = require( '../../mobile-images/work-detail-fancoin/fancoin-keyvisualbg.jpg' );
+    workKeyBgSoohan = require( '../../mobile-images/work-detail-soohan/soohan-keyvisualbg.jpg' );
+    workKeyBgKrx = require( '../../mobile-images/work-detail-krx/krx-keyvisualbg.jpg' );
+    workKeyBgPssd = require( '../../mobile-images/work-detail-pssd/pssd-keyvisualbg.jpg' );
+    workKeyBgCamping = require( '../../mobile-images/work-detail-camping/camping-keyvisualbg.jpg' );
+
+    // Devices
+    workScreenSoohan = require( '../../mobile-images/work-detail-soohan/soohan-devices.jpg' );
+    workScreenPssd = require( '../../mobile-images/work-detail-pssd/pssd-devices.jpg' );
+    workScreenKrx = require( '../../mobile-images/work-detail-krx/krx-devices.jpg' );
+    workScreenBigpictureEnt = require( '../../mobile-images/work-detail-bigpic/bigpic-devices.jpg' );
+    workScreenFanclubCoin = require( '../../mobile-images/work-detail-fancoin/fancoin-devices.jpg' );
+    workScreenCamping = require( '../../mobile-images/work-detail-camping/camping-devices.jpg' );
+} else {
+    // Thumnails
+    workBgPssd = require( '../../images/workbg-pssd.jpg' );
+    workBgKrx = require( '../../images/workbg-krx.jpg' );
+    // workBgSamsungTheme = require( '../../images/workbg-samsung-theme.jpg' );
+    workBgCamping = require( '../../images/workbg-camping.jpg' );
+    workBgSoohan = require( '../../images/workbg-soo.jpg' );
+    workBgFanclubCoin = require( '../../images/workbg-fanclub-coin.jpg' );
+    workBgBigpictureEnt = require( '../../images/workbg-bigpicture.jpg' );
+
+    // Keyvisualds
+    workKeyBgBigpictureEnt = require( '../../images/work-detail-bigpic/bigpic-keyvisualbg.jpg' );
+    workKeyBgFanclubCoin = require( '../../images/work-detail-fancoin/fancoin-keyvisualbg.jpg' );
+    workKeyBgSoohan = require( '../../images/work-detail-soohan/soohan-keyvisualbg.jpg' );
+    workKeyBgKrx = require( '../../images/work-detail-krx/krx-keyvisualbg.jpg' );
+    workKeyBgPssd = require( '../../images/work-detail-pssd/pssd-keyvisualbg.jpg' );
+    workKeyBgCamping = require( '../../images/work-detail-camping/camping-keyvisualbg.jpg' );
+
+    // Devices
+    workScreenSoohan = require( '../../images/work-detail-soohan/soohan-devices.jpg' );
+    workScreenPssd = require( '../../images/work-detail-pssd/pssd-devices.jpg' );
+    workScreenKrx = require( '../../images/work-detail-krx/krx-devices.jpg' );
+    workScreenBigpictureEnt = require( '../../images/work-detail-bigpic/bigpic-devices.jpg' );
+    workScreenFanclubCoin = require( '../../images/work-detail-fancoin/fancoin-devices.jpg' );
+    workScreenCamping = require( '../../images/work-detail-camping/camping-devices.jpg' );
+
+    // Mobile Screen
+    workMobileSoohan = require( '../../images/work-detail-soohan/soohan-devices-mobile.jpg' );
+    workMobileBigpictureEnt = require( '../../images/work-detail-bigpic/bigpic-devices-mobile.jpg' );
+    workMobileFanclubCoin = require( '../../images/work-detail-fancoin/fancoin-devices-mobile.jpg' );
+    workMobileCamping = require( '../../images/work-detail-camping/camping-devices-mobile.jpg' );
+}
+
+
 
 const dataWork = [
     {
@@ -55,57 +121,59 @@ const dataWork = [
         mobileScreen: workMobileCamping,
         date: "2014. 07"
     },
+    // {
+    //     id: "05003",
+    //     title: "Samsung Mobile Theme",
+    //     slug: "samsung-mobile-theme",
+    //     comment: "삼성 모바일 테마 디자인",
+    //     desc: [
+    //         "설명1",
+    //         "설명2",
+    //     ],
+    //     summary: [
+    //         { title:"", desc:[""] },
+    //         { title:"", desc:[""] },
+    //         { title:"", desc:[""] },
+    //         { title:"", desc:[""] },
+    //         { title:"", desc:[""] },
+    //         { title:"", desc:[""] },
+    //     ],
+    //     keywords: [
+    //         "모바일", "테마디자인", "그래픽유저인터페이스"
+    //     ],
+    //     category1: "UX/UI",
+    //     category2: "Theme Design",
+    //     thumbnail: workBgSamsungTheme,
+    //     date: "2015. 10 - 2016. 06"
+    // },
     {
-        id: "05003",
-        title: "Samsung Mobile Theme",
-        slug: "samsung-mobile-theme",
-        comment: "삼성 모바일 테마 디자인",
+        id: "05009",
+        title: "Fanclub Coin",
+        slug: "fanclub-coin",
+        comment: "스포와이드 팬클럽코인 랜딩페이지 제작",
         desc: [
             "설명1",
             "설명2",
         ],
         summary: [
-            { title:"", desc:[""] },
-            { title:"", desc:[""] },
-            { title:"", desc:[""] },
-            { title:"", desc:[""] },
-            { title:"", desc:[""] },
-            { title:"", desc:[""] },
+            { title:"참여인원", desc:["2명"] },
+            { title:"내 업무범위", desc:["기획 - 80%", "디자인 - 50%", "워드프레스 개발 - 100%"] },
+            { title:"소개", desc:["스포츠 암호화폐 거래소인 스포와이드의 영문 백서사이트 랜딩페이지 제작."] },
+            { title:"워드프레스", desc:["워드프레스로 빠르고 편하게 개발했지만, 원하는 디자인을 적용하기 위해 기존 테마에서 많이 커스터마이징 했습니다."] },
+            { title:"주 테마, 플러그인", desc:["- Salient Theme", "- Google Analytics"] },
         ],
         keywords: [
-            "모바일", "테마디자인", "그래픽유저인터페이스"
+            "웹디자인", "워드프레스", "반응형 웹"
         ],
-        category1: "UX/UI",
-        category2: "Theme Design",
-        thumbnail: workBgSamsungTheme,
-        date: "2015. 10 - 2016. 06"
-    },
-    {
-        id: "05004",
-        title: "KRX Exhibision",
-        slug: "krx",
-        comment: "KRX 국제금융센터 금융거래체험관 기획, UX, UI, GUI디자인",
-        desc: [
-            "설명1",
-            "설명2",
-        ],
-        summary: [
-            { title:"참여인원", desc:["기획, 디자인팀 5명", "개발팀 4명", "인테리어, 시공업체"] },
-            { title:"내 업무범위", desc:["기획 - 20%", "GUI : 증권거래소의 시작 - 10%", "GUI : 매매거래체험 - 25%", "GUI : 나의기업상장하기 - 80%", "삽입일러스트 - 100%", "모션그래픽(기획) - 30%"] },
-            { title:"디자인", desc:["12개의 씨앗을 담은 육각형 모양을 기본 모티브로 사용. 빛은 화려하게, 색상은 블루와 그레이로 신뢰감을 형성."] },
-            { title:"사용자 경험", desc:["주 타겟층이 학생들인 점을 감안하여, 대부분의 과정을 게임을 하듯 편하게 진행할 수 있도록 제작."] },
-            { title:"쉽게", desc:["'주식거래'라는 어려운 주제를 관람자들이 최대한 쉽게 경험할 수 있도록 핵심만 직관적으로 풀어냄."] },
-            { title:"O2O Exhivision", eng: true, desc:["오프라인 전시의 시/공간적 한계를 극복하기 위한 새로운 형태의 전시방법론"] },
-        ],
-        keywords: [
-            "전시기획", "키오스크, 스크린 GUI", "UX, UI 디자인", "일러스트레이션", "모션그래픽"
-        ],
-        category1: "UX/UI",
-        category2: "UX, UI Design",
-        thumbnail: workBgKrx, 
-        keyvisual: workKeyBgKrx,
-        screen: workScreenKrx,
-        date: "2014. 12"
+        category1: "Wordpress",
+        category2: "Web Design + Wordpress",
+        thumbnail: workBgFanclubCoin,
+        keyvisual: workKeyBgFanclubCoin,
+        screen: workScreenFanclubCoin,
+        mobileScreen: workMobileFanclubCoin,
+        darkPage: true,
+        date: "2019. 05",
+        url: "https://fanclubcoin.com/"
     },
     {
         id: "05005",
@@ -191,33 +259,31 @@ const dataWork = [
         url: "http://bigpicture-ent.com/"
     },
     {
-        id: "05009",
-        title: "Fanclub Coin",
-        slug: "fanclub-coin",
-        comment: "스포와이드 팬클럽코인 랜딩페이지 제작",
+        id: "05004",
+        title: "KRX Exhibision",
+        slug: "krx",
+        comment: "KRX 국제금융센터 금융거래체험관 기획, UX, UI, GUI디자인",
         desc: [
             "설명1",
             "설명2",
         ],
         summary: [
-            { title:"참여인원", desc:["2명"] },
-            { title:"내 업무범위", desc:["기획 - 80%", "디자인 - 50%", "워드프레스 개발 - 100%"] },
-            { title:"소개", desc:["스포츠 암호화폐 거래소인 스포와이드의 영문 백서사이트 랜딩페이지 제작."] },
-            { title:"워드프레스", desc:["워드프레스로 빠르고 편하게 개발했지만, 원하는 디자인을 적용하기 위해 기존 테마에서 많이 커스터마이징 했습니다."] },
-            { title:"주 테마, 플러그인", desc:["- Salient Theme", "- Google Analytics"] },
+            { title:"참여인원", desc:["기획, 디자인팀 5명", "개발팀 4명", "인테리어, 시공업체"] },
+            { title:"내 업무범위", desc:["기획 - 20%", "GUI : 증권거래소의 시작 - 10%", "GUI : 매매거래체험 - 25%", "GUI : 나의기업상장하기 - 80%", "삽입일러스트 - 100%", "모션그래픽(기획) - 30%"] },
+            { title:"디자인", desc:["12개의 씨앗을 담은 육각형 모양을 기본 모티브로 사용. 빛은 화려하게, 색상은 블루와 그레이로 신뢰감을 형성."] },
+            { title:"사용자 경험", desc:["주 타겟층이 학생들인 점을 감안하여, 대부분의 과정을 게임을 하듯 편하게 진행할 수 있도록 제작."] },
+            { title:"쉽게", desc:["'주식거래'라는 어려운 주제를 관람자들이 최대한 쉽게 경험할 수 있도록 핵심만 직관적으로 풀어냄."] },
+            { title:"O2O Exhivision", eng: true, desc:["오프라인 전시의 시/공간적 한계를 극복하기 위한 새로운 형태의 전시방법론"] },
         ],
         keywords: [
-            "웹디자인", "워드프레스", "반응형 웹"
+            "전시기획", "키오스크, 스크린 GUI", "UX, UI 디자인", "일러스트레이션", "모션그래픽"
         ],
-        category1: "Wordpress",
-        category2: "Web Design + Wordpress",
-        thumbnail: workBgFanclubCoin,
-        keyvisual: workKeyBgFanclubCoin,
-        screen: workScreenFanclubCoin,
-        mobileScreen: workMobileFanclubCoin,
-        darkPage: true,
-        date: "2019. 05",
-        url: "https://fanclubcoin.com/"
+        category1: "UX/UI",
+        category2: "UX, UI Design",
+        thumbnail: workBgKrx, 
+        keyvisual: workKeyBgKrx,
+        screen: workScreenKrx,
+        date: "2014. 12"
     },
 ];
 const dataWorkReverse = dataWork.reverse();

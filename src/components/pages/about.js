@@ -14,7 +14,14 @@ import { getAbsoluteTop } from '../func/functions';
 import dataAboutSkills from '../data/data-aboutskills';
 import './about.css';
 import skillSprites from '../../images/about-skill-logos.png';
-import imgAboutKey from '../../images/about-key.jpg';
+
+let imgAboutKey;
+const isMobile = navigator.userAgent.match(/(iPad)|(iPhone)|(iPod)|(android)|(webOS)/i);
+if ( isMobile ) {
+    imgAboutKey = require('../../mobile-images/about-key.jpg');
+} else {
+    imgAboutKey = require('../../images/about-key.jpg');
+}
 
 class About extends Component {
     constructor(props) {
@@ -46,7 +53,7 @@ class About extends Component {
                 this.setState({ instaImages: res.data.data });
             })
             .catch(err => {
-                alert(err);
+                console.log(err);
             })
     }
 
@@ -181,9 +188,9 @@ class About extends Component {
                     <section className="sec-skills" id="jsSectionSkills">
                         <div className="l-wrapper">
                             <div className="text-wrap">
-                                {skillCategories.map((category) => {
+                                {skillCategories.map((category, key) => {
                                     return (
-                                    <div className="skill-category-container">
+                                    <div key={'skill-category-'+key} className="skill-category-container">
                                         <ul className="l-row">
                                             <li className="l-col l-col-6-12 l-col-m-12-12"> 
                                                 <h3 className="f-heading jsAppearBtT">{category}</h3>
@@ -192,7 +199,7 @@ class About extends Component {
                                                 {dataAboutSkills.map((item, key) => {
                                                     return (
                                                         item.category === category ?
-                                                        <div className={`category-${item.category} skill-item-container`}>
+                                                        <div key={'skill-item-'+key} className={`category-${item.category} skill-item-container`}>
                                                             <div className="skill-part _title">
                                                                 <div className="skill-logo jsAppearBtT" style={{ backgroundImage: 'url('+skillSprites+')', backgroundPosition: item.bgPosition }}></div>
                                                                 <h3 className="f-subhead jsAppearBtT" style={{color: item.color }}>{item.skillName}</h3>

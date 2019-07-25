@@ -306,7 +306,7 @@ class Home extends Component {
         const jsFullScreenWrap02 = document.getElementById('jsFullScreenWrap02');
 
         const handleLoaded = () => {
-            animOutFade(jsLoading, 300);
+            animOutFade(jsLoading, 1500);
             setTimeout(() => {
                 this.setState({
                     loaded: true

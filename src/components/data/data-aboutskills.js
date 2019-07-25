@@ -160,7 +160,7 @@ const dataAboutSkills = [
         bgPosition: " -72px -108px ",
     },
     {
-        skillName: "DSLR: Cannon 5D mark4",
+        skillName: "DSLR",
         skillLevel: "8",
         skillLevelText: "다룰 줄 알아요.",
         desc: "취미로 즐기다가 인터뷰 영상, 스케치 영상등의 업무 경험 다수 있습니다. 취미로는 여행 영상을 주로 찍었습니다. ",

@@ -136,20 +136,24 @@ export const animOutWidth = (element) => {
     element.style.transition = 'all cubic-bezier(.13,.84,.35,1) 1s';
     element.style.left = '0';
     element.style.right = 'auto';
-    element.style.width = '0%';
+    setTimeout(() => {
+        element.style.width = '0%';
+    }, 50)
     setTimeout(() => {
         element.style.transition = '0s';
-    }, 1000);
+    }, 1050);
 }
 
 export const animInWidth = (element) => {
     element.style.transition = 'all cubic-bezier(.13,.84,.35,1) 1s';
     element.style.left = 'auto';
     element.style.right = '0';
-    element.style.width = '100%';
+    setTimeout(() => {
+        element.style.width = '100%';
+    }, 50)
     setTimeout(() => {
         element.style.transition = '0s';
-    }, 1000);
+    }, 1050);
 }
 
 export const setBeforeLoading = (wrap01, wrap02, lodingBar) => {
@@ -158,6 +162,29 @@ export const setBeforeLoading = (wrap01, wrap02, lodingBar) => {
     lodingBar.style.display = 'block';
 }
 
+export const animOutFade = ( element, delay ) => {
+    setTimeout(()=> {
+        element.style.opacity = 0;
+    }, delay);
+}
+
+export const animInLoading = (jsFullScreenWrap01, jsFullScreenWrap02, jsLoading) => {
+    animInWidth(jsFullScreenWrap02);
+    setTimeout(() => {
+        animInWidth(jsFullScreenWrap01);
+        jsLoading.style.display = "block";
+    }, 500);
+}
+
+export const animOutLoading = (jsFullScreenWrap01, jsFullScreenWrap02, jsLoading) => {
+    animOutWidth(jsFullScreenWrap01);
+    animOutFade(jsLoading, 200);
+    setTimeout(() => {
+        animOutWidth(jsFullScreenWrap02);
+        jsLoading.style.display = "none";
+        jsLoading.style.opacity = 1;
+    }, 500);
+}
 
 // 헤더 관련 애니메이션
 // ------------------------------------
@@ -206,30 +233,6 @@ export const animInAppear = (elements, delay) => {
             animInAppearByTurn( nowScroll, elements );
         });
     }, delay);
-}
-
-export const animOutFade = ( element, delay ) => {
-    setTimeout(()=> {
-        element.style.opacity = 0;
-    }, delay);
-}
-
-export const animInLoading = (jsFullScreenWrap01, jsFullScreenWrap02, jsLoading) => {
-    animInWidth(jsFullScreenWrap02, 1000);
-    setTimeout(() => {
-        animInWidth(jsFullScreenWrap01, 1000);
-        jsLoading.style.display = "block";
-    }, 500);
-}
-
-export const animOutLoading = (jsFullScreenWrap01, jsFullScreenWrap02, jsLoading) => {
-    animOutWidth(jsFullScreenWrap01, 1000);
-    animOutFade(jsLoading, 200);
-    setTimeout(() => {
-        animOutWidth(jsFullScreenWrap02, 1000);
-        jsLoading.style.display = "none";
-        jsLoading.style.opacity = 1;
-    }, 500);
 }
 
 // 마우스 스크롤 스무드

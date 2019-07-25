@@ -3,9 +3,21 @@ import React, { Component } from 'react';
 import styleColors from '../../../images/work-detail-soohan/soohan-style-color.png';
 import styleFonts from '../../../images/work-detail-soohan/soohan-style-fonts.png';
 import styleButtons from '../../../images/work-detail-soohan/soohan-style-buttons.png';
-import workDesignSoohan from '../../../images/work-detail-soohan/soohan-design.jpg';
-import soohanSub01 from '../../../images/work-detail-soohan/soohan-sub01.jpg';
-import soohanSub02 from '../../../images/work-detail-soohan/soohan-sub02.jpg';
+// import workDesignSoohan from '../../../images/work-detail-soohan/soohan-design.jpg';
+// import soohanSub01 from '../../../images/work-detail-soohan/soohan-sub01.jpg';
+// import soohanSub02 from '../../../images/work-detail-soohan/soohan-sub02.jpg';
+
+let workDesignSoohan, soohanSub01, soohanSub02;
+const isMobile = navigator.userAgent.match(/(iPad)|(iPhone)|(iPod)|(android)|(webOS)/i);
+if ( isMobile ) {
+    workDesignSoohan = require( '../../../mobile-images/work-detail-soohan/soohan-design.jpg' );
+    soohanSub01 = require( '../../../mobile-images/work-detail-soohan/soohan-sub01.jpg' );
+    soohanSub02 = require( '../../../mobile-images/work-detail-soohan/soohan-sub02.jpg' );
+} else {
+    workDesignSoohan = require( '../../../images/work-detail-soohan/soohan-design.jpg' );
+    soohanSub01 = require( '../../../images/work-detail-soohan/soohan-sub01.jpg' );
+    soohanSub02 = require( '../../../images/work-detail-soohan/soohan-sub02.jpg' );
+}
 
 class Soohan extends Component {
     render() {
@@ -63,7 +75,7 @@ class Soohan extends Component {
                             <h2 className="f-title">인터뷰영상 제작</h2>
                             <p className="f-normal">촬영, 편집 작업 진행</p>
                         </div>
-                        <iframe title="soo-interview" src="https://player.vimeo.com/video/292651398" width="100%" style={{ backgroundColor: '#222', height: 550 }} frameborder="0" allowfullscreen="allowfullscreen" />
+                        <iframe title="soo-interview" src="https://player.vimeo.com/video/292651398" width="100%" style={{ backgroundColor: '#222', height: '47vw' }} frameborder="0" allowfullscreen="allowfullscreen" />
                     </div>
                 </section>
             </div>

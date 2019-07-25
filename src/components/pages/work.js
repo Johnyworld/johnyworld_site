@@ -181,6 +181,18 @@ class Work extends Component {
                     </ul>
                 </div>
             </div>
+            <div className="portfolio-history">
+                <section>
+                    <div className="l-wrapper">
+                        <div className="text-wrap">
+                            <h3 className="f-heading f-eng-title">Portfolio History</h3>
+                            <p className="f-normal link"><strong>2019</strong> | "The FOCUS" 지금 보고계십니다.</p>
+                            <p className="f-normal link"><a href="http://johnyworld.com/2018/index.html" target="blank" ><strong>2018</strong> | "Hello I'm Johny" 보기</a></p>
+                            <p className="f-normal link"><a href="http://johnyworld.com/2013/grandlaunching_web.pdf" target="blank" ><strong>2013</strong> | "The Grand Launching" 보기</a></p>
+                        </div>
+                    </div>
+                </section>
+            </div>
             </>
         )
     }

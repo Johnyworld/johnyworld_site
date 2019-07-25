@@ -93,7 +93,7 @@
 .menu-wrapper .item.bg.right .child.cue1 { transform: translateY(-50%) translateX(-97vw); width: 120vw; transform-origin: right; }
 .menu-wrapper .item.bg.right .child.cue2 { transform: translateY(-50%) translateX(-97vw) scaleY(0); }
 
-@media screen and ( max-width: 1024px ) {
+@media screen and ( max-width: 1023px ) {
     .menu-wrapper .menu-btn.left { left: 50%; top: 35% }
     .menu-wrapper .menu-btn.right { right: 50%; top: 65% }
     .menu-wrapper.aligned .menu-btn { top: 97px; }
@@ -103,6 +103,7 @@
 /* --------------------------------- */
 .home-mobile-main { margin-top: 80px; width: 100vw; }
 .home-mobile-main .f-bigtitle { margin-bottom: 20px; }
+.home-mobile-main .item { display: block; }
 .home-mobile-main .link-item { display: block; cursor: pointer; border-bottom: 1px solid #444; padding-bottom: 15px; margin-bottom: 15px; margin-top: 6px; line-height: 1; }
 
 
@@ -113,5 +114,6 @@
 .mobile-toy-slider-wrap::-webkit-scrollbar { display:none; } 
 .mobile-toy-slider { width: 200vw; height: 60vw; margin-left: 20px;  }
 .mobile-toy-slider .slider-item { display: block; background-color: #444; background-size: cover; background-position: center; position: relative; width: 60vw; height: 60vw; margin-right: 20px; float: left; }
+.mobile-toy-slider .slider-item .link { position: absolute; width: 100%; top: 0; bottom: 0; }
 .mobile-toy-slider .slider-item .f-heading { position: absolute; top: 15px; left: 15px; }
 .mobile-toy-slider .slider-item .git { position: absolute; bottom: 15px; left: 15px; line-height: 1.1; }

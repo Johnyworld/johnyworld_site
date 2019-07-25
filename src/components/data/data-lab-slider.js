@@ -1,18 +1,36 @@
-import labBgMarioJump from '../../images/labbg-mariojump.jpg';
-// import labBgCollision1 from '../../images/labbg-collision1.jpg';
-import labBgCollision2 from '../../images/labbg-collision2.jpg';
-// import labBgMario1 from '../../images/labbg-mario1.jpg';
-import labBgRpgMoving from '../../images/labbg-rpgmoving.jpg';
-// import labBgWetube from '../../images/labbg-wetube.jpg';
-// import labBgPrismagram from '../../images/labbg-prismagram.jpg';
-import labBgModernPirates from '../../images/labbg-modernpirates.jpg';
-import labBgCrossRoad from '../../images/labbg-crossroad.jpg';
-import labBgMasonry from '../../images/labbg-masonry.jpg';
-import labBgRoom311 from '../../images/labbg-room311.jpg';
-import labBgConv250 from '../../images/labbg-conv250.jpg';
-import labBgBangCard from '../../images/labbg-bangcard.jpg';
-// import labBgGravity from '../../images/labbg-gravity.jpg';
-// import labBgCells from '../../images/labbg-cells.jpg';
+// import labBgMarioJump from '../../images/labbg-mariojump.jpg';
+// import labBgCollision2 from '../../images/labbg-collision2.jpg';
+// import labBgRpgMoving from '../../images/labbg-rpgmoving.jpg';
+// import labBgModernPirates from '../../images/labbg-modernpirates.jpg';
+// import labBgCrossRoad from '../../images/labbg-crossroad.jpg';
+// import labBgMasonry from '../../images/labbg-masonry.jpg';
+// import labBgRoom311 from '../../images/labbg-room311.jpg';
+// import labBgConv250 from '../../images/labbg-conv250.jpg';
+// import labBgBangCard from '../../images/labbg-bangcard.jpg';
+
+let labBgMarioJump, labBgCollision2, labBgRpgMoving, labBgModernPirates, labBgCrossRoad, labBgMasonry, labBgRoom311, labBgConv250, labBgBangCard;
+const isMobile = navigator.userAgent.match(/(iPad)|(iPhone)|(iPod)|(android)|(webOS)/i);
+if ( isMobile ) {
+    labBgMarioJump = require( '../../mobile-images/labbg-mariojump.jpg' );
+    labBgCollision2 = require( '../../mobile-images/labbg-collision2.jpg' );
+    labBgRpgMoving = require( '../../mobile-images/labbg-rpgmoving.jpg' );
+    labBgModernPirates = require( '../../mobile-images/labbg-modernpirates.jpg' );
+    labBgCrossRoad = require( '../../mobile-images/labbg-crossroad.jpg' );
+    labBgMasonry = require( '../../mobile-images/labbg-masonry.jpg' );
+    labBgRoom311 = require( '../../mobile-images/labbg-room311.jpg' );
+    labBgConv250 = require( '../../mobile-images/labbg-conv250.jpg' );
+    labBgBangCard = require( '../../mobile-images/labbg-bangcard.jpg' );
+} else {
+    labBgMarioJump = require( '../../images/labbg-mariojump.jpg' );
+    labBgCollision2 = require( '../../images/labbg-collision2.jpg' );
+    labBgRpgMoving = require( '../../images/labbg-rpgmoving.jpg' );
+    labBgModernPirates = require( '../../images/labbg-modernpirates.jpg' );
+    labBgCrossRoad = require( '../../images/labbg-crossroad.jpg' );
+    labBgMasonry = require( '../../images/labbg-masonry.jpg' );
+    labBgRoom311 = require( '../../images/labbg-room311.jpg' );
+    labBgConv250 = require( '../../images/labbg-conv250.jpg' );
+    labBgBangCard = require( '../../images/labbg-bangcard.jpg' );
+}
 
 const dataLabSlider = [
     {

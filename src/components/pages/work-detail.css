@@ -26,6 +26,7 @@
     .subpage-content section { margin: 80px 0; }
     .subpage-content section .text-wrap { margin: 0 10px; margin-bottom: 15px; }
     .subpage-content section .text-wrap.title-area > * { margin: 30px 0; }
+    .subpage-content section .center-wrap { padding: 20px 0 30px; }
 }
 @media screen and ( max-width: 450px ) {
     .subpage-content section .text-wrap.title-area span { display: block }
@@ -147,8 +148,15 @@
 .biglogo-svg { display: block; width: 40%; height: 40%; margin: 0 auto; }
 
 @media screen and ( max-width: 1023px ) {
+    .next-and-prev { margin: 120px 0 180px; }
     .viewsite-btn {
         top: 20px;
-        left: 9%;
+        left: 67px;
     }
+}
+
+@media screen and ( max-width: 767px ) {
+    .next-and-prev { margin: 80px 0 150px; }
+    .next-and-prev .btn-wrap.prev { padding-right: 10px; }
+    .next-and-prev .btn-wrap.next { padding-left: 10px; }
 }

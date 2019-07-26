@@ -102,7 +102,7 @@ const dataAboutSkills = [
     {
         skillName: "Photoshop",
         skillLevel: "9",
-        desc: "음.. 신 기능들을 다 알진 못하지만 꼭 필요한 만큼은 쓰는 것 같습니다 거의 20년 넘게 썼으니..",
+        desc: "음.. 신 기능들을 다 알진 못하지만 꼭 필요한 만큼은 쓰는 것 같습니다 거의 15년 넘게 썼으니..",
         category: "Graphic Design",
         color: "#37c5fe",
         bgPosition: " -36px -72px ",
@@ -110,7 +110,7 @@ const dataAboutSkills = [
     {
         skillName: "Illustrator",
         skillLevel: "9",
-        desc: "이것도 20년 넘게 써서 꼭 필요한 만큼은 씁니다. 3D기능은 다룰 줄은 알지만 간단히 사용할 수 있습니다.",
+        desc: "이것도 15년 넘게 써서 꼭 필요한 만큼은 씁니다. 3D기능은 다룰 줄은 알지만 간단히 사용할 수 있습니다.",
         category: "Graphic Design",
         color: "#ff7e1b",
         bgPosition: " -72px -72px ",

@@ -51,10 +51,10 @@ button:hover { cursor: inherit; }
 /* -------------------------------------- */
 .f-hugetitle { font-family: 'Squada One', serif; font-size: 220px; font-weight: 400; line-height: .8; letter-spacing: 0; text-transform: uppercase; }
 .f-bigtitle { font-family: 'Squada One', serif; font-size: 150px; font-weight: 400; line-height: .8; letter-spacing: 0; text-transform: uppercase; }
-.f-title { font-family: 'S-CoreDream-1Thin', serif; font-size: 75px; font-weight: 200; line-height: 1.2; }
-.f-heading { font-size: 45px; font-weight: 300; }
-.f-subhead { font-size: 24px; font-weight: 300; line-height: 1.6; }
-.f-normal { font-family: 'S-CoreDream-3Light', serif; font-size: 18px; line-height: 1.9; color: #777; }
+.f-title { font-family: 'S-CoreDream-1Thin', serif; font-size: 75px; font-weight: 200; line-height: 1.2; word-break: keep-all; }
+.f-heading { font-size: 45px; font-weight: 300; word-break: keep-all; }
+.f-subhead { font-size: 24px; font-weight: 300; line-height: 1.6; word-break: keep-all; }
+.f-normal { font-family: 'S-CoreDream-3Light', serif; font-size: 18px; line-height: 1.9; color: #777;  }
 .f-normal strong { color: #ccc; }
 .f-center { text-align: center; }
 .f-eng { letter-spacing: 0; }

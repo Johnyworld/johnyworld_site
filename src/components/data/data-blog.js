@@ -122,7 +122,7 @@ const dataBlog = [
         category: "Today I Learned",
         date: "2019. 7. 21. Sun.",
         hash: [ "Javascript" ],
-        desc: `<p class="blog-inner-paragraph">포트폴리오를 진행하면서 ES6 문법중 <span class="blog-code">Element.animate()</span> 문법을 사용했었는데, 크로스브라우징 점검 과정에서 <strong>Safari, Chrome for iOS, ie</strong> 등 많은 브라우저에서 지원되지 않는 다는 것을 발견하고 모두 다른 방법으로 수정하였다. 쓰면 안되는 문법이었다 ㅠㅠ</p>`,
+        desc: `<p class="blog-inner-paragraph">포트폴리오를 진행하면서 ES6 method중 <span class="blog-code">Element.animate()</span> method를 사용했었는데, 크로스브라우징 점검 과정에서 <strong>Safari, Chrome for iOS, ie</strong> 등 많은 브라우저에서 지원되지 않는 다는 것을 발견하고 모두 다른 방법으로 수정하였다. 쓰면 안되는 method였다 ㅠㅠ</p>`,
     },
     {
         title: "더블클릭 확대 방지",

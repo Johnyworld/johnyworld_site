@@ -12,7 +12,7 @@ class Camping extends Component {
                     <div className="l-wrapper">
                         <div className="text-wrap">
                             <h2 className="f-title">디바인 리조트</h2>
-                            <p className="f-normal"><strong>홍천 디바인 리조트 주변을 재현.</strong>캠핑장 주변을 일러스트레이션으로 재현하고 실제 '인력거크루'의 멤버들을<br />캐릭터화하여 곳곳에 배치했습니다.</p>
+                            <p className="f-normal"><strong>홍천 디바인 리조트 주변을 재현.<br /></strong>캠핑장 주변을 일러스트레이션으로 재현하고 실제 '인력거크루'의 멤버들을<br />캐릭터화하여 곳곳에 배치했습니다.</p>
                         </div>
                     </div>
                     <img src={camping01} alt="designimg" className="krx-img-gap" />

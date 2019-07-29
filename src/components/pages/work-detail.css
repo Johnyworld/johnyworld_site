@@ -47,7 +47,7 @@
 .subpage-content .detail-each section.sec-padded-end { padding-bottom: 150px; }
 .subpage-content .detail-each section.sec-style-guide .text-wrap:not(:last-child) { padding-bottom: 70px; border-bottom: 1px solid #292929; }
 .subpage-content .detail-each section > * > * { margin-bottom: 70px; }
-.subpage-content .detail-each section > *:last-child > *:last-child:not(.l-row) { margin-bottom: 0px; }
+.subpage-content .detail-each section > *:last-child > *:last-child { margin-bottom: 0px; }
 @media screen and ( max-width: 767px ) {
     .subpage-content .detail-each section.sec-style-guide .text-wrap:not(:last-child) { padding-bottom: 30px; }
     .subpage-content .detail-each section > * > *:not(:last-child) { margin-bottom: 30px; }

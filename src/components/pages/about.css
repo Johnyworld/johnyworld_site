@@ -4,7 +4,7 @@
 /* -------------------------------------- */
 .skill-item-container:not(:last-child) { margin-bottom: 50px; }
 .skill-item-container > *:not(:last-child) { margin-bottom: 20px; }
-.skill-item-container .skill-logo { width: 36px; height: 36px; float: left; margin-right: 20px; }
+.skill-item-container .skill-logo { width: 32px; height: 32px; float: left; margin-right: 20px; margin-bottom: 2px; }
 .skill-item-container .f-subhead { font-family: 'S-CoreDream-9Black'; }
 .skill-item-container .f-normal span { display: inline-block; margin-right: 10px; }
 

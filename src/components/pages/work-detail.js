@@ -19,6 +19,7 @@ import Soohan from './work-detail/soohan';
 import Krx from './work-detail/krx';
 import Pssd from './work-detail/pssd';
 import Camping from './work-detail/camping';
+import TheFocus from './work-detail/the-focus';
 
 class WorkDetail extends Component {
     constructor(props) {
@@ -153,6 +154,7 @@ class WorkDetail extends Component {
         if (this.state.id === 'krx') { workDetailContent = <Krx /> }
         if (this.state.id === 'samsung-pssd') { workDetailContent = <Pssd /> }
         if (this.state.id === 'camping-poster') { workDetailContent = <Camping /> }
+        if (this.state.id === 'the-focus') { workDetailContent = <TheFocus /> }
 
         let splitTitle = this.data.title.split(' ');      
 

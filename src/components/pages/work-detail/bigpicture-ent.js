@@ -62,12 +62,14 @@ class BigpictureEnt extends Component {
                             <h2 className="f-title jsAppearBtT">서브페이지</h2>
                             <p className="f-normal"></p>
                         </div>
-                        <div className="l-row gap60">
-                            <div className="l-col l-col-6-12 l-col-t-12-12">
-                                <img className="jsAppearBtT" src={sub01} alt="designimg" />
-                            </div>
-                            <div className="l-col l-col-6-12 l-col-t-12-12">
-                                <img className="jsAppearBtT" src={sub02} alt="designimg" />
+                        <div className="grid-wrap">
+                            <div className="l-row gap60">
+                                <div className="l-col l-col-6-12 l-col-t-12-12">
+                                    <img className="jsAppearBtT" src={sub01} alt="designimg" />
+                                </div>
+                                <div className="l-col l-col-6-12 l-col-t-12-12">
+                                    <img className="jsAppearBtT" src={sub02} alt="designimg" />
+                                </div>
                             </div>
                         </div>
                         <div className="text-wrap">

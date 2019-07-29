@@ -16,7 +16,7 @@ const dataAboutSkills = [
         desc: "시멘틱 마크업을 짭니다. 웹 표준을 준수합니다. 반응형웹에 익숙합니다. 웹 접근성은 아직 깊게 공부하지는 못했습니다.",
         category: "Front-end",
         color: "#e54d27",
-        bgPosition: " -36px 0 ",
+        bgPosition: " -32px 0 ",
     },
     {
         skillName: "CSS3",
@@ -25,7 +25,7 @@ const dataAboutSkills = [
         desc: "만들고 싶은건 대부분 구현합니다. 최신 CSS 기술들에 대해서는 좀 더 깊게 공부가 필요합니다. SASS 사용해봤습니다.",
         category: "Front-end",
         color: "#1370b6",
-        bgPosition: " -72px 0 ",
+        bgPosition: " -64px 0 ",
     },
     {
         skillName: "React JS",
@@ -34,7 +34,7 @@ const dataAboutSkills = [
         desc: "강의보고 따라하고 구글링하고 점점 알아가는중입니다. 이 포트폴리오 사이트는 그 경험을 바탕으로 만든 첫 리액트 작품입니다.",
         category: "Library",
         color: "#01d7fe",
-        bgPosition: " -108px 0 ",
+        bgPosition: " -96px 0 ",
     },
     {
         skillName: "JQuery",
@@ -43,7 +43,7 @@ const dataAboutSkills = [
         desc: "코딩 학습 초반에 자주 사용했는데 요새는 일부러 JS 학습을 위해 사용 안하는 중입니다. 다룰 줄 아는 정도의 수준.",
         category: "Library",
         color: "#0765a8",
-        bgPosition: " -144px 0 ",
+        bgPosition: " -128px 0 ",
     },
     {
         skillName: "Wordpress",
@@ -52,7 +52,7 @@ const dataAboutSkills = [
         desc: "기본은 잘 이해합니다. 워낙 테마나 플러그인이 방대해서 모두 알진 못합니다. PHP로 플러그인 하나 (관리자페이지까지) 만들어본 경험이 있습니다.",
         category: "CMS",
         color: "#00a0d2",
-        bgPosition: " 0 -36px ",
+        bgPosition: " 0 -32px ",
     },
     {
         skillName: "Node JS",
@@ -61,7 +61,7 @@ const dataAboutSkills = [
         desc: "가장 잘 하고싶고 탐나는 기술입니다. 라우팅, 컨트롤러등의 개념은 이해했고 패스포트, 웹팩, 몽고DB 등을 사용해 본 경험이 있습니다.",
         category: "Back-end",
         color: "#8fc53f",
-        bgPosition: " -36px -36px ",
+        bgPosition: " -32px -32px ",
     },
     {
         skillName: "PHP",
@@ -70,7 +70,7 @@ const dataAboutSkills = [
         desc: "당장 공부할 계획은 없지만, 워드프레스 내에서 플러그인을 개발할 때, JSON데이터와 연동하여 플러그인을 개발한 경험이 있습니다. 아주 조금 할 줄 아는 정도입니다.",
         category: "Back-end",
         color: "#4f5b93",
-        bgPosition: " -144px -108px ",
+        bgPosition: " -128px -96px ",
     },
     {
         skillName: "Redux",
@@ -79,7 +79,7 @@ const dataAboutSkills = [
         desc: "앞으로 학습 예정입니다.",
         category: "Library",
         color: "#7649bb",
-        bgPosition: " -72px -36px ",
+        bgPosition: " -64px -32px ",
     },
     {
         skillName: "Typescript",
@@ -88,7 +88,7 @@ const dataAboutSkills = [
         desc: "앞으로 학습 예정입니다.",
         category: "Library",
         color: "#007acc",
-        bgPosition: " -108px -36px ",
+        bgPosition: " -96px -32px ",
     },
     {
         skillName: "GraphQL",
@@ -97,7 +97,7 @@ const dataAboutSkills = [
         desc: "앞으로 학습 예정입니다.",
         category: "Library",
         color: "#e635ab",
-        bgPosition: " -144px -36px ",
+        bgPosition: " -128px -32px ",
     },
     {
         skillName: "Photoshop",
@@ -105,7 +105,7 @@ const dataAboutSkills = [
         desc: "음.. 신 기능들을 다 알진 못하지만 꼭 필요한 만큼은 쓰는 것 같습니다 거의 15년 넘게 썼으니..",
         category: "Graphic Design",
         color: "#37c5fe",
-        bgPosition: " -36px -72px ",
+        bgPosition: " -32px -64px ",
     },
     {
         skillName: "Illustrator",
@@ -113,7 +113,7 @@ const dataAboutSkills = [
         desc: "이것도 15년 넘게 써서 꼭 필요한 만큼은 씁니다. 3D기능은 다룰 줄은 알지만 간단히 사용할 수 있습니다.",
         category: "Graphic Design",
         color: "#ff7e1b",
-        bgPosition: " -72px -72px ",
+        bgPosition: " -64px -64px ",
     },
     {
         skillName: "Indesign",
@@ -121,7 +121,7 @@ const dataAboutSkills = [
         desc: "대학다닐 때 주로 사용. 졸업 후 안쓴진 좀 됐지만 잘 쓰는 편입니다.",
         category: "Graphic Design",
         color: "#ec43a3",
-        bgPosition: " -108px -72px ",
+        bgPosition: " -96px -64px ",
     },
     {
         skillName: "Premiere Pro",
@@ -130,7 +130,7 @@ const dataAboutSkills = [
         desc: "영상이 취미라서, 컷편집이나 간단한 효과를 넣는 등 기본적인건 익숙한 편이고, 디자인 회사에서는 영상을 담당하기도 했습니다. 외주 업무도 다수 경험이 있습니다.",
         category: "Media Creating",
         color: "#df76ff",
-        bgPosition: " -144px -72px ",
+        bgPosition: " -128px -64px ",
     },
     {
         skillName: "After Effects",
@@ -139,7 +139,7 @@ const dataAboutSkills = [
         desc: "템플릿 수정하거나 간단한 모션그래픽 정도는 합니다.",
         category: "Media Creating",
         color: "#b392ff",
-        bgPosition: " 0 -108px ",
+        bgPosition: " 0 -96px ",
     },
     {
         skillName: "Sketch",
@@ -148,7 +148,7 @@ const dataAboutSkills = [
         desc: "아직 써본적은 없지만 추후에 꼭 필요하다면 구매해서 사용해보고싶은 툴입니다.",
         category: "Graphic Design",
         color: "#fdad00",
-        bgPosition: " -36px -108px ",
+        bgPosition: " -32px -96px ",
     },
     {
         skillName: "Photography",
@@ -157,7 +157,7 @@ const dataAboutSkills = [
         desc: "취미로 즐겨왔고 대학생때는 사진 수업을 들었습니다. 인물사진 위주로 조금 합니다. 조명 다루는건 보통 수준이고, 병원 프로필, 인테리어 촬영은 15회 이상 촬영 경험이 있습니다.",
         category: "Media Creating",
         color: "#777",
-        bgPosition: " -72px -108px ",
+        bgPosition: " -64px -96px ",
     },
     {
         skillName: "DSLR",
@@ -166,7 +166,7 @@ const dataAboutSkills = [
         desc: "취미로 즐기다가 인터뷰 영상, 스케치 영상등의 업무 경험 다수 있습니다. 취미로는 여행 영상을 주로 찍었습니다. ",
         category: "Media Creating",
         color: "#777",
-        bgPosition: " -108px -108px ",
+        bgPosition: " -96px -96px ",
     },
 ]
 

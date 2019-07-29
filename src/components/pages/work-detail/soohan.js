@@ -3,9 +3,6 @@ import React, { Component } from 'react';
 import styleColors from '../../../images/work-detail-soohan/soohan-style-color.png';
 import styleFonts from '../../../images/work-detail-soohan/soohan-style-fonts.png';
 import styleButtons from '../../../images/work-detail-soohan/soohan-style-buttons.png';
-// import workDesignSoohan from '../../../images/work-detail-soohan/soohan-design.jpg';
-// import soohanSub01 from '../../../images/work-detail-soohan/soohan-sub01.jpg';
-// import soohanSub02 from '../../../images/work-detail-soohan/soohan-sub02.jpg';
 
 let workDesignSoohan, soohanSub01, soohanSub02;
 const isMobile = navigator.userAgent.match(/(iPad)|(iPhone)|(iPod)|(android)|(webOS)/i);

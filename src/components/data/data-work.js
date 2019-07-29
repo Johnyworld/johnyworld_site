@@ -108,10 +108,6 @@ const dataWork = [
         title: "Camping Poster",
         slug: "camping-poster",
         comment: "제3회 '자전거타고 캠핑가자' 포스터 디자인",
-        desc: [
-            "설명1",
-            "설명2",
-        ],
         summary: [
             { title:"참여인원", desc:["1명"] },
             { title:"내 업무범위", desc:["기획, 일러스트레이션 - 100%"] },
@@ -133,10 +129,6 @@ const dataWork = [
     //     title: "Samsung Mobile Theme",
     //     slug: "samsung-mobile-theme",
     //     comment: "삼성 모바일 테마 디자인",
-    //     desc: [
-    //         "설명1",
-    //         "설명2",
-    //     ],
     //     summary: [
     //         { title:"", desc:[""] },
     //         { title:"", desc:[""] },
@@ -158,10 +150,6 @@ const dataWork = [
         title: "Fanclub Coin",
         slug: "fanclub-coin",
         comment: "스포와이드 팬클럽코인 랜딩페이지 제작",
-        desc: [
-            "설명1",
-            "설명2",
-        ],
         summary: [
             { title:"참여인원", desc:["2명"] },
             { title:"내 업무범위", desc:["기획 - 80%", "디자인 - 50%", "워드프레스 개발 - 100%"] },
@@ -187,10 +175,6 @@ const dataWork = [
         title: "Samsung PSSD",
         slug: "samsung-pssd",
         comment: "삼성 포터블 SSD 보안프로그램 UI, GUI디자인",
-        desc: [
-            "설명1",
-            "설명2",
-        ],
         summary: [
             { title:"참여인원", desc:["UX/UI 디자인팀 4명"] },
             { title:"내 업무범위", desc:["기획 - 25%", "UX/UI 디자인 - 50%"] },
@@ -213,10 +197,6 @@ const dataWork = [
         title: "KRX Exhibision",
         slug: "krx",
         comment: "KRX 국제금융센터 금융거래체험관 기획, UX, UI, GUI디자인",
-        desc: [
-            "설명1",
-            "설명2",
-        ],
         summary: [
             { title:"참여인원", desc:["기획, 디자인팀 5명", "개발팀 4명", "인테리어, 시공업체"] },
             { title:"내 업무범위", desc:["기획 - 20%", "GUI : 증권거래소의 시작 - 10%", "GUI : 매매거래체험 - 25%", "GUI : 나의기업상장하기 - 80%", "삽입일러스트 - 100%", "모션그래픽(기획) - 30%"] },
@@ -240,10 +220,6 @@ const dataWork = [
         title: "Soo Oriental Clicic",
         slug: "soo-clinic",
         comment: "수한의원 홈페이지 제작",
-        desc: [
-            "설명1",
-            "설명2",
-        ],
         summary: [
             { title:"참여인원", desc:["1명"] },
             { title:"내 업무범위", desc:["기획 - 100%", "디자인 - 100%", "워드프레스 개발 - 100%"] },
@@ -268,10 +244,6 @@ const dataWork = [
         title: "Bigpicture Entertainment",
         slug: "bigpicture-ent",
         comment: "빅픽처 엔터테인먼트 홈페이지 제작",
-        desc: [
-            "설명1",
-            "설명2",
-        ],
         summary: [
             { title: "참여인원", desc: ["1명"] },
             { title: "내 업무범위", desc: ["기획 - 100%", "디자인 - 100%", "워드프레스 개발 - 100%" ] },
@@ -297,10 +269,6 @@ const dataWork = [
         title: "Johnyworld 2019",
         slug: "the-focus",
         comment: "부제 : the Focus",
-        desc: [
-            "설명1",
-            "설명2",
-        ],
         summary: [
             { title: "참여인원", desc: ["1명"] },
             { title: "내 업무범위", desc: ["기획 - 100%", "디자인 - 100%", "개발 - 100%" ] },

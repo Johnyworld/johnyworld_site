@@ -56,14 +56,16 @@ class Soohan extends Component {
                         <div className="text-wrap">
                             <h2 className="f-title">서브페이지</h2>
                         </div>
-                        <ul className="l-row gap60">
-                            <li className="l-col l-col-6-12 l-col-m-12-12">
-                                <img src={soohanSub01} alt="designimg" />
-                            </li>
-                            <li className="l-col l-col-6-12 l-col-m-12-12">
-                                <img src={soohanSub02} alt="designimg" />
-                            </li>
-                        </ul>
+                        <div className="grid-wrap clear-fix">
+                            <ul className="l-row gap60">
+                                <li className="l-col l-col-6-12 l-col-m-12-12">
+                                    <img src={soohanSub01} alt="designimg" />
+                                </li>
+                                <li className="l-col l-col-6-12 l-col-m-12-12">
+                                    <img src={soohanSub02} alt="designimg" />
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </section>
                 <section>
@@ -72,7 +74,7 @@ class Soohan extends Component {
                             <h2 className="f-title">인터뷰영상 제작</h2>
                             <p className="f-normal">촬영, 편집 작업 진행</p>
                         </div>
-                        <iframe title="soo-interview" src="https://player.vimeo.com/video/292651398" width="100%" style={{ backgroundColor: '#222', height: '47vw' }} frameborder="0" allowfullscreen="allowfullscreen" />
+                        <iframe title="soo-interview" src="https://player.vimeo.com/video/292651398" width="100%" style={{ backgroundColor: '#222', height: '47vw' }} frameBorder="0" allowFullScreen="allowfullscreen" />
                     </div>
                 </section>
             </div>

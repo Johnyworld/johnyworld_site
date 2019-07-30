@@ -38,9 +38,6 @@
 .subpage-content .detail-each section:nth-child(2n-1) { background-color: #1d1d1d; }
 .subpage-content .detail-each section:nth-child(2n) { background-color: #111; }
 .subpage-content .detail-each section:nth-child(2n) .center-wrap { background-color: #191919; }
-@media screen and ( max-width: 767px ) {
-    .subpage-content .detail-each section { padding-top: 80px }
-}
 
 /* 섹션별 */
 .subpage-content .detail-each section.sec-bright { background-color: #222; }
@@ -49,10 +46,11 @@
 .subpage-content .detail-each section > * > * { margin-bottom: 70px; }
 .subpage-content .detail-each section > *:last-child > *:last-child { margin-bottom: 0px; }
 @media screen and ( max-width: 767px ) {
+    .subpage-content .detail-each section { padding-top: 80px }
+    .subpage-content .detail-each section.sec-padded-end { padding-bottom: 80px; }
     .subpage-content .detail-each section.sec-style-guide .text-wrap:not(:last-child) { padding-bottom: 30px; }
     .subpage-content .detail-each section > * > *:not(:last-child) { margin-bottom: 30px; }
 }
-
 
 /* 목업 */
 .mockup-wrap { position: relative; }

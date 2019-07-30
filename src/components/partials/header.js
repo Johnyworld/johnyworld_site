@@ -96,7 +96,7 @@ class Header extends Component {
 
         // RUN
         // ------------------------------
-        jsLoading.style.display = "none";
+        // jsLoading.style.display = "none";
         loadHeader(headerButtons);
         setMouseHover();
     }

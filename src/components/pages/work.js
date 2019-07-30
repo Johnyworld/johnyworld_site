@@ -144,7 +144,7 @@ class Work extends Component {
         
         // 
         setTimeout(() => {
-            jsLoading.style.display = "none";
+            // jsLoading.style.display = "none";
             jsBtnBack.classList.remove('is-hidden');
             jsBtnGnb.classList.remove('is-hidden');
             jsHamberger.classList.remove('is-hidden');

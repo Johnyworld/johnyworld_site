@@ -181,9 +181,12 @@ export const animOutLoading = (jsFullScreenWrap01, jsFullScreenWrap02, jsLoading
     animOutFade(jsLoading, 200);
     setTimeout(() => {
         animOutWidth(jsFullScreenWrap02);
+        jsLoading.style.opacity = 0;
+    }, 500);
+    setTimeout(() => {
         jsLoading.style.display = "none";
         jsLoading.style.opacity = 1;
-    }, 500);
+    }, 1500)
 }
 
 // 헤더 관련 애니메이션

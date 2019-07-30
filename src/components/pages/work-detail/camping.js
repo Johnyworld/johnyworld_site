@@ -1,8 +1,17 @@
 import React, { Component } from 'react';
 
-import camping01 from '../../../images/work-detail-camping/camping-01.jpg';
-import camping02 from '../../../images/work-detail-camping/camping-02.jpg';
-import camping03 from '../../../images/work-detail-camping/camping-03.jpg';
+let camping01, camping02, camping03;
+const isMobile = navigator.userAgent.match(/(iPad)|(iPhone)|(iPod)|(android)|(webOS)/i);
+if (isMobile) {
+    camping01 = require( '../../../mobile-images/work-detail-camping/camping-01.jpg' );
+    camping02 = require( '../../../mobile-images/work-detail-camping/camping-02.jpg' );
+    camping03 = require( '../../../mobile-images/work-detail-camping/camping-03.jpg' );
+} else {
+    camping01 = require( '../../../images/work-detail-camping/camping-01.jpg' );
+    camping02 = require( '../../../images/work-detail-camping/camping-02.jpg' );
+    camping03 = require( '../../../images/work-detail-camping/camping-03.jpg' );
+}
+
 
 class Camping extends Component {
     render() {

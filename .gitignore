@@ -14,9 +14,6 @@
 # misc
 /psd
 /build
-/src/components/data
-/src/images
-/src/mobile/images
 .DS_Store
 .env
 .env.local

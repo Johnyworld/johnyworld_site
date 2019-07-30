@@ -1,13 +1,25 @@
 import React, { Component } from 'react';
 
-import focusHome1 from '../../../images/work-detail-focus/focus-main-1.jpg';
-import focusHome2 from '../../../images/work-detail-focus/focus-main-2.jpg';
-import sub01 from '../../../images/work-detail-focus/focus-sub-01.jpg';
-import sub02 from '../../../images/work-detail-focus/focus-sub-02.jpg';
 import styleColors from '../../../images/work-detail-focus/focus-style-color.png';
 import styleFonts from '../../../images/work-detail-focus/focus-style-fonts.png';
 import styleTypo from '../../../images/work-detail-focus/focus-style-typography.png';
 import styleLayout from '../../../images/work-detail-focus/focus-style-layout.png';
+
+let focusHome1, focusHome2, sub01, sub02;
+const isMobile = navigator.userAgent.match(/(iPad)|(iPhone)|(iPod)|(android)|(webOS)/i);
+if ( isMobile ) {
+    focusHome1 = require( '../../../mobile-images/work-detail-focus/focus-main-1.jpg' );
+    focusHome2 = require( '../../../mobile-images/work-detail-focus/focus-main-2.jpg' );
+    sub01 = require( '../../../mobile-images/work-detail-focus/focus-sub-01.jpg' );
+    sub02 = require( '../../../mobile-images/work-detail-focus/focus-sub-02.jpg' );
+} else {
+    focusHome1 = require( '../../../images/work-detail-focus/focus-main-1.jpg' );
+    focusHome2 = require( '../../../images/work-detail-focus/focus-main-2.jpg' );
+    sub01 = require( '../../../images/work-detail-focus/focus-sub-01.jpg' );
+    sub02 = require( '../../../images/work-detail-focus/focus-sub-02.jpg' );
+}
+
+
 
 class TheFocus extends Component {
     render() {
@@ -60,11 +72,15 @@ class TheFocus extends Component {
                             <h2 className="f-title jsAppearBtT">서브페이지</h2>
                             <p className="f-normal"></p>
                         </div>
-                        <div>
-                        <div className="l-grid l-grid-gap60 l-grid-1-1">
-                            <img className="jsAppearBtT" src={sub01} alt="designimg" />
-                            <img className="jsAppearBtT" src={sub02} alt="designimg" />
-                        </div>
+                        <div className="grid-wrap clear-fix">
+                            <ul className="l-row gap60">
+                                <li className="l-col l-col-6-12 l-col-m-12-12">
+                                    <img className="jsAppearBtT" src={sub01} alt="designimg" />
+                                </li>
+                                <li className="l-col l-col-6-12 l-col-m-12-12">
+                                    <img className="jsAppearBtT" src={sub02} alt="designimg" />
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </section>

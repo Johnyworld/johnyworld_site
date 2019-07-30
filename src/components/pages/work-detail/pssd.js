@@ -3,9 +3,6 @@ import React, { Component } from 'react';
 import styleColors from '../../../images/work-detail-pssd/pssd-style-color.png';
 import stylePattern from '../../../images/work-detail-pssd/pssd-style-pattern.jpg';
 import styleIcons from '../../../images/work-detail-pssd/pssd-style-icons.png';
-// import pssd01 from '../../../images/work-detail-pssd/pssd-01.jpg';
-// import pssd02 from '../../../images/work-detail-pssd/pssd-02.jpg';
-// import pssd03 from '../../../images/work-detail-pssd/pssd-03.jpg';
 
 let pssd01, pssd02, pssd03;
 const isMobile = navigator.userAgent.match(/(iPad)|(iPhone)|(iPod)|(android)|(webOS)/i);

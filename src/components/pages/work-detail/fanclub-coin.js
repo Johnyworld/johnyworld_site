@@ -2,9 +2,18 @@ import React, { Component } from 'react';
 
 import styleColors from '../../../images/work-detail-fancoin/fancoin-style-color.png';
 import styleFonts from '../../../images/work-detail-fancoin/fancoin-style-fonts.png';
-import workDesignFanclubCoin1 from '../../../images/work-detail-fancoin/fancoin-design-1.jpg';
-import workDesignFanclubCoin2 from '../../../images/work-detail-fancoin/fancoin-design-2.jpg';
-import workDesignFanclubCoin3 from '../../../images/work-detail-fancoin/fancoin-design-3.jpg';
+
+let workDesignFanclubCoin1, workDesignFanclubCoin2, workDesignFanclubCoin3;
+const isMobile = navigator.userAgent.match(/(iPad)|(iPhone)|(iPod)|(android)|(webOS)/i);
+if (isMobile) {
+    workDesignFanclubCoin1 = require( '../../../mobile-images/work-detail-fancoin/fancoin-design-1.jpg' );
+    workDesignFanclubCoin2 = require( '../../../mobile-images/work-detail-fancoin/fancoin-design-2.jpg' );
+    workDesignFanclubCoin3 = require( '../../../mobile-images/work-detail-fancoin/fancoin-design-3.jpg' );
+} else {
+    workDesignFanclubCoin1 = require( '../../../images/work-detail-fancoin/fancoin-design-1.jpg' );
+    workDesignFanclubCoin2 = require( '../../../images/work-detail-fancoin/fancoin-design-2.jpg' );
+    workDesignFanclubCoin3 = require( '../../../images/work-detail-fancoin/fancoin-design-3.jpg' );
+}
 
 class FanclubCoin extends Component {
     render() {

@@ -1,19 +1,35 @@
 import React, { Component } from 'react';
 import BigpictureLogoSVG from './bigpicture-ent-svglogo';
 
-import workDesignBigpictureEnt from '../../../images/work-detail-bigpic/bigpic-design.jpg';
-import sub01 from '../../../images/work-detail-bigpic/bigpic-sub-01.jpg';
-import sub02 from '../../../images/work-detail-bigpic/bigpic-sub-02.jpg';
 import styleColors from '../../../images/work-detail-bigpic/bigpic-style-color.png';
 import styleFonts from '../../../images/work-detail-bigpic/bigpic-style-fonts.png';
 import styleIcons from '../../../images/work-detail-bigpic/bigpic-style-icons.jpg';
 import styleButtons from '../../../images/work-detail-bigpic/bigpic-style-buttons.png';
-import bevl00 from '../../../images/work-detail-bigpic/bevl-00.jpg';
-import bevl01 from '../../../images/work-detail-bigpic/bevl-01.jpg';
-import bevl02 from '../../../images/work-detail-bigpic/bevl-02.jpg';
-import bevl03 from '../../../images/work-detail-bigpic/bevl-03.jpg';
-import bevl04 from '../../../images/work-detail-bigpic/bevl-04.jpg';
-import bevl05 from '../../../images/work-detail-bigpic/bevl-05.jpg';
+
+let workDesignBigpictureEnt, sub01, sub02, bevl00, bevl01, bevl02, bevl03, bevl04, bevl05;
+const isMobile = navigator.userAgent.match(/(iPad)|(iPhone)|(iPod)|(android)|(webOS)/i);
+if ( isMobile ) {
+    workDesignBigpictureEnt = require( '../../../mobile-images/work-detail-bigpic/bigpic-design.jpg' );
+    sub01 = require( '../../../mobile-images/work-detail-bigpic/bigpic-sub-01.jpg' );
+    sub02 = require( '../../../mobile-images/work-detail-bigpic/bigpic-sub-02.jpg' );
+    bevl00 = require( '../../../mobile-images/work-detail-bigpic/bevl-00.jpg' );
+    bevl01 = require( '../../../mobile-images/work-detail-bigpic/bevl-01.jpg' );
+    bevl02 = require( '../../../mobile-images/work-detail-bigpic/bevl-02.jpg' );
+    bevl03 = require( '../../../mobile-images/work-detail-bigpic/bevl-03.jpg' );
+    bevl04 = require( '../../../mobile-images/work-detail-bigpic/bevl-04.jpg' );
+    bevl05 = require( '../../../mobile-images/work-detail-bigpic/bevl-05.jpg' );
+} else {
+    workDesignBigpictureEnt = require( '../../../images/work-detail-bigpic/bigpic-design.jpg' );
+    sub01 = require( '../../../images/work-detail-bigpic/bigpic-sub-01.jpg' );
+    sub02 = require( '../../../images/work-detail-bigpic/bigpic-sub-02.jpg' );
+    bevl00 = require( '../../../images/work-detail-bigpic/bevl-00.jpg' );
+    bevl01 = require( '../../../images/work-detail-bigpic/bevl-01.jpg' );
+    bevl02 = require( '../../../images/work-detail-bigpic/bevl-02.jpg' );
+    bevl03 = require( '../../../images/work-detail-bigpic/bevl-03.jpg' );
+    bevl04 = require( '../../../images/work-detail-bigpic/bevl-04.jpg' );
+    bevl05 = require( '../../../images/work-detail-bigpic/bevl-05.jpg' );
+}
+
 
 class BigpictureEnt extends Component {
     render() {

@@ -17,20 +17,28 @@
 }
 
 .home-main .vertical-line .line { 
-    height: 70vh;
+    height: 65vh;
     width: 1px;
-    margin: 50px auto;
+    margin: 35px auto;
     background-color: white;
     opacity: .1;
 }
 
 .home-main .vertical-line a,
 .home-main .vertical-line button {
-    margin-right: 30px;
+    margin: 0 15px;
     padding: .5em 1em .2em;
     position: relative;
     display: inline-block;
     transition: .5s;
+}
+
+.home-main .vertical-line button { 
+    font-size: 64px; 
+    padding: 0em .2em;
+    color: #777;
+    border-bottom: 1px solid #296dff;
+    line-height: 1.2;
 }
 
 .home-main .vertical-line a::before, 
@@ -41,23 +49,28 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #ff4b7b;
+    background-color: #ddd;
     transition: .5s;
     z-index: -5;
 }
 
-.home-main .vertical-line a:hover,
-.home-main .vertical-line button:hover {
+.home-main .vertical-line .bottom {
+    display: inline-block;
+}
+
+.home-main .vertical-line button:hover,
+.home-main .vertical-line a:hover {
     color: black;
 }
 
-.home-main .vertical-line a:hover::before, 
-.home-main .vertical-line button:hover::before {
+.home-main .vertical-line button:hover::before,
+.home-main .vertical-line a:hover::before {
     top: 0;
     height: 100%;
 }
 
-.home-main #jsCodeLabBtn { font-size: 28px; padding: 0em .5em; }
+#jsCodeLabBtnWrap { transition: all 1s cubic-bezier(0.215, 0.610, 0.355, 1); }
+
 
 .home-section {
     position: relative;

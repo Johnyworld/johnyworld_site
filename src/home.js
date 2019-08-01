@@ -64,6 +64,7 @@ class Home extends Component {
         const jsMenuBgRightChild = document.getElementById('jsMenuBgRightChild');
         const jsMenuVerticalLine = document.getElementById('jsMenuVerticalLine');
         const jsCodeLabBtn = document.getElementById('jsCodeLabBtn');
+        const jsCodeLabBtnWrap = document.getElementById('jsCodeLabBtnWrap');
         const homeLaboratory = document.getElementById('home-Laboratory');
         const homeLaboratoryThumbnail = homeLaboratory.getElementsByClassName('image-wrap');
         const jsLabSliderIndex = document.getElementById('jsLabSliderIndex');
@@ -84,6 +85,7 @@ class Home extends Component {
             mouseMoving(mouse, jsMenuRight, 2, 20, true);
             mouseMoving(mouse, jsMenuBgLeft, 10, 20, true);
             mouseMoving(mouse, jsMenuBgRight, 10, 20, true);
+            mouseMoving(mouse, jsCodeLabBtnWrap, 20, 12, true);
             }
         }
 
@@ -344,11 +346,9 @@ class Home extends Component {
                             <a className="c-gray-dark f-eng f-normal" href="https://codepen.io/johnyworld/" target="blank">Codepen</a>
                         </div>
                         <div className="line"></div>
-                        <ul>
-                            <li>
-                                <button className="f-subhead c-wine f-eng-title" id="jsCodeLabBtn">Toy Development</button>
-                            </li>
-                        </ul>
+                        <div className="bottom" id="jsCodeLabBtnWrap">
+                            <button className="view-toy-btn f-subhead f-eng-title" id="jsCodeLabBtn">TOY PROJECT</button>
+                        </div>
                     </div>
                     <div className="menu-wrapper" id="jsMenuBgWrap">
                         <div className="item bg left" id="jsMenuBgLeft"><div className="child" id="jsMenuBgLeftChild"></div></div>

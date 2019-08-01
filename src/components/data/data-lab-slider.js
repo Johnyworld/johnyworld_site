@@ -161,7 +161,7 @@ const dataLabSlider = [
         technics: ["Javascript", "React JS"],
         thumbnail: labBgRoom311,
         date: "2019. 04",
-        url: "http://room311.s3-website.ap-northeast-2.amazonaws.com/",
+        url: "https://johnyworld.github.io/room311/",
         git: "https://github.com/Johnyworld/room311"
     },
 ];

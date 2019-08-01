@@ -118,7 +118,7 @@ class Header extends Component {
                     <li key="toWork" className="f-eng-title"><button className="menu-item" id="jsBtnGnbWork">WORK</button></li>
                     <li key="toAbout" className="f-eng-title"><button className="menu-item" id="jsBtnGnbAbout">ABOUT</button></li>
                     <li key="toBlog" className="f-eng-title"><button className="menu-item" id="jsBtnGnbBlog">BLOG</button></li>
-                    <li key="toToy" className="f-eng-title"><button className="menu-item" id="jsBtnGnbToy">TOY-P</button></li>
+                    <li key="toToy" className="f-eng-title"><button className="menu-item" id="jsBtnGnbToy">TOY-PJ</button></li>
                 </ul>
                 <button className="header-buttons button-top is-hidden" id="jsBtnTop">
                     <div className="icon"></div>

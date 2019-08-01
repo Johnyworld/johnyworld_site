@@ -170,7 +170,16 @@ class WorkDetail extends Component {
                         <section>
                             <div className="l-wrapper">
                                 <div className="text-wrap title-area" id="jsTitleArea">
-                                    <h1 className="f-bigtitle f-eng-title jsTitleChildren jsAppearBtT">{ splitTitle.map((item, key) => key === 0 ? <span key={`detail-title-${key}`}>{item}<br /></span> : <span key={`detail-title-${key}`}>{item}&nbsp;</span> )}</h1>
+                                    <h1 className="f-bigtitle f-eng-title jsTitleChildren jsAppearBtT">
+                                        { splitTitle.map((item, key) => {
+                                            return (
+                                                key === 0 
+                                                ? <span key={`detail-title-${key}`}>{item}<br /></span> 
+                                                : <span key={`detail-title-${key}`}>{item}&nbsp;</span> 
+                                                )}
+                                            )
+                                        } 
+                                    </h1>
                                     <p className="f-heading jsTitleChildren jsAppearBtT">{this.data.comment}</p>
                                     <div className="info jsTitleChildren jsAppearBtT">
                                         <ul className="keywords f-normal">
@@ -242,38 +251,7 @@ class WorkDetail extends Component {
                     </div>
                     {workDetailContent}
                 </div>
-                <div className="next-and-prev clear-fix">
-                    <div className="l-wrapper">
-                        {
-                            this.next ? 
-                                <button className="btn-wrap next clear-fix" id="jsBtnNext" >
-                                    <div className="stick"></div>
-                                    <div className="radius">
-                                        <div className="bg" style={{ backgroundImage: 'url(' + this.next.thumbnail + ')' }}></div>
-                                    </div>
-                                    <div className="text-wrap">
-                                        <p className="f-normal">NEXT</p>
-                                        <p className="f-subhead">{this.next.title}</p>
-                                    </div>
-                                </button>
-                            : ''
-                        }
-                        {
-                            this.prev ?
-                                <button className="btn-wrap prev clear-fix" id="jsBtnPrev" >
-                                    <div className="stick"></div>
-                                    <div className="radius">
-                                        <div className="bg" style={{ backgroundImage: 'url(' + this.prev.thumbnail + ')' }}></div>
-                                    </div>
-                                    <div className="text-wrap">
-                                        <p className="f-normal">PREV</p>
-                                        <p className="f-subhead">{this.prev.title}</p>
-                                    </div>
-                                </button>
-                            : ''
-                        }
-                    </div>
-                </div>
+                <NextAndPrevButtons next={this.next} prev={this.prev} />
             </>
         )
     }
@@ -285,6 +263,43 @@ class WorkDetail extends Component {
             </main>
         )
     }
+}
+
+function NextAndPrevButtons({next, prev}) {
+    return (
+        <div className="next-and-prev clear-fix">
+            <div className="l-wrapper">
+                {
+                    next ? 
+                        <button className="btn-wrap next clear-fix" id="jsBtnNext" >
+                            <div className="stick"></div>
+                            <div className="radius">
+                                <div className="bg" style={{ backgroundImage: 'url(' + next.thumbnail + ')' }}></div>
+                            </div>
+                            <div className="text-wrap">
+                                <p className="f-normal">NEXT</p>
+                                <p className="f-subhead">{next.title}</p>
+                            </div>
+                        </button>
+                    : ''
+                }
+                {
+                    prev ?
+                        <button className="btn-wrap prev clear-fix" id="jsBtnPrev" >
+                            <div className="stick"></div>
+                            <div className="radius">
+                                <div className="bg" style={{ backgroundImage: 'url(' + prev.thumbnail + ')' }}></div>
+                            </div>
+                            <div className="text-wrap">
+                                <p className="f-normal">PREV</p>
+                                <p className="f-subhead">{prev.title}</p>
+                            </div>
+                        </button>
+                    : ''
+                }
+            </div>
+        </div>
+    )
 }
 
 export default WorkDetail;

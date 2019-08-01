@@ -14,7 +14,6 @@ import { reactRouteScrollTop } from '../func/functions';
 import dataWorkReverse from '../data/data-work';
 import './work.css';
 
-
 class Work extends Component {
     constructor(props) {
         super(props);
@@ -154,45 +153,11 @@ class Work extends Component {
     _renderContent() {
         return (
             <>
-            <SubpageHeading hugetitle="WORK" subtext="고객을 위한 하나의 생각들." />
-            <div className="l-wrapper-sticked">
-                <div className="work-items clear-fix" id="workItemWrap">
-                    <ul className="l-row gap90 clear-fix">
-                        { this.workReverse.map( item => {
-                            // this.linkTo = `/work/${item.slug}`;
-                            return (
-                                <li key={`griditem-${item.id}`} className='l-col l-col-6-12'>
-                                    <div className="item">
-                                        <button className="grid-item jsAppearSlideToR" onClick={this.goToDetail.bind(this, item.slug)}>
-                                            <div className="background" style={{backgroundImage: 'url(' + item.thumbnail + ')'}}></div>
-                                            <div className="textbox">
-                                                <div className="top">
-                                                </div>
-                                                <div className="bottom">
-                                                    <h3 className="f-heading f-eng-title">{item.title}</h3>
-                                                    <p className="f-normal f-eng category">{item.category2}</p>
-                                                </div>
-                                            </div>
-                                        </button>
-                                    </div>
-                                </li>
-                            )
-                        })}
-                    </ul>
+                <SubpageHeading hugetitle="WORK" subtext="고객을 위한 하나의 생각들." />
+                <div className="l-wrapper-sticked">
+                    <WorkItems worksData={this.workReverse} goToDetail={this.goToDetail.bind(this)} />
                 </div>
-            </div>
-            <div className="portfolio-history">
-                <section>
-                    <div className="l-wrapper">
-                        <div className="text-wrap">
-                            <h3 className="f-heading f-eng-title">Portfolio History</h3>
-                            <p className="f-normal link"><strong>2019</strong> | "The FOCUS" 지금 보고계십니다.</p>
-                            <p className="f-normal link"><a href="http://johnyworld.com/2018/index.html" target="blank" ><strong>2018</strong> | "Hello I'm Johny" 보기</a></p>
-                            <p className="f-normal link"><a href="http://johnyworld.com/2013/grandlaunching_web.pdf" target="blank" ><strong>2013</strong> | "The Grand Launching" 보기</a></p>
-                        </div>
-                    </div>
-                </section>
-            </div>
+                <PortfolioHistory />
             </>
         )
     }
@@ -204,6 +169,57 @@ class Work extends Component {
             </main>
         )
     }
+}
+
+function WorkItems({worksData, goToDetail}) {
+    return (
+        <div className="work-items clear-fix" id="workItemWrap">
+            <ul className="l-row gap90 clear-fix">
+                { worksData.map( (item, key) => {
+                    return (
+                        <WorkItem workItem={item} goToDetail={goToDetail.bind(this)} key={'work-item-'+key} />
+                    )
+                })}
+            </ul>
+        </div>
+    )
+}
+
+function WorkItem({workItem, goToDetail}) {
+    return (
+        <li className='l-col l-col-6-12'>
+            <div className="item">
+                <button className="grid-item jsAppearSlideToR" onClick={goToDetail.bind(this, workItem.slug)}>
+                    <div className="background" style={{backgroundImage: 'url(' + workItem.thumbnail + ')'}}></div>
+                    <div className="textbox">
+                        <div className="top">
+                        </div>
+                        <div className="bottom">
+                            <h3 className="f-heading f-eng-title">{workItem.title}</h3>
+                            <p className="f-normal f-eng category">{workItem.category2}</p>
+                        </div>
+                    </div>
+                </button>
+            </div>
+        </li>
+    )
+}
+
+function PortfolioHistory() {
+    return (
+        <div className="portfolio-history">
+            <section>
+                <div className="l-wrapper">
+                    <div className="text-wrap">
+                        <h3 className="f-heading f-eng-title">Portfolio History</h3>
+                        <p className="f-normal link"><strong>2019</strong> | "The FOCUS" 지금 보고계십니다.</p>
+                        <p className="f-normal link"><a href="http://johnyworld.com/2018/index.html" target="blank" ><strong>2018</strong> | "Hello I'm Johny" 보기</a></p>
+                        <p className="f-normal link"><a href="http://johnyworld.com/2013/grandlaunching_web.pdf" target="blank" ><strong>2013</strong> | "The Grand Launching" 보기</a></p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    )
 }
 
 export default Work;

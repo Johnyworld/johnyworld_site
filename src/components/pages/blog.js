@@ -100,19 +100,7 @@ class Blog extends Component {
                     <div className="l-wrapper">
                         {this.dataBlogReverse.map((item, key) => {
                             return (
-                                <div key={'blog-item-'+key} className="text-wrap blog-item jsAppearFadein">
-                                    <ul className="l-row">
-                                        <li className="l-col l-col-4-12 l-col-m-12-12 jsAppearBtT">
-                                            <h2 className="f-subhead title">{item.title}</h2>
-                                            <p className="f-normal f-eng c-blue-bright category">{item.category}</p>
-                                            <p className="f-normal date">{item.date}</p>
-                                        </li>
-                                        <li className="l-col l-col-8-12 l-col-m-12-12 jsAppearBtT">
-                                            <p className="f-normal c-wine-bright">{item.hash.map((hashitem) => `#${hashitem} `)}</p>
-                                            <div className="f-normal blog-content"></div>
-                                        </li>
-                                    </ul>
-                                </div>
+                                <BlogItems blogItem={item} key={'blog-item-'+key} />
                             )
                         })}
                     </div>
@@ -128,6 +116,24 @@ class Blog extends Component {
             </main>
         )
     }
+}
+
+function BlogItems({blogItem}) {
+    return (
+        <div className="text-wrap blog-item jsAppearFadein">
+            <ul className="l-row">
+                <li className="l-col l-col-4-12 l-col-m-12-12 jsAppearBtT">
+                    <h2 className="f-subhead title">{blogItem.title}</h2>
+                    <p className="f-normal f-eng c-blue-bright category">{blogItem.category}</p>
+                    <p className="f-normal date">{blogItem.date}</p>
+                </li>
+                <li className="l-col l-col-8-12 l-col-m-12-12 jsAppearBtT">
+                    <p className="f-normal c-wine-bright">{blogItem.hash.map((hashitem) => `#${hashitem} `)}</p>
+                    <div className="f-normal blog-content"></div>
+                </li>
+            </ul>
+        </div>
+    )
 }
 
 export default Blog;

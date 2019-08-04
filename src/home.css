@@ -61,6 +61,7 @@
 .home-main .vertical-line button:hover,
 .home-main .vertical-line a:hover {
     color: black;
+    border-color: transparent;
 }
 
 .home-main .vertical-line button:hover::before,

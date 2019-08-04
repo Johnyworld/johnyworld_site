@@ -8,8 +8,6 @@
 이 홈페이지를 만드는데에 사용된 기술들입니다.
 1. React JS
 2. Modern Javascript (ES6+)
-3. All Designed by me
-4. 95% Hard Coding (No JQuery, No Bootstrap)
 
 ## Pages
 

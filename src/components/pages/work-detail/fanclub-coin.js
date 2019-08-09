@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import StyleSheetItem from '../work-detail-stylesheet';
+import NormalSection from './sections/normal-section';
 
 import styleColors from '../../../images/work-detail-fancoin/fancoin-style-color.png';
 import styleFonts from '../../../images/work-detail-fancoin/fancoin-style-fonts.png';
@@ -26,17 +27,20 @@ class FanclubCoin extends Component {
                         <StyleSheetItem title="Fonts" imgName="Styles-Font" imgSrc={styleFonts} imgWidth={579} imgHeight={324} />
                     </div>
                 </section>
-                <section className="sec-bright">
-                    <div className="l-wrapper">
-                        <div className="text-wrap">
-                            <h2 className="f-title jsAppearBtT">랜딩페이지</h2>
-                            {/* <p className="f-normal jsAppearBtT"><strong>뭐시기<br /></strong>거시기</p> */}
-                        </div>
-                        <img className="jsAppearBtT" src={workDesignFanclubCoin1} alt="designimg" />
-                        <img className="jsAppearBtT" src={workDesignFanclubCoin2} alt="designimg" />
-                        <img className="jsAppearBtT" src={workDesignFanclubCoin3} alt="designimg" />
-                    </div>
-                </section>
+                <NormalSection 
+                    title="랜딩페이지" 
+                    content={[{
+                        wrapper: 'l-wrapper',
+                        grid: {
+                            column: 1,
+                            imgs: [ 
+                                { title: 'Subpages', src: workDesignFanclubCoin1 },
+                                { title: 'Subpages', src: workDesignFanclubCoin2 },
+                                { title: 'Subpages', src: workDesignFanclubCoin3 }
+                            ]
+                        }
+                    }]}
+                />
             </div>
 
         )

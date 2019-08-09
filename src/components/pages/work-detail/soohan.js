@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import StyleSheetItem from '../work-detail-stylesheet';
+import NormalSection from './sections/normal-section';
 
 import styleColors from '../../../images/work-detail-soohan/soohan-style-color.png';
 import styleFonts from '../../../images/work-detail-soohan/soohan-style-fonts.png';
@@ -28,41 +29,47 @@ class Soohan extends Component {
                         <StyleSheetItem title="Buttons" imgName="Styles-Button" imgSrc={styleButtons} imgWidth={320} imgHeight={115} />
                     </div>
                 </section>
-                <section>
-                    <div className="l-wrapper">
-                        <div className="text-wrap">
-                            <h2 className="f-title">메인페이지</h2>
-                            <p className="f-normal"></p>
-                        </div>
-                        <img src={workDesignSoohan} alt="designimg" />
-                    </div>
-                </section>
-                <section>
-                    <div className="l-wrapper">
-                        <div className="text-wrap">
-                            <h2 className="f-title">서브페이지</h2>
-                        </div>
-                        <div className="grid-wrap clear-fix">
-                            <ul className="l-row gap60">
-                                <li className="l-col l-col-6-12 l-col-m-12-12">
-                                    <img src={soohanSub01} alt="designimg" />
-                                </li>
-                                <li className="l-col l-col-6-12 l-col-m-12-12">
-                                    <img src={soohanSub02} alt="designimg" />
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </section>
-                <section>
-                    <div className="l-wrapper">
-                        <div className="text-wrap">
-                            <h2 className="f-title">인터뷰영상 제작</h2>
-                            <p className="f-normal">촬영, 편집 작업 진행</p>
-                        </div>
-                        <iframe title="soo-interview" src="https://player.vimeo.com/video/292651398" width="100%" style={{ backgroundColor: '#222', height: '47vw' }} frameBorder="0" allowFullScreen="allowfullscreen" />
-                    </div>
-                </section>
+                <NormalSection 
+                    title="메인페이지" 
+                    content={[
+                        {
+                            wrapper: 'l-wrapper',
+                            imgSrc: workDesignSoohan,
+                            imgTitle: "Mainpage"
+                        }
+                    ]}
+                />
+                <NormalSection 
+                    title="서브페이지" 
+                    content={[
+                        {
+                            wrapper: 'l-wrapper',
+                            grid: {
+                                column: 2,
+                                tabletCol: 1,
+                                gap: 60,
+                                imgs: [ 
+                                    { title: 'Subpages', src: soohanSub01 },
+                                    { title: 'Subpages', src: soohanSub02 }
+                                ]
+                            }
+                        }
+                    ]}
+                />
+                <NormalSection 
+                    title="인터뷰영상 제작" 
+                    content={[
+                        {
+                            wrapper: 'l-wrapper',
+                            desc: "촬영, 편집 작업 진행",
+                            iframe: {
+                                title: 'soo-interview',
+                                src: 'https://player.vimeo.com/video/292651398',
+                                style: { background: '#222', width: '100%', height: '47vw' },
+                            }
+                        }
+                    ]}
+                />
             </div>
         )
     }

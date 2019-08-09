@@ -10,11 +10,12 @@ class SubpageHeading extends Component {
     }
 
     render() {
+        const { hugetitle, subtext } = this.state;
         return(
             <div className="bigmenu-title-wrapper centered" id="jsBigmenuBigtitle">
-                <h1 className="f-hugetitle">{this.state.hugetitle}</h1>
+                <h1 className="f-hugetitle">{hugetitle}</h1>
                 <div className="f-title" id="jsBigmenuTitle">
-                    { this.state.subtext.map((item, key) => {
+                    { subtext.map((item, key) => {
                         let string;
                         item === ' '
                         ? string = <p key={`sub-${key}`}>&nbsp;</p>

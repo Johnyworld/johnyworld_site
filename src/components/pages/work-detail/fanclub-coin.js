@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import StyleSheetItem from '../work-detail-stylesheet';
 
 import styleColors from '../../../images/work-detail-fancoin/fancoin-style-color.png';
 import styleFonts from '../../../images/work-detail-fancoin/fancoin-style-fonts.png';
@@ -21,18 +22,8 @@ class FanclubCoin extends Component {
             <div className="detail-each">
                 <section className="sec-padded-end sec-style-guide">
                     <div className="l-wrapper">
-                        <div className="text-wrap">
-                            <div className="l-row">
-                                <div className="l-col l-col-6-12 l-col-m-12-12 jsAppearBtT"><p className="f-subhead f-bold">Colors</p></div>
-                                <div className="l-col l-col-6-12 l-col-m-12-12 jsAppearBtT"><img src={styleColors} style={{ maxWidth: 521, maxHeight: 155 }} alt="스타일-색상" /></div>
-                            </div>
-                        </div>
-                        <div className="text-wrap">
-                            <div className="l-row">
-                                <div className="l-col l-col-6-12 l-col-m-12-12 jsAppearBtT"><p className="f-subhead f-bold">Fonts</p></div>
-                                <div className="l-col l-col-6-12 l-col-m-12-12 jsAppearBtT"><img src={styleFonts} style={{ maxWidth: 579, maxHeight: 324 }} alt="스타일-폰트" /></div>
-                            </div>
-                        </div>
+                        <StyleSheetItem title="Colors" imgName="Styles-Color" imgSrc={styleColors} imgWidth={521} imgHeight={155} />
+                        <StyleSheetItem title="Fonts" imgName="Styles-Font" imgSrc={styleFonts} imgWidth={579} imgHeight={324} />
                     </div>
                 </section>
                 <section className="sec-bright">

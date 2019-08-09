@@ -28,11 +28,11 @@ class About extends Component {
         super(props);
         this.state = {
             loaded : false,
-            instaImages : []
+            instaImages : [],
+            dataSkills : dataAboutSkills
         }
         this.wasHome = true;
-        this.dataAboutSkills = dataAboutSkills;
-        this._getSkillCategories();
+        this.skillCategories = this._getSkillCategories(this.state.dataSkills);
 
         if ( this.props.location.hash === "#home" ) {
             this.props.history.replace('/about');
@@ -41,14 +41,15 @@ class About extends Component {
         }
     }
 
-    _getSkillCategories() {
-        this.skillCategories = [];
-        this.skillCategories.push(this.dataAboutSkills[0].category)
-        for ( let i=1; i<this.dataAboutSkills.length; i++ ) {
-            if ( this.skillCategories.indexOf(this.dataAboutSkills[i].category) === -1 ) {
-                this.skillCategories.push(this.dataAboutSkills[i].category);
+    _getSkillCategories(dataSkills) {
+        let skillCategories = [];
+        skillCategories.push(dataSkills[0].category)
+        for ( let i=1; i<dataSkills.length; i++ ) {
+            if ( skillCategories.indexOf(dataSkills[i].category) === -1 ) {
+                skillCategories.push(dataSkills[i].category);
             }
         }
+        return skillCategories;
     }
 
     componentDidMount() {
@@ -164,6 +165,8 @@ class About extends Component {
     }
 
     _renderContent() {
+        const { dataSkills } = this.state;
+        const skillCategories = this.skillCategories;
         return(
             <>
                 <SubpageHeading hugetitle="ABOUT" subtext="꿈은 크고, 그것을 실행하는 사람." />
@@ -191,9 +194,9 @@ class About extends Component {
                     <section className="sec-skills" id="jsSectionSkills">
                         <div className="l-wrapper">
                             <div className="text-wrap">
-                                {this.skillCategories.map((category, key) => {
+                                {skillCategories.map((category, key) => {
                                     return (
-                                        <SkillCategories category={category} skillData={this.dataAboutSkills} key={'skill-category-'+key} />
+                                        <SkillCategories category={category} skillData={dataSkills} key={'skill-category-'+key} />
                                     )
                                 })}
                             </div>
@@ -208,7 +211,12 @@ class About extends Component {
                                 { this.state.instaImages.map((item, key) => {
                                     return (
                                         key < 6 ? 
-                                            <InstagramItems instaItem={item} key={'instagram-'+key} />
+                                            <InstagramItems 
+                                                link={item.link}
+                                                caption={item.caption}
+                                                images={item.images}
+                                                key={'instagram-'+key} 
+                                            />
                                         : ''
                                     )}
                                 )}
@@ -262,7 +270,15 @@ function SkillCategories({category, skillData}) {
                     {skillData.map((item, key) => {
                         return (
                             item.category === category ?
-                                <SkillItems skillItem={item} key={'skill-item-'+key} />
+                                <SkillItems 
+                                    title={item.skillName}
+                                    skillLevel={item.skillLevel}
+                                    desc={item.desc}
+                                    category={item.category}
+                                    color={item.color}
+                                    bgPosition={item.bgPosition}
+                                    key={'skill-item-'+key} 
+                                />
                             : ''
                         )})
                     }
@@ -272,30 +288,30 @@ function SkillCategories({category, skillData}) {
     )
 }
 
-function SkillItems({skillItem}) {
+function SkillItems({title, skillLevel, desc, color, bgPosition, category}) {
     return (
-        <div className={`category-${skillItem.category} skill-item-container`}>
+        <div className={`category-${category} skill-item-container`}>
             <div className="skill-part _title">
-                <div className="skill-logo jsAppearBtT" style={{ backgroundImage: 'url('+skillSprites+')', backgroundPosition: skillItem.bgPosition }}></div>
-                <h3 className="f-subhead jsAppearBtT" style={{color: skillItem.color }}>{skillItem.skillName}</h3>
+                <div className="skill-logo jsAppearBtT" style={{ backgroundImage: 'url('+skillSprites+')', backgroundPosition: bgPosition }}></div>
+                <h3 className="f-subhead jsAppearBtT" style={{ color: color }}>{title}</h3>
                 <div className="skill-level-wrap jsAppearBtT">
-                    <div className="skill-level-bar is-disabled" style={{ width: skillItem.skillLevel * 10 + '%' , backgroundColor: skillItem.color }}></div>
+                    <div className="skill-level-bar is-disabled" style={{ width: skillLevel * 10 + '%' , backgroundColor: color }}></div>
                 </div>
             </div>
             <div className="skill-part _text">
-                <p className="f-normal jsAppearBtT">{skillItem.desc}</p>
+                <p className="f-normal jsAppearBtT">{desc}</p>
             </div>
         </div>
     )
 }
 
-function InstagramItems({instaItem}) {
+function InstagramItems({link, caption, images}) {
     return (
         <li className="l-col l-col-4-12 l-col-m-6-12 insta-image-li">
-            <a href={instaItem.link} target="blank">
+            <a href={link} target="blank">
                 <div className="insta-image-wrap">
-                    <div className="insta-image jsAppearSlideToR" style={{backgroundImage: 'url('+instaItem.images.standard_resolution.url+')', paddingTop: '100%'}}></div>
-                    <p className="insta-caption f-normal">{instaItem.caption.text}</p>
+                    <div className="insta-image jsAppearSlideToR" style={{backgroundImage: 'url('+images.standard_resolution.url+')', paddingTop: '100%'}}></div>
+                    <p className="insta-caption f-normal">{caption.text}</p>
                 </div>
             </a>
         </li>

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import StyleSheetItem from '../work-detail-stylesheet';
 
 import styleColors from '../../../images/work-detail-soohan/soohan-style-color.png';
 import styleFonts from '../../../images/work-detail-soohan/soohan-style-fonts.png';
@@ -22,24 +23,9 @@ class Soohan extends Component {
             <div className="detail-each">
                 <section className="sec-padded-end sec-style-guide">
                     <div className="l-wrapper">
-                        <div className="text-wrap">
-                            <div className="l-row">
-                                <div className="l-col l-col-6-12 l-col-m-12-12 jsAppearBtT"><p className="f-subhead f-bold">Colors</p></div>
-                                <div className="l-col l-col-6-12 l-col-m-12-12 jsAppearBtT"><img src={styleColors} style={{ maxWidth: 521, maxHeight: 155 }} alt="스타일-색상" /></div>
-                            </div>
-                        </div>
-                        <div className="text-wrap">
-                            <div className="l-row">
-                                <div className="l-col l-col-6-12 l-col-m-12-12 jsAppearBtT"><p className="f-subhead f-bold">Fonts</p></div>
-                                <div className="l-col l-col-6-12 l-col-m-12-12 jsAppearBtT"><img src={styleFonts} style={{ maxWidth: 598, maxHeight: 265 }} alt="스타일-폰트" /></div>
-                            </div>
-                        </div>
-                        <div className="text-wrap">
-                            <div className="l-row">
-                                <div className="l-col l-col-6-12 l-col-m-12-12 jsAppearBtT"><p className="f-subhead f-bold">Buttons</p></div>
-                                <div className="l-col l-col-6-12 l-col-m-12-12 jsAppearBtT"><img src={styleButtons} style={{ maxWidth: 320, maxHeight: 115 }} alt="스타일-버튼" /></div>
-                            </div>
-                        </div>
+                        <StyleSheetItem title="Colors" imgName="Styles-Color" imgSrc={styleColors} imgWidth={521} imgHeight={155} />
+                        <StyleSheetItem title="Fonts" imgName="Styles-Font" imgSrc={styleFonts} imgWidth={598} imgHeight={265} />
+                        <StyleSheetItem title="Buttons" imgName="Styles-Button" imgSrc={styleButtons} imgWidth={320} imgHeight={115} />
                     </div>
                 </section>
                 <section>

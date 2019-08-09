@@ -18,7 +18,7 @@ class App extends Component {
                     <Route path="/lab" component={Routes} />
                 </Switch>
                 
-                <div className="mouse-child-wrapper">
+                <div className="fullscreen-wrapper">
                     <div id="jsMouseChild"></div>
                     <div id="jsFullScreenWrap02"></div>
                     <div id="jsFullScreenWrap01"></div>

@@ -19,9 +19,9 @@ class Work extends Component {
         super(props);
         this.state = {
             loaded : false,
+            dataWork : dataWorkReverse
         }
         this.linkTo = null;
-        this.workReverse = dataWorkReverse;
         this.wasHome = true;
 
         if ( this.props.location.hash === "#home" ) {
@@ -151,11 +151,12 @@ class Work extends Component {
     }
 
     _renderContent() {
+        const { dataWork } = this.state;
         return (
             <>
                 <SubpageHeading hugetitle="WORK" subtext="고객을 위한 하나의 생각들." />
                 <div className="l-wrapper-sticked">
-                    <WorkItems worksData={this.workReverse} goToDetail={this.goToDetail.bind(this)} />
+                    <WorkItems dataWork={dataWork} goToDetail={this.goToDetail.bind(this)} />
                 </div>
                 <PortfolioHistory />
             </>
@@ -171,13 +172,20 @@ class Work extends Component {
     }
 }
 
-function WorkItems({worksData, goToDetail}) {
+function WorkItems({dataWork, goToDetail}) {
     return (
         <div className="work-items clear-fix" id="workItemWrap">
             <ul className="l-row gap90 clear-fix">
-                { worksData.map( (item, key) => {
+                { dataWork.map( (item, key) => {
                     return (
-                        <WorkItem workItem={item} goToDetail={goToDetail.bind(this)} key={'work-item-'+key} />
+                        <WorkItem 
+                            title={item.title}
+                            category={item.category2}
+                            slug={item.slug}
+                            thumbnail={item.thumbnail}
+                            goToDetail={goToDetail.bind(this)} 
+                            key={'work-item-'+key} 
+                        />
                     )
                 })}
             </ul>
@@ -185,18 +193,18 @@ function WorkItems({worksData, goToDetail}) {
     )
 }
 
-function WorkItem({workItem, goToDetail}) {
+function WorkItem({title, category, slug, thumbnail, goToDetail}) {
     return (
         <li className='l-col l-col-6-12'>
             <div className="item">
-                <button className="grid-item jsAppearSlideToR" onClick={goToDetail.bind(this, workItem.slug)}>
-                    <div className="background" style={{backgroundImage: 'url(' + workItem.thumbnail + ')'}}></div>
+                <button className="grid-item jsAppearSlideToR" onClick={goToDetail.bind(this, slug)}>
+                    <div className="background" style={{backgroundImage: 'url(' + thumbnail + ')'}}></div>
                     <div className="textbox">
                         <div className="top">
                         </div>
                         <div className="bottom">
-                            <h3 className="f-heading f-eng-title">{workItem.title}</h3>
-                            <p className="f-normal f-eng category">{workItem.category2}</p>
+                            <h3 className="f-heading f-eng-title">{title}</h3>
+                            <p className="f-normal f-eng category">{category}</p>
                         </div>
                     </div>
                 </button>

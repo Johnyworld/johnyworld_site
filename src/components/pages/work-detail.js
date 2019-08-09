@@ -24,7 +24,6 @@ import TheFocus from './work-detail/the-focus';
 class WorkDetail extends Component {
     constructor(props) {
         super(props);
-
         this.state = {
             loaded : false
         }

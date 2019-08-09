@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import StyleSheetItem from '../work-detail-stylesheet';
 
 import styleColors from '../../../images/work-detail-pssd/pssd-style-color.png';
 import stylePattern from '../../../images/work-detail-pssd/pssd-style-pattern.jpg';
@@ -22,30 +23,9 @@ class Pssd extends Component {
             <div className="detail-each">
                 <section className="sec-padded-end sec-style-guide">
                     <div className="l-wrapper">
-                        <div className="text-wrap">
-                            <div className="l-row">
-                                <div className="l-col l-col-6-12 l-col-m-12-12 jsAppearBtT"><p className="f-subhead f-bold">Colors</p></div>
-                                <div className="l-col l-col-6-12 l-col-m-12-12 jsAppearBtT"><img src={styleColors} style={{ maxWidth: 323, maxHeight: 155 }} alt="스타일-색상" /></div>
-                            </div>
-                        </div>
-                        <div className="text-wrap">
-                            <div className="l-row">
-                                <div className="l-col l-col-6-12 l-col-m-12-12 jsAppearBtT"><p className="f-subhead f-bold">Pattern</p></div>
-                                <div className="l-col l-col-6-12 l-col-m-12-12 jsAppearBtT"><img src={stylePattern} style={{ maxWidth: 349, maxHeight: 62 }} alt="스타일-패턴" /></div>
-                            </div>
-                        </div>
-                        <div className="text-wrap">
-                            <div className="l-row">
-                                <div className="l-col l-col-6-12 l-col-m-12-12 jsAppearBtT"><p className="f-subhead f-bold">Icons</p></div>
-                                <div className="l-col l-col-6-12 l-col-m-12-12 jsAppearBtT"><img src={styleIcons} style={{ maxWidth: 252, maxHeight: 94 }} alt="스타일-아이콘" /></div>
-                            </div>
-                        </div>
-                        {/* <div className="text-wrap">
-                            <div className="l-row">
-                                <div className="l-col l-col-6-12 jsAppearBtT"><p className="f-subhead f-bold">Buttons</p></div>
-                                <div className="l-col l-col-6-12 jsAppearBtT"><img src={styleButtons} alt="스타일-버튼" /></div>
-                            </div>
-                        </div> */}
+                        <StyleSheetItem title="Colors" imgName="Styles-Color" imgSrc={styleColors} imgWidth={323} imgHeight={155} />
+                        <StyleSheetItem title="Pattern" imgName="Styles-Pattern" imgSrc={stylePattern} imgWidth={349} imgHeight={62} />
+                        <StyleSheetItem title="Icons" imgName="Styles-Icon" imgSrc={styleIcons} imgWidth={252} imgHeight={94} />
                     </div>
                 </section>
                 <section className="sec-padded-end">

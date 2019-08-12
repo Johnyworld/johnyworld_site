@@ -11,9 +11,9 @@ import {
     setBeforeLoading,
     animInAppear } from '../func/animates';
 import { getAbsoluteTop } from '../func/functions';
-import dataAboutSkills from '../data/data-aboutskills';
 import './about.css';
 import skillSprites from '../../images/about-skill-logos.png';
+import jsonFile from '../data/data-aboutskills.json';
 
 let imgAboutKey;
 const isMobile = navigator.userAgent.match(/(iPad)|(iPhone)|(iPod)|(android)|(webOS)/i);
@@ -29,7 +29,7 @@ class About extends Component {
         this.state = {
             loaded : false,
             instaImages : [],
-            dataSkills : dataAboutSkills
+            dataSkills : jsonFile
         }
         this.wasHome = true;
         this.skillCategories = this._getSkillCategories(this.state.dataSkills);
@@ -43,7 +43,6 @@ class About extends Component {
 
     _getSkillCategories(dataSkills) {
         let skillCategories = [];
-        skillCategories.push(dataSkills[0].category)
         for ( let i=1; i<dataSkills.length; i++ ) {
             if ( skillCategories.indexOf(dataSkills[i].category) === -1 ) {
                 skillCategories.push(dataSkills[i].category);

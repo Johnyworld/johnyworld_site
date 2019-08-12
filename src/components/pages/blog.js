@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import SubpageHeading from '../partials/subpage-heading';
 import { animInCrossSlide, animOutLoading, animInAppear, setBeforeLoading } from '../func/animates';
-import dataBlogReverse from '../data/data-blog';
+import jsonFile from '../data/data-blog.json';
 import './blog.css';
 
 class Blog extends Component {
@@ -9,7 +9,7 @@ class Blog extends Component {
         super(props);
         this.state = {
             loded: false,
-            dataBlog : dataBlogReverse
+            dataBlog : jsonFile
         }
         this.wasHome = true;
 
@@ -63,7 +63,6 @@ class Blog extends Component {
         const jsBigmenuTitle = document.getElementById('jsBigmenuTitle');
         const jsBigmenuTitleString = jsBigmenuTitle.getElementsByTagName('p');
         const jsBtnGnbBlog = document.getElementById('jsBtnGnbBlog');
-        const blogContents = document.getElementsByClassName('blog-content');
         const jsAppearBtT = document.getElementsByClassName('jsAppearBtT');
         const jsAppearFadein = document.getElementsByClassName('jsAppearFadein');
         
@@ -78,23 +77,15 @@ class Blog extends Component {
             }, 800);
         }
 
-        const blogDataInit = () => {
-            const { dataBlog } = this.state
-            for ( let i=0; i<dataBlog.length; i++ ) {
-                blogContents[i].innerHTML = dataBlog[i].desc;
-            }
-        }
-
         // RUN
         animInAppear(jsAppearBtT, 1500);
         animInAppear(jsAppearFadein, 1500);
         jsBtnGnbBlog.classList.add('is-disabled');
         showSubpageHeading();
-        blogDataInit();
     }
 
     _renderContent() {
-        const { dataBlog } = this.state
+        const dataBlog = this.state.dataBlog.reverse();
         return(
             <>
                 <SubpageHeading hugetitle="BLOG" subtext="자유롭게 써내려가는 개발 일지." />
@@ -107,6 +98,7 @@ class Blog extends Component {
                                     category={item.category}
                                     date={item.date}
                                     hash={item.hash}
+                                    content={item.content}
                                     key={'blog-item-'+key} 
                                 />
                             )
@@ -126,7 +118,7 @@ class Blog extends Component {
     }
 }
 
-function BlogItems({ title, category, date, hash }) {
+function BlogItems({ title, category, date, hash, content }) {
     return (
         <div className="text-wrap blog-item jsAppearFadein">
             <ul className="l-row">
@@ -136,8 +128,33 @@ function BlogItems({ title, category, date, hash }) {
                     <p className="f-normal date">{date}</p>
                 </li>
                 <li className="l-col l-col-8-12 l-col-m-12-12 jsAppearBtT">
-                    <p className="f-normal c-wine-bright">{hash.map((hashitem) => `#${hashitem} `)}</p>
-                    <div className="f-normal blog-content"></div>
+                    <div className="f-normal blog-content">
+                        <p className="c-wine-bright">{hash.map((hashitem) => `#${hashitem} `)}</p>
+                        { content.map( item => {
+                            if(item.type === 'code') {
+                                return (
+                                    <div className="blog-inner-paragraph blog-code">{item.content}</div>
+                                ) 
+                            } else {
+                                const codeOpen = () => '<span class="blog-code">';
+                                const codeClose = () => '</span>';
+                                const strongOpen = () => '<strong>'
+                                const strongClose = () => '</strong>'
+                                let string = item;
+                                let string01 = string.replace(/</g, '&#60;' );
+                                let string02 = string01.replace(/>/g, '&#62;' );
+                                let string03 = string02.replace(/{b-/g, strongOpen() );
+                                let string04 = string03.replace(/-b}/g, strongClose() );
+                                let string05 = string04.replace(/{-/g, codeOpen() );
+                                let stringFinal = string05.replace(/-}/g, codeClose() );
+                                
+                                return (
+                                    <p className="blog-inner-paragraph" dangerouslySetInnerHTML={{__html: stringFinal}}></p>
+                                )
+                            }
+                            
+                        })}
+                    </div>
                 </li>
             </ul>
         </div>

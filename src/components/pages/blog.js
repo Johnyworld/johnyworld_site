@@ -151,8 +151,7 @@ function BlogItems({ title, category, date, hash, content }) {
                                 return (
                                     <p className="blog-inner-paragraph" dangerouslySetInnerHTML={{__html: stringFinal}}></p>
                                 )
-                            }
-                            
+                            }  
                         })}
                     </div>
                 </li>

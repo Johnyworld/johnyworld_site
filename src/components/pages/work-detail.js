@@ -25,45 +25,23 @@ class WorkDetail extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            loaded : false
+            loaded : false,
+            id: this.props.match.params.workid,
+            isMobile : navigator.userAgent.match(/(iPad)|(iPhone)|(iPod)|(android)|(webOS)/i),
+            dataWork : dataWorkReverse
         }
-
-        this.getState = () => {
-            this.state = {
-                id: this.props.match.params.workid
-            }
-        }
-
-        this.getKey = () => {
-            dataWorkReverse.forEach((item, key) => {
-                if (item.slug === this.state.id) {
-                    this.key = key;
-                }
-            });
-        }
-
-        this.init = () => {
-            this.data = dataWorkReverse[this.key];
-
-            if (this.key < dataWorkReverse.length) {
-                this.prev = dataWorkReverse[this.key + 1];
-            }
-
-            if (this.key > 0) {
-                this.next = dataWorkReverse[this.key - 1];
-            }
-        }
-
-        this.loadRoute = () => {
-            this.getState();
-            this.getKey();
-            this.init();
-            this.render();
-        }
-            
-        this.loadRoute();
     }    
 
+    _getIndex(data) {
+        let index;
+        data.forEach((item, key) => {
+            if (item.slug === this.state.id) {
+                index = key;
+            }
+        });
+        return index;
+    }
+    
     componentDidMount() {
         this._nowLoading();
     }
@@ -78,10 +56,12 @@ class WorkDetail extends Component {
         const jsAppearBtT = document.getElementsByClassName('jsAppearBtT');
         const jsAppearSlideToR = document.getElementsByClassName('jsAppearSlideToR');
         const jsMobileMockup = document.getElementById('jsMobileMockup');
+        const next = this.state.dataWork[this.state.index+1];
+        const prev = this.state.dataWork[this.state.index-1];
 
         // HANDLER
         const handleClickPrev = () => {
-            let prevUrl = '/work/' + this.prev.slug.toString();
+            let prevUrl = '/work/' + prev.slug.toString();
             let history = this.props.history;
 
             animInLoading( jsFullScreenWrap01, jsFullScreenWrap02, jsLoading );
@@ -92,7 +72,7 @@ class WorkDetail extends Component {
         }
 
         const handleClickNext = () => {
-            let nextUrl = '/work/' + this.next.slug.toString();
+            let nextUrl = '/work/' + next.slug.toString();
             let history = this.props.history;
 
             animInLoading( jsFullScreenWrap01, jsFullScreenWrap02, jsLoading );
@@ -125,6 +105,7 @@ class WorkDetail extends Component {
     }
 
     _nowLoading() {
+        const dataWork = this.state.dataWork;
         const jsLoading = document.getElementById('jsLoading');
         const jsFullScreenWrap01 = document.getElementById('jsFullScreenWrap01');
         const jsFullScreenWrap02 = document.getElementById('jsFullScreenWrap02');
@@ -133,6 +114,7 @@ class WorkDetail extends Component {
         const handleLoaded = () => {
             setTimeout(() => {
                 this.setState({
+                    index: this._getIndex(dataWork),
                     loaded: true
                 });
                 animOutLoading( jsFullScreenWrap01, jsFullScreenWrap02, jsLoading );
@@ -146,21 +128,29 @@ class WorkDetail extends Component {
     }
 
     _renderContent() {
+        const { id } = this.state;
+        const next = this.state.dataWork[this.state.index+1];
+        const prev = this.state.dataWork[this.state.index-1];
+        const presentData = this.state.dataWork[this.state.index];
+        const { title, comment, summary, keywords, date, url, mobileScreen, screen, keyvisual } = presentData;
+        
+        // Get Detail Component.
         let workDetailContent = null;
-        if (this.state.id === 'bigpicture-ent') { workDetailContent = <BigpictureEnt /> }
-        if (this.state.id === 'fanclub-coin') { workDetailContent = <FanclubCoin /> }
-        if (this.state.id === 'soo-clinic') { workDetailContent = <Soohan /> }
-        if (this.state.id === 'krx') { workDetailContent = <Krx /> }
-        if (this.state.id === 'samsung-pssd') { workDetailContent = <Pssd /> }
-        if (this.state.id === 'camping-poster') { workDetailContent = <Camping /> }
-        if (this.state.id === 'the-focus') { workDetailContent = <TheFocus /> }
+        if (id === 'bigpicture-ent') { workDetailContent = <BigpictureEnt /> }
+        if (id === 'fanclub-coin') { workDetailContent = <FanclubCoin /> }
+        if (id === 'soo-clinic') { workDetailContent = <Soohan /> }
+        if (id === 'krx') { workDetailContent = <Krx /> }
+        if (id === 'samsung-pssd') { workDetailContent = <Pssd /> }
+        if (id === 'camping-poster') { workDetailContent = <Camping /> }
+        if (id === 'the-focus') { workDetailContent = <TheFocus /> }
 
-        let splitTitle = this.data.title.split(' ');      
+        // Get Title splited for align.
+        let splitTitle = title.split(' ');      
 
         return (
             <>
-                {this.data.url
-                ? <a href={this.data.url} target="blank" className="viewsite-btn is-hidden" id="jsViewsiteBtn"><p>사이트<br />보기</p></a>
+                {url
+                ? <a href={url} target="blank" className="viewsite-btn is-hidden" id="jsViewsiteBtn"><p>사이트<br />보기</p></a>
                 : ''}
                 <div className="container">
                     <div className="detail-main">
@@ -179,15 +169,15 @@ class WorkDetail extends Component {
                                             )
                                         } 
                                     </h1>
-                                    <p className="f-heading jsTitleChildren jsAppearBtT">{this.data.comment}</p>
+                                    <p className="f-heading jsTitleChildren jsAppearBtT">{comment}</p>
                                     <div className="info jsTitleChildren jsAppearBtT">
                                         <ul className="keywords f-normal">
-                                            <li>{this.data.date}</li>
-                                            {this.data.keywords.map((item, key) => {
+                                            <li>{date}</li>
+                                            {keywords.map((item, key) => {
                                                 return (<li key={`list-${key}`}>{item}</li>)
                                             })}
-                                            {this.data.url ?
-                                            <li><a href={this.data.url} target="blank" className="btn-viewsite">사이트 보기 ></a></li> 
+                                            {url ?
+                                            <li><a href={url} target="blank" className="btn-viewsite">사이트 보기 ></a></li> 
                                             : ''}
                                         </ul>
                                     </div>
@@ -201,13 +191,13 @@ class WorkDetail extends Component {
                             <div className="l-wrapper">
                                 <div className="mockup-wrap">
                                     <div className="mockup-img-wrap jsAppearSlideToR">
-                                        <img className={'mockup-img' + (this.data.mobileScreen ? ' with-mobile' :'') } alt="목업" src={this.data.screen} />
+                                        <img className={'mockup-img' + (mobileScreen ? ' with-mobile' :'') } alt="목업" src={screen} />
                                     </div>
                                     {
-                                        this.data.mobileScreen ?
+                                        mobileScreen ?
                                         <div id="jsMobileMockup" >
                                             <div className="mobile-img jsAppearBtT" style={{ backgroundImage: 'url(' + deviceMobileBg + ')' }}>
-                                                <img className="mobile-img-screen" alt="목업-모바일" src={this.data.mobileScreen} />
+                                                <img className="mobile-img-screen" alt="목업-모바일" src={mobileScreen} />
                                             </div>
                                         </div>
                                         : ''
@@ -224,7 +214,7 @@ class WorkDetail extends Component {
                                     <ul className="l-row">
                                         <li className="l-col l-col-6-12 l-col-m-12-12"><h2 className="f-title jsAppearBtT">프로젝트 <br className="dis-m" />개요</h2></li>
                                         <li className="l-col l-col-6-12 l-col-m-12-12">
-                                            { this.data.summary.map( (item, key) => {
+                                            { summary.map( (item, key) => {
                                                 return (
                                                     <p key={`summary-item-${key}`} className="f-normal jsAppearBtT">
                                                         <strong>{item.title}</strong>
@@ -243,14 +233,14 @@ class WorkDetail extends Component {
                         <section className="sec-detail-keyvisual">
                             <div className="l-wrapper-full">
                                 <div className="bgimg-wrap jsAppearSlideToR">
-                                    <div className="bgimg jsScrollParallaxImage" style={{ backgroundImage: 'url(' + this.data.keyvisual + ')' }}></div>
+                                    <div className="bgimg jsScrollParallaxImage" style={{ backgroundImage: 'url(' + keyvisual + ')' }}></div>
                                 </div>
                             </div>
                         </section>
                     </div>
                     {workDetailContent}
                 </div>
-                <NextAndPrevButtons next={this.next} prev={this.prev} />
+                <NextAndPrevButtons next={next} prev={prev} />
             </>
         )
     }

@@ -69,8 +69,6 @@ if ( isMobile ) {
     workMobileCamping = require( '../../images/work-detail-camping/camping-devices-mobile.jpg' );
 }
 
-
-
 const dataWork = [
     {
         id: "05001",
@@ -98,14 +96,6 @@ const dataWork = [
     //     title: "Samsung Mobile Theme",
     //     slug: "samsung-mobile-theme",
     //     comment: "삼성 모바일 테마 디자인",
-    //     summary: [
-    //         { title:"", desc:[""] },
-    //         { title:"", desc:[""] },
-    //         { title:"", desc:[""] },
-    //         { title:"", desc:[""] },
-    //         { title:"", desc:[""] },
-    //         { title:"", desc:[""] },
-    //     ],
     //     keywords: [
     //         "모바일", "테마디자인", "그래픽유저인터페이스"
     //     ],

@@ -68,6 +68,7 @@
         ]
     },
     {
+        "id": 6,
         "title": "Wheel 이벤트 전파 막기!",
         "category": "Scripts",
         "date": "2019. 6. 18. Tue.",
@@ -81,6 +82,7 @@
         ]
     },
     {
+        "id": 7,
         "title": "Environment Variables for React",
         "category": "Today I Learned",
         "date": "2019. 7. 3. Wed.",
@@ -90,6 +92,7 @@
         ] 
     },
     {
+        "id": 8,
         "title": "숫자 앞에 0 붙이기",
         "category": "Today I Learned",
         "date": "2019. 7. 19. Fri.",
@@ -103,6 +106,7 @@
         ]
     },
     {
+        "id": 9,
         "title": "IOS Form CSS",
         "category": "Today I Learned",
         "date": "2019. 7. 19. Fri.",
@@ -116,6 +120,7 @@
         ]
     },
     {
+        "id": 10,
         "title": "Element.animate()",
         "category": "Today I Learned",
         "date": "2019. 7. 21. Sun.",
@@ -125,6 +130,7 @@
         ]
     },
     {
+        "id": 11,
         "title": "더블클릭 확대 방지",
         "category": "Today I Learned",
         "date": "2019. 7. 23. Tue.",

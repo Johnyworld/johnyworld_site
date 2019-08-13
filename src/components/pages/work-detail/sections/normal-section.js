@@ -5,7 +5,7 @@ export default function NormalSection({ title, content, addClassName }) {
         <section className={ addClassName }>
             { content.map((item, key)=>{
                 return (
-                    <div className={item.wrapper}>
+                    <div key={title+'-content-'+key} className={item.wrapper}>
                         { title || item.subtitle || item.desc ? 
                             <div className="text-wrap">
                                 { key === 0 ? <h2 className="f-title jsAppearBtT">{title}</h2> : null }

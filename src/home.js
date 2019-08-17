@@ -11,6 +11,7 @@ import {
     setBeforeLoading,
     scrollFloating } from './components/func/animates';
 import {
+    cbTimeout,
     topBtnHandler } from './components/func/functions';
 
 import './home.css';
@@ -235,7 +236,7 @@ class Home extends Component {
             }, 2100);
         }
 
-        const mainLeftMenuClickHandler = () => {
+        const mainLeftMenuClickHandler = async() => {
             canWheel = false;
             mainMenuStop();
             mainMenuRemoveHoverEvent();
@@ -244,21 +245,19 @@ class Home extends Component {
             jsMenuVerticalLine.classList.add('is-hidden');
             jsMenuBgLeftChild.classList.add('cue1');
             jsMenuBgRightChild.style.height = '0';
-            setTimeout( function() {
-                jsMenuBtnLeft.classList.add('aligned'); 
-            }, 900);
-            setTimeout( function() {
+            await cbTimeout( 900, () => jsMenuBtnLeft.classList.add('aligned') );
+            await cbTimeout( 100, function() {
                 jsMenuBgLeftChild.classList.add('cue2');
-            }, 1000);
-            setTimeout( function() {
+            });
+            await cbTimeout( 800, function() {
                 jsMenuBgLeftChild.classList.add('cue3');
-            }, 1800);
-            setTimeout( function() { 
+            });
+            await cbTimeout( 600, function() {
                 jsMenuTexts.classList.add('aligned'); 
-            }, 2300 );
-            setTimeout( function() {
+            })
+            await cbTimeout( 1200, function() {
                 propsHistory.push('/blog#home');
-            }, 3500);
+            })
         }
 
         const mainRightMenuClickHandler = () => {
@@ -341,9 +340,9 @@ class Home extends Component {
                 <div className="home-main">
                     <div className="vertical-line" id="jsMenuVerticalLine">
                         <div className="links">
-                            <a className="c-gray-dark f-eng f-normal" href="https://www.behance.net/johnykim1" target="blank">Behance</a>
-                            <a className="c-gray-dark f-eng f-normal" href="https://github.com/Johnyworld" target="blank">GitHub</a>
-                            <a className="c-gray-dark f-eng f-normal" href="https://codepen.io/johnyworld/" target="blank">Codepen</a>
+                            {/* <a className="c-gray-dark f-eng f-normal" href="https://www.behance.net/johnykim1" target="blank" style={{ opacity: .5 }}>Behance</a> */}
+                            <a className="c-gray-dark f-eng f-subhead" href="https://github.com/Johnyworld" target="blank">GitHub</a>
+                            {/* <a className="c-gray-dark f-eng f-normal" href="https://codepen.io/johnyworld/" target="blank" style={{ opacity: .5 }}>Codepen</a> */}
                         </div>
                         <div className="line"></div>
                         <div className="bottom" id="jsCodeLabBtnWrap">

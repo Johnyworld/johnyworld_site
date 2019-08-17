@@ -2,7 +2,6 @@
     {
         "skillName" : "Javascript",
         "skillLevel" : "6",
-        "skillLevelText" : "쪼금 해요.",
         "desc" : "자바스크립트와 친해지기 위해 게임도 만들어보고 지금도 재미있는 시도들을 하고 있습니다. 원하는 기능들은 어찌어찌 구현하는데  당연히 아직 많이 부족합니다. ES6를 일부러 안쓰다가 지금은 ES6 이후 버전의 모던자바스크립트 위주로 공부 하고 있습니다.",
         "category" : "Front-end",
         "color" : "#ffc600",
@@ -11,7 +10,6 @@
     {
         "skillName" : "HTML5",
         "skillLevel" : "8",
-        "skillLevelText" : "할만해요.",
         "desc" : "시멘틱 마크업을 짭니다. 웹 표준을 준수합니다. 반응형웹에 익숙합니다. 웹 접근성은 아직 깊게 공부하지는 못했습니다.",
         "category" : "Front-end",
         "color" : "#e54d27",
@@ -20,7 +18,6 @@
     {
         "skillName" : "CSS3",
         "skillLevel" : "8",
-        "skillLevelText" : "할만해요.",
         "desc" : "만들고 싶은건 대부분 구현합니다. 최신 CSS 기술들에 대해서는 좀 더 깊게 공부가 필요합니다. SASS 사용해봤습니다.",
         "category" : "Front-end",
         "color" : "#1370b6",
@@ -29,7 +26,6 @@
     {
         "skillName" : "React JS",
         "skillLevel" : "4",
-        "skillLevelText" : "노력중.",
         "desc" : "강의보고 따라하고 구글링하고 점점 알아가는중입니다. 이 포트폴리오 사이트는 그 경험을 바탕으로 만든 첫 리액트 작품입니다.",
         "category" : "Library",
         "color" : "#01d7fe",
@@ -38,7 +34,6 @@
     {
         "skillName" : "React Native",
         "skillLevel" : "1",
-        "skillLevelText" : "공부중!!",
         "desc" : "현재 Expo와 함께 공부중입니다.",
         "category" : "Library",
         "color" : "#01d7fe", 
@@ -47,7 +42,6 @@
     {
         "skillName" : "Wordpress",
         "skillLevel" : "8",
-        "skillLevelText" : "할만해요.",
         "desc" : "기본은 잘 이해합니다. 워낙 테마나 플러그인이 방대해서 모두 알진 못합니다. PHP로 플러그인 하나 (관리자페이지까지) 만들어본 경험이 있습니다.",
         "category" : "CMS",
         "color" : "#00a0d2",
@@ -56,7 +50,6 @@
     {
         "skillName" : "Node JS",
         "skillLevel" : "3",
-        "skillLevelText" : "노력중.",
         "desc" : "가장 잘 하고싶고 탐나는 기술입니다. 라우팅, 컨트롤러등의 개념은 이해했고 패스포트, 웹팩, 몽고DB 등을 사용해 본 경험이 있습니다.",
         "category" : "Back-end",
         "color" : "#8fc53f",
@@ -65,7 +58,6 @@
     {
         "skillName" : "PHP",
         "skillLevel" : "2",
-        "skillLevelText" : "경험있음.",
         "desc" : "당장 공부할 계획은 없지만, 워드프레스 내에서 플러그인을 개발할 때, JSON데이터와 연동하여 플러그인을 개발한 경험이 있습니다. 아주 조금 할 줄 아는 정도입니다.",
         "category" : "Back-end",
         "color" : "#4f5b93",
@@ -74,8 +66,7 @@
     {
         "skillName" : "Redux",
         "skillLevel" : "1",
-        "skillLevelText" : "관심있음.",
-        "desc" : "현재 공부중입니다.",
+        "desc" : "현재 공부중입니다. 제가 이해한 리덕스는, 게임개발시 GAME_STATE_MACHINE과 비슷하다고 느꼈습니다. 스테이트가 변경 될 경우 여러 컴포넌트로 한번에 렌더해주기 때문에 상태관리가 편해집니다.",
         "category" : "Library",
         "color" : "#7649bb",
         "bgPosition": " -64px -32px "
@@ -83,7 +74,6 @@
     {
         "skillName" : "JQuery",
         "skillLevel" : "6",
-        "skillLevelText" : "다룰 줄 알아요.",
         "desc" : "코딩 학습 초반에 자주 사용했는데 요새는 일부러 JS 학습을 위해 사용 안하는 중입니다. 다룰 줄 아는 정도의 수준.",
         "category" : "Library",
         "color" : "#0765a8",
@@ -91,9 +81,8 @@
     },
     {
         "skillName" : "Typescript",
-        "skillLevel" : "0",
-        "skillLevelText" : "관심있음.",
-        "desc" : "앞으로 학습 예정입니다.",
+        "skillLevel" : "1",
+        "desc" : "현재 공부중입니다.",
         "category" : "Library",
         "color" : "#007acc",
         "bgPosition": " -96px -32px "
@@ -101,16 +90,15 @@
     {
         "skillName" : "GraphQL",
         "skillLevel" : "1",
-        "skillLevelText" : "공부중.",
-        "desc" : "현재 공부중입니다.",
-        "category" : "Library",
+        "desc" : "현재 공부중입니다. 프리즈마, 아폴로(프론트엔드)와 함께 사용하는데, 몽고DB에 비해 매우 쉽고 유용하다고 생각합니다. 관리자패널도 지원해주고 코드 사용이 매우 간결해집니다. 데이터간의 관계(Relation)도 실시간 감지도(Subscribe) 쉽게 사용 가능합니다. 아직 익숙하지 않아서, 그래프큐엘, 프리즈마, 아폴로를 이용해서 토이프로젝트를 만들어 볼 예정입니다.",
+        "category" : "Back-end",
         "color" : "#e635ab",
         "bgPosition": " -128px -32px " 
     },
     {
         "skillName" : "Photoshop",
         "skillLevel": "9 ",
-        "desc" : "음.. 신 기능들을 다 알진 못하지만 꼭 필요한 만큼은 쓰는 것 같습니다 거의 15년 넘게 썼으니..",
+        "desc" : "신 기능들을 전부 다 알진 못하지만 꼭 필요한 만큼은 쓰는 것 같습니다 거의 15년 넘게 사용했습니다.",
         "category" : "Graphic Design",
         "color" : "#37c5fe",
         "bgPosition": " -32px -64px "  
@@ -134,7 +122,6 @@
     {
         "skillName" : "Premiere Pro",
         "skillLevel" : "7",
-        "skillLevelText" : "숙련됨.",
         "desc" : "영상이 취미라서, 컷편집이나 간단한 효과를 넣는 등 기본적인건 익숙한 편이고, 디자인 회사에서는 영상을 담당하기도 했습니다. 외주 업무도 다수 경험이 있습니다.",
         "category" : "Media Creating",
         "color" : "#df76ff",
@@ -143,7 +130,6 @@
     {
         "skillName" : "After Effects",
         "skillLevel" : "3",
-        "skillLevelText" : "조금 다룸.",
         "desc" : "템플릿 수정하거나 간단한 모션그래픽 정도는 합니다.",
         "category" : "Media Creating",
         "color" : "#b392ff",

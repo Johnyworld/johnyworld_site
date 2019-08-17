@@ -64,7 +64,8 @@ const dataLabSlider = [
         thumbnail: labBgBangCard,
         url: "http://bang-pickcard.s3-website.ap-northeast-2.amazonaws.com/",
         git: "https://github.com/Johnyworld/bang-cardpicker",
-        date: "2019. 03"
+        date: "2019. 03",
+        forMobile: true
     },
     {
         id: "03004",
@@ -81,7 +82,8 @@ const dataLabSlider = [
         thumbnail: labBgCrossRoad,
         date: "2018. 06",
         url: "http://dow-crossroad.s3-website.ap-northeast-2.amazonaws.com",
-        git: "https://github.com/Johnyworld/dowcrossroad"
+        git: "https://github.com/Johnyworld/dowcrossroad",
+        forMobile: true
     },
     {
         id: "03005",
@@ -98,7 +100,8 @@ const dataLabSlider = [
         thumbnail: labBgConv250,
         url: "http://conv-250.s3-website.ap-northeast-2.amazonaws.com/",
         git: "https://github.com/Johnyworld/conv250",
-        date: "2019. 03"
+        date: "2019. 03",
+        forMobile: true
     },
     {
         id: "03006",
@@ -115,7 +118,8 @@ const dataLabSlider = [
         thumbnail: labBgRpgMoving,
         url: "http://rpg-moving.s3-website.ap-northeast-2.amazonaws.com/",
         git: "https://github.com/Johnyworld/rpg-moving",
-        date: "2019. 03"
+        date: "2019. 03",
+        forMobile: true
     },
     {
         id: "03007",
@@ -131,7 +135,8 @@ const dataLabSlider = [
         thumbnail: labBgMasonry,
         date: "2018. 12",
         url: "http://jw-masonry-grid.s3-website.ap-northeast-2.amazonaws.com/",
-        git: "https://github.com/Johnyworld/masonlygrid"
+        git: "https://github.com/Johnyworld/masonlygrid",
+        forMobile: true
     },
     {
         id: "03008",
@@ -146,7 +151,8 @@ const dataLabSlider = [
         thumbnail: labBgModernPirates,
         url: "http://modern-pirates.s3-website.ap-northeast-2.amazonaws.com/",
         date: "2019. 05",
-        git: "https://github.com/Johnyworld/modern-pirates"
+        git: "https://github.com/Johnyworld/modern-pirates",
+        forMobile: true
     },
     {
         id: "03009",
@@ -162,7 +168,8 @@ const dataLabSlider = [
         thumbnail: labBgRoom311,
         date: "2019. 04",
         url: "https://johnyworld.github.io/room311/",
-        git: "https://github.com/Johnyworld/room311"
+        git: "https://github.com/Johnyworld/room311",
+        forMobile: true
     },
 ];
 

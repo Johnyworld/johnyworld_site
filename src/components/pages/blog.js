@@ -3,13 +3,14 @@ import SubpageHeading from '../partials/subpage-heading';
 import { animInCrossSlide, animOutLoading, animInAppear, setBeforeLoading } from '../func/animates';
 import jsonFile from '../data/data-blog.json';
 import './blog.css';
+const jsonFileRev = jsonFile.reverse();
 
 class Blog extends Component {
     constructor(props) {
         super(props);
         this.state = {
             loded: false,
-            dataBlog : jsonFile
+            dataBlog : jsonFileRev
         }
         this.wasHome = true;
 
@@ -85,7 +86,7 @@ class Blog extends Component {
     }
 
     _renderContent() {
-        const dataBlog = this.state.dataBlog.reverse();
+        const dataBlog = this.state.dataBlog;
         return(
             <>
                 <SubpageHeading hugetitle="BLOG" subtext="자유롭게 써내려가는 개발 일지." />

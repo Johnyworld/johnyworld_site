@@ -122,7 +122,7 @@
     {
         "id": 10,
         "title": "Element.animate()",
-        "category": "Today I Learned",
+        "category": "Daily Note",
         "date": "2019. 7. 21. Sun.",
         "hash": [ "Javascript" ],
         "content": [
@@ -139,11 +139,105 @@
             "버튼을 많이 누르게 되는 앱에는 꼭 필요한 기능이다.",
             {
                 "type": "code",
-                "content": "/* for HTML head */\n<meta name='viewport' content='width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no'>;"
+                "content": "/* HTML <head> */\n<meta name='viewport' content='width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no'>;"
             },
             {
                 "type": "code",
-                "content": "/* for Javascript */\nvar lastTouchEnd = 0;\ndocument.documentElement.addEventListener('touchend', function (event) {\n   var now = (new Date()).getTime();\n   if (now - lastTouchEnd <= 300) {\n      event.preventDefault();\n   }\n   lastTouchEnd = now;\n}, false);"
+                "content": "/* Javascript */\nvar lastTouchEnd = 0;\ndocument.documentElement.addEventListener('touchend', function (event) {\n   var now = (new Date()).getTime();\n   if (now - lastTouchEnd <= 300) {\n      event.preventDefault();\n   }\n   lastTouchEnd = now;\n}, false);"
+            }
+        ]
+    },
+    {
+        "id": 12,
+        "title": "Submit value",
+        "category": "Today I Learned",
+        "date": "2019. 7. 29. Mon.",
+        "hash": [ "React", "Javascript", "HTML" ],
+        "content" : [
+            "Submit Handler에서 Input의 Value에 접근하는 방법",
+            {
+                "type": "code",
+                "content": "/* HTML */\n<form onSubmit={this.handleSubmit}>\n   <input type='text' name='yourInputName'></input>\n</form>"
+            },
+            {
+                "type": "code",
+                "content": "/* Javascript */\nhandleSubmit(event){\n   console.log(event.target.yourInputName);\n}"
+            }
+        ]
+    },
+    {
+        "id": 13,
+        "title": "Geo Location",
+        "category": "Useful Thing",
+        "date": "2019. 8. 4. Sun.",
+        "hash": [ "Javascript" ],
+        "content" : [
+            "지오로케이션 좌표(위도, 경도) 받기",
+            {
+                "type": "code",
+                "content": "navigator.geolocation.getCurrentPosition(\n   position => {\n      console.log(position);\n   }\n);"
+            }
+        ]
+    },
+    {
+        "id": 14,
+        "title": "GraphQL, Prisma, Apollo.",
+        "category": "Daily Note",
+        "date": "2019. 8. 13. Tue.",
+        "hash": [ "GraphQL" ],
+        "content" : [
+            "GraphQL은 한마디로 데이터베이스이고, Prisma는 GraphQL을 아주 쉽게 사용할 수 있게 제공되는 서비스이다. Apollo는 프론트엔드에서 GraphQL을 쉽게 사용할 수 있게 도와준다. MongoDB를 배울때보다 훨씬 쉽게 DB를 구축할 수 있었다. 심지어 Prisma는 무료로 DB서버를 제공해 준다!! 나중에 양이 많아지면 요금이 붙는지는 잘 모르겠다."
+        ]
+    },
+    {
+        "id": 15,
+        "title": "for문 에서의 var와 let의 차이",
+        "category": "Today I Learned",
+        "date": "2019. 8. 16. Fri.",
+        "hash": [ "Javascript" ],
+        "content": [
+            "기본적으로 {-var-}의 스코프는 함수 기준으로 귀속되고, {-let-}의 스코프는 좀 더 지역적인 {-{}-} 에 귀속된다. 따라서 for문에서 {-i-}를 {-var-}로 선언하느냐 {-let-}으로 선언하느냐에 따라 차이가 발생하는데, for문 선언 이후에 for문 내에서 이벤트가 발생했을때, {-for(var i=0; i<2; i++){...}-}의 경우 for문 외 함수의 스코프에서 {-i-}값을 찾기 때문에 {-i-}는 언제나 {-2-}로 리턴된다. 하지만 {-for(let i=0; i<2; i++){...}-}의 경우 for 문 내의 {-{}-} 에 따로 스코프가 생성되기 때문에 각 루프마다 {-{i=0}, {i=1}, {i=2}-}의 스코프를 유지하게된다."
+        ]
+    },
+    {
+        "id": 16,
+        "title": "클로저와 스코프",
+        "category": "Today I Learned",
+        "date": "2019. 8. 17. Sat.",
+        "hash": [ "Javascript" ],
+        "content" : [
+            "예전에 배웠던 내용이지만 사용할 일이 많지 않았어서, 다시 까먹지 않기 위해 글로 재정리 함. ",
+            {
+                "type": "code",
+                "content" : "function outer(a) {\n   var total = 0;\n   var b = 3;\n   function inner(a) {\n      total += a;\n      console.log(total);\n      console.log(b);\n   }\n   return inner;\n   }\nconst sum = outer(a);\nsum();"
+            },
+            "일단 내가 이해한 Scope의 개념부터 설명하자면, 한마디로 {b-각 지역 내에 있는 데이터 표-b}의 개념으로 이해했다. {-inner()-}의 스코프에는 {-total-}과 매개변수로 전달 된 {-a-}의 값이 들어있을것이고, {-outer()-}의 스코프에는 {-total-}과 매개변수 {-a-}는 물론이고 {-b-}의 값도 들어있을 것이다.",
+            {
+                "type": "code",
+                "content" : "inner의 스코프 : total, a\nouter의 스코프 : total, a, b"
+            },
+            
+            "{-inner()-}함수가 실행되면서 {-b-}의값을 {-console.log-}로 찍어야 하는데 {-inner()-}함수의 스코프에는 {-b-}가 없다. 그래서 {-inner()-}함수를 감싸고 있는 {-outer()-}함수의 스코프에서 {-b-}를 찾게 된다. ({-outer()-}에도 없으면 전역변수에서 찾는다.)",
+            "일반적인 함수에서는 한번 사용된? 변수는 사라진다고 생각하게 되는데, {-outer()-}함수가 {-inner()-}함수를 리턴하면서, {-outer()-}함수의 스코프는 {-inner()-}{b-함수가 계속 가지고 있기 때문에-b} 아래 {-sum();-}을 실행했을 때 {-inner()-}함수를 리턴한 {-outer()-}함수가 실행되고, 결국 {-inner()-}가 실행되면서 {-total-}, {-b-}의 스코프는 여전히 존재하게 된다.",
+            "이렇게 두개의 함수를 이용해 독립적인 스코프가 생성이 된다. 이러한 형태를 클로저라 한다."
+        ]
+    },
+    {
+        "id": 17,
+        "title": "애니메이션을 위한 콜백 함수",
+        "category": "Useful Thing",
+        "date": "2019. 8. 17. Sat.",
+        "hash": [ "Javascript", "Animation" ],
+        "content": [
+            "이미 누군가 사용하고 있을 것 같지만, 어쨌든 내가 유용하게 사용하기 위해 함수를 만들었다. 기존의 {-setTimeout()-} 함수는 비동기이기 때문에 브라우저의 타이머에게 작업을 넘기고, {b-다른 일부터-b} 진행한다. (그리고 시간이 되면 {b-큐-b}에 등록되었다가 {b-콜스택-b}으로 옮겨져 작업을 수행한다.)",
+            "애니메이션을 사용하고 싶을 때 분명 {b-\"이거부터 하고, 끝나면 이거 해\"-b}라는 명령을 내려야 할 때가 많다. 그 경우 {-setTimeout()-}은 잘 맞지 않다. 아래의 함수는 {b-동기로 작업-b}이 진행되서 애니메이션에 유용하게 사용할 수 있다. {-setTimeout()-}과는 다르게, 시간 인자를 앞으로 뒀다.",
+            {
+                "type": "code",
+                "content" : "/* function */\nconst cbTimeout = (delay, callback) => {\n   return new Promise(res => {\n      setTimeout(()=>{\n         res(callback());\n      }, delay)\n   })\n}\n"
+            },   
+            {
+                "type": "code",
+                "content" : "/* useage */\nconst animation = async() => {\n   await cbTimeout( 1000, () => element1.style.opacity = 0 );\n   await cbTimeout( 1000, () => element2.classList.style.width = 0 );\n   ...blabla...\n}\n// 함수 실행 후 1초 후에 element1.style.opacity = 0 실행.\n// 함수 실행 후 2초 후에 element2.classList.style.width = 0 실행."
             }
         ]
     }

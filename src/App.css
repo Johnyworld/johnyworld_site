@@ -2,6 +2,7 @@
 /* -------------------------------------- */
 @import url('https://fonts.googleapis.com/css?family=Squada+One&display=swap');
 @import url('https://db.onlinewebfonts.com/c/1db29588408eadbd4406aae9238555eb?family=Consolas');
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR:300&display=swap');
 @font-face { font-family: 'S-CoreDream-3Light'; 
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff') format('woff'); 
     font-weight: normal; font-style: normal; }
@@ -11,6 +12,7 @@
 @font-face { font-family: 'S-CoreDream-9Black'; 
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-9Black.woff') format('woff'); 
     font-weight: normal; font-style: normal; }
+    
 
 /* Resets */
 /* -------------------------------------- */
@@ -57,7 +59,7 @@ button:hover { cursor: inherit; }
 .f-title { font-family: 'S-CoreDream-1Thin', serif; font-size: 72px; font-weight: 200; line-height: 1.2; word-break: keep-all; }
 .f-heading { font-size: 48px; font-weight: 300; word-break: keep-all; }
 .f-subhead { font-size: 24px; font-weight: 300; line-height: 1.6; word-break: keep-all; }
-.f-normal { font-family: 'S-CoreDream-3Light', serif; font-size: 18px; line-height: 1.9; color: #777;  }
+.f-normal { font-family: 'Noto Sans KR', sans-serif; font-size: 18px; line-height: 1.9; color: #777; font-weight: 300; }
 .f-normal strong { color: #ccc; }
 .f-center { text-align: center; }
 .f-eng { letter-spacing: 0; }

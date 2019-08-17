@@ -15,6 +15,14 @@ export const reactRouteScrollTop = () => {
     window.scrollTo(0, 0);
 }
 
+export const cbTimeout = (delay, callback) => {
+    return new Promise(res => {
+        setTimeout(()=>{
+            res(callback());
+        }, delay)
+    })
+}
+
 // Common Handlers
 export const topBtnHandler = () => {
     smoothScroll('body', 2000);

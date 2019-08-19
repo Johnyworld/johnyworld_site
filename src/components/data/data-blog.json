@@ -6,7 +6,7 @@
         "date": "2019. 6. 14. Fri.",
         "hash": [ "React" ],
         "content": [
-            "HTML태그를 조건적으로 짜고싶다면, 아래와 같이 {-? :-} 문을 이용할 수 있다. {-if-}는 jsx에서 사용이 안되는 것 같았다.",
+            "HTML태그를 조건적으로 짜고싶다면, 아래와 같이 삼항연산자 {-? :-} 를 이용할 수 있다. {-if-}는 jsx에서 사용이 안되는 것 같았다.",
             {
                 "type": "code",
                 "content" : "item.url\n   ? <a href={item.url} target='blank' className='btn-more'>새창</a>\n   : <Link to={/lab/${item.slug}} className='btn-more'>이동</Link>;"
@@ -20,7 +20,7 @@
         "date": "2019. 6. 14. Fri.",
         "hash": [ "React" ],
         "content": [
-            "HTML태그에 조건적으로 클래스네임을 주고싶다면, 아래와 같이 {-? :-} 문을 이용할 수 있다.",
+            "HTML태그에 조건적으로 클래스네임을 주고싶다면, 아래와 같이 삼항연산자 {-? :-} 를 이용할 수 있다.",
             {
                 "type" : "code",
                 "content" : "<div className={'item' + (isSelected ? ' selected' : '') }>"
@@ -196,7 +196,7 @@
         "date": "2019. 8. 16. Fri.",
         "hash": [ "Javascript" ],
         "content": [
-            "기본적으로 {-var-}의 스코프는 함수 기준으로 귀속되고, {-let-}의 스코프는 좀 더 지역적인 {-{}-} 에 귀속된다. 따라서 for문에서 {-i-}를 {-var-}로 선언하느냐 {-let-}으로 선언하느냐에 따라 차이가 발생하는데, for문 선언 이후에 for문 내에서 이벤트가 발생했을때, {-for(var i=0; i<2; i++){...}-}의 경우 for문 외 함수의 스코프에서 {-i-}값을 찾기 때문에 {-i-}는 언제나 {-2-}로 리턴된다. 하지만 {-for(let i=0; i<2; i++){...}-}의 경우 for 문 내의 {-{}-} 에 따로 스코프가 생성되기 때문에 각 루프마다 {-{i=0}, {i=1}, {i=2}-}의 스코프를 유지하게된다."
+            "기본적으로 {-var-}의 스코프는 함수 기준으로 귀속되고, {-let-}의 스코프는 좀 더 지역적인 블록({-{}-}) 에 귀속된다. 따라서 for문에서 {-i-}를 {-var-}로 선언하느냐 {-let-}으로 선언하느냐에 따라 차이가 발생하는데, for문 선언 이후에 for문 내에서 이벤트가 발생했을때, {-for(var i=0; i<2; i++){...}-}의 경우 for문 외 함수의 스코프에서 {-i-}값을 찾기 때문에 {-i-}는 언제나 {-2-}로 리턴된다. 하지만 {-for(let i=0; i<2; i++){...}-}의 경우 for 문 내의 블록({-{}-}) 에 따로 스코프가 생성되기 때문에 각 루프마다 {-{i=0}, {i=1}, {i=2}-}의 스코프를 유지하게된다."
         ]
     },
     {
@@ -223,22 +223,34 @@
         ]
     },
     {
-        "id": 17,
+        "id": 18,
         "title": "애니메이션을 위한 콜백 함수",
         "category": "Useful Thing",
         "date": "2019. 8. 17. Sat.",
         "hash": [ "Javascript", "Animation" ],
         "content": [
             "이미 누군가 사용하고 있을 것 같지만, 어쨌든 내가 유용하게 사용하기 위해 함수를 만들었다. 기존의 {-setTimeout()-} 함수는 비동기이기 때문에 브라우저의 타이머에게 작업을 넘기고, {b-다른 일부터-b} 진행한다. (그리고 시간이 되면 {b-큐-b}에 등록되었다가 {b-콜스택-b}으로 옮겨져 작업을 수행한다.)",
-            "애니메이션을 사용하고 싶을 때 분명 {b-\"이거부터 하고, 끝나면 이거 해\"-b}라는 명령을 내려야 할 때가 많다. 그 경우 {-setTimeout()-}은 잘 맞지 않다. 아래의 함수는 {b-동기로 작업-b}이 진행되서 애니메이션에 유용하게 사용할 수 있다. {-setTimeout()-}과는 다르게, 시간 인자를 앞으로 뒀다.",
+            "애니메이션을 사용하고 싶을 때 분명 {b-\"이거부터 하고, 끝나면 이거 해\"-b}라는 명령을 내려야 할 때가 많다. 그 경우 {-setTimeout()-}은 잘 맞지 않다. 아래의 함수는 {b-동기로 작업-b}이 진행되서 애니메이션에 유용하게 사용할 수 있다. {-setTimeout()-}과는 다르게, 시간 인자를 앞으로 뒀다. {b-반드시 async, await를 써줘야한다.-b}",
             {
                 "type": "code",
                 "content" : "/* function */\nconst cbTimeout = (delay, callback) => {\n   return new Promise(res => {\n      setTimeout(()=>{\n         res(callback());\n      }, delay)\n   })\n}\n"
             },   
             {
                 "type": "code",
-                "content" : "/* useage */\nconst animation = async() => {\n   await cbTimeout( 1000, () => element1.style.opacity = 0 );\n   await cbTimeout( 1000, () => element2.classList.style.width = 0 );\n   ...blabla...\n}\n// 함수 실행 후 1초 후에 element1.style.opacity = 0 실행.\n// 함수 실행 후 2초 후에 element2.classList.style.width = 0 실행."
+                "content" : "/* usage */\nconst animation = async() => {\n   await cbTimeout( 1000, () => element1.style.opacity = 0 );\n   await cbTimeout( 1000, () => element2.classList.style.width = 0 );\n   ...blabla...\n}\n// 함수 실행 후 1초 후에 element1.style.opacity = 0 실행.\n// 함수 실행 후 2초 후에 element2.classList.style.width = 0 실행."
             }
+        ]
+    },
+    {
+        "id": 19,
+        "title": "프론트엔드 개발자",
+        "category": "Blabla",
+        "date": "2019. 8. 19. Mon.",
+        "hash": [ "Blabla" ],
+        "content": [
+            "한때는 디자이너였다가 한때는 퍼블리셔가 되기 위해 준비했다가 지금은 프론트엔드 개발자를 준비하고 있다. 프론트엔드 개발자와 퍼블리셔의 차이점도 모른 채 공부했고 디자이너의 관점에서 코드를 바라보며 하나, 하나 구현해보고 싶은 것들 -게임, 슬라이더, UI 등- 을 라이브러리의 도움 없이 구현해보았다. 그러다보니 겉모습을 화려하게 만드는 것은 꽤나 그럴 듯 해 보이게 만들게 됐지만, 개발자의 마인드로 코드를 바라보는 법은 몰랐다.",
+            "프론트엔드 개발자는 \"개발자\"다. 코더도 아니고 퍼블리셔도 아니고 디자이너도 아니다. 분명 개발자의 시선을 가져야 했다. 이걸 깨달은 순간부터 다시 또 방향을 잡고 달리기 시작했다. 알아가면 알아갈수록 가야할 길이 더 멀다는게 보인다.",
+            "'멀다는게 보인다' 라고 해서 '멀다'에 집중하지 말고 '보인다'에 집중하기로 했다. 길이 보이기 시작했다면 그게 아무리 멀어도 꾸준히 가다보면 어느 새 뒤돌아봤을 때 시작점에서 꽤나 멀어졌다는 것을 보게 될 것이다. div 태그가 뭔지 알게된지 2년도 채 안된 지금까지도 그래왔듯이."
         ]
     }
 ]

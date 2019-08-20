@@ -1,0 +1,66 @@
+@import '../../../scss/modules.scss';
+
+/* Top 버튼 */
+.button-top {
+    @include regularButton;
+    transition: .5s;
+    bottom: 80px;
+
+    .icon {
+        width: 15px;
+        height: 15px;
+        margin: auto;
+        border-top: 2px solid;
+        border-left: 2px solid;
+        border-color: #888;
+        transform: rotate(45deg);
+        transition: .5s;
+    }
+
+    .f-subhead {
+        color: #888;
+        text-align: center;
+        margin: 0 -3px;
+        line-height: 1;
+        transition: .5s;
+    }
+
+    &:hover {
+        .icon {
+            transform: rotate(405deg) scale(1.5);
+            border-color: #3976fe;
+        }
+
+        .f-subhead {
+            color: #fff;
+        }
+        
+    }
+}
+
+
+
+@media screen and ( max-width: 1023px ) {
+    .button-top {
+        right: 50px;
+        bottom: 50px;
+        left: auto;
+        background-color: rgba( 0, 0, 0, .8 );
+        border-radius: 50px;
+    }
+
+    .button-top .icon {
+        margin-top: -4px;
+    }
+
+    .button-top .f-subhead {
+        font-size: 21px;
+    }
+}
+
+@media screen and ( max-width: 767px ) {
+    .button-top {
+        right: 30px;
+        bottom: 30px;
+    }
+}

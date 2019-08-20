@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import LabSlider from './components/partials/lab-slider';
-import ToySliderMobile from './components/partials/toy-slider-mobile.js';
+import ToySlider from './components/partials/ToySlider';
+import ToySliderMobile from './components/partials/ToySliderMobile';
 
 import { 
     mouseMoving, 
@@ -14,15 +14,20 @@ import {
     cbTimeout,
     topBtnHandler } from './components/func/functions';
 
-import './home.css';
+import './Home.scss';
 
 class Home extends Component {
     constructor(props) {
         super(props);
         this.state = {
             loaded : false,
+            isMobile : navigator.userAgent.match(/(iPad)|(iPhone)|(iPod)|(android)|(webOS)/i),
+            outLinks : [
+                { title: "Behance", url: "https://www.behance.net/johnykim1"},
+                { title: "GitHub", url: "https://github.com/Johnyworld"},
+                { title: "Codepen", url: "https://codepen.io/johnyworld/"}
+            ]
         }
-        this.isMobile = navigator.userAgent.match(/(iPad)|(iPhone)|(iPod)|(android)|(webOS)/i);
     }
 
     componentDidMount() {
@@ -65,8 +70,8 @@ class Home extends Component {
         const jsMenuBgRightChild = document.getElementById('jsMenuBgRightChild');
         const jsMenuVerticalLine = document.getElementById('jsMenuVerticalLine');
         const jsCodeLabBtn = document.getElementById('jsCodeLabBtn');
-        const jsCodeLabBtnWrap = document.getElementById('jsCodeLabBtnWrap');
-        const homeLaboratory = document.getElementById('home-Laboratory');
+        const jsGotoToyProject = document.getElementById('jsGotoToyProject');
+        const homeLaboratory = document.getElementById('homeToySlider');
         const homeLaboratoryThumbnail = homeLaboratory.getElementsByClassName('image-wrap');
         const jsLabSliderIndex = document.getElementById('jsLabSliderIndex');
 
@@ -86,7 +91,7 @@ class Home extends Component {
             mouseMoving(mouse, jsMenuRight, 2, 20, true);
             mouseMoving(mouse, jsMenuBgLeft, 10, 20, true);
             mouseMoving(mouse, jsMenuBgRight, 10, 20, true);
-            mouseMoving(mouse, jsCodeLabBtnWrap, 20, 12, true);
+            mouseMoving(mouse, jsGotoToyProject, 20, 12, true);
             }
         }
 
@@ -160,7 +165,7 @@ class Home extends Component {
                 homeLaboratoryThumbnail[i].classList.remove('slide-hide');
             }
             jsLabSliderIndex.classList.remove('slide-hide');
-            smoothScroll('#home-Laboratory', 2000);
+            smoothScroll('#homeToySlider', 2000);
             this.props.history.replace('/#study');
         }
 
@@ -298,13 +303,13 @@ class Home extends Component {
         mainMenuAddHoverEvent();
         handleNotGnbSection();
         setMouseHover();
-        // reactRouteScrollTop();
     }
 
     _nowLoading() {
         const jsLoading = document.getElementById('jsLoading');
         const jsFullScreenWrap01 = document.getElementById('jsFullScreenWrap01');
         const jsFullScreenWrap02 = document.getElementById('jsFullScreenWrap02');
+        const { isMobile } = this.state;
 
         const handleLoaded = () => {
         animOutFade(jsLoading, 1500);
@@ -312,7 +317,7 @@ class Home extends Component {
                 this.setState({
                     loaded: true
                 });
-                if ( !this.isMobile ) { this._animate();}
+                if ( !isMobile ) { this._animate();}
                 else { this._mobileFuncs(); }
                 jsFullScreenWrap01.style.transition = '1.5s';
                 jsFullScreenWrap01.style.opacity = '0';
@@ -323,29 +328,29 @@ class Home extends Component {
                     jsFullScreenWrap01.style.opacity = '1';
                     jsLoading.style.display = 'none';
                     jsLoading.style.opacity = '1';
-                    // jsFullScreenWrap01.style.transition = '1s';
                 }, 1500);
             }, 1000);
         }
 
         setBeforeLoading(jsFullScreenWrap01, jsFullScreenWrap02, jsLoading);
         handleLoaded();
-        
-        // window.addEventListener( 'load', handleLoaded.bind(this));
     }
 
     _renderContent() {
+        const { outLinks } = this.state;
         return (
             <>
                 <div className="home-main">
                     <div className="vertical-line" id="jsMenuVerticalLine">
                         <div className="links">
-                            {/* <a className="c-gray-dark f-eng f-normal" href="https://www.behance.net/johnykim1" target="blank" style={{ opacity: .5 }}>Behance</a> */}
-                            <a className="c-gray-dark f-eng f-subhead" href="https://github.com/Johnyworld" target="blank">GitHub</a>
-                            {/* <a className="c-gray-dark f-eng f-normal" href="https://codepen.io/johnyworld/" target="blank" style={{ opacity: .5 }}>Codepen</a> */}
+                            { outLinks.map((item, key) => {
+                                return (
+                                    <a className="link-item c-gray-dark f-eng f-normal" href={item.url} target="blank" key={`outlinks-${key}`}>{item.title}</a>
+                                )
+                            })}
                         </div>
                         <div className="line"></div>
-                        <div className="bottom" id="jsCodeLabBtnWrap">
+                        <div className="bottom" id="jsGotoToyProject">
                             <button className="view-toy-btn f-subhead f-eng-title" id="jsCodeLabBtn">TOY PROJECT</button>
                         </div>
                     </div>
@@ -359,14 +364,15 @@ class Home extends Component {
                         <div className="menu-btn right" id="jsMenuBtnRight"><button className="f-hugetitle item right" id="jsMenuRight">ABOUT</button></div>
                     </div>
                 </div>
-                <div className="home-section home-Laboratory" id="home-Laboratory">
-                    <LabSlider history={this.props.history} />
+                <div className="home-toyslider" id="homeToySlider">
+                    <ToySlider history={this.props.history} />
                 </div>
             </>
         )
     }
 
     _renderMobile() {
+        const { outLinks } = this.state;
         return (
             <>
                 <div className="home-mobile-main">
@@ -378,9 +384,11 @@ class Home extends Component {
                                 <button className="f-bigtitle item" id="jsMobileMenu03">BLOG</button>
                             </li>
                             <li className="l-col l-col-4-12">
-                                <a className="link-item c-gray-dark f-eng f-normal" href="https://www.behance.net/johnykim1" target="blank">Behance</a>
-                                <a className="link-item c-gray-dark f-eng f-normal" href="https://github.com/Johnyworld" target="blank">GitHub</a>
-                                <a className="link-item c-gray-dark f-eng f-normal" href="https://codepen.io/johnyworld/" target="blank">Codepen</a>
+                                { outLinks.map((item, key) => {
+                                    return (
+                                        <a className="link-item c-gray-dark f-eng f-normal" href={item.url} target="blank" key={`outlinks-${key}`}>{item.title}</a>
+                                    )
+                                })}
                             </li>
                         </ul>
                     </div>
@@ -396,7 +404,8 @@ class Home extends Component {
     }
 
     render() {
-        if ( this.isMobile ) {
+        const { isMobile } = this.state;
+        if ( isMobile ) {
             return(
                 <content className="home-wrapper">
                     {this.state.loaded ? this._renderMobile() : 'Loading' }

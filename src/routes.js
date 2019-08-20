@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
-import WorkDetail from './components/pages/work-detail';
-import Work from './components/pages/work';
-import About from './components/pages/about';
-import Blog from './components/pages/blog';
-import Header from './components/partials/header';
-import LabDetail from './components/pages/lab-detail';
+import WorkDetail from './components/pages/WorkDetail';
+import Work from './components/pages/Work';
+import About from './components/pages/About';
+import Blog from './components/pages/Blog';
+import Header from './components/partials/Header';
+import SliderDetail from './components/pages/SliderDetail';
 
 import {animInLoading} from './components/func/animates';
 import {reloadRoute} from './components/func/functions';
@@ -31,7 +31,7 @@ class Routes extends Component {
         const jsFullScreenWrap02 = document.getElementById('jsFullScreenWrap02');
         const jsLoading = document.getElementById('jsLoading');
 
-        const handleBtnHamberger = (event) => {
+        const handleBtnHamburger = (event) => {
             let href;
     
             if (event.target.id === 'jsBtnGnbWork') { href = '/work'; }
@@ -49,10 +49,10 @@ class Routes extends Component {
                 reloadRoute(this.history, href);
             }, 1300);
         }
-        jsBtnGnbWork.addEventListener( 'click', handleBtnHamberger );
-        jsBtnGnbAbout.addEventListener( 'click', handleBtnHamberger );
-        jsBtnGnbBlog.addEventListener( 'click', handleBtnHamberger );
-        jsBtnGnbToy.addEventListener( 'click', handleBtnHamberger );
+        jsBtnGnbWork.addEventListener( 'click', handleBtnHamburger );
+        jsBtnGnbAbout.addEventListener( 'click', handleBtnHamburger );
+        jsBtnGnbBlog.addEventListener( 'click', handleBtnHamburger );
+        jsBtnGnbToy.addEventListener( 'click', handleBtnHamburger );
     }
     
 
@@ -64,8 +64,8 @@ class Routes extends Component {
                 <Route exact path="/work" component={Work} />
                 <Route exact path="/about" component={About} />
                 <Route exact path="/blog" component={Blog} />
-                <Route path="/blog/:blogid" component={Work} />
-                <Route path="/lab/:id" component={LabDetail} />
+                {/* <Route path="/blog/:blogid" component={Work} /> */}
+                <Route path="/lab/:id" component={SliderDetail} />
             </Router>
         )
     }

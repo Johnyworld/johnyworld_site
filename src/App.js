@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-import Home from './home';
-import Routes from './routes';
+import Home from './Home';
+import Routes from './Routes';
+import FullscreenCover from './components/partials/FullscreenCover';
 
-import './App.css';
+import './App.scss';
 
 class App extends Component {
     render() {
@@ -17,13 +18,7 @@ class App extends Component {
                     <Route path="/work" component={Routes} />
                     <Route path="/lab" component={Routes} />
                 </Switch>
-                
-                <div className="fullscreen-wrapper">
-                    <div id="jsMouseChild"></div>
-                    <div id="jsFullScreenWrap02"></div>
-                    <div id="jsFullScreenWrap01"></div>
-                    <div id="jsLoading"></div>
-                </div>
+                <FullscreenCover />
             </Router>
         );
     }

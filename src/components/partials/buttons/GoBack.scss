@@ -1,0 +1,35 @@
+@import '../../../scss/modules.scss';
+
+/* 뒤로가기 버튼 */
+.back-btn {
+    @include regularButton;
+    top: 160px;
+    outline: none;
+
+    .arrow {
+        margin-left: 4px;
+        width: 24px;
+        height: 24px;
+        transform: rotate(-45deg) scale(1.0);
+        transition: .5s;
+        border: 3px solid #888;
+        border-bottom: 0;
+        border-right: 0;
+    }
+
+    &:hover {
+        .arrow {
+            transform: rotate(315deg) scale(1.1);
+            border-color: white;
+        }
+    }
+}
+
+@media screen and ( max-width: 1023px ) {
+    .back-btn {
+        top: 0;
+        left: 0;
+    }
+}
+
+

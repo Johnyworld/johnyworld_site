@@ -1,0 +1,11 @@
+body, ul, li, div, p, h1, h2, h3, h5, button {
+    padding: 0; margin: 0; border: 0; background: none; }
+* { box-sizing: border-box; }
+html { overscroll-behavior: smooth; }
+body { background-color: #111; color: #bbb; font-family: 'S-CoreDream-3Light', 'sans-serif'; cursor: url('./images/pointer.png') 15 15, auto; }
+a { text-decoration: none; color: inherit; }
+li { list-style-type: none; }
+button { outline: none; font-family: inherit; color: inherit; font-size: inherit; }
+a:hover,
+button:hover { cursor: inherit; }
+::selection { background-color: #be1c7b; color: white; }

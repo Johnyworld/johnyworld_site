@@ -1,0 +1,40 @@
+.jsTitleChildren { 
+    opacity: 0; 
+    transform: translateY(50px); 
+    transition: 1s; 
+
+    &.is-appear { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
+}
+
+.jsAppearBtT { 
+    opacity: 0; 
+    transform: translateY(80px) skewY(-3deg); 
+    transition: 1s; 
+
+    &.is-appear { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
+}
+
+.jsAppearFadein { 
+    opacity: 0; 
+    transition: 1s; 
+    &.is-appear { 
+        opacity: 1; 
+    }
+}
+
+.jsAppearSlideToR { 
+    opacity: 0; 
+    width: 0; 
+    overflow: hidden; 
+    transition: 1.5s; 
+    &.is-appear { 
+        opacity: 1; 
+        width: 100%;
+    }
+}

@@ -1,0 +1,17 @@
+.slider-detail {
+    min-width: 100vw;
+    min-height: 100vh;
+    position: relative;
+    margin: auto;
+    text-align: center;
+
+    .slider-detail-title {
+        padding-top: 160px;
+    }
+}
+
+#canvasCollision2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+}

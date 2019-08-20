@@ -1,0 +1,23 @@
+$blueDarkColor: #5c709e;
+$blueBrightColor: #296dff;
+$wineDarkColor: #8d4256;
+$wineColor: #b34260;
+$windBrightColor: #ff4b7b;
+$grayDarkColor: #555;
+$grayColor: #777;
+$grayBrightColor: #aaa;
+$whiteColor: #fff;
+$whiteGrayColor: #ccc;
+$darkColor: #333;
+$blackColor: #0a0a0a;
+
+.c-blue-dark { color: $blueDarkColor; }
+.c-blue-bright { color: $blueBrightColor; }
+.c-wine-dark { color: $wineDarkColor; }
+.c-wine { color: $wineDarkColor; }
+.c-wine-bright { color: $windBrightColor; }
+.c-gray-dark { color: $grayDarkColor; }
+.c-gray-bright { color: $grayBrightColor; }
+.c-white { color: $whiteColor; }
+.bc-dark { background-color: $darkColor; }
+.bc-black { background-color: $blackColor; }

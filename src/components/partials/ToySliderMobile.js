@@ -1,4 +1,3 @@
-/* eslint-disable no-loop-func */
 import React, { Component } from 'react';
 
 import dataLabSliderReverse from '../data/data-lab-slider';

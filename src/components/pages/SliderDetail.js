@@ -3,13 +3,13 @@ import { reactRouteScrollTop } from '../func/functions';
 import { setMouseHover, animOutLoading, setBeforeLoading } from '../func/animates';
 import dataLabslider from '../data/data-lab-slider';
 
-import canvasCollision2Script from './lab-detail/canvas-collision2';
-import MarioKart from './lab-detail/mariokart';
+import canvasCollision2Script from './slider-detail/canvas-collision2';
+import MarioKart from './slider-detail/mariokart';
 
 
-import './lab-detail.css';
+import './SliderDetail.scss';
 
-class LabDetail extends Component {
+class SliderDetail extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -67,10 +67,10 @@ class LabDetail extends Component {
 
         return (
             <>
-                <content className="lab-detail">
-                    <h1 className="lab-detail-title f-title f-eng-title">{this.data.title}</h1>
+                <main className="slider-detail">
+                    <h1 className="slider-detail-title f-title f-eng-title">{this.data.title}</h1>
                     {labDetailContent}
-                </content>
+                </main>
             </>
         )
     }
@@ -84,4 +84,4 @@ class LabDetail extends Component {
     }
 }
 
-export default LabDetail;
+export default SliderDetail;

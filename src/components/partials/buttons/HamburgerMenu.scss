@@ -1,0 +1,172 @@
+@import '../../../scss/modules.scss';
+
+// Button
+.hamburger-button {
+    @include regularButton;
+    bottom: 160px;
+
+    .lines-wrap {
+        position: relative;
+        width: 100%;
+        height: 100%;
+
+        .line {
+            position: absolute;
+            display: block;
+            left: 0;
+            right: 0;
+            height: 3px;
+            border-radius: 3px;
+            margin: 0 auto;
+            background-color: #888;
+            transition: .5s;
+            transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+            &.line1 { 
+                top: 1px; 
+
+                &.cue1 {
+                    top: 9px;
+                    transform: rotate(0deg);
+                }
+                &.cue2 {
+                    transform: rotate(135deg);
+                    animation-name: line1;
+                    animation-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+                    animation-duration: .5s;
+                    animation-direction: normal;
+                }
+            }
+
+            &.line2 { 
+                top: 9px; 
+                right: 5px; 
+            
+                &.cue1 { opacity: 1; }
+                &.cue2 { opacity: 0; }
+            }
+
+            &.line3 { 
+                top: 17px; 
+
+                &.cue1 {
+                    top: 9px;
+                    transform: rotate(0deg);
+                }
+                &.cue2 {
+                    transform: rotate(45deg);
+                    animation-name: line3;
+                    animation-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+                    animation-duration: .5s;
+                    animation-direction: normal;
+                }
+            }
+        }
+    }
+    &:hover {
+        .line {
+            background-color: white;
+            &.line2 { right: 0; }
+        }
+    }
+}
+
+// Menu
+.hamburger-menu {
+    @include regularButton;
+    bottom: 200px;
+    left: 45%;
+    height: auto;
+    width: auto;
+    margin-top: 10px;
+
+    li {
+        opacity: 0;
+        transition: 1s;
+        transform: skew( -15deg ) translateY( 100px );
+
+        &:nth-child(2) { transform: skew( -17deg ) translateY( 125px ); }
+        &:nth-child(3) { transform: skew( -19deg ) translateY( 150px ); }
+        &:nth-child(4) { transform: skew( -21deg ) translateY( 175px ); }
+        
+        .menu-item {
+            font-size: 42px;
+            white-space: nowrap;
+            display: block;
+            letter-spacing: 0em;
+            transition: .5s;
+            color: #555;
+
+            &:hover {
+                letter-spacing: .1em;
+                transform: skew( -15deg );
+                color: #ddd;
+            }
+
+            &.is-disabled {
+                opacity: .2;
+                pointer-events: none;
+            }
+        }
+    }
+
+    li, li .menu-item {
+        pointer-events: none;
+    }
+
+    &.is-active {
+        li {
+            opacity: 1;
+            transform: skew( 0 ) translateY( 0 );
+        }
+        li, li .menu-item {
+            pointer-events: all;
+        }
+    }
+}
+
+@keyframes line1 {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(135deg);
+    }
+}
+
+@keyframes line3 {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(45deg);
+    }
+}
+
+
+
+@media screen and ( max-width: 1023px ) {
+    .hamburger-button {
+        top: 0;
+        right: 0;
+        left: auto;
+    } 
+
+    .hamburger-menu {
+        top: 0;
+        bottom: auto;
+        left: auto;
+        right: 50px;
+    }
+
+    .hamburger-menu li {
+        background-color: #000;
+        padding: .2em .5em .2em .7em;
+    }
+
+    .hamburger-menu .menu-item:hover {
+        letter-spacing: 0;
+        transform: none;
+        color: #ddd;
+    }
+}

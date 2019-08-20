@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import BigpictureLogoSVG from './bigpicture-ent-svglogo';
-import StyleSheetItem from '../work-detail-stylesheet';
+import StyleSheetItem from '../WorkDetailStylesheet';
 import NormalSection from './sections/normal-section';
 
 import styleColors from '../../../images/work-detail-bigpic/bigpic-style-color.png';

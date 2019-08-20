@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-
-import SubpageHeading from '../partials/subpage-heading';
+import SubpageHeading from '../partials/SubpageHeading';
 import { 
     animInCrossSlide, 
     animOutFade,
@@ -12,14 +11,31 @@ import {
     setMouseHover } from '../func/animates';
 import { reactRouteScrollTop } from '../func/functions';
 import dataWorkReverse from '../data/data-work';
-import './work.css';
+import './Work.scss';
 
 class Work extends Component {
     constructor(props) {
         super(props);
         this.state = {
             loaded : false,
-            dataWork : dataWorkReverse
+            dataWork : dataWorkReverse,
+            subtext : '고객을 위한 하나의 생각들.',
+            portfolioHistory : [
+                {
+                    year: '2019',
+                    title: '"The FOCUS" 지금 보고계십니다.'
+                },
+                {
+                    year: '2018',
+                    title: `"Hello I'm Johny" 보기`,
+                    url: 'http://johnyworld.com/2018/index.html'
+                },
+                {
+                    year: '2013',
+                    title: '"The Grand Launching" 보기',
+                    url: 'http://johnyworld.com/2013/grandlaunching_web.pdf'
+                }
+            ]
         }
         this.linkTo = null;
         this.wasHome = true;
@@ -53,7 +69,7 @@ class Work extends Component {
         const jsLoading = document.getElementById('jsLoading');
         const jsFullScreenWrap01 = document.getElementById('jsFullScreenWrap01');
         const jsFullScreenWrap02 = document.getElementById('jsFullScreenWrap02');
-        const headerButtons = document.getElementsByClassName('header-buttons');
+        const headerButtons = document.getElementsByClassName('jsAnimButtons');
         
         const handleLoaded = () => {
             setTimeout(() => {
@@ -116,10 +132,10 @@ class Work extends Component {
         const jsLoading = document.getElementById('jsLoading');
         const workItemWrap = document.getElementById('workItemWrap');
         const workItems = workItemWrap.getElementsByClassName('item');
-        const headerButtons = document.getElementsByClassName('header-buttons');
+        const headerButtons = document.getElementsByClassName('jsAnimButtons');
         const jsBtnBack = document.getElementById('jsBtnBack');
-        const jsBtnGnb = document.getElementById('jsBtnGnb');
-        const jsHamberger = document.getElementById('jsHamberger');
+        const jsBtnGnb = document.getElementById('jsBtnHamburger');
+        const jsHamburgerMenu = document.getElementById('jsHamburgerMenu');
         
         animOutFade(jsBigmenuBigtitle, 500);
         animOutFade(jsBigmenuTitle, 500);
@@ -146,19 +162,19 @@ class Work extends Component {
             // jsLoading.style.display = "none";
             jsBtnBack.classList.remove('is-hidden');
             jsBtnGnb.classList.remove('is-hidden');
-            jsHamberger.classList.remove('is-hidden');
+            jsHamburgerMenu.classList.remove('is-hidden');
         }, 2100);
     }
 
     _renderContent() {
-        const { dataWork } = this.state;
+        const { dataWork, subtext, portfolioHistory } = this.state;
         return (
             <>
-                <SubpageHeading hugetitle="WORK" subtext="고객을 위한 하나의 생각들." />
+                <SubpageHeading hugetitle="WORK" subtext={subtext} />
                 <div className="l-wrapper-sticked">
                     <WorkItems dataWork={dataWork} goToDetail={this.goToDetail.bind(this)} />
                 </div>
-                <PortfolioHistory />
+                <PortfolioHistory portfolioHistory={portfolioHistory} />
             </>
         )
     }
@@ -213,16 +229,22 @@ function WorkItem({title, category, slug, thumbnail, goToDetail}) {
     )
 }
 
-function PortfolioHistory() {
+function PortfolioHistory({portfolioHistory}) {
     return (
         <div className="portfolio-history">
             <section>
                 <div className="l-wrapper">
                     <div className="text-wrap">
                         <h3 className="f-heading f-eng-title">Portfolio History</h3>
-                        <p className="f-normal link"><strong>2019</strong> | "The FOCUS" 지금 보고계십니다.</p>
-                        <p className="f-normal link"><a href="http://johnyworld.com/2018/index.html" target="blank" ><strong>2018</strong> | "Hello I'm Johny" 보기</a></p>
-                        <p className="f-normal link"><a href="http://johnyworld.com/2013/grandlaunching_web.pdf" target="blank" ><strong>2013</strong> | "The Grand Launching" 보기</a></p>
+                        { portfolioHistory.map( (item, key) => {
+                            return (
+                                <p className="f-normal link" key={`portfolio-history-${key}`}>
+                                    {item.url
+                                        ? <a href={item.url} target="blank" ><strong>{item.year}</strong> | {item.title}</a>
+                                        : <><strong>{item.year}</strong> | {item.title}</> }
+                                </p>
+                            )
+                        })}
                     </div>
                 </div>
             </section>

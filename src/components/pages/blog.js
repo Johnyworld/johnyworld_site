@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
-import SubpageHeading from '../partials/subpage-heading';
+import SubpageHeading from '../partials/SubpageHeading';
 import { animInCrossSlide, animOutLoading, animInAppear, setBeforeLoading } from '../func/animates';
 import jsonFile from '../data/data-blog.json';
-import './blog.css';
+import './Blog.scss';
 const jsonFileRev = jsonFile.reverse();
 
 class Blog extends Component {
@@ -10,7 +10,8 @@ class Blog extends Component {
         super(props);
         this.state = {
             loded: false,
-            dataBlog : jsonFileRev
+            dataBlog : jsonFileRev,
+            subtext: '자유롭게 써내려가는 개발 일지.'
         }
         this.wasHome = true;
 
@@ -86,26 +87,11 @@ class Blog extends Component {
     }
 
     _renderContent() {
-        const dataBlog = this.state.dataBlog;
+        const { subtext, dataBlog } = this.state;
         return(
             <>
-                <SubpageHeading hugetitle="BLOG" subtext="자유롭게 써내려가는 개발 일지." />
-                <section className="blog-items">
-                    <div className="l-wrapper">
-                        {dataBlog.map((item, key) => {
-                            return (
-                                <BlogItems
-                                    title={item.title}
-                                    category={item.category}
-                                    date={item.date}
-                                    hash={item.hash}
-                                    content={item.content}
-                                    key={'blog-item-'+key} 
-                                />
-                            )
-                        })}
-                    </div>
-                </section>
+                <SubpageHeading hugetitle="BLOG" subtext={subtext} />
+                <BlogItems dataBlog={dataBlog} />
             </>
         )
     }
@@ -119,7 +105,28 @@ class Blog extends Component {
     }
 }
 
-function BlogItems({ title, category, date, hash, content }) {
+function BlogItems({dataBlog}){
+    return (
+        <section className="sec-blog-items">
+            <div className="l-wrapper">
+                {dataBlog.map((item, key) => {
+                    return (
+                        <BlogItem
+                            title={item.title}
+                            category={item.category}
+                            date={item.date}
+                            hash={item.hash}
+                            content={item.content}
+                            key={'blog-item-'+key} 
+                        />
+                    )
+                })}
+            </div>
+        </section>
+    )
+}
+
+function BlogItem({ title, category, date, hash, content }) {
     return (
         <div className="text-wrap blog-item jsAppearFadein">
             <ul className="l-row">
@@ -131,10 +138,10 @@ function BlogItems({ title, category, date, hash, content }) {
                 <li className="l-col l-col-8-12 l-col-m-12-12 jsAppearBtT">
                     <div className="f-normal blog-content">
                         <p className="c-wine-bright">{hash.map((hashitem) => `#${hashitem} `)}</p>
-                        { content.map( item => {
+                        { content.map((item, key) => {
                             if(item.type === 'code') {
                                 return (
-                                    <div className="blog-inner-paragraph blog-code">{item.content}</div>
+                                    <div className="blog-inner-paragraph blog-code" key={`blog-${key}`}>{item.content}</div>
                                 ) 
                             } else {
                                 const codeOpen = () => '<span class="blog-code">';
@@ -150,7 +157,7 @@ function BlogItems({ title, category, date, hash, content }) {
                                 let stringFinal = string05.replace(/-}/g, codeClose() );
                                 
                                 return (
-                                    <p className="blog-inner-paragraph" dangerouslySetInnerHTML={{__html: stringFinal}}></p>
+                                    <p className="blog-inner-paragraph" dangerouslySetInnerHTML={{__html: stringFinal}} key={`blog-${key}`}></p>
                                 )
                             }  
                         })}

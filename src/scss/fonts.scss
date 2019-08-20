@@ -1,0 +1,43 @@
+$fontTitleEn: 'Squada One', sans-serif;
+$fontTitleKrThin: 'S-CoreDream-1Thin', sans-serif;
+$fontTitleKrBold: 'S-CoreDream-9Black', sans-serif;
+$fontMain: 'Noto Sans KR', sans-serif;
+
+@mixin f-TitleEn {
+    font-family: $fontTitleEn;
+    font-weight: 400;
+    letter-spacing: 0;
+}
+
+.f-hugetitle { @include f-TitleEn; font-size: 220px; line-height: .8; text-transform: uppercase; }
+.f-bigtitle { @include f-TitleEn; font-size: 150px; line-height: .8; text-transform: uppercase; }
+.f-title { font-family: $fontTitleKrThin; font-size: 72px; line-height: 1.2; word-break: keep-all; }
+.f-heading { font-size: 48px; font-weight: 300; word-break: keep-all; }
+.f-subhead { font-size: 24px; font-weight: 300; line-height: 1.6; word-break: keep-all; }
+.f-normal { font-family: $fontMain; font-size: 18px; line-height: 1.9; color: $grayColor; font-weight: 300; white-space: pre-line; }
+.f-normal strong { color: $whiteGrayColor; }
+.f-center { text-align: center; }
+.f-eng { letter-spacing: 0; }
+.f-eng-title { @include f-TitleEn; }
+.f-bold { font-family: $fontTitleKrBold; }
+
+@media screen and ( max-width: 1400px ) {
+    .f-hugetitle { font-size: 180px; }
+}
+
+@media screen and ( max-width: 1023px ) {
+    .f-hugetitle { font-size: 145px; }
+    .f-bigtitle { font-size: 110px; }
+    .f-title { font-size: 52px; }
+    .f-heading { font-size: 34px; }
+    .f-subhead { font-size: 28px; }
+}
+
+@media screen and ( max-width: 767px ) {
+    .f-hugetitle { font-size: 110px; }
+    .f-bigtitle { font-size: 75px; }
+    .f-title { font-size: 40px; }
+    .f-heading { font-size: 28px; }
+    .f-subhead { font-size: 21px; }
+    .f-normal { font-size: 16px; white-space: normal; }
+}

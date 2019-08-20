@@ -1,0 +1,67 @@
+.subpage-content { overflow: hidden; }
+
+section {
+    margin: 150px 0;
+
+    .text-wrap {
+        margin: 0 7%; 
+        margin-bottom: 30px;
+
+        .f-title { margin-left: -.12em; margin-bottom: 20px; }
+        .f-heading { margin-bottom: 20px; }
+        .f-normal:not(:last-child) { margin-bottom: 30px; }
+        .f-normal strong { color: white; font-weight: 400; }
+    }
+
+    .image-wrap { overflow: hidden; }
+
+    .center-wrap { 
+        width: 100%; 
+        padding: 60px 0 80px; 
+        background-color: #282828; 
+
+        img { margin: 0 auto; }
+    }
+
+    .title-area {
+        > * { margin: 30px 0; }
+        > *:first-child { margin-top: 0; }
+        > *:last-child { margin-bottom: 0; }
+    } 
+
+    .bgimg { 
+        background-size: cover; 
+        background-position: center; 
+    }
+
+    img { display: block; width: 100%; }
+    iframe { display: block; }    
+}
+
+@media screen and ( max-width: 1023px ) {
+    .subpage-content { padding-top: 30px }
+}
+
+@media screen and ( max-width: 1023px ) {
+    section .text-wrap { margin: 0 15px; margin-bottom: 20px; }
+    .sec-detail-keyvisual { margin-bottom: 1px; }
+}
+
+@media screen and ( max-width: 767px ) {
+    section { 
+        margin: 80px 0; 
+
+        .text-wrap { 
+            margin: 0 10px; 
+            margin-bottom: 15px; 
+
+            &.title-area > * { margin: 30px 0; }
+        }
+
+        .center-wrap { padding: 20px 0 30px; }
+    }
+}
+
+@media screen and ( max-width: 450px ) {
+    section .text-wrap.title-area span { display: block }
+}

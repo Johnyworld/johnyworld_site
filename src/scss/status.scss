@@ -1,0 +1,12 @@
+/* States */
+/* -------------------------------------- */
+.is-hidden { opacity: 0 !important; pointer-events: none; }
+.retina-wrap { display: inline-block; }
+.retina-wrap > * { width: 50% !important; }
+.clear-fix::after { content: ' '; display: block; clear: both; }
+
+@media screen and ( max-width: 767px ) {
+    .dis-m { display: none; }
+    .hide-m { visibility: hidden; }
+    .show-m { visibility: visible; }
+}

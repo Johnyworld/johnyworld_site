@@ -1,0 +1,144 @@
+.about-wrapper { 
+    padding-top: 420px; 
+
+    .sec-keyvisual {
+
+        .floating-image-wrap {
+            height: 50vh;
+
+            .floating-image {
+                height: 60vh;
+                width: 80vw;
+                background-size: cover;
+            }
+        }
+    } 
+}
+
+.skill-item-container {
+    &:not(:last-child) { 
+        margin-bottom: 50px; 
+    }
+
+    > *:not(:last-child) { margin-bottom: 20px; }
+
+    .skill-logo { 
+        width: 32px; 
+        height: 32px; 
+        float: left; 
+        margin-right: 20px; 
+        margin-bottom: 2px; }
+
+    .f-subhead { font-family: 'S-CoreDream-9Black'; }
+    .f-normal span { display: inline-block; margin-right: 10px; }
+}
+
+
+/* EACH SECTION */
+/* -------------------------------------- */
+.sec-skills {
+    .skill-category-container {
+        padding-bottom: 70px; 
+        margin-bottom: 70px; 
+        border-bottom: 1px solid #222;
+
+        &:last-child { 
+            padding-bottom: 0; 
+            margin-bottom: 0; 
+            border-bottom: 0; 
+        }
+
+        .f-heading { font-family: 'S-CoreDream-9Black'; line-height: .8; }
+    }
+}
+
+.skill-part._title { 
+    display: flex; 
+    align-items: center; 
+
+    .f-subhead { white-space: nowrap; }
+}
+
+.skill-level-wrap { 
+    height: 2px; 
+    width: 50%; 
+    margin-left: auto; 
+    background-color: #333; 
+
+    .skill-level-bar { 
+        height: 2px; 
+        background-color: #777; 
+        transition: 1s; 
+
+        &.is-disabled { width: 0 !important; }
+    }
+}
+
+.sec-instagram {
+    margin: 200px 0 400px;
+
+    .l-row {
+        overflow: visible;
+    }
+
+    .insta-image-wrap {
+        overflow: hidden;
+        position: relative;
+
+        .insta-image {
+            background-size: cover;
+        }
+
+        .insta-caption {
+            position: absolute;
+            width: 100%;
+            top: 0;
+            bottom: 0;
+            padding: 10%;
+            color: white;
+            opacity: 0;
+            transition: 1.5s;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            word-break: break-word;
+            line-height: 2em;
+            height: 17em;
+        }
+
+        &:hover {
+            .insta-image {
+                transform: scale(1.1);
+                opacity: .2 !important;
+                transition: .3s;
+            }
+
+            .insta-caption {
+                opacity: 1;
+            }
+        }
+    }
+}
+
+.sec-contact {
+    .f-heading {
+        white-space: pre;
+    }
+
+    .f-subhead {
+        line-height: 2.3;    
+    }
+} 
+
+@media screen and ( max-width: 1023px ) {
+    .about-wrapper { padding-top: 220px; }
+    .sec-instagram { margin: 80px 0; }
+    
+}
+
+@media screen and ( max-width: 767px ) {
+    .about-wrapper { padding-top: 180px; }
+    .skill-level-wrap { width: 35%; }
+}

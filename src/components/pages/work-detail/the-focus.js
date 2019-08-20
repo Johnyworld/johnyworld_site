@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import StyleSheetItem from '../work-detail-stylesheet';
+import StyleSheetItem from '../WorkDetailStylesheet';
 import NormalSection from './sections/normal-section';
 
 import styleColors from '../../../images/work-detail-focus/focus-style-color.png';

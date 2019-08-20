@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import Axios from 'axios';
 
-import SubpageHeading from '../partials/subpage-heading';
+import SubpageHeading from '../partials/SubpageHeading';
 import {
     animOutLoading, 
     animInCrossSlide, 
@@ -11,7 +11,7 @@ import {
     setBeforeLoading,
     animInAppear } from '../func/animates';
 import { getAbsoluteTop } from '../func/functions';
-import './about.css';
+import './About.scss';
 import skillSprites from '../../images/about-skill-logos.png';
 import jsonFile from '../data/data-aboutskills.json';
 
@@ -29,7 +29,15 @@ class About extends Component {
         this.state = {
             loaded : false,
             instaImages : [],
-            dataSkills : jsonFile
+            dataSkills : jsonFile,
+            subtext: "꿈은 크고, 그것을 실행하는 사람.",
+            keyText: "세상을, 생활을 더 낫게 만들고 싶은 꿈은 결코 낡지 않습니다.\n나를 필요로 하는 곳에서, 생각하고, 스케치하고, 설계하고, 만들어냅니다.",
+            contactText: {
+                comment : "함께\n특별한 경험들을\n만들어요.",
+                email : "johnyworld@naver.com",
+                mobile : "+82 10 4806 3340",
+                address : "Seoul, Korea"
+            }
         }
         this.wasHome = true;
         this.skillCategories = this._getSkillCategories(this.state.dataSkills);
@@ -164,87 +172,16 @@ class About extends Component {
     }
 
     _renderContent() {
-        const { dataSkills } = this.state;
+        const { dataSkills, subtext, keyText, instaImages, contactText } = this.state;
         const skillCategories = this.skillCategories;
         return(
             <>
-                <SubpageHeading hugetitle="ABOUT" subtext="꿈은 크고, 그것을 실행하는 사람." />
+                <SubpageHeading hugetitle="ABOUT" subtext={subtext} />
                 <div className="about-wrapper">
-                    {/* 키비주얼 */}
-                    {/* ------------------------------ */}
-                    <section className="sec-keyvisual">
-                        <div className="l-wrapper">
-                            <div className="text-wrap">
-                                <p className="f-normal jsAppearBtT">
-                                    세상을, 생활을 더 낫게 만들고 싶은 꿈은 결코 낡지 않습니다.<br className="dis-m" />
-                                    나를 필요로 하는 곳에서, 생각하고, 스케치하고, 설계하고, 만들어냅니다.
-                                </p>
-                            </div>
-                        </div>
-                        <div className="l-wrapper-full">
-                            <div className="bgimg-wrap jsAppearSlideToR">
-                                <div className="bgimg jsScrollParallaxImage" style={{ backgroundImage: 'url(' + imgAboutKey + ')' }} />
-                            </div>
-                        </div>
-                    </section>
-
-                    {/* 스킬 */}
-                    {/* ------------------------------ */}
-                    <section className="sec-skills" id="jsSectionSkills">
-                        <div className="l-wrapper">
-                            <div className="text-wrap">
-                                {skillCategories.map((category, key) => {
-                                    return (
-                                        <SkillCategories category={category} skillData={dataSkills} key={'skill-category-'+key} />
-                                    )
-                                })}
-                            </div>
-                        </div>
-                    </section>
-
-                    {/* 인스타그램 */}
-                    {/* ------------------------------ */}
-                    <section className="sec-instagram" id="jsSecInstagram">
-                        <div className="l-wrapper">
-                            <ul className="l-row gap90 clear-fix">
-                                { this.state.instaImages.map((item, key) => {
-                                    return (
-                                        key < 6 ? 
-                                            <InstagramItems 
-                                                link={item.link}
-                                                caption={item.caption}
-                                                images={item.images}
-                                                key={'instagram-'+key} 
-                                            />
-                                        : ''
-                                    )}
-                                )}
-                            </ul>
-                        </div>
-                    </section>
-
-                    {/* 컨택트 */}
-                    {/* ------------------------------ */}
-                    <section className="sec-contact">
-                        <div className="l-wrapper">
-                            <div className="text-wrap">
-                                <ul className="l-row">
-                                    <li className="l-col l-col-6-12 l-col-m-12-12">
-                                        <h3 className="f-heading">
-                                            함께<br />특별한 경험들을<br />만들어요.
-                                        </h3>
-                                    </li>
-                                    <li className="l-col l-col-6-12 l-col-m-12-12">
-                                        <p className="f-subhead">
-                                            johnyworld@naver.com<br />
-                                            +82 10 4806 3340<br />
-                                            Seoul, Korea
-                                        </p>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </section>
+                    <AboutKeyVisual keyText={keyText} />
+                    <AboutSkills skillCategories={skillCategories} dataSkills={dataSkills} />
+                    <AboutInstagram instaImages={instaImages} />
+                    <AboutContact contactText={contactText} />
                 </div>
             </>
         )
@@ -256,6 +193,39 @@ class About extends Component {
             </main>
         )
     }
+}
+
+function AboutKeyVisual({keyText}){
+    return (
+        <section className="sec-keyvisual">
+            <div className="l-wrapper">
+                <div className="text-wrap">
+                    <p className="f-normal jsAppearBtT">{keyText}</p>
+                </div>
+            </div>
+            <div className="l-wrapper-full">
+                <div className="bgimg-wrap jsAppearSlideToR">
+                    <div className="bgimg jsScrollParallaxImage" style={{ backgroundImage: 'url(' + imgAboutKey + ')' }} />
+                </div>
+            </div>
+        </section>
+    )
+}
+
+function AboutSkills({skillCategories, dataSkills}){
+    return (
+        <section className="sec-skills" id="jsSectionSkills">
+            <div className="l-wrapper">
+                <div className="text-wrap">
+                    {skillCategories.map((category, key) => {
+                        return (
+                            <SkillCategories category={category} skillData={dataSkills} key={'skill-category-'+key} />
+                        )
+                    })}
+                </div>
+            </div>
+        </section>
+    )
 }
 
 function SkillCategories({category, skillData}) {
@@ -304,6 +274,29 @@ function SkillItems({title, skillLevel, desc, color, bgPosition, category}) {
     )
 }
 
+function AboutInstagram({instaImages}) {
+    return (
+        <section className="sec-instagram" id="jsSecInstagram">
+            <div className="l-wrapper">
+                <ul className="l-row gap90 clear-fix">
+                    { instaImages.map((item, key) => {
+                        return (
+                            key < 6 ? 
+                                <InstagramItems 
+                                    link={item.link}
+                                    caption={item.caption}
+                                    images={item.images}
+                                    key={'instagram-'+key} 
+                                />
+                            : ''
+                        )}
+                    )}
+                </ul>
+            </div>
+        </section>
+    )
+}
+
 function InstagramItems({link, caption, images}) {
     return (
         <li className="l-col l-col-4-12 l-col-m-6-12 insta-image-li">
@@ -314,6 +307,30 @@ function InstagramItems({link, caption, images}) {
                 </div>
             </a>
         </li>
+    )
+}
+
+function AboutContact({contactText}) {
+    const { comment, email, mobile, address } = contactText;
+    return (
+        <section className="sec-contact">
+            <div className="l-wrapper">
+                <div className="text-wrap">
+                    <ul className="l-row">
+                        <li className="l-col l-col-6-12 l-col-m-12-12">
+                            <h3 className="f-heading">{comment}</h3>
+                        </li>
+                        <li className="l-col l-col-6-12 l-col-m-12-12">
+                            <p className="f-subhead">
+                                {email}<br />
+                                {mobile}<br />
+                                {address}
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
     )
 }
 

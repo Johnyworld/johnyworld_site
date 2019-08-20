@@ -1,0 +1,14 @@
+@mixin iconSize {
+    width: 67px;
+    height: 67px;
+}
+
+@mixin regularButton {
+    @include iconSize;
+    position: absolute;
+    left: 30%;
+    padding: 22px;
+    opacity: 0;
+    transform: translateX(100px);
+    transition: all cubic-bezier(.33,.78,.41,1) 1.5s;
+}

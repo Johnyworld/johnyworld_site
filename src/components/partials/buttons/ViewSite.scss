@@ -1,0 +1,23 @@
+.viewsite-btn { 
+    position: fixed; 
+    top: 260px; 
+    left: 6%; 
+    width: 67px; 
+    color: #bbb; 
+    z-index: 9998; 
+    text-align: center; 
+    line-height: 1.2; 
+    font-size: 14px; 
+    transition: .5s; 
+
+    &.is-hidden { 
+        display: block; 
+        opacity: 0; 
+        transform: scale(.5); 
+    }
+
+    &:hover { 
+        color: #ff4b7b; 
+        transform: scale(1.2); 
+    }
+}

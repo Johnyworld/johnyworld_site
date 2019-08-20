@@ -1,0 +1,152 @@
+.work-items {
+    position: relative;
+    top: 28vh;
+    margin-bottom: 150px;
+    padding-top: 135px;
+    width: 100%;
+
+    .l-row {
+        overflow: visible;
+        .l-col:nth-child(2n) {
+            transform: translateY(-25%);
+        }
+    }
+
+    .item {
+        display: block;
+        height: 23vw;
+        transition: opacity 1s;
+    }
+}
+
+.grid-item {
+    display: block;
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+
+    .background {
+        position: absolute;
+        top: 0; bottom: 0; left: 0; right: 0;
+        background-color: #111;
+        background-size: auto 100%;
+        background-position: center;
+        transition: .5s;
+        opacity: .7;
+    }
+
+    .textbox {
+        position: absolute;
+        top: 0; bottom: 0; left: 0; right: 0;
+        text-align: left;
+        padding: 10%;
+        color: white;
+        background-color: rgba(24, 22, 26, 0.7);
+        transition: .5s;
+        opacity: 0;
+
+        .bottom {
+            position: absolute;
+            bottom: 10%;
+        }
+
+        .f-heading {
+            text-transform: uppercase;
+        }
+
+        .f-normal {
+            color: #a098a3;
+        }
+
+        .category {
+            font-size: 16px;
+            font-weight: 600;
+            color: #ff75a3;
+        }
+    }
+
+    &:hover {
+        .textbox {
+            opacity: 1;
+        }
+
+        .background {
+            transform: scale(1.2);
+        }
+    } 
+}
+
+
+.portfolio-history { 
+    margin-bottom: 300px; 
+
+    .text-wrap {
+        .f-heading { font-size: 65px; margin-bottom: 70px; }
+        .link {
+            a { 
+                display: inline-block; 
+                border-bottom: 1px solid #333; 
+                transition: .5s;
+
+                &:hover { color: #aaa; border-color: #b34260; }
+            }
+        } 
+    } 
+}
+
+@media screen and ( max-width: 1400px ) {
+    .work-items { top: 210px; }
+}
+
+@media screen and ( max-width: 1023px ) {
+    .work-items { 
+        padding-top: 95px; 
+        margin-bottom: 300px; 
+        .item { height: 32vw; }
+    }
+
+    .portfolio-history { 
+        margin-bottom: 200px; 
+    }
+}
+
+@media screen and ( max-width: 767px ) {
+    .grid-item {
+        .textbox { 
+            opacity: .7; 
+            background-color: transparent; 
+
+            .category { 
+                display: none; 
+            }
+
+            .f-heading { 
+                font-size: 17px; 
+                width: 42vw; 
+            }
+        }
+    } 
+
+    .portfolio-history {
+        .text-wrap {
+            .f-heading { 
+                font-size: 38px; 
+                margin-bottom: 50px; 
+            }
+            .link:not(:last-child) { 
+                margin-bottom: 15px; 
+            }
+        }
+    }  
+}
+
+@media screen and ( max-width: 500px ) {
+    .bigmenu-title-wrapper .f-title {
+        font-size: 21px;
+        margin-left: 2px;
+    }
+
+    .work-items {
+        padding-top: 50px;
+    }
+}

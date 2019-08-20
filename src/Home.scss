@@ -1,0 +1,244 @@
+.home-wrapper { 
+    max-width: 100vw; 
+}
+
+.home-toyslider {
+    position: relative;
+    color: white;
+    text-align: center;
+    min-height: 100vh;
+}
+
+.home-main {
+    position: relative;
+    height: 100vh;
+    background-color: #111;
+
+    .vertical-line {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 100%;
+        text-align: center;
+        transform: translate(-50%, -50%);
+        transition: 1s;
+        opacity: 1;
+
+        .bottom {
+            display: inline-block;
+        }
+
+        .line { 
+            height: 65vh;
+            width: 1px;
+            margin: 35px auto;
+            background-color: white;
+            opacity: .1;
+        }
+
+        a, button {
+            margin: 0 15px;
+            padding: .3em .8em .2em;
+            position: relative;
+            display: inline-block;
+            transition: .5s;
+        }
+
+        button { 
+            font-size: 54px; 
+            padding: 0em .2em;
+            color: #777;
+            border-bottom: 1px solid #296dff;
+            line-height: 1.2;
+        }
+
+        a::before, button::before {
+            content: ' ';
+            position: absolute;
+            height: 0px;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ddd;
+            transition: .5s;
+            z-index: -5;
+        }
+
+        a:hover, button:hover {
+            color: black;
+            border-color: transparent;
+        }
+
+        a:hover::before, button:hover::before {
+            top: 0;
+            height: 100%;
+        }
+        
+    }
+}
+
+// 슬라이더 보기 버튼
+#jsGotoToyProject { transition: all 1s cubic-bezier(0.215, 0.610, 0.355, 1); }
+
+/* 메인메뉴 */
+/* ---------------------------------- */
+.menu-wrapper {
+    .item { 
+        transition: 1s; 
+        transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1); 
+        &.dim { 
+            color: #414953; 
+        }
+        &.focused { 
+            letter-spacing: .1em; 
+            color: white; 
+        }
+    }
+    
+    .menu-btn { 
+        display: block; 
+        position: absolute; 
+        top: 50%; 
+        left: 50%; 
+        transform: translate(-50%, -50%); 
+        transition: 1s; 
+        transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1); 
+
+        &.left { left: 0; }
+        &.left.aligned { left: 50% }
+        &.right { left: auto; right: 0; transform: translate(50%, -50%); }
+        &.right.aligned { right: 50% }
+    }
+
+    &.aligned {
+        .menu-btn { 
+            top: 80px; transform: translate(-50%, 0); 
+            &.right.aligned { transform: translate(50%, 0); }
+        }
+    } 
+
+    .item.bg { 
+        position: absolute; 
+        top: 50%; 
+        left: 0; 
+        width: 300px; 
+        height: 500px; 
+
+        .child { 
+            transform: translate( -50%, -50%); 
+            width: 100%; 
+            height: 100%; 
+            background-color: #222e3e; 
+            transition: 1.2s; 
+            transition-timing-function: cubic-bezier(.72,0,.19,1); 
+        }
+
+        &.right { 
+            right: 0; 
+            left: auto; 
+            .child { transform: translate( 50%, -50%); }
+            .child.cue1 { transform: translateY(-50%) translateX(-97vw); width: 120vw; transform-origin: right; }
+            .child.cue2 { transform: translateY(-50%) translateX(-97vw) scaleY(0); }
+        }
+
+        &.left {
+            .child.cue1 { transform: translate(-50%, -50%); height: 100vh !important; }
+            .child.cue2 { transform: translate(0, -50%); width: 120vw; }
+            .child.cue3 { transform: translate(0, -50%) scaleX(0); transform-origin: right; }
+        }
+    }
+} 
+
+@media screen and ( max-width: 1023px ) {
+    .menu-wrapper {
+        .menu-btn {
+            &.left { left: 50%; top: 35% }
+            &.right { right: 50%; top: 65% }
+        }
+        &.aligned .menu-btn { top: 97px; }
+    } 
+}
+
+/* 모바일 전용 */
+/* --------------------------------- */
+.home-mobile-main { 
+    margin-top: 80px; 
+    width: 100vw; 
+
+    .f-bigtitle { 
+        margin-bottom: 20px; 
+    }
+
+    .item { 
+        display: block; 
+    }
+
+    .link-item { 
+        display: block; 
+        cursor: pointer; 
+        border-bottom: 1px solid #444; 
+        padding-bottom: 15px; 
+        margin-bottom: 15px; 
+        margin-top: 6px; 
+        line-height: 1; 
+    }
+}
+
+/* 모바일 토이 슬라이더 */
+.home-mobile-toy-wrap { 
+    position: absolute; 
+    top: 70vh; 
+
+    .f-title { 
+        margin-bottom: 10px; 
+    }
+}
+
+.mobile-toy-slider-wrap { 
+    width: 100vw; 
+    height: 60vw; 
+    margin-bottom: 10vh; 
+    overflow-y: hidden; 
+    overflow-x: scroll; 
+    -ms-overflow-style: none; 
+
+    &::-webkit-scrollbar { display:none; } 
+}
+
+.mobile-toy-slider { 
+    width: 200vw; 
+    height: 60vw;
+    margin-left: 20px;  
+
+    .slider-item { 
+        display: block; 
+        background-color: #444; 
+        background-size: cover; 
+        background-position: center; 
+        position: relative; 
+        width: 60vw; 
+        height: 60vw; 
+        margin-right: 20px; 
+        float: left; 
+
+        .link { 
+            position: absolute; 
+            width: 100%; 
+            top: 0; 
+            bottom: 0; 
+        }
+
+        .f-heading { 
+            position: absolute; 
+            top: 15px; 
+            left: 15px; 
+        }
+
+        .git { 
+            position: absolute; 
+            bottom: 15px; 
+            left: 15px; 
+            line-height: 1.1; 
+        }
+    }
+}

@@ -1,0 +1,145 @@
+.detail-each {
+    section { 
+        padding: 150px 0 0; 
+        margin: 0; 
+
+        &:nth-child(2n-1) { background-color: #1d1d1d; }
+        &:nth-child(2n) { background-color: #111; }
+        &:nth-child(2n) .center-wrap { background-color: #191919; }
+
+        > * > * { margin-bottom: 70px; }
+        > *:last-child > *:last-child { margin-bottom: 0px; }
+
+        &.sec-bright { background-color: #222; }
+        &.sec-padded-end { padding-bottom: 150px; }
+        &.sec-style-guide {
+            .text-wrap:not(:last-child) { 
+                padding-bottom: 70px; 
+                border-bottom: 1px solid #292929; 
+            }
+        } 
+    }
+} 
+@media screen and ( max-width: 767px ) {
+    .detail-each {
+        section { 
+            padding-top: 80px;
+
+            &.sec-padded-end { padding-bottom: 80px; }
+            &.sec-style-guide .text-wrap:not(:last-child) { padding-bottom: 30px; }
+            > * > *:not(:last-child) { margin-bottom: 30px; }
+        }
+    } 
+}
+
+/* 키워드 */
+.project-info {
+    .keywords { 
+        display: inline-block; 
+        color: #aaa; 
+        overflow: hidden; 
+
+        li {
+            float: left; 
+            margin-right: 30px;
+
+            &:last-child { 
+                margin-right: 0; 
+            }
+
+            .btn-viewsite { 
+                color: #ff4b7b;
+                transition: .3s; 
+
+                &:hover { color: white; }
+            }
+        }
+    }
+} 
+
+/* 목업 */
+.mockup-wrap { 
+    position: relative; 
+
+    .mockup-img { 
+        width: 70vw; 
+        &.with-mobile { width: 63vw; margin: 0 auto 0 12vw; }
+    }
+
+    .mobile-img { 
+        position: absolute; 
+        bottom: -8em; 
+        left: 0; 
+        background-size: cover; 
+        width: 28%; 
+
+        &:hover { 
+            opacity: 0; 
+        }
+        
+        .mobile-img-screen { 
+            margin: 4%;
+            margin-bottom: 15%; 
+            width: 70.5%; 
+            background-size: cover; 
+        }
+    }   
+}
+@media screen and ( max-width: 1023px ) {
+    .mockup-wrap {
+        // .mockup { width: 90vw; margin: 0; }
+        .mockup-img { 
+            width: 90vw; 
+            &.with-mobile { width: 75vw; }
+        }
+    } 
+}
+@media screen and ( max-width: 767px ) {
+    .mockup-wrap {
+        .mobile-img { display: none; }
+        .mockup-img {
+            &.with-mobile { width: 90vw; margin: 0; }
+        }
+    } 
+}
+
+/* 키비주얼 */
+.bgimg-wrap { 
+    height: 40vh; 
+    .bgimg { width: 80vw; height: 50vh; }
+}
+@media screen and ( max-width: 1023px ) {
+    .bgimg-wrap { 
+        height: 30vh; 
+        .bgimg { width: 100vw; height: 40vh; }
+    }
+}
+@media screen and ( max-width: 767px ) {
+    .bgimg-wrap { 
+        height: 20vh; 
+        .bgimg { height: 30vh; }
+    }
+    
+}
+
+
+
+
+/* WORK DETAIL Each Pages */
+/* -------------------------------------- */
+/* 빅픽처 엔터테인먼트 */
+.biglogo-svg { display: block; width: 40%; height: 40%; margin: 0 auto; }
+
+@media screen and ( max-width: 1023px ) {
+    .next-and-prev { margin: 120px 0 180px; }
+    .viewsite-btn {
+        top: 20px;
+        left: 67px;
+    }
+}
+
+@media screen and ( max-width: 767px ) {
+    .next-and-prev { margin: 80px 0 150px; }
+    .next-and-prev .btn-wrap.prev { padding-right: 10px; }
+    .next-and-prev .btn-wrap.next { padding-left: 10px; }
+}

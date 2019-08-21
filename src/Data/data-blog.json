@@ -1,0 +1,285 @@
+[
+    {
+        "id": 1,
+        "title": "조건적 마크업",
+        "category": "Today I Learned",
+        "date": "2019. 6. 14. Fri.",
+        "hash": [ "React" ],
+        "content": [
+            "HTML태그를 조건적으로 짜고싶다면, 아래와 같이 삼항연산자 {-? :-} 를 이용할 수 있다. {-if-}는 jsx에서 사용이 안되는 것 같았다.",
+            {
+                "type": "code",
+                "content" : "item.url\n   ? <a href={item.url} target='blank' className='btn-more'>새창</a>\n   : <Link to={/lab/${item.slug}} className='btn-more'>이동</Link>;"
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "title": "조건적 클래스네임",
+        "category": "Today I Learned",
+        "date": "2019. 6. 14. Fri.",
+        "hash": [ "React" ],
+        "content": [
+            "HTML태그에 조건적으로 클래스네임을 주고싶다면, 아래와 같이 삼항연산자 {-? :-} 를 이용할 수 있다.",
+            {
+                "type" : "code",
+                "content" : "<div className={'item' + (isSelected ? ' selected' : '') }>"
+            },
+            {
+                "type" : "code",
+                "content" : "<div className={'item' + (key === 0 ? ' selected' : '') }>"
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "title": "이미지파일 불러오기",
+        "category": "Today I Learned",
+        "date": "2019. 6. 15. Sat.",
+        "hash": [ "React" ],
+        "content": [
+            "리액트 내에서 이미지 (또는 CSS파일) 등을 불러올 때, {-import-}로 불러와야 한다.",
+            {
+                "type" : "code",
+                "content" : "import ImgUrl from '../../Images/image.png';"
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "title": "this.props.history가 undefined일 때.",
+        "category": "Today I Learned",
+        "date": "2019. 6. 16. Sun.",
+        "hash": [ "React" ],
+        "content": [
+            "{-this.props.history-}는{-<Route>-}안에 있어야 불러와진다. 일반적인 컴포넌트는 {-<Header history='this.props.history' />-} 이렇게 사용하면 Header 컴포넌트 안에서 {-this.props.history-}를 사용할 수 있게 된다."
+        ]
+    },
+    {
+        "id": 5,
+        "title": "Link와 History에 관하여",
+        "category": "Today I Learned",
+        "date": "2019. 6. 18. Tue.",
+        "hash": [ "React" ],
+        "content": [
+            "어제 작성했던 work페이지의 Link태그에서 to 를 빼고 onClick 이벤트로 로딩화면을 구현했었는데, 잘 작동되는가 싶더니, 뒤로가기를 눌렀을 때 /work 페이지가 두번 history내역에 남아있는 것이었다.",
+            "즉, detail페이지에서 뒤로가면 work페이지로. 다시한번 뒤로가면 Home으로 가야하는데 그대로 work페이지에 머물러 있고, 한번 더 뒤로가기를 해야 Home으로 가지는 것이었다. 문제를 찾다가 Link 태그에 문제가 있다는 것을 발견했다.",
+            "아마도 to가 없이 생성된 Link는 onClick으로 페이지 전환 되기 전에 자기 자신인 work페이지를 history에 한번 더 등록해서 history상 work페이지가 두번 push된 것으로 보여진다. 그래서 Link태그를 Button으로 바꿔서 해보니까 잘 된다."
+        ]
+    },
+    {
+        "id": 6,
+        "title": "Wheel 이벤트 전파 막기!",
+        "category": "Scripts",
+        "date": "2019. 6. 18. Tue.",
+        "hash": [ "Javascript" ],
+        "content": [
+            "예전부터 window객체의 wheel 이벤트에 대해 {-preventDefault()-}가 적용되지 않는 문제를 겪었다. 오늘 답을 찾았다. 함수 다음 인자로 {-{passive: false}-} 를 주는 것이다. 아래 코드로 정리해보았다.",
+            {
+                "type": "code",
+                "content": "window.addEventListener( 'wheel', function(event) {\n   event.preventDefault();\n}, {passive: false});"
+            }
+        ]
+    },
+    {
+        "id": 7,
+        "title": "Environment Variables for React",
+        "category": "Today I Learned",
+        "date": "2019. 7. 3. Wed.",
+        "hash": [ "Javascript", "React", "Dotenv" ],
+        "content": [
+            "기본적으로 {b-Create-React-App-b}을 사용했다면, 굳이 Dotenv를 설치하지 않아도 된다는 것을 알아냈다. 그리고 .env파일 변수 이름 앞에는 반드시 {-REACT_APP_-}이라는 프리픽스를 붙여야 한다."
+        ] 
+    },
+    {
+        "id": 8,
+        "title": "숫자 앞에 0 붙이기",
+        "category": "Today I Learned",
+        "date": "2019. 7. 19. Fri.",
+        "hash": [ "Javascript" ],
+        "content": [
+            "{-n-}은 숫자. {-width-}는 자리 수를 의미한다.",
+            {
+                "type": "code",
+                "content": "const pad = (n, width) => {\n   n = n + '';\n   return n.length >= width ? n : new Array(width - n.length + 1).join('0') + n;\n}"
+            }
+        ]
+    },
+    {
+        "id": 9,
+        "title": "IOS Form CSS",
+        "category": "Today I Learned",
+        "date": "2019. 7. 19. Fri.",
+        "hash": [ "CSS" ],
+        "content": [
+            "Room311 웹앱을 개발하는 과정에서 Submit버튼에 대한 CSS가 자꾸 적용이 되지 않아서 답답했었는데 찾아보니, iOS에서 기본 내장스타일이 우선 적용되는 이슈가 있었다. 이 경우, CSS RESET 단계에 아래 코드를 추가해주면 된다.",
+            {
+                "type": "code",
+                "content": "input[type=submit] {-webkit-appearance:none;}"
+            }
+        ]
+    },
+    {
+        "id": 10,
+        "title": "Element.animate()",
+        "category": "Daily Note",
+        "date": "2019. 7. 21. Sun.",
+        "hash": [ "Javascript" ],
+        "content": [
+            "포트폴리오를 진행하면서 ES6 method중 {-Element.animate()-} method를 사용했었는데, 크로스브라우징 점검 과정에서 {b-Safari, Chrome for iOS, ie-b} 등 많은 브라우저에서 지원되지 않는 다는 것을 발견하고 모두 다른 방법으로 수정하였다. 쓰면 안되는 method였다..."
+        ]
+    },
+    {
+        "id": 11,
+        "title": "더블클릭 확대 방지",
+        "category": "Today I Learned",
+        "date": "2019. 7. 23. Tue.",
+        "hash": [ "Javascript" ],
+        "content": [
+            "버튼을 많이 누르게 되는 앱에는 꼭 필요한 기능이다.",
+            {
+                "type": "code",
+                "content": "/* HTML <head> */\n<meta name='viewport' content='width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no'>;"
+            },
+            {
+                "type": "code",
+                "content": "/* Javascript */\nvar lastTouchEnd = 0;\ndocument.documentElement.addEventListener('touchend', function (event) {\n   var now = (new Date()).getTime();\n   if (now - lastTouchEnd <= 300) {\n      event.preventDefault();\n   }\n   lastTouchEnd = now;\n}, false);"
+            }
+        ]
+    },
+    {
+        "id": 12,
+        "title": "Submit value",
+        "category": "Today I Learned",
+        "date": "2019. 7. 29. Mon.",
+        "hash": [ "React", "Javascript", "HTML" ],
+        "content" : [
+            "Submit Handler에서 Input의 Value에 접근하는 방법",
+            {
+                "type": "code",
+                "content": "/* HTML */\n<form onSubmit={this.handleSubmit}>\n   <input type='text' name='yourInputName'></input>\n</form>"
+            },
+            {
+                "type": "code",
+                "content": "/* Javascript */\nhandleSubmit(event){\n   console.log(event.target.yourInputName);\n}"
+            }
+        ]
+    },
+    {
+        "id": 13,
+        "title": "Geo Location",
+        "category": "Useful Thing",
+        "date": "2019. 8. 4. Sun.",
+        "hash": [ "Javascript" ],
+        "content" : [
+            "지오로케이션 좌표(위도, 경도) 받기",
+            {
+                "type": "code",
+                "content": "navigator.geolocation.getCurrentPosition(\n   position => {\n      console.log(position);\n   }\n);"
+            }
+        ]
+    },
+    {
+        "id": 14,
+        "title": "GraphQL, Prisma, Apollo.",
+        "category": "Daily Note",
+        "date": "2019. 8. 13. Tue.",
+        "hash": [ "GraphQL" ],
+        "content" : [
+            "GraphQL은 한마디로 데이터베이스이고, Prisma는 GraphQL을 아주 쉽게 사용할 수 있게 제공되는 서비스이다. Apollo는 프론트엔드에서 GraphQL을 쉽게 사용할 수 있게 도와준다. MongoDB를 배울때보다 훨씬 쉽게 DB를 구축할 수 있었다. 심지어 Prisma는 무료로 DB서버를 제공해 준다!! 나중에 양이 많아지면 요금이 붙는지는 잘 모르겠다."
+        ]
+    },
+    {
+        "id": 15,
+        "title": "for문 에서의 var와 let의 차이",
+        "category": "Today I Learned",
+        "date": "2019. 8. 16. Fri.",
+        "hash": [ "Javascript" ],
+        "content": [
+            "기본적으로 {-var-}의 스코프는 함수 기준으로 귀속되고, {-let-}의 스코프는 좀 더 지역적인 블록({-{}-}) 에 귀속된다. 따라서 for문에서 {-i-}를 {-var-}로 선언하느냐 {-let-}으로 선언하느냐에 따라 차이가 발생하는데, for문 선언 이후에 for문 내에서 이벤트가 발생했을때, {-for(var i=0; i<2; i++){...}-}의 경우 for문 외 함수의 스코프에서 {-i-}값을 찾기 때문에 {-i-}는 언제나 {-2-}로 리턴된다. 하지만 {-for(let i=0; i<2; i++){...}-}의 경우 for 문 내의 블록({-{}-}) 에 따로 스코프가 생성되기 때문에 각 루프마다 {-{i=0}, {i=1}, {i=2}-}의 스코프를 유지하게된다."
+        ]
+    },
+    {
+        "id": 16,
+        "title": "클로저와 스코프",
+        "category": "Today I Learned",
+        "date": "2019. 8. 17. Sat.",
+        "hash": [ "Javascript" ],
+        "content" : [
+            "예전에 배웠던 내용이지만 사용할 일이 많지 않았어서, 다시 까먹지 않기 위해 글로 재정리 함. ",
+            {
+                "type": "code",
+                "content" : "function outer(a) {\n   var total = 0;\n   var b = 3;\n   function inner(a) {\n      total += a;\n      console.log(total);\n      console.log(b);\n   }\n   return inner;\n   }\nconst sum = outer(a);\nsum();"
+            },
+            "일단 내가 이해한 Scope의 개념부터 설명하자면, 한마디로 {b-각 지역 내에 있는 데이터 표-b}의 개념으로 이해했다. {-inner()-}의 스코프에는 {-total-}과 매개변수로 전달 된 {-a-}의 값이 들어있을것이고, {-outer()-}의 스코프에는 {-total-}과 매개변수 {-a-}는 물론이고 {-b-}의 값도 들어있을 것이다.",
+            {
+                "type": "code",
+                "content" : "inner의 스코프 : total, a\nouter의 스코프 : total, a, b"
+            },
+            
+            "{-inner()-}함수가 실행되면서 {-b-}의값을 {-console.log-}로 찍어야 하는데 {-inner()-}함수의 스코프에는 {-b-}가 없다. 그래서 {-inner()-}함수를 감싸고 있는 {-outer()-}함수의 스코프에서 {-b-}를 찾게 된다. ({-outer()-}에도 없으면 전역변수에서 찾는다.)",
+            "일반적인 함수에서는 한번 사용된? 변수는 사라진다고 생각하게 되는데, {-outer()-}함수가 {-inner()-}함수를 리턴하면서, {-outer()-}함수의 스코프는 {-inner()-}{b-함수가 계속 가지고 있기 때문에-b} 아래 {-sum();-}을 실행했을 때 {-inner()-}함수를 리턴한 {-outer()-}함수가 실행되고, 결국 {-inner()-}가 실행되면서 {-total-}, {-b-}의 스코프는 여전히 존재하게 된다.",
+            "이렇게 두개의 함수를 이용해 독립적인 스코프가 생성이 된다. 이러한 형태를 클로저라 한다. 생성자와 사용하는 패턴이 비슷하다."
+        ]
+    },
+    {
+        "id": 18,
+        "title": "애니메이션을 위한 콜백 함수",
+        "category": "Useful Thing",
+        "date": "2019. 8. 17. Sat.",
+        "hash": [ "Javascript", "Animation" ],
+        "content": [
+            "이미 누군가 사용하고 있을 것 같지만, 어쨌든 내가 유용하게 사용하기 위해 함수를 만들었다. 기존의 {-setTimeout()-} 함수는 비동기이기 때문에 브라우저의 타이머에게 작업을 넘기고, {b-다른 일부터-b} 진행한다. (그리고 시간이 되면 {b-큐-b}에 등록되었다가 {b-콜스택-b}으로 옮겨져 작업을 수행한다.)",
+            "애니메이션을 사용하고 싶을 때 분명 {b-\"이거부터 하고, 끝나면 이거 해\"-b}라는 명령을 내려야 할 때가 많다. 그 경우 {-setTimeout()-}은 잘 맞지 않다. 아래의 함수는 {b-동기로 작업-b}이 진행되서 애니메이션에 유용하게 사용할 수 있다. {-setTimeout()-}과는 다르게, 시간 인자를 앞으로 뒀다. {b-반드시 async, await를 써줘야한다.-b}",
+            {
+                "type": "code",
+                "content" : "/* function */\nconst cbTimeout = (delay, callback) => {\n   return new Promise(res => {\n      setTimeout(()=>{\n         res(callback());\n      }, delay)\n   })\n}\n"
+            },   
+            {
+                "type": "code",
+                "content" : "/* usage */\nconst animation = async() => {\n   await cbTimeout( 1000, () => element1.style.opacity = 0 );\n   await cbTimeout( 1000, () => element2.classList.style.width = 0 );\n   ...blabla...\n}\n// 함수 실행 후 1초 후에 element1.style.opacity = 0 실행.\n// 함수 실행 후 2초 후에 element2.classList.style.width = 0 실행."
+            }
+        ]
+    },
+    {
+        "id": 19,
+        "title": "프론트엔드 개발자",
+        "category": "Blabla",
+        "date": "2019. 8. 19. Mon.",
+        "hash": [ "Blabla" ],
+        "content": [
+            "한때는 디자이너였다가 한때는 퍼블리셔가 되기 위해 준비했다가 지금은 프론트엔드 개발자를 준비하고 있다. 프론트엔드 개발자와 퍼블리셔의 차이점도 모른 채 공부했고 디자이너의 관점에서 코드를 바라보며 하나, 하나 구현해보고 싶은 것들 (게임, 슬라이더, UI 등) 을 라이브러리의 도움 없이 구현해보았다. 그러다보니 겉모습을 화려하게 만드는 것은 꽤나 그럴 듯 해 보이게 만들게 됐지만, 개발자의 마인드로 코드를 바라보는 법은 몰랐다.",
+            "프론트엔드 개발자는 \"개발자\"다. 코더도 아니고 퍼블리셔도 아니고 디자이너도 아니다. 분명 개발자의 시선을 가져야 했다. 이걸 깨달은 순간부터 다시 또 방향을 잡고 달리기 시작했다. 알아가면 알아갈수록 가야할 길이 더 멀다는게 보인다.",
+            "'멀다는게 보인다' 라고 해서 '멀다'에 집중하지 말고 '보인다'에 집중하기로 했다. 길이 보이기 시작했다면 그게 아무리 멀어도 꾸준히 가다보면 어느 새 뒤돌아봤을 때 시작점에서 꽤나 멀어졌다는 것을 보게 될 것이다. div 태그가 뭔지 알게된지 2년도 채 안된 지금까지도 그래왔듯이."
+        ]
+    },
+    {
+        "id": 20,
+        "title": "리액트 훅스 유즈스테이트",
+        "category": "React",
+        "date": "2019. 8. 21. Wed.",
+        "hash": [ "React", "Hooks", "Javascript" ],
+        "content": [
+            "{-setState()-} 대신 좀 더 간단하게 상태 관리를 할 수 있는 방법이다. 클래스 말고 {b-함수형 컴포넌트-b}에서도 상태 관리를 할 수 있다. 아래와 같은 방법으로 사용하면 {-setState()-}와 동일하게 사용할 수 있다. {-name-}부분은 직접 이름을 정해서 입력하면 되고, {-value-}부분도 자유롭게 정의하면 된다.",
+            {
+                "type": "code",
+                "content" : "/* import */\nimport {useState} from 'react';\n\n/* define */\nconst [name, setName] = useState('value');\n\n/* setState */\nsetName('newValue!');"
+            }
+            
+        ]
+    },
+    {
+        "id": 21,
+        "title": "리액트 아폴로 훅스",
+        "category": "React",
+        "date": "2019. 8. 21. Wed.",
+        "hash": [ "React", "Apollo", "Javascript" ],
+        "content": [
+            "그래프큐엘에서 만든 Query와 Mutation등의 데이터를 아폴로와 연결하는 방법.",
+            {
+                "type": "code",
+                "content" : "/* import */\nimport { gql } from 'apollo-boost';\nimport { useMutation } from 'react-apollo-hooks';\n\n/* apollo */\nconst LOG_IN = gql`\n   mutation requestSecret($email: String!) {\n      requestSecret(email: $email)\n   }\n`;\n\n/* front-end */\nconst [requestSecret] = useMutation( LOG_IN, {\n   update: (_, {data}) => {\n      const { requestSecret } = data;\n      if (!requestSecret) ...blabla...\n   },\n   variables: {email}\n}); // update는 mutation이 발생될 때 실행하는 함수이다.\n\n/* setState */\nrequestSecret();"
+            }
+        ]
+    }
+]

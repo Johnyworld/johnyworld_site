@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import dataLabSliderReverse from '../data/data-lab-slider';
+import dataLabSliderReverse from '../../Data/data-lab-slider';
 
 class ToySliderMobile extends Component {
     constructor(props) {

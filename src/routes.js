@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
-import WorkDetail from './components/pages/WorkDetail';
-import Work from './components/pages/Work';
-import About from './components/pages/About';
-import Blog from './components/pages/Blog';
-import Header from './components/partials/Header';
-import SliderDetail from './components/pages/SliderDetail';
+import WorkDetail from './Pages/WorkDetail';
+import Work from './Pages/Work';
+import About from './Pages/About';
+import Blog from './Pages/Blog';
+import Header from './Components/partials/Header';
+import SliderDetail from './Pages/SliderDetail';
 
-import {animInLoading} from './components/func/animates';
-import {reloadRoute} from './components/func/functions';
+import {animInLoading} from './Funcs/animates';
+import {reloadRoute} from './Funcs/functions';
 
 class Routes extends Component {
     constructor(props){

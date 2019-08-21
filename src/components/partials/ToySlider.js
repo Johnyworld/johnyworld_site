@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 
 import './ToySlider.scss';
-import dataLabSliderReverse from '../data/data-lab-slider';
+import dataLabSliderReverse from '../../Data/data-lab-slider';
 import labSliderScript, { labSliderIndex } from './ToySliderScript';
-import { animInLoading, smoothScroll } from '../func/animates';
-import SliderItem from './slider/SliderItem';
+import { animInLoading, smoothScroll } from '../../Funcs/animates';
+import SliderItem from '../slider/SliderItem';
 
 class LabSlider extends Component {
     constructor(props) {

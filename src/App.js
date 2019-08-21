@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-import Home from './Home';
+import Home from './Pages/Home';
 import Routes from './Routes';
-import FullscreenCover from './components/partials/FullscreenCover';
+import FullscreenCover from './Components/partials/FullscreenCover';
 
 import './App.scss';
 

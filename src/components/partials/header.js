@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import { 
     setMouseHover, 
     scrollFadeIn, 
-    loadHeader } from '../func/animates';
+    loadHeader } from '../../Funcs/animates';
 
-import HamburgerMenu from './buttons/HamburgerMenu';
-import GoBack from './buttons/GoBack';
-import GoTop from './buttons/GoTop';
+import HamburgerMenu from '../buttons/HamburgerMenu';
+import GoBack from '../buttons/GoBack';
+import GoTop from '../buttons/GoTop';
 
 import './Header.scss';
 

@@ -11,14 +11,14 @@
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-9Black.woff') format('woff'); 
     font-weight: normal; font-style: normal; }
     
-@import './scss/reset.scss';
-@import './scss/theme.scss';
-@import './scss/fonts.scss';
-@import './scss/layout.scss';
-@import './scss/content-layout.scss';
-@import './scss/modules.scss';
-@import './scss/animates.scss';
-@import './scss/status.scss';
+@import './Styles/reset.scss';
+@import './Styles/theme.scss';
+@import './Styles/fonts.scss';
+@import './Styles/layout.scss';
+@import './Styles/content-layout.scss';
+@import './Styles/modules.scss';
+@import './Styles/animates.scss';
+@import './Styles/status.scss';
 
 main.subpage-content {
     overflow-x: hidden;

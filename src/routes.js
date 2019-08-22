@@ -9,60 +9,52 @@ import Header from './Components/partials/Header';
 import SliderDetail from './Pages/SliderDetail';
 
 import {animInLoading} from './Funcs/animates';
-import {reloadRoute} from './Funcs/functions';
+import {reloadRoute, cbTimeout} from './Funcs/functions';
 
 class Routes extends Component {
     constructor(props){
         super(props);
         this.goBack = this.goBack.bind(this);
         this.history = this.props.history;
+        this.location = this.props.location;
     }
 
     goBack() {
         this.props.history.goBack();
     }
 
-    componentDidMount() {
-        const jsBtnGnbWork = document.getElementById('jsBtnGnbWork');
-        const jsBtnGnbAbout = document.getElementById('jsBtnGnbAbout');
-        const jsBtnGnbBlog = document.getElementById('jsBtnGnbBlog');
-        const jsBtnGnbToy = document.getElementById('jsBtnGnbToy');
+    anim_wheel(event) {
+        let nowScroll = window.scrollY;
+        const workItemWrap = document.getElementById('workItemWrap');
+        const workItems = workItemWrap.getElementsByClassName('item');
+        event.target.style.transform = 'translateY(-'+ nowScroll +'px)';
+    }
+
+    anim_moveToRoute() {
         const jsFullScreenWrap01 = document.getElementById('jsFullScreenWrap01');
         const jsFullScreenWrap02 = document.getElementById('jsFullScreenWrap02');
         const jsLoading = document.getElementById('jsLoading');
-
-        const handleBtnHamburger = (event) => {
-            let href;
-    
-            if (event.target.id === 'jsBtnGnbWork') { href = '/work'; }
-            if (event.target.id === 'jsBtnGnbAbout') { href = '/about'; }
-            if (event.target.id === 'jsBtnGnbBlog') { href = '/blog'; }
-            if (event.target.id === 'jsBtnGnbToy') { href = '/#study'; }
-            
-            animInLoading( jsFullScreenWrap01, jsFullScreenWrap02, jsLoading );
-
-            setTimeout(()=>{
-                jsBtnGnbWork.classList.remove('is-disabled');
-                jsBtnGnbAbout.classList.remove('is-disabled');
-                jsBtnGnbBlog.classList.remove('is-disabled');
-                jsBtnGnbToy.classList.remove('is-disabled');
-                reloadRoute(this.history, href);
-            }, 1300);
-        }
-        jsBtnGnbWork.addEventListener( 'click', handleBtnHamburger );
-        jsBtnGnbAbout.addEventListener( 'click', handleBtnHamburger );
-        jsBtnGnbBlog.addEventListener( 'click', handleBtnHamburger );
-        jsBtnGnbToy.addEventListener( 'click', handleBtnHamburger );
+        animInLoading( jsFullScreenWrap01, jsFullScreenWrap02, jsLoading );
     }
-    
+
+    clos_moveToRoute() {
+        return async(event) => {
+            const href = event.target.dataset.goto;
+            console.log(href);
+            this.anim_moveToRoute();
+            await cbTimeout(1300, ()=>{ reloadRoute(this.history, href); });
+        }
+    }
+
+    func_moveToRoute = this.clos_moveToRoute();
 
     render() {
         return (
             <Router>
-                <Header goBack={this.goBack} />
-                <Route path="/work/:workid" component={WorkDetail} />
-                <Route exact path="/work" component={Work} />
-                <Route exact path="/about" component={About} />
+                <Header goBack={this.goBack} func_moveToRoute={this.func_moveToRoute}/>
+                <Route exact path="/work" component={()=><Work history={this.history} location={this.location} />
+                <Route path="/work/:workid" component={()=><WorkDetail history={this.history} location={this.location} func_moveToRoute={this.func_moveToRoute}/>} />
+                <Route exact path="/about" component={()=><About history={this.history} location={this.location} func_moveToRoute={this.func_moveToRoute}/>} />
                 <Route exact path="/blog" component={Blog} />
                 {/* <Route path="/blog/:blogid" component={Work} /> */}
                 <Route path="/lab/:id" component={SliderDetail} />

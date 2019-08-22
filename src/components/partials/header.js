@@ -28,7 +28,7 @@ class Header extends Component {
         return(
             <header id="jsHeader">
                 <GoBack goBack={this.props.goBack} />
-                <HamburgerMenu />
+                <HamburgerMenu func_moveToRoute={this.props.func_moveToRoute}/>
                 <GoTop />
             </header>
         )

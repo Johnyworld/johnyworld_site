@@ -60,6 +60,7 @@ export default class HamburgerMenu extends Component {
     }
 
     render() {
+        const {func_moveToRoute} = this.props;
         return (
             <>
                 <button className="jsAnimButtons hamburger-button" id="jsBtnHamburger">
@@ -70,10 +71,10 @@ export default class HamburgerMenu extends Component {
                     </div>
                 </button>
                 <ul className="jsAnimButtons hamburger-menu" id="jsHamburgerMenu">
-                    <li key="toWork" className="f-eng-title"><button className="menu-item" id="jsBtnGnbWork">WORK</button></li>
-                    <li key="toAbout" className="f-eng-title"><button className="menu-item" id="jsBtnGnbAbout">ABOUT</button></li>
-                    <li key="toBlog" className="f-eng-title"><button className="menu-item" id="jsBtnGnbBlog">BLOG</button></li>
-                    <li key="toToy" className="f-eng-title"><button className="menu-item" id="jsBtnGnbToy">TOY-PJ</button></li>
+                    <li key="toWork" className="f-eng-title"><button className="menu-item" id="jsBtnGnbWork" onClick={func_moveToRoute} data-goto="/work">WORK</button></li>
+                    <li key="toAbout" className="f-eng-title"><button className="menu-item" id="jsBtnGnbAbout" onClick={func_moveToRoute} data-goto="/about">ABOUT</button></li>
+                    <li key="toBlog" className="f-eng-title"><button className="menu-item" id="jsBtnGnbBlog" onClick={func_moveToRoute} data-goto="/blog">BLOG</button></li>
+                    <li key="toToy" className="f-eng-title"><button className="menu-item" id="jsBtnGnbToy" onClick={func_moveToRoute} data-goto="/#study">TOY-PJ</button></li>
                 </ul>
             </>
         )

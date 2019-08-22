@@ -86,11 +86,10 @@
                         background-color: white;
                     }
                 }                    
-            }
-
-            &:hover {
-                .lab-title:first-child::before {
-                    transform: scale(1.3);
+                &:hover {
+                    .lab-title:first-child::before {
+                        transform: scale(1.3);
+                    }
                 }
             }
 

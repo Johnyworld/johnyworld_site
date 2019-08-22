@@ -213,7 +213,7 @@ function WorkDetailSummary({summary}) {
                             { summary.map( (item, key) => {
                                 return (
                                     <p key={`summary-item-${key}`} className="f-normal jsAppearBtT">
-                                        <strong>{item.title}</strong>
+                                        <strong>{item.title}</strong><br />
                                         { item.desc.map( (descItem, key) => <span key={`${item.title}-${key}`}>{descItem}<br /></span> ) }
                                     </p>
                                 )

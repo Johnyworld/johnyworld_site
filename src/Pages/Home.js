@@ -184,20 +184,21 @@ class Home extends Component {
             history.replace('/');
         }
     }
-    
+
     func_wheelEvents = (event) => {
         const { hndl_gotoSlider, hndl_gotoTop_home } = this;
-
+        const func_canWheelTrue = () => this.canWheel = true;
+        console.log(this.canWheel);
         if ( this.canWheel && window.location.pathname === "/" ) {
             if ( event.deltaY > 0 && this.sectionGnb ) {
                 this.canWheel = false;
                 hndl_gotoSlider();
-                setTimeout( function(){ this.canWheel = true },2500 );
+                setTimeout( func_canWheelTrue, 2500 );
             } else if ( event.deltaY < 0 && !this.sectionGnb ) {
                 this.canWheel = false;
                 topBtnHandler();
                 hndl_gotoTop_home();
-                setTimeout( function(){ this.canWheel = true },2500 );
+                setTimeout( func_canWheelTrue ,2500 );
             }
         }
     }

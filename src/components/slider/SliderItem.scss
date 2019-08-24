@@ -47,6 +47,12 @@
                 margin: 5vh 0 5vh;
                 text-align: left;
 
+                &:hover {
+                    .lab-title:first-child::before {
+                        transform: scale(1.3);
+                    }
+                } 
+
                 .lab-title {
                     position: relative;
                     margin-left: -1.3em;
@@ -85,13 +91,7 @@
                         transition: .5s;
                         background-color: white;
                     }
-                }                    
-            }
-
-            &:hover {
-                .lab-title:first-child::before {
-                    transform: scale(1.3);
-                }
+                }                   
             }
 
             .comment {

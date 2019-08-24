@@ -3,7 +3,7 @@
     left: 25%;
     transition: all 1.6s, opacity 1s;
     margin-top: 80px;
-    margin-left: -.5em;
+    margin-left: -.3em;
     z-index: 500;
 
     .f-title {
@@ -26,9 +26,12 @@
 }
 
 @media screen and ( max-width: 1400px ) {
-    .bigmenu-title-wrapper .f-title { 
-        font-size: 50px; 
-    }
+    .bigmenu-title-wrapper {
+        margin-left: 0; 
+        .f-title { 
+            font-size: 50px; 
+        }
+    } 
 }
 
 @media screen and ( max-width: 1023px ) {
@@ -36,7 +39,6 @@
         left: 0; 
         padding-left: 45px; 
         margin-top: 67px; 
-        margin-left: -0.3em; 
     }
 }
 

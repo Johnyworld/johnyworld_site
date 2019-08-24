@@ -1,27 +1,11 @@
 import React, {Component} from 'react';
-import { animInLoading } from '../../Funcs/animates';
 import './GoBack.scss';
 
 export default class GoBack extends Component {
-    componentDidMount() {
-        const jsFullScreenWrap01 = document.getElementById('jsFullScreenWrap01');
-        const jsFullScreenWrap02 = document.getElementById('jsFullScreenWrap02');
-        const jsLoading = document.getElementById('jsLoading');
-        const jsBtnBack = document.getElementById('jsBtnBack');
-
-        const handleBtnGoBack = () => {
-            animInLoading( jsFullScreenWrap01, jsFullScreenWrap02, jsLoading );
-            setTimeout(()=>{
-                this.props.goBack();
-            }, 1300);
-        }
-
-        jsBtnBack.addEventListener('click', handleBtnGoBack);
-    }
-
     render() {
+        const { func_goBack } = this.props;
         return (
-            <button className="jsAnimButtons back-btn" id="jsBtnBack">
+            <button className="jsAnimButtons back-btn" id="jsBtnBack" onClick={func_goBack}>
                 <div className="arrow"></div>
             </button>
         )

@@ -254,10 +254,6 @@ const canvasCollision2Script = () => {
         }
     }
 
-    // window.addEventListener( '' ) = function() {
-    //     cancelAnimationFrame(canvasFrames);
-    // }
-
     init();
     animate();
 }

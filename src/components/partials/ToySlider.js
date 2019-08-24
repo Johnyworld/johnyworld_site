@@ -31,7 +31,6 @@ class LabSlider extends Component {
     }
 
     handleViewLabDetail(linkTo, propsHistory) {
-        console.log(linkTo);
         const jsFullScreenWrap01 = document.getElementById('jsFullScreenWrap01');
         const jsFullScreenWrap02 = document.getElementById('jsFullScreenWrap02');
         const jsLoading = document.getElementById('jsLoading');

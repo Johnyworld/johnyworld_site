@@ -26,7 +26,7 @@ export default function NormalSection({ title, content, addClassName }) {
                         { item.grid ?  
                             <div className="grid-wrap clear-fix">
                                 <ul className={"l-row gap"+(item.grid.gap)}>
-                                    { item.grid.imgs.map(img=>{
+                                    { item.grid.imgs.map((img, key)=>{
                                         let columnClassName, columnMobileClassName, columnTabletClassName;
                                         if ( item.grid.column === 1 ) { columnClassName = "l-col-12-12" }
                                         if ( item.grid.column === 2 ) { columnClassName = "l-col-6-12" }
@@ -35,7 +35,7 @@ export default function NormalSection({ title, content, addClassName }) {
                                         if ( item.grid.mobileCol === 2 ) { columnMobileClassName = "l-col-m-6-12" }
                                         if ( item.grid.tabletCol === 1 ) { columnTabletClassName = "l-col-t-12-12" }
                                         return (
-                                            <li className={"l-col " + (columnClassName)+" " +(columnMobileClassName)+" " +(columnTabletClassName)}>
+                                            <li className={"l-col " + (columnClassName)+" " +(columnMobileClassName)+" " +(columnTabletClassName)} key={`image-${key}`}>
                                                 <img className="jsAppearBtT" src={img.src} alt={img.title} title={img.title} />
                                             </li>
                                         )

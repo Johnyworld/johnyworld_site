@@ -4,9 +4,6 @@ import { scrollFadeIn,
     setMouseHover, 
     scrollParallaxImages,
     scrollFloating,
-    setBeforeLoading,
-    loadHeader, 
-    animOutLoading, 
     animInAppear } from '../Funcs/animates';
 import { reactRouteScrollTop } from '../Funcs/functions';
 
@@ -32,7 +29,7 @@ class WorkDetail extends Component {
         super(props);
         this.state = {
             loaded : false,
-            id: this.props.match.params.workid,
+            id: window.location.pathname.split("/", 3)[2],
             isMobile : navigator.userAgent.match(/(iPad)|(iPhone)|(iPod)|(android)|(webOS)/i),
             dataWork : dataWorkReverse
         }
@@ -52,21 +49,35 @@ class WorkDetail extends Component {
         this._nowLoading();
     }
 
-    _animates() {
+    _nowLoading() {
+        const dataWork = this.state.dataWork;
+        const { anim_loadingScreenOut, 
+                anim_loadingScreenSetFull, 
+                anim_headerIn } = this.props;
+
+        anim_loadingScreenSetFull();
+        setTimeout(() => {
+            this.setState({
+                index: this._getIndex(dataWork),
+                loaded: true
+            });
+            anim_loadingScreenOut();
+            this._componentDidLoading();
+        }, 1000);
+        anim_headerIn();
+    }
+
+    _componentDidLoading() {
         const jsViewsiteBtn = document.getElementById('jsViewsiteBtn');
         const jsAppearBtT = document.getElementsByClassName('jsAppearBtT');
         const jsAppearSlideToR = document.getElementsByClassName('jsAppearSlideToR');
         const jsMobileMockup = document.getElementById('jsMobileMockup');
 
-        // LISTENER
+        // Scroll Event
         window.addEventListener('scroll', function () {
             let nowScroll = window.scrollY;
-            if (jsMobileMockup) {
-                scrollFloating( nowScroll, jsMobileMockup, -5 );
-            }
-            if (jsViewsiteBtn) {
-                scrollFadeIn(nowScroll, jsViewsiteBtn, window.innerHeight+500 );
-            }
+            if (jsMobileMockup) scrollFloating( nowScroll, jsMobileMockup, -5 );
+            if (jsViewsiteBtn) scrollFadeIn(nowScroll, jsViewsiteBtn, window.innerHeight+500 );
         });   
 
         // RUN  
@@ -77,35 +88,13 @@ class WorkDetail extends Component {
         scrollParallaxImages( jsAppearSlideToR );
     }
 
-    _nowLoading() {
-        const dataWork = this.state.dataWork;
-        const jsLoading = document.getElementById('jsLoading');
-        const jsFullScreenWrap01 = document.getElementById('jsFullScreenWrap01');
-        const jsFullScreenWrap02 = document.getElementById('jsFullScreenWrap02');
-        const headerButtons = document.getElementsByClassName('jsAnimButtons');
-
-        const handleLoaded = () => {
-            setTimeout(() => {
-                this.setState({
-                    index: this._getIndex(dataWork),
-                    loaded: true
-                });
-                animOutLoading( jsFullScreenWrap01, jsFullScreenWrap02, jsLoading );
-                this._animates();
-            }, 1000);
-        }
-
-        setBeforeLoading(jsFullScreenWrap01, jsFullScreenWrap02, jsLoading);
-        handleLoaded();
-        loadHeader(headerButtons);
-    }
-
     _renderContent() {
         const { id } = this.state;
         const next = this.state.dataWork[this.state.index+1];
         const prev = this.state.dataWork[this.state.index-1];
         const presentData = this.state.dataWork[this.state.index];
         const { title, comment, summary, keywords, date, url, mobileScreen, screen, keyvisual } = presentData;
+        const { func_moveToRoute } = this.props;
         
         // Get Detail Component.
         let workDetailContent = null;
@@ -117,7 +106,6 @@ class WorkDetail extends Component {
         if (id === 'camping-poster') { workDetailContent = <Camping /> }
         if (id === 'the-focus') { workDetailContent = <TheFocus /> }
 
-        // Get Title splited for align.
         let splitTitle = title.split(' ');      
 
         return (
@@ -132,7 +120,7 @@ class WorkDetail extends Component {
                     </div>
                     {workDetailContent}
                 </div>
-                <NextAndPrev next={next} prev={prev} history={this.props.history} />
+                <NextAndPrev next={next} prev={prev} history={this.props.history} func_moveToRoute={func_moveToRoute} />
             </>
         )
     }
@@ -213,7 +201,7 @@ function WorkDetailSummary({summary}) {
                             { summary.map( (item, key) => {
                                 return (
                                     <p key={`summary-item-${key}`} className="f-normal jsAppearBtT">
-                                        <strong>{item.title}</strong>
+                                        <strong>{item.title}</strong><br />
                                         { item.desc.map( (descItem, key) => <span key={`${item.title}-${key}`}>{descItem}<br /></span> ) }
                                     </p>
                                 )

@@ -1,13 +1,8 @@
 import React, { Component } from 'react';
 import SubpageHeading from '../Components/partials/SubpageHeading';
 import { 
-    animInCrossSlide, 
-    animOutFade,
-    animOutLoading,
     scrollFloating, 
     animInAppear,
-    loadHeader,
-    setBeforeLoading,
     setMouseHover } from '../Funcs/animates';
 import { reactRouteScrollTop } from '../Funcs/functions';
 import dataWorkReverse from '../Data/data-work';
@@ -18,6 +13,7 @@ class Work extends Component {
         super(props);
         this.state = {
             loaded : false,
+            wasHome : window.location.hash === '#home',
             dataWork : dataWorkReverse,
             subtext : '고객을 위한 하나의 생각들.',
             portfolioHistory : [
@@ -38,18 +34,16 @@ class Work extends Component {
             ]
         }
         this.linkTo = null;
-        this.wasHome = true;
-
-        if ( this.props.location.hash === "#home" ) {
-            this.props.history.replace('/work');
-            
-        } else if ( this.props.location.hash !== "#home" ) {
-            this.wasHome = false;
+        if ( !this.state.wasHome ) {
+            this.isLodingScreen = true
+        } else {
+            this.isLodingScreen = false
+            window.history.replaceState('', document.title, window.location.pathname);
         }
     }
 
     componentDidMount() {
-        if (this.wasHome) {
+        if (!this.isLodingScreen) {
             this._noLoadingScreen();
         } else {
             this._nowLoading();
@@ -60,53 +54,25 @@ class Work extends Component {
         this.setState({
             loaded: true
         });
-        setTimeout(() => {
-            this._animates();
-        }, 0)
     }
 
     _nowLoading() {
-        const jsLoading = document.getElementById('jsLoading');
-        const jsFullScreenWrap01 = document.getElementById('jsFullScreenWrap01');
-        const jsFullScreenWrap02 = document.getElementById('jsFullScreenWrap02');
-        const headerButtons = document.getElementsByClassName('jsAnimButtons');
-        
-        const handleLoaded = () => {
-            setTimeout(() => {
-                this.setState({
-                    loaded: true
-                });
-                animOutLoading( jsFullScreenWrap01, jsFullScreenWrap02, jsLoading );
-                this._animates();
-            }, 1000);
-        }
-
-        setBeforeLoading(jsFullScreenWrap01, jsFullScreenWrap02, jsLoading);
-        handleLoaded();
-        loadHeader(headerButtons);
+        const { anim_loadingScreenOut } = this.props;
+        setTimeout(() => {
+            this.setState({
+                loaded: true
+            });
+            anim_loadingScreenOut();
+            this._componentDidLoading();
+        }, 1000);
     }
 
-    _animates() {
-        const jsBigmenuBigtitle = document.getElementById('jsBigmenuBigtitle');
-        const jsBigmenuTitle = document.getElementById('jsBigmenuTitle');
-        const jsBigmenuTitleString = jsBigmenuTitle.getElementsByTagName('p');
+    _componentDidLoading() {
         const workItemWrap = document.getElementById('workItemWrap');
         const workItems = workItemWrap.getElementsByClassName('item');
         const jsBtnGnbWork = document.getElementById('jsBtnGnbWork');
         const jsAppearSlideToR = document.getElementsByClassName('jsAppearSlideToR');
 
-        // FUNCTIONS
-        const showSubpageHeading = () => {
-            jsBigmenuBigtitle.classList.add('centered');
-            setTimeout(() => {
-                jsBigmenuBigtitle.classList.remove('centered');
-            }, 10)
-            setTimeout( function() {
-                animInCrossSlide(jsBigmenuTitleString);
-            }, 800);
-        }
-
-        // Listener
         window.addEventListener('scroll', function () {
             let nowScroll = window.scrollY;
             for (let i=0; i<workItems.length; i++) {
@@ -121,58 +87,22 @@ class Work extends Component {
         // Run
         animInAppear(jsAppearSlideToR, 1800);
         jsBtnGnbWork.classList.add('is-disabled');
-        showSubpageHeading();
         setMouseHover();
         reactRouteScrollTop();
     }
 
-    goToDetail(linkTo) {
-        const jsBigmenuBigtitle = document.getElementById('jsBigmenuBigtitle');
-        const jsBigmenuTitle = document.getElementById('jsBigmenuTitle');
-        const jsLoading = document.getElementById('jsLoading');
-        const workItemWrap = document.getElementById('workItemWrap');
-        const workItems = workItemWrap.getElementsByClassName('item');
-        const headerButtons = document.getElementsByClassName('jsAnimButtons');
-        const jsBtnBack = document.getElementById('jsBtnBack');
-        const jsBtnGnb = document.getElementById('jsBtnHamburger');
-        const jsHamburgerMenu = document.getElementById('jsHamburgerMenu');
-        
-        animOutFade(jsBigmenuBigtitle, 500);
-        animOutFade(jsBigmenuTitle, 500);
-
-        for( let i=0; i<workItems.length; i++ ) {
-            setTimeout( function() { 
-                animOutFade(workItems[i], 500);
-            }, i*100)
-        }
-        
-        jsLoading.style.display = "block";
-
-        for( let i=0; i<headerButtons.length; i++ ) {
-            headerButtons[i].classList.add('is-hidden');
-        }
-
-        setTimeout(() => {
-            let propsHistory = this.props.history;
-            propsHistory.push('/work/' + linkTo);
-        }, 1300);
-        
-        // 
-        setTimeout(() => {
-            // jsLoading.style.display = "none";
-            jsBtnBack.classList.remove('is-hidden');
-            jsBtnGnb.classList.remove('is-hidden');
-            jsHamburgerMenu.classList.remove('is-hidden');
-        }, 2100);
+    componentDidUpdate() {
+        if ( this.state.loaded === true ) this._componentDidLoading();
     }
 
     _renderContent() {
         const { dataWork, subtext, portfolioHistory } = this.state;
+        const { func_moveToRoute, anim_titleIn } = this.props;
         return (
             <>
-                <SubpageHeading hugetitle="WORK" subtext={subtext} />
+                <SubpageHeading hugetitle="WORK" subtext={subtext} anim_titleIn={anim_titleIn} />
                 <div className="l-wrapper-sticked">
-                    <WorkItems dataWork={dataWork} goToDetail={this.goToDetail.bind(this)} />
+                    <WorkItems dataWork={dataWork} func_moveToRoute={func_moveToRoute} />
                 </div>
                 <PortfolioHistory portfolioHistory={portfolioHistory} />
             </>
@@ -188,7 +118,7 @@ class Work extends Component {
     }
 }
 
-function WorkItems({dataWork, goToDetail}) {
+function WorkItems({dataWork, func_moveToRoute}) {
     return (
         <div className="work-items clear-fix" id="workItemWrap">
             <ul className="l-row gap90 clear-fix">
@@ -199,7 +129,7 @@ function WorkItems({dataWork, goToDetail}) {
                             category={item.category2}
                             slug={item.slug}
                             thumbnail={item.thumbnail}
-                            goToDetail={goToDetail.bind(this)} 
+                            func_moveToRoute={func_moveToRoute} 
                             key={'work-item-'+key} 
                         />
                     )
@@ -209,11 +139,11 @@ function WorkItems({dataWork, goToDetail}) {
     )
 }
 
-function WorkItem({title, category, slug, thumbnail, goToDetail}) {
+function WorkItem({title, category, slug, thumbnail, func_moveToRoute}) {
     return (
         <li className='l-col l-col-6-12'>
             <div className="item">
-                <button className="grid-item jsAppearSlideToR" onClick={goToDetail.bind(this, slug)}>
+                <button className="grid-item jsAppearSlideToR" data-goto={'/work/'+slug} onClick={func_moveToRoute}>
                     <div className="background" style={{backgroundImage: 'url(' + thumbnail + ')'}}></div>
                     <div className="textbox">
                         <div className="top">

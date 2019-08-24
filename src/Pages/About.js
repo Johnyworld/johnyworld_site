@@ -100,7 +100,6 @@ class About extends Component {
 
     _componentDidLoading() {
         // DEFINES
-        const jsBtnGnbAbout = document.getElementById('jsBtnGnbAbout');
         const jsSecInstagram = document.getElementById('jsSecInstagram');
         const InstaImagesWrap = document.getElementsByClassName('insta-image-wrap');
         const jsAppearBtT = document.getElementsByClassName('jsAppearBtT');
@@ -144,7 +143,6 @@ class About extends Component {
         })
 
         // RUN
-        jsBtnGnbAbout.classList.add('is-disabled');
         setMouseHover(); 
         animInAppear(jsAppearBtT, 2000);
         animInAppear(jsAppearSlideToR, 1500);

@@ -70,7 +70,6 @@ class Work extends Component {
     _componentDidLoading() {
         const workItemWrap = document.getElementById('workItemWrap');
         const workItems = workItemWrap.getElementsByClassName('item');
-        const jsBtnGnbWork = document.getElementById('jsBtnGnbWork');
         const jsAppearSlideToR = document.getElementsByClassName('jsAppearSlideToR');
 
         window.addEventListener('scroll', function () {
@@ -86,7 +85,6 @@ class Work extends Component {
 
         // Run
         animInAppear(jsAppearSlideToR, 1800);
-        jsBtnGnbWork.classList.add('is-disabled');
         setMouseHover();
         reactRouteScrollTop();
     }

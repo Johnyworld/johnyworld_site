@@ -52,14 +52,12 @@ class Blog extends Component {
 
     _componentDidLoading() {
         // DEFINES
-        const jsBtnGnbBlog = document.getElementById('jsBtnGnbBlog');
         const jsAppearBtT = document.getElementsByClassName('jsAppearBtT');
         const jsAppearFadein = document.getElementsByClassName('jsAppearFadein');
 
         // RUN
         animInAppear(jsAppearBtT, 1500);
         animInAppear(jsAppearFadein, 1500);
-        jsBtnGnbBlog.classList.add('is-disabled');
     }
 
     _renderContent() {

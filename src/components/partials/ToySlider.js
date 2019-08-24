@@ -24,6 +24,7 @@ class LabSlider extends Component {
     componentDidMount() {
         labSliderScript();
         window.addEventListener( 'resize', this.labSliderResize );
+        this.jsLabSliderIndex = this.refs.SliderIndex.jsLabSliderIndex;
     }
 
     componentWillUnmount() {
@@ -31,12 +32,7 @@ class LabSlider extends Component {
     }
 
     handleViewLabDetail(linkTo, propsHistory) {
-        const jsFullScreenWrap01 = document.getElementById('jsFullScreenWrap01');
-        const jsFullScreenWrap02 = document.getElementById('jsFullScreenWrap02');
-        const jsLoading = document.getElementById('jsLoading');
-
-        animInLoading( jsFullScreenWrap01, jsFullScreenWrap02, jsLoading );
-        
+        animInLoading();
         setTimeout(() => {
             propsHistory.push('/lab/' + linkTo);
         }, 1300);
@@ -48,7 +44,7 @@ class LabSlider extends Component {
             <div className="lab-slider-wrapper clear-fix">
                 <SliderButtons />
                 <SliderMain dataSlider={dataSlider} handleViewLabDetail={this.handleViewLabDetail} propsHistory={this.state.history} />
-                <SliderIndex />
+                <SliderIndex ref="SliderIndex" />
                 <SliderNav dataSlider={dataSlider} />
             </div>            
         )
@@ -84,17 +80,22 @@ function SliderMain({dataSlider, handleViewLabDetail, propsHistory}) {
     )
 }
 
-function SliderIndex() {
-    return (
-        <div className={"index-wrap" + ( window.location.hash === "#study" ? "" : " slide-hide" )} id="jsLabSliderIndex">
-            <div className="index tens f-eng" id="jsLabSliderIndexTens">
-                <ZeroToNine />
+class SliderIndex extends Component {
+    componentDidMount() {
+        this.jsLabSliderIndex = this.refs.jsLabSliderIndex;
+    }
+    render() {
+        return (
+            <div className={"index-wrap" + ( window.location.hash === "#study" ? "" : " slide-hide" )} id="jsLabSliderIndex" ref="jsLabSliderIndex">
+                <div className="index tens f-eng" id="jsLabSliderIndexTens">
+                    <ZeroToNine />
+                </div>
+                <div className="index units f-eng" id="jsLabSliderIndexUnits">
+                    <ZeroToNine />
+                </div>
             </div>
-            <div className="index units f-eng" id="jsLabSliderIndexUnits">
-                <ZeroToNine />
-            </div>
-        </div>
-    )
+        )
+    }
 }
 
 function ZeroToNine() {

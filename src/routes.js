@@ -74,13 +74,9 @@ class Routes extends Component {
 
     clos_loadingScreen(dir) {
         return () => {
-            const jsFullScreenWrap01 = document.getElementById('jsFullScreenWrap01');
-            const jsFullScreenWrap02 = document.getElementById('jsFullScreenWrap02');
-            const jsLoading = document.getElementById('jsLoading');
-            if (dir === "full") setBeforeLoading( jsFullScreenWrap01, jsFullScreenWrap02, jsLoading );
-            if (dir === "in") animInLoading( jsFullScreenWrap01, jsFullScreenWrap02, jsLoading );
-            if (dir === "out") animOutLoading( jsFullScreenWrap01, jsFullScreenWrap02, jsLoading );
-            
+            if (dir === "full") setBeforeLoading();
+            if (dir === "in") animInLoading();
+            if (dir === "out") animOutLoading();
         }
     }
     anim_loadingScreenSetFull = this.clos_loadingScreen("full");

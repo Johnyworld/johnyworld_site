@@ -156,10 +156,13 @@ export const animInWidth = (element) => {
     }, 1050);
 }
 
-export const setBeforeLoading = (wrap01, wrap02, lodingBar) => {
-    wrap01.style.width = '100%';
-    wrap02.style.width = '100%';
-    lodingBar.style.display = 'block';
+export const setBeforeLoading = () => {
+    const jsFullScreenWrap01 = document.getElementById('jsFullScreenWrap01');
+    const jsFullScreenWrap02 = document.getElementById('jsFullScreenWrap02');
+    const jsLoading = document.getElementById('jsLoading');
+    jsFullScreenWrap01.style.width = '100%';
+    jsFullScreenWrap02.style.width = '100%';
+    jsLoading.style.display = 'block';
 }
 
 export const animOutFade = ( element, delay ) => {
@@ -168,7 +171,10 @@ export const animOutFade = ( element, delay ) => {
     }, delay);
 }
 
-export const animInLoading = (jsFullScreenWrap01, jsFullScreenWrap02, jsLoading) => {
+export const animInLoading = () => {
+    const jsFullScreenWrap01 = document.getElementById('jsFullScreenWrap01');
+    const jsFullScreenWrap02 = document.getElementById('jsFullScreenWrap02');
+    const jsLoading = document.getElementById('jsLoading');
     animInWidth(jsFullScreenWrap02);
     setTimeout(() => {
         animInWidth(jsFullScreenWrap01);
@@ -176,7 +182,10 @@ export const animInLoading = (jsFullScreenWrap01, jsFullScreenWrap02, jsLoading)
     }, 500);
 }
 
-export const animOutLoading = (jsFullScreenWrap01, jsFullScreenWrap02, jsLoading) => {
+export const animOutLoading = () => {
+    const jsFullScreenWrap01 = document.getElementById('jsFullScreenWrap01');
+    const jsFullScreenWrap02 = document.getElementById('jsFullScreenWrap02');
+    const jsLoading = document.getElementById('jsLoading');
     animOutWidth(jsFullScreenWrap01);
     animOutFade(jsLoading, 200);
     setTimeout(() => {
@@ -188,6 +197,26 @@ export const animOutLoading = (jsFullScreenWrap01, jsFullScreenWrap02, jsLoading
         jsLoading.style.opacity = 1;
     }, 1500)
 }
+
+export const animOutLoadingFade = () => {
+    const jsFullScreenWrap01 = document.getElementById('jsFullScreenWrap01');
+    const jsFullScreenWrap02 = document.getElementById('jsFullScreenWrap02');
+    const jsLoading = document.getElementById('jsLoading');
+    animOutFade(jsLoading, 1500);
+    setTimeout(() => {
+        jsFullScreenWrap01.style.transition = '1.5s';
+        jsFullScreenWrap01.style.opacity = '0';
+        jsFullScreenWrap02.style.width = '0';
+        setTimeout(() => {
+            jsFullScreenWrap01.style.transition = '0s';
+            jsFullScreenWrap01.style.width = '0%';
+            jsFullScreenWrap01.style.opacity = '1';
+            jsLoading.style.display = 'none';
+            jsLoading.style.opacity = '1';
+        }, 1500);
+    }, 1000);
+}
+
 
 // 헤더 관련 애니메이션
 // ------------------------------------

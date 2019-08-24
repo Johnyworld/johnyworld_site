@@ -38,13 +38,13 @@ class Home extends Component {
     }
 
     anim_mainmenuStop = () => {
-        const { jsMenuTextItems, jsMenuBgLeft, jsMenuBgRight } = this;
+        const { jsMenuTextItems, jsMenuBgLeft, jsMenuBgRight, hndl_mainMenuFollowingMouse } = this;
         for (let i = 0; i < jsMenuTextItems.length; i++) {
             jsMenuTextItems[i].style.transform = '';
         }
         jsMenuBgLeft.style.transform = '';
         jsMenuBgRight.style.transform = '';
-        window.removeEventListener('mousemove', this.hndl_mainMenuFollowingMouse);
+        window.removeEventListener('mousemove', hndl_mainMenuFollowingMouse);
     }
 
     anim_mainmenuFocused = (event) => {
@@ -90,27 +90,32 @@ class Home extends Component {
     }
 
     hndl_mainmenuRemoveHover = () => {
-        const { jsMenuTextItems } = this;
+        const { jsMenuTextItems, anim_mainmenuFocused, anim_mainmenuBlured } = this;
         for (let i = 0; i < jsMenuTextItems.length; i++) {
             jsMenuTextItems[i].classList.remove('focused', 'dim');
-            jsMenuTextItems[i].removeEventListener( 'mouseover', this.anim_mainmenuFocused );
-            jsMenuTextItems[i].removeEventListener( 'mouseleave', this.anim_mainmenuBlured );
+            jsMenuTextItems[i].removeEventListener( 'mouseover', anim_mainmenuFocused );
+            jsMenuTextItems[i].removeEventListener( 'mouseleave', anim_mainmenuBlured );
         }
     }
 
     hndl_mainmenuAddHover = () => {
-        const { jsMenuTextItems } = this;
+        const { jsMenuTextItems, anim_mainmenuFocused, anim_mainmenuBlured } = this;
         for (let i = 0; i < jsMenuTextItems.length; i++) {
-            jsMenuTextItems[i].addEventListener( 'mouseover', this.anim_mainmenuFocused );
-            jsMenuTextItems[i].addEventListener( 'mouseleave', this.anim_mainmenuBlured );
+            jsMenuTextItems[i].addEventListener( 'mouseover', anim_mainmenuFocused );
+            jsMenuTextItems[i].addEventListener( 'mouseleave', anim_mainmenuBlured );
         }
     }
 
     hndl_mainmenuScroll = () => {
-        const { jsMenuBgLeftChild, jsMenuBgRightChild } = this;
-        this.anim_mainmenuStop();
-        this.hndl_mainmenuRemoveHover();
-        this.hndl_mainmenu_addScrollEvent();
+        const { 
+            jsMenuBgLeftChild, 
+            jsMenuBgRightChild,
+            anim_mainmenuStop,
+            hndl_mainmenuRemoveHover,
+            hndl_mainmenu_addScrollEvent } = this;
+        anim_mainmenuStop();
+        hndl_mainmenuRemoveHover();
+        hndl_mainmenu_addScrollEvent();
         jsMenuBgLeftChild.style.height = '0';
         jsMenuBgRightChild.style.height = '0';
     }
@@ -118,15 +123,18 @@ class Home extends Component {
     hndl_gotoSlider = () => {
         const { 
             jsLabSliderIndex,
+            hndl_mainmenuScroll,
             homeToySliderThumbnails: thumbnails } = this;
+        const {
+            history } = this.props;
         this.sectionGnb = false;
-        this.hndl_mainmenuScroll();
+        hndl_mainmenuScroll();
         for ( let i=0; i< thumbnails.length; i++) {
             thumbnails[i].classList.remove('slide-hide');
         }
         jsLabSliderIndex.classList.remove('slide-hide');
         smoothScroll('#homeToySlider', 2000);
-        this.props.history.replace('/#study');
+        history.replace('/#study');
     }
 
     hndl_mainmenu_addScrollEvent = () => {
@@ -142,9 +150,10 @@ class Home extends Component {
     }
 
     hndl_isSliderSection = () => {
+        const { hndl_mainmenuScroll } = this;
         if ( this.props.location.hash === '#study' ) {
             this.sectionGnb = false;
-            this.hndl_mainmenuScroll();
+            hndl_mainmenuScroll();
             window.scrollTo( 0, window.innerHeight );
         }
     }
@@ -154,46 +163,51 @@ class Home extends Component {
             jsLabSliderIndex,
             jsMenuBgLeftChild, 
             jsMenuBgRightChild,
+            hndl_mainmenuAddHover,
+            hndl_mainMenuFollowingMouse,
             homeToySliderThumbnails: thumbnails } = this;
+        const {
+            history } = this.props;
         if (window.location.pathname === "/") {
             this.sectionGnb = true;
             const hndl_mainmenuAddHoverHandle = ()=> {
                 jsMenuBgLeftChild.style.height = '100%';
                 jsMenuBgRightChild.style.height = '100%';
-                this.hndl_mainmenuAddHover();
-                window.addEventListener('mousemove', this.hndl_mainMenuFollowingMouse);
+                hndl_mainmenuAddHover();
+                window.addEventListener('mousemove', hndl_mainMenuFollowingMouse);
             }
             setTimeout( hndl_mainmenuAddHoverHandle, 1500)
             for ( let i=0; i< thumbnails.length; i++) {
                 thumbnails[i].classList.add('slide-hide');
             }
             jsLabSliderIndex.classList.add('slide-hide');
-            this.props.history.replace('/');
+            history.replace('/');
         }
     }
     
     func_wheelEvents = (event) => {
-        let {canWheel} = this;
+        const { hndl_gotoSlider, hndl_gotoTop_home } = this;
 
-        if ( canWheel && window.location.pathname === "/" ) {
+        if ( this.canWheel && window.location.pathname === "/" ) {
             if ( event.deltaY > 0 && this.sectionGnb ) {
-                canWheel = false;
-                this.hndl_gotoSlider();
-                setTimeout( function(){ canWheel = true },2500 );
+                this.canWheel = false;
+                hndl_gotoSlider();
+                setTimeout( function(){ this.canWheel = true },2500 );
             } else if ( event.deltaY < 0 && !this.sectionGnb ) {
-                canWheel = false;
+                this.canWheel = false;
                 topBtnHandler();
-                this.hndl_gotoTop_home();
-                setTimeout( function(){ canWheel = true },2500 );
+                hndl_gotoTop_home();
+                setTimeout( function(){ this.canWheel = true },2500 );
             }
         }
     }
 
     hndl_resize = () => {
+        const { hndl_mainMenuFollowingMouse } = this;
         if ( window.innerWidth < 1024 ) {
             this.anim_mainmenuStop();
         } else {
-            window.addEventListener( 'mousemove', this.hndl_mainMenuFollowingMouse );
+            window.addEventListener( 'mousemove', hndl_mainMenuFollowingMouse );
         }
     }
 
@@ -204,11 +218,12 @@ class Home extends Component {
             jsBtnRight, 
             jsMenuBgLeftChild, 
             jsMenuBgRightChild, 
-            jsMenuVerticalLine } = this;
+            jsMenuVerticalLine,
+            anim_mainmenuStop,
+            hndl_mainmenuRemoveHover } = this;
         const { history } = this.state;
-
-        this.anim_mainmenuStop();
-        this.hndl_mainmenuRemoveHover();
+        anim_mainmenuStop();
+        hndl_mainmenuRemoveHover();
         jsBtnLeft.classList.add('is-hidden');
         jsBtnRight.classList.add('is-hidden');
         jsMenuVerticalLine.classList.add('is-hidden');
@@ -226,11 +241,13 @@ class Home extends Component {
             jsBtnRight, 
             jsMenuBgLeftChild, 
             jsMenuBgRightChild,
-            jsMenuVerticalLine } = this;
+            jsMenuVerticalLine,
+            anim_mainmenuStop,
+            hndl_mainmenuRemoveHover } = this;
         const {history} = this.state;
         this.canWheel = false;
-        this.anim_mainmenuStop();
-        this.hndl_mainmenuRemoveHover();
+        anim_mainmenuStop();
+        hndl_mainmenuRemoveHover();
         jsBtnCenter.classList.add('is-hidden');
         jsBtnRight.classList.add('is-hidden');
         jsMenuVerticalLine.classList.add('is-hidden');
@@ -251,11 +268,13 @@ class Home extends Component {
             jsBtnLeft, 
             jsMenuBgLeftChild, 
             jsMenuBgRightChild,
-            jsMenuVerticalLine } = this;
+            jsMenuVerticalLine,
+            anim_mainmenuStop,
+            hndl_mainmenuRemoveHover } = this;
         const {history} = this.state;
         this.canWheel = false;
-        this.anim_mainmenuStop();
-        this.hndl_mainmenuRemoveHover();
+        anim_mainmenuStop();
+        hndl_mainmenuRemoveHover();
         jsBtnLeft.classList.add('is-hidden');
         jsBtnCenter.classList.add('is-hidden');
         jsMenuVerticalLine.classList.add('is-hidden');
@@ -268,9 +287,10 @@ class Home extends Component {
     }
 
     hndl_wheelEvents = (event) => {
+        const { func_wheelEvents } = this;
         if ( window.location.pathname === '/') {
             event.preventDefault();
-            this.func_wheelEvents(event);
+            func_wheelEvents(event);
         }
     }
 
@@ -296,30 +316,38 @@ class Home extends Component {
     }
 
     _componentDidLoading() {
-        this.jsMainmenu = this.refs.jsMainmenu;
+        this.jsMainmenu = this.refs.Mainmenu.jsMainmenu;
         this.jsMenuTextItems = this.jsMainmenu.getElementsByClassName('item');
-        this.jsLeft = this.refs.jsLeft;
-        this.jsCenter = this.refs.jsCenter;
-        this.jsRight = this.refs.jsRight;
-        this.jsBtnLeft = this.refs.jsBtnLeft;
-        this.jsBtnCenter = this.refs.jsBtnCenter;
-        this.jsBtnRight = this.refs.jsBtnRight;
-        this.jsMenuBgLeft = this.refs.jsMenuBgLeft;
-        this.jsMenuBgRight = this.refs.jsMenuBgRight;
-        this.jsMenuBgLeftChild = this.refs.jsMenuBgLeftChild;
-        this.jsMenuBgRightChild = this.refs.jsMenuBgRightChild;
-        this.jsMenuVerticalLine = this.refs.jsMenuVerticalLine;
-        this.jsGotoToyProject = this.refs.jsGotoToyProject;
+
+        // Main Menu Elements
+        this.jsLeft = this.refs.Mainmenu.jsLeft;
+        this.jsCenter = this.refs.Mainmenu.jsCenter;
+        this.jsRight = this.refs.Mainmenu.jsRight;
+        this.jsBtnLeft = this.refs.Mainmenu.jsBtnLeft;
+        this.jsBtnCenter = this.refs.Mainmenu.jsBtnCenter;
+        this.jsBtnRight = this.refs.Mainmenu.jsBtnRight;
+
+        // Main Background Boxes
+        this.jsMenuBgLeft = this.refs.MainmenuBoxes.jsMenuBgLeft;
+        this.jsMenuBgRight = this.refs.MainmenuBoxes.jsMenuBgRight;
+        this.jsMenuBgLeftChild = this.refs.MainmenuBoxes.jsMenuBgLeftChild;
+        this.jsMenuBgRightChild = this.refs.MainmenuBoxes.jsMenuBgRightChild;
+
+        // Interfaces
+        this.jsMenuVerticalLine = this.refs.Interfaces.jsMenuVerticalLine;
+        this.jsGotoToyProject = this.refs.Interfaces.jsGotoToyProject;
+
+        // Slider Elements
         this.homeToySlider = this.refs.homeToySlider;
         this.homeToySliderThumbnails = this.homeToySlider.getElementsByClassName('image-wrap');
         this.jsLabSliderIndex = this.refs.ToySlider.jsLabSliderIndex;
 
-        // EVENT LISTENERS
+        // Listeners
         window.addEventListener( 'wheel', this.hndl_wheelEvents, { passive: false });
         window.addEventListener( 'mousemove', this.hndl_mainMenuFollowingMouse );
         window.addEventListener( 'resize', this.hndl_resize );
 
-        //RUN
+        // Run
         this.hndl_mainmenuAddHover();
         this.hndl_isSliderSection();
         setMouseHover();
@@ -336,38 +364,14 @@ class Home extends Component {
         return (
             <>
                 <div className="home-main">
-                    <div className="vertical-line" ref="jsMenuVerticalLine">
-                        <div className="links">
-                            { outLinks.map((item, key) => {
-                                return (
-                                    <a className="link-item c-gray-dark f-eng f-normal" href={item.url} target="blank" key={`outlinks-${key}`}>{item.title}</a>
-                                )
-                            })}
-                        </div>
-                        <div className="line"></div>
-                        <div className="bottom" ref="jsGotoToyProject">
-                            <button className="view-toy-btn f-subhead f-eng-title" id="jsCodeLabBtn" onClick={this.hndl_gotoSlider}>TOY PROJECT</button>
-                        </div>
-                    </div>
-                    <div className="menu-wrapper">
-                        <div className="item bg left" ref="jsMenuBgLeft">
-                            <div className="child" ref="jsMenuBgLeftChild" />
-                        </div>
-                        <div className="item bg right" ref="jsMenuBgRight">
-                            <div className="child" ref="jsMenuBgRightChild" />
-                        </div>
-                    </div>
-                    <nav className="menu-wrapper clear-fix" ref="jsMainmenu">
-                        <div className="menu-btn left" ref="jsLeft">
-                            <button className="f-hugetitle item left" ref="jsBtnLeft" onClick={this.hndl_mainLeft}>{mainMenu[1]}</button>
-                        </div>
-                        <div className="menu-btn center" ref="jsCenter">
-                            <button className="f-hugetitle item center" ref="jsBtnCenter" onClick={this.hndl_mainCenter}>{mainMenu[0]}</button>
-                        </div>
-                        <div className="menu-btn right" ref="jsRight">
-                            <button className="f-hugetitle item right" ref="jsBtnRight" onClick={this.hndl_mainRight}>{mainMenu[2]}</button>
-                        </div>
-                    </nav>
+                    <Interfaces ref="Interfaces" outLinks={outLinks} hndl_gotoSlider={this.hndl_gotoSlider} />
+                    <MainmenuBoxes ref="MainmenuBoxes" />
+                    <Mainmenu 
+                        ref="Mainmenu" 
+                        mainMenu={mainMenu} 
+                        hndl_mainLeft={this.hndl_mainLeft} 
+                        hndl_mainCenter={this.hndl_mainCenter}
+                        hndl_mainRight={this.hndl_mainRight} />
                 </div>
                 <div className="home-toyslider" id="homeToySlider" ref="homeToySlider">
                     <ToySlider history={this.props.history} ref="ToySlider" />
@@ -381,22 +385,7 @@ class Home extends Component {
         return (
             <>
                 <div className="home-mobile-main">
-                    <div className="l-wrapper">
-                        <ul className="l-row">
-                            <li className="l-col l-col-8-12">
-                                { mainMenu.map((item, key)=>{
-                                    return <button className="f-bigtitle item" id={`jsMobileMenu0${key+1}`} onClick={this._mobileGoToPage} data-goto={'/'+item} key={item}>{item}</button>
-                                })}
-                            </li>
-                            <li className="l-col l-col-4-12">
-                                { outLinks.map((item, key) => {
-                                    return (
-                                        <a className="link-item c-gray-dark f-eng f-normal" href={item.url} target="blank" key={`outlinks-${key}`}>{item.title}</a>
-                                    )
-                                })}
-                            </li>
-                        </ul>
-                    </div>
+                    <MainmenuMobile outLinks={outLinks} mainMenu={mainMenu} _mobileGoToPage={this._mobileGoToPage} />
                 </div>
                 <div className="home-mobile-toy-wrap">
                     <div className="l-wrapper">
@@ -425,5 +414,97 @@ class Home extends Component {
         }
     }
 }
+
+class Mainmenu extends Component {
+    componentDidMount() {
+        this.jsMainmenu = this.refs.jsMainmenu;
+        this.jsLeft = this.refs.jsLeft;
+        this.jsCenter = this.refs.jsCenter;
+        this.jsRight = this.refs.jsRight;
+        this.jsBtnLeft = this.refs.jsBtnLeft;
+        this.jsBtnCenter = this.refs.jsBtnCenter;
+        this.jsBtnRight = this.refs.jsBtnRight;
+    }
+
+    render() {
+        const { mainMenu, hndl_mainLeft, hndl_mainCenter, hndl_mainRight } = this.props;
+        return (
+            <nav className="menu-wrapper clear-fix" ref="jsMainmenu">
+                <div className="menu-btn left" ref="jsLeft">
+                    <button className="f-hugetitle item left" ref="jsBtnLeft" onClick={hndl_mainLeft}>{mainMenu[1]}</button>
+                </div>
+                <div className="menu-btn center" ref="jsCenter">
+                    <button className="f-hugetitle item center" ref="jsBtnCenter" onClick={hndl_mainCenter}>{mainMenu[0]}</button>
+                </div>
+                <div className="menu-btn right" ref="jsRight">
+                    <button className="f-hugetitle item right" ref="jsBtnRight" onClick={hndl_mainRight}>{mainMenu[2]}</button>
+                </div>
+            </nav>
+        )
+    }
+}
+
+class MainmenuBoxes extends Component {
+    componentDidMount() {
+        this.jsMenuBgLeft = this.refs.jsMenuBgLeft;
+        this.jsMenuBgRight = this.refs.jsMenuBgRight;
+        this.jsMenuBgLeftChild = this.refs.jsMenuBgLeftChild;
+        this.jsMenuBgRightChild = this.refs.jsMenuBgRightChild;
+    }
+
+    render() {
+        return (
+            <div className="menu-wrapper">
+                <div className="item bg left" ref="jsMenuBgLeft">
+                    <div className="child" ref="jsMenuBgLeftChild" />
+                </div>
+                <div className="item bg right" ref="jsMenuBgRight">
+                    <div className="child" ref="jsMenuBgRightChild" />
+                </div>
+            </div>
+        )
+    }
+}
+
+class Interfaces extends Component {
+    componentDidMount() {
+        this.jsMenuVerticalLine = this.refs.jsMenuVerticalLine;
+        this.jsGotoToyProject = this.refs.jsGotoToyProject;
+    }
+    
+    render() {
+        const { outLinks, hndl_gotoSlider } = this.props;
+        return (
+            <div className="vertical-line" ref="jsMenuVerticalLine">
+                <div className="links">
+                    { outLinks.map((item, key) => <a className="link-item c-gray-dark f-eng f-normal" href={item.url} target="blank" key={`outlinks-${key}`}>{item.title}</a> )}
+                </div>
+                <div className="line"></div>
+                <div className="bottom" id="jsGotoToyProject" ref="jsGotoToyProject">
+                    <button className="view-toy-btn f-subhead f-eng-title" id="jsCodeLabBtn" onClick={hndl_gotoSlider}>TOY PROJECT</button>
+                </div>
+            </div>
+        )
+    }
+}
+
+const MainmenuMobile = ({ outLinks, mainMenu, _mobileGoToPage }) => (
+    <div className="l-wrapper">
+        <ul className="l-row">
+            <li className="l-col l-col-8-12">
+                { mainMenu.map((item, key)=>{
+                    return <button className="f-bigtitle item" id={`jsMobileMenu0${key+1}`} onClick={_mobileGoToPage} data-goto={'/'+item} key={item}>{item}</button>
+                })}
+            </li>
+            <li className="l-col l-col-4-12">
+                { outLinks.map((item, key) => {
+                    return (
+                        <a className="link-item c-gray-dark f-eng f-normal" href={item.url} target="blank" key={`outlinks-${key}`}>{item.title}</a>
+                    )
+                })}
+            </li>
+        </ul>
+    </div>
+)
 
 export default Home;

@@ -1,18 +1,13 @@
 import React, { Component } from 'react';
-import { 
-    setMouseHover, 
-    scrollFadeIn, 
-    loadHeader } from '../../Funcs/animates';
-
+import { setMouseHover, scrollFadeIn } from '../../Funcs/animates';
 import HamburgerMenu from '../buttons/HamburgerMenu';
 import GoBack from '../buttons/GoBack';
 import GoTop from '../buttons/GoTop';
-
 import './Header.scss';
 
 class Header extends Component {
     componentDidMount() {
-        const headerButtons = document.getElementsByClassName('jsAnimButtons');
+        const { anim_headerIn } = this.props;
         const jsBtnTop = document.getElementById('jsBtnTop');
         
         window.addEventListener('scroll',  () => {
@@ -20,16 +15,16 @@ class Header extends Component {
             scrollFadeIn(nowScroll, jsBtnTop, window.innerHeight - 200);
         });
 
-        loadHeader(headerButtons);
+        anim_headerIn();
         setMouseHover();
     }
 
     render() {
         return(
             <header id="jsHeader">
-                <GoBack goBack={this.props.goBack} />
-                <HamburgerMenu />
-                <GoTop />
+                <GoBack func_goBack={this.props.func_goBack} />
+                <HamburgerMenu func_moveToRoute={this.props.func_moveToRoute}/>
+                <GoTop func_goTop={this.props.func_goTop} />
             </header>
         )
     }

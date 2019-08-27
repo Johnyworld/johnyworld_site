@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import SubpageHeading from '../Components/partials/SubpageHeading';
-import { animInCrossSlide, animOutLoading, animInAppear, setBeforeLoading } from '../Funcs/animates';
+import { animInAppear } from '../Funcs/animates';
 import jsonFile from '../Data/data-blog.json';
 import './Blog.scss';
 const jsonFileRev = jsonFile.reverse();
@@ -10,21 +10,20 @@ class Blog extends Component {
         super(props);
         this.state = {
             loded: false,
+            wasHome : window.location.hash === '#home',
             dataBlog : jsonFileRev,
             subtext: '자유롭게 써내려가는 개발 일지.'
         }
-        this.wasHome = true;
-
-        if ( this.props.location.hash === "#home" ) {
-            this.props.history.replace('/blog');
-            
-        } else if ( this.props.location.hash !== "#home" ) {
-            this.wasHome = false;
+        if ( !this.state.wasHome ) {
+            this.isLodingScreen = true
+        } else {
+            this.isLodingScreen = false
+            window.history.replaceState('', document.title, window.location.pathname);
         }
     }
     
     componentDidMount() {
-        if (this.wasHome) {
+        if (!this.isLodingScreen) {
             this._noLoadingScreen();
         } else {
             this._nowLoading();
@@ -36,61 +35,37 @@ class Blog extends Component {
             loaded: true
         });
         setTimeout(() => {
-            this._animates();
+            this._componentDidLoading();
         }, 10)
     }
 
     _nowLoading() {
-        const jsLoading = document.getElementById('jsLoading');
-        const jsFullScreenWrap01 = document.getElementById('jsFullScreenWrap01');
-        const jsFullScreenWrap02 = document.getElementById('jsFullScreenWrap02');
-
-        const handleLoaded = () => {
-            setTimeout(() => {
-                this.setState({
-                    loaded: true
-                });
-                animOutLoading( jsFullScreenWrap01, jsFullScreenWrap02, jsLoading );
-                this._animates();
-            }, 1000);
-        }
-
-        setBeforeLoading(jsFullScreenWrap01, jsFullScreenWrap02, jsLoading);
-        handleLoaded();
+        const { anim_loadingScreenOut } = this.props;
+        setTimeout(() => {
+            this.setState({
+                loaded: true
+            });
+            anim_loadingScreenOut();
+            this._componentDidLoading();
+        }, 1000);
     }
 
-    _animates() {
+    _componentDidLoading() {
         // DEFINES
-        const jsBigmenuBigtitle = document.getElementById('jsBigmenuBigtitle');
-        const jsBigmenuTitle = document.getElementById('jsBigmenuTitle');
-        const jsBigmenuTitleString = jsBigmenuTitle.getElementsByTagName('p');
-        const jsBtnGnbBlog = document.getElementById('jsBtnGnbBlog');
         const jsAppearBtT = document.getElementsByClassName('jsAppearBtT');
         const jsAppearFadein = document.getElementsByClassName('jsAppearFadein');
-        
-        // FUNCTIONS
-        const showSubpageHeading = () => {
-            jsBigmenuBigtitle.classList.add('centered');
-            setTimeout(() => {
-                jsBigmenuBigtitle.classList.remove('centered');
-            }, 10)
-            setTimeout( function() {
-                animInCrossSlide(jsBigmenuTitleString);
-            }, 800);
-        }
 
         // RUN
         animInAppear(jsAppearBtT, 1500);
         animInAppear(jsAppearFadein, 1500);
-        jsBtnGnbBlog.classList.add('is-disabled');
-        showSubpageHeading();
     }
 
     _renderContent() {
         const { subtext, dataBlog } = this.state;
+        const { anim_titleIn } = this.props;
         return(
             <>
-                <SubpageHeading hugetitle="BLOG" subtext={subtext} />
+                <SubpageHeading hugetitle="BLOG" subtext={subtext} anim_titleIn={anim_titleIn} />
                 <BlogItems dataBlog={dataBlog} />
             </>
         )

@@ -3,12 +3,9 @@ import Axios from 'axios';
 
 import SubpageHeading from '../Components/partials/SubpageHeading';
 import {
-    animOutLoading, 
-    animInCrossSlide, 
     setMouseHover, 
     scrollFloating, 
     scrollParallaxImages,
-    setBeforeLoading,
     animInAppear } from '../Funcs/animates';
 import { getAbsoluteTop } from '../Funcs/functions';
 import './About.scss';
@@ -28,6 +25,7 @@ class About extends Component {
         super(props);
         this.state = {
             loaded : false,
+            wasHome : window.location.hash === '#home',
             instaImages : [],
             dataSkills : jsonFile,
             subtext: "꿈은 크고, 그것을 실행하는 사람.",
@@ -39,13 +37,13 @@ class About extends Component {
                 address : "Seoul, Korea"
             }
         }
-        this.wasHome = true;
         this.skillCategories = this._getSkillCategories(this.state.dataSkills);
 
-        if ( this.props.location.hash === "#home" ) {
-            this.props.history.replace('/about');
-        } else if ( this.props.location.hash !== "#home" ) {
-            this.wasHome = false;
+        if ( !this.state.wasHome ) {
+            this.isLodingScreen = true
+        } else {
+            this.isLodingScreen = false
+            window.history.replaceState('', document.title, window.location.pathname);
         }
     }
 
@@ -60,7 +58,7 @@ class About extends Component {
     }
 
     componentDidMount() {
-        if ( this.wasHome ) {
+        if (!this.isLodingScreen) {
             this._noLoadingScreen();
         } else {
             this._nowLoading();
@@ -72,7 +70,7 @@ class About extends Component {
                 this.setState({ instaImages: res.data.data });
             })
             .catch(err => {
-                console.log(err);
+                console.log("Not Found Instagram Token");
             })
     }
 
@@ -81,35 +79,27 @@ class About extends Component {
             loaded: true
         });
         setTimeout(() => {
-            this._animates();
+            this._componentDidLoading();
         }, 0)
     }
 
     _nowLoading() {
-        const jsLoading = document.getElementById('jsLoading');
-        const jsFullScreenWrap01 = document.getElementById('jsFullScreenWrap01');
-        const jsFullScreenWrap02 = document.getElementById('jsFullScreenWrap02');
-
+        const { anim_loadingScreenOut } = this.props;
+        
         const handleLoaded = () => {
             setTimeout(() => {
                 this.setState({
                     loaded: true
                 });
-                animOutLoading( jsFullScreenWrap01, jsFullScreenWrap02, jsLoading );
-                this._animates();
+                anim_loadingScreenOut();
+                this._componentDidLoading();
             }, 1000);
         }
-
-        setBeforeLoading(jsFullScreenWrap01, jsFullScreenWrap02, jsLoading);
         handleLoaded();
     }
 
-    _animates() {
+    _componentDidLoading() {
         // DEFINES
-        const jsBigmenuBigtitle = document.getElementById('jsBigmenuBigtitle');
-        const jsBigmenuTitle = document.getElementById('jsBigmenuTitle');
-        const jsBigmenuTitleString = jsBigmenuTitle.getElementsByTagName('p');
-        const jsBtnGnbAbout = document.getElementById('jsBtnGnbAbout');
         const jsSecInstagram = document.getElementById('jsSecInstagram');
         const InstaImagesWrap = document.getElementsByClassName('insta-image-wrap');
         const jsAppearBtT = document.getElementsByClassName('jsAppearBtT');
@@ -117,16 +107,6 @@ class About extends Component {
         const skillLevelBar = document.getElementsByClassName('skill-level-bar');
 
         // FUNCTIONS
-        const showSubpageHeading = () => {
-            jsBigmenuBigtitle.classList.add('centered');
-            setTimeout(() => {
-                jsBigmenuBigtitle.classList.remove('centered');
-            }, 10)
-            setTimeout( function() {
-                animInCrossSlide(jsBigmenuTitleString);
-            }, 800);
-        }
-
         const skillLevelBarShow = (nowScroll, elements) => {
             for ( let i=0; i<elements.length; i++ ) {
                 if ( nowScroll + window.innerHeight > getAbsoluteTop(elements[i]) ) {
@@ -163,8 +143,6 @@ class About extends Component {
         })
 
         // RUN
-        jsBtnGnbAbout.classList.add('is-disabled');
-        showSubpageHeading();
         setMouseHover(); 
         animInAppear(jsAppearBtT, 2000);
         animInAppear(jsAppearSlideToR, 1500);
@@ -173,10 +151,11 @@ class About extends Component {
 
     _renderContent() {
         const { dataSkills, subtext, keyText, instaImages, contactText } = this.state;
+        const { anim_titleIn } = this.props;
         const skillCategories = this.skillCategories;
         return(
             <>
-                <SubpageHeading hugetitle="ABOUT" subtext={subtext} />
+                <SubpageHeading hugetitle="ABOUT" subtext={subtext} anim_titleIn={anim_titleIn} />
                 <div className="about-wrapper">
                     <AboutKeyVisual keyText={keyText} />
                     <AboutSkills skillCategories={skillCategories} dataSkills={dataSkills} />

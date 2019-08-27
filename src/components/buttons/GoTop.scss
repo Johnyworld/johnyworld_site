@@ -5,6 +5,8 @@
     @include regularButton;
     transition: .5s;
     bottom: 80px;
+    opacity: 1;
+    transform: translateX(0);
 
     .icon {
         width: 15px;

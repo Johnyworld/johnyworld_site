@@ -15,29 +15,40 @@
 전진하는 개발자, 인정받는 개발자, 소통하는 개발자, 공유하는 개발자가 되고싶습니다.
 
 ## Made by
-이 홈페이지를 만드는데에 사용된 기술들입니다.
-1. React JS
-2. Modern Javascript (ES6+)
-3. SCSS
-4. Axios
+#### Design 
++ 필요한 내용만 담아 낭비 없는 디자인으로 구성.
++ 인터렉션을 통한 손끝으로 느끼고 눈으로 보는 즐거움을 제공 
+
+#### Front-end
++ 리액트로 제작한 SPA
++ 모던자바스크립트 활용
++ CSS 전처리기 (SCSS) 활용
++ Axios를 이용한 인스타그램 API 연결
++ JS로 슬라이더 구현
 
 ## PAGES
 
-### WORK
+#### WORK
 고객을 위해 작업했거나 많은 노력을 기울인 애플리케이션 등을 담은 공간입니다.
 
-### ABOUT
+#### ABOUT
 꿈은 크고, 그것을 실행하는 사람.
 1. Philosophy
 2. Skills
 3. Instagram
 4. Contact
 
-### BLOG
+#### BLOG
 자유롭게 이것저것 써내려가는 개발 일지.
 
-### Toy Project
+#### Toy Project
 스터디하고 만들고 있는 다양한 작업물들입니다. 간단한 게임도 있습니다.
++ Room311 : 직접 사용하기 위해 리액트로 만든 자리 배치 웹앱.
++ Modern Pirates : 포트리스나 Scotch게임을 군함 버전/실시간전투 컨셉으로 기획하여 Canvas로 만든 게임.
++ Masonry Grid : 이미지의 비율에 상관없이 배치되는 그리드. Pinterest가 대표적. JQuery로 제작.
++ Bang! Pick a card : 트럼프카드를 랜덤으로 뽑아주는 웹앱. 
++ Crossroad Card : 보드게임 Dead of winter에서 사용되는 카드의 사용성을 높이고자 앱으로 제작.
++ Conversation 250 : 대화주제를 랜덤으로 보여주는 웹앱.
 
 ## Link
 Site Link : [View](http://johnyworld.com)

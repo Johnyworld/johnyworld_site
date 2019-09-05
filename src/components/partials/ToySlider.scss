@@ -125,8 +125,11 @@
     }
 }
 
-@media screen and ( max-width: 1400px ) {
+@media screen and ( max-width: 1440px ) {
     .lab-slider-wrapper {
+        .index-wrap {
+            top: 40px;
+        }
         .btn-wrap {
             .btn {
                 width: 60px;

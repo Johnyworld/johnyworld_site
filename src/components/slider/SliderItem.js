@@ -5,7 +5,7 @@ export default function({ isSelected, sliderItem, handleViewLabDetail, propsHist
     const { id } = sliderItem;
     return (
         <li className={"slider-item" + (isSelected ? ' selected':'') } key={id}>
-            <div className="slider-inner">
+            <div className="slider-inner clear-fix">
                 <SliderImage sliderItem={sliderItem} />
                 <SliderText sliderItem={sliderItem} handleViewLabDetail={handleViewLabDetail} propsHistory={propsHistory}/>
             </div>
@@ -50,7 +50,7 @@ function SliderText({ sliderItem, handleViewLabDetail, propsHistory }) {
             }
             <div className="explain f-normal c-gray-dark">
                 <p className="comment c-gray-bright">{comment}</p>
-                { desc.map((line, key) => (<p className="explain-p" key={`desc${key}`}>{line}</p>))}
+                <p className="explain-p f-keep-break">{desc}</p>
             </div>
             <div className="technics-wrap f-normal f-eng c-blue-bright">
                 { git ? <a href={git} target="blank"><span className="git technic">GitHub</span></a> : '' }

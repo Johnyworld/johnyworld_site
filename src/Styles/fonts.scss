@@ -20,9 +20,12 @@ $fontMain: 'Noto Sans KR', sans-serif;
 .f-eng { letter-spacing: 0; }
 .f-eng-title { @include f-TitleEn; }
 .f-bold { font-family: $fontTitleKrBold; }
+.f-keep-break { word-break: keep-all; }
 
-@media screen and ( max-width: 1400px ) {
-    .f-hugetitle { font-size: 180px; }
+@media screen and ( max-width: 1440px ) {
+    .f-hugetitle { font-size: 190px; }
+    .f-bigtitle { font-size: 135px; }
+    .f-title { font-size: 60px; }
 }
 
 @media screen and ( max-width: 1023px ) {

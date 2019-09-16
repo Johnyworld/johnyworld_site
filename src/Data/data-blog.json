@@ -281,5 +281,15 @@
                 "content" : "/* import */\nimport { gql } from 'apollo-boost';\nimport { useMutation } from 'react-apollo-hooks';\n\n/* apollo */\nconst LOG_IN = gql`\n   mutation requestSecret($email: String!) {\n      requestSecret(email: $email)\n   }\n`;\n\n/* front-end */\nconst [requestSecret] = useMutation( LOG_IN, {\n   update: (_, {data}) => {\n      const { requestSecret } = data;\n      if (!requestSecret) ...blabla...\n   },\n   variables: {email}\n}); // update는 mutation이 발생될 때 실행하는 함수이다.\n\n/* setState */\nrequestSecret();"
             }
         ]
+    },
+    {
+        "id": 22,
+        "title": "최근 소식",
+        "category": "blabla",
+        "date": "2019. 9. 16. Mon.",
+        "hash": [ "Blabla" ],
+        "content": [
+            "현재 자기계발 관련된 앱을 개발중입니다. 상업용이 아닌 포트폴리오용이라 무료 서비스 예정입니다. 기획-디자인 작업이 거의 마무리중인데, 파워포인트와 포토샵만 다루느라 깃헙은 조용하네요 ^^ 몇주 뒤에 서비스 런칭과 함께 자세한 기획, 디자인, 개발 프로세스를 공개할 예정입니다. 그때 만나요~",
+        ]
     }
 ]

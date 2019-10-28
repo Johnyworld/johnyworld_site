@@ -200,8 +200,10 @@
     margin-bottom: 25vh; 
     overflow-y: hidden; 
     overflow-x: scroll; 
+    -webkit-overflow-scrolling: touch;
+    -moz-overflow-scrolling: touch;
+    -ms-overflow-scrolling: touch;
     -ms-overflow-style: none; 
-
     &::-webkit-scrollbar { display:none; } 
 }
 

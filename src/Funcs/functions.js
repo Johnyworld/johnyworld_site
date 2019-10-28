@@ -38,4 +38,8 @@ export const getAbsoluteTop = (element) => {
     return window.pageYOffset + element.getBoundingClientRect().top;
 }
 
-
+// PC -> Mobile 링크 변환
+export const getMobileLink = (pcLink) => {
+    const split = pcLink.split("/pc/");
+    return split[0] + "/mobile/" + split[1];
+}

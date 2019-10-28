@@ -40,6 +40,7 @@ class LabSlider extends Component {
 
     render() {
         const {dataSlider} = this.state;
+
         return(
             <div className="lab-slider-wrapper clear-fix">
                 <SliderButtons />

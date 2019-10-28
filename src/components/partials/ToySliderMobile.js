@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import dataLabSliderReverse from '../../Data/data-lab-slider';
+import { getMobileLink } from '../../Funcs/functions';
 
 class ToySliderMobile extends Component {
     constructor(props) {
@@ -26,9 +27,11 @@ class ToySliderMobile extends Component {
             <div className="mobile-toy-slider-wrap">
                 <ul className="mobile-toy-slider" id="jsMobileToySlider">
                     { this.laboratories.map((item, key) => {
+                        const isMobile = navigator.userAgent.match(/(iPad)|(iPhone)|(iPod)|(android)|(webOS)/i);
+                        const thumbnail = isMobile ? getMobileLink(item.thumbnail) : item.thumbnail;
                         return (
                             item.forMobile ?
-                            <li key={'slider-item-'+key} className="slider-item" style={{ backgroundImage: 'url('+item.thumbnail+')' }}>
+                            <li key={'slider-item-'+key} className="slider-item" style={{ backgroundImage: 'url('+thumbnail+')' }}>
                                 <a href={item.url} target="blank" className="link" >
                                     <h3 className="f-heading f-eng-title c-white">{item.title}</h3>
                                 </a>

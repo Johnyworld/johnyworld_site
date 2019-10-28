@@ -1,7 +1,6 @@
 let workScreenFocus, workScreenBigpictureEnt, workScreenFanclubCoin, workScreenSoohan, workScreenPssd, workScreenKrx, workScreenCamping;
 let workMobileFocus, workMobileSoohan, workMobileBigpictureEnt, workMobileFanclubCoin, workMobileCamping;
 let workBgFocus, workBgPssd, workBgKrx, workBgCamping, workBgSoohan, workBgFanclubCoin, workBgBigpictureEnt;
-// workBgSamsungTheme
 let workKeyBgFocus, workKeyBgBigpictureEnt, workKeyBgFanclubCoin, workKeyBgSoohan, workKeyBgKrx, workKeyBgPssd, workKeyBgCamping
 const isMobile = navigator.userAgent.match(/(iPad)|(iPhone)|(iPod)|(android)|(webOS)/i);
 if ( isMobile ) {
@@ -9,7 +8,6 @@ if ( isMobile ) {
     workBgFocus = require( '../Mobile-images/workbg-focus.jpg' );
     workBgPssd = require( '../Mobile-images/workbg-pssd.jpg' );
     workBgKrx = require( '../Mobile-images/workbg-krx.jpg' );
-    // workBgSamsungTheme = require( '../Mobile-images/workbg-samsung-theme.jpg' );
     workBgCamping = require( '../Mobile-images/workbg-camping.jpg' );
     workBgSoohan = require( '../Mobile-images/workbg-soo.jpg' );
     workBgFanclubCoin = require( '../Mobile-images/workbg-fanclub-coin.jpg' );
@@ -37,7 +35,6 @@ if ( isMobile ) {
     workBgFocus = require( '../Images/workbg-focus.jpg' );
     workBgPssd = require( '../Images/workbg-pssd.jpg' );
     workBgKrx = require( '../Images/workbg-krx.jpg' );
-    // workBgSamsungTheme = require( '../Images/workbg-samsung-theme.jpg' );
     workBgCamping = require( '../Images/workbg-camping.jpg' );
     workBgSoohan = require( '../Images/workbg-soo.jpg' );
     workBgFanclubCoin = require( '../Images/workbg-fanclub-coin.jpg' );
@@ -68,6 +65,8 @@ if ( isMobile ) {
     workMobileFanclubCoin = require( '../Images/work-detail-fancoin/fancoin-devices-mobile.jpg' );
     workMobileCamping = require( '../Images/work-detail-camping/camping-devices-mobile.jpg' );
 }
+
+const awsS3uri = "https://johnyworld2019.s3.ap-northeast-2.amazonaws.com"
 
 const dataWork = [
     {
@@ -200,6 +199,26 @@ const dataWork = [
     },
     {
         id: "05007",
+        title: "Johnyworld 2019",
+        slug: "the-focus",
+        comment: "부제 : the Focus",
+        summary: [
+            { title: "참여인원", desc: ["1명"] },
+            { title: "내 업무범위", desc: ["기획 - 100%", "디자인 - 100%", "개발 - 100%" ] },
+        ],
+        keywords: [
+            "React JS", "UX, UI 디자인", "웹 인터렉티브 디자인"
+        ],
+        category1: "UX/UI",
+        category2: "Front-end Development",
+        thumbnail: workBgFocus, 
+        keyvisual: workKeyBgFocus,
+        screen: workScreenFocus,
+        mobileScreen: workMobileFocus,
+        date: "2019. 7"
+    },
+    {
+        id: "05008",
         title: "Bigpicture Entertainment",
         slug: "bigpicture-ent",
         comment: "빅픽처 엔터테인먼트 홈페이지 제작",
@@ -224,24 +243,29 @@ const dataWork = [
         url: "http://bigpicture-ent.com/"
     },
     {
-        id: "05008",
-        title: "Johnyworld 2019",
-        slug: "the-focus",
-        comment: "부제 : the Focus",
+        id: "05009",
+        title: "Daylog",
+        slug: "daylog",
+        comment: "데이로그 서비스 개발",
         summary: [
             { title: "참여인원", desc: ["1명"] },
-            { title: "내 업무범위", desc: ["기획 - 100%", "디자인 - 100%", "개발 - 100%" ] },
+            { title: "내 업무범위", desc: ["기획 - 100%", "디자인 - 100%", "프론트엔드 - 100%", "백엔드 - 100%" ] },
+            { title: "컨셉", desc: ["오늘 얼마나 시간을 낭비했나요?", "하루의 일과를 기록하고 일간, 주간, 월간, 연간 통계를 확인하세요."] },
+            { title: "소셜기능", desc: ["친구들과 기록을 공유하고 좋아요와 댓글로 서로를 격려합니다. 또는 서로를 감시합니다."] },
+            { title: "설명", desc: ["이 앱을 사용함으로써 하루의 시간이 얼마나 낭비되고 있는지 파악할 수 있습니다. 이와 같이 시간을 기록하는 일은 '시간 가계부', '데일리 리포트'등의 이름으로 불려집니다. 보통은 1시간 단위로 기록하곤 하는데, 데이로그 앱은 15분 단위로 시간을 기록합니다."] },
+            { title: "빠른 사용성", desc: ["단 한번의 클릭으로 일과를 기록하고 관리합니다."] }
         ],
         keywords: [
-            "React JS", "UX, UI 디자인", "웹 인터렉티브 디자인"
+            "React JS", "Styled Component", "Node JS", "GraphQL", "Prisma", "Apollo", "AWS S3", "UX, UI 디자인"
         ],
-        category1: "UX/UI",
-        category2: "Front-end Development",
-        thumbnail: workBgFocus, 
-        keyvisual: workKeyBgFocus,
-        screen: workScreenFocus,
-        mobileScreen: workMobileFocus,
-        date: "2019. 7"
+        category1: "Development",
+        category2: "App Development",
+        thumbnail: awsS3uri + "/images/work/daylog/pc/thumbnail.jpg", 
+        keyvisual: awsS3uri + "/images/work/daylog/pc/key-visual.jpg",
+        screen: awsS3uri + "/images/work/daylog/pc/screen-pc.jpg",
+        mobileScreen: awsS3uri + "/images/work/daylog/pc/screen-mobile.jpg",
+        date: "2019. 10",
+        url: "https://daylog.kr/"
     },
 ];
 const dataWorkReverse = dataWork.reverse();

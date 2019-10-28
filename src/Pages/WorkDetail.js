@@ -23,6 +23,7 @@ import NextAndPrev from '../Components/buttons/NextAndPrev';
 // Etc.
 import deviceMobileBg from '../Images/work-detail/devices-mobile.png';
 import './WorkDetail.scss';
+import Daylog from './work-detail/daylog';
 
 class WorkDetail extends Component {
     constructor(props) {
@@ -105,6 +106,7 @@ class WorkDetail extends Component {
         if (id === 'samsung-pssd') { workDetailContent = <Pssd /> }
         if (id === 'camping-poster') { workDetailContent = <Camping /> }
         if (id === 'the-focus') { workDetailContent = <TheFocus /> }
+        if (id === 'daylog') { workDetailContent = <Daylog /> }
 
         let splitTitle = title.split(' ');      
 

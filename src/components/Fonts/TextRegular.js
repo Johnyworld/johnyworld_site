@@ -18,14 +18,18 @@ const Container = styled.span`
         display: block;
     `};
 
+    ${props => props.color && `
+        color: ${props.color};
+    `};
+
     @media screen and ( max-width: 767px ) {
         font-size: 16px;
     }
 `;
 
-const TextRegular = ({ className, text, strong, block }) => {
+const TextRegular = ({ className, text, color, strong, block }) => {
     return (
-        <Container className={className} strong={strong} block={block} >
+        <Container className={className} strong={strong} block={block} color={color} >
             {text}
         </Container>
     )

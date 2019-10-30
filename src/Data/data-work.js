@@ -1,7 +1,7 @@
-let workScreenFocus, workScreenBigpictureEnt, workScreenSoohan, workScreenPssd, workScreenKrx, workScreenCamping;
-let workMobileFocus, workMobileSoohan, workMobileBigpictureEnt, workMobileCamping;
-let workBgFocus, workBgPssd, workBgKrx, workBgCamping, workBgSoohan, workBgBigpictureEnt;
-let workKeyBgFocus, workKeyBgBigpictureEnt, workKeyBgSoohan, workKeyBgKrx, workKeyBgPssd, workKeyBgCamping
+let workScreenFocus, workScreenBigpictureEnt, workScreenPssd, workScreenKrx, workScreenCamping;
+let workMobileFocus, workMobileBigpictureEnt, workMobileCamping;
+let workBgFocus, workBgPssd, workBgKrx, workBgCamping, workBgBigpictureEnt;
+let workKeyBgFocus, workKeyBgBigpictureEnt, workKeyBgKrx, workKeyBgPssd, workKeyBgCamping
 const isMobile = navigator.userAgent.match(/(iPad)|(iPhone)|(iPod)|(android)|(webOS)/i);
 if ( isMobile ) {
     // Thumnails
@@ -9,20 +9,17 @@ if ( isMobile ) {
     workBgPssd = require( '../Mobile-images/workbg-pssd.jpg' );
     workBgKrx = require( '../Mobile-images/workbg-krx.jpg' );
     workBgCamping = require( '../Mobile-images/workbg-camping.jpg' );
-    workBgSoohan = require( '../Mobile-images/workbg-soo.jpg' );
     workBgBigpictureEnt = require( '../Mobile-images/workbg-bigpicture.jpg' );
 
     // Keyvisualds
     workKeyBgFocus = require( '../Mobile-images/work-detail-focus/focus-keyvisualbg.jpg' );
     workKeyBgBigpictureEnt = require( '../Mobile-images/work-detail-bigpic/bigpic-keyvisualbg.jpg' );
-    workKeyBgSoohan = require( '../Mobile-images/work-detail-soohan/soohan-keyvisualbg.jpg' );
     workKeyBgKrx = require( '../Mobile-images/work-detail-krx/krx-keyvisualbg.jpg' );
     workKeyBgPssd = require( '../Mobile-images/work-detail-pssd/pssd-keyvisualbg.jpg' );
     workKeyBgCamping = require( '../Mobile-images/work-detail-camping/camping-keyvisualbg.jpg' );
 
     // Devices
     workScreenFocus = require( '../Mobile-images/work-detail-focus/focus-devices.jpg' );
-    workScreenSoohan = require( '../Mobile-images/work-detail-soohan/soohan-devices.jpg' );
     workScreenPssd = require( '../Mobile-images/work-detail-pssd/pssd-devices.jpg' );
     workScreenKrx = require( '../Mobile-images/work-detail-krx/krx-devices.jpg' );
     workScreenBigpictureEnt = require( '../Mobile-images/work-detail-bigpic/bigpic-devices.jpg' );
@@ -33,20 +30,17 @@ if ( isMobile ) {
     workBgPssd = require( '../Images/workbg-pssd.jpg' );
     workBgKrx = require( '../Images/workbg-krx.jpg' );
     workBgCamping = require( '../Images/workbg-camping.jpg' );
-    workBgSoohan = require( '../Images/workbg-soo.jpg' );
     workBgBigpictureEnt = require( '../Images/workbg-bigpicture.jpg' );
 
     // Keyvisualds
     workKeyBgFocus = require( '../Images/work-detail-focus/focus-keyvisualbg.jpg' );
     workKeyBgBigpictureEnt = require( '../Images/work-detail-bigpic/bigpic-keyvisualbg.jpg' );
-    workKeyBgSoohan = require( '../Images/work-detail-soohan/soohan-keyvisualbg.jpg' );
     workKeyBgKrx = require( '../Images/work-detail-krx/krx-keyvisualbg.jpg' );
     workKeyBgPssd = require( '../Images/work-detail-pssd/pssd-keyvisualbg.jpg' );
     workKeyBgCamping = require( '../Images/work-detail-camping/camping-keyvisualbg.jpg' );
 
     // Devices
     workScreenFocus = require( '../Images/work-detail-focus/focus-devices.jpg' );
-    workScreenSoohan = require( '../Images/work-detail-soohan/soohan-devices.jpg' );
     workScreenPssd = require( '../Images/work-detail-pssd/pssd-devices.jpg' );
     workScreenKrx = require( '../Images/work-detail-krx/krx-devices.jpg' );
     workScreenBigpictureEnt = require( '../Images/work-detail-bigpic/bigpic-devices.jpg' );
@@ -54,7 +48,6 @@ if ( isMobile ) {
 
     // Mobile Screen
     workMobileFocus = require( '../Images/work-detail-focus/focus-devices-mobile.jpg' );
-    workMobileSoohan = require( '../Images/work-detail-soohan/soohan-devices-mobile.jpg' );
     workMobileBigpictureEnt = require( '../Images/work-detail-bigpic/bigpic-devices-mobile.jpg' );
     workMobileCamping = require( '../Images/work-detail-camping/camping-devices-mobile.jpg' );
 }
@@ -183,10 +176,10 @@ const dataWork = [
         ],
         category1: "Wordpress",
         category2: "Web Design + Wordpress",
-        thumbnail: workBgSoohan,
-        keyvisual: workKeyBgSoohan,
-        screen: workScreenSoohan,
-        mobileScreen: workMobileSoohan,
+        thumbnail: awsS3uri + "/images/work/soohan/pc/thumbnail.jpg", 
+        keyvisual: awsS3uri + "/images/work/soohan/pc/key-visual.jpg",
+        screen: awsS3uri + "/images/work/soohan/pc/screen-pc.jpg",
+        mobileScreen: awsS3uri + "/images/work/soohan/pc/screen-mobile.jpg",
         date: "2018. 11",
         url: "http://soo-clinic.kr/"
     },

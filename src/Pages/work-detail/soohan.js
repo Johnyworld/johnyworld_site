@@ -2,21 +2,23 @@ import React, { Component } from 'react';
 import StyleSheetItem from '../WorkDetailStylesheet';
 import NormalSection from '../../Components/partials/Normal-section';
 
-import styleColors from '../../Images/work-detail-soohan/soohan-style-color.png';
-import styleFonts from '../../Images/work-detail-soohan/soohan-style-fonts.png';
-import styleButtons from '../../Images/work-detail-soohan/soohan-style-buttons.png';
+const styleColors = 'https://johnyworld2019.s3.ap-northeast-2.amazonaws.com/images/work/soohan/pc/guide-color.png';
+const styleFonts = 'https://johnyworld2019.s3.ap-northeast-2.amazonaws.com/images/work/soohan/pc/guide-fonts.png';
+const styleButtons = 'https://johnyworld2019.s3.ap-northeast-2.amazonaws.com/images/work/soohan/pc/guide-buttons.png';
 
-let workDesignSoohan, soohanSub01, soohanSub02;
 const isMobile = navigator.userAgent.match(/(iPad)|(iPhone)|(iPod)|(android)|(webOS)/i);
-if ( isMobile ) {
-    workDesignSoohan = require( '../../Mobile-images/work-detail-soohan/soohan-design.jpg' );
-    soohanSub01 = require( '../../Mobile-images/work-detail-soohan/soohan-sub01.jpg' );
-    soohanSub02 = require( '../../Mobile-images/work-detail-soohan/soohan-sub02.jpg' );
-} else {
-    workDesignSoohan = require( '../../Images/work-detail-soohan/soohan-design.jpg' );
-    soohanSub01 = require( '../../Images/work-detail-soohan/soohan-sub01.jpg' );
-    soohanSub02 = require( '../../Images/work-detail-soohan/soohan-sub02.jpg' );
-}
+
+const workDesignSoohan = !isMobile
+    ? 'https://johnyworld2019.s3.ap-northeast-2.amazonaws.com/images/work/soohan/pc/main-1.png'
+    : 'https://johnyworld2019.s3.ap-northeast-2.amazonaws.com/images/work/soohan/mobile/main-1.png'
+
+const soohanSub01 = !isMobile
+    ? 'https://johnyworld2019.s3.ap-northeast-2.amazonaws.com/images/work/soohan/pc/sub-1.png'
+    : 'https://johnyworld2019.s3.ap-northeast-2.amazonaws.com/images/work/soohan/mobile/sub-1.png'
+
+const soohanSub02 = !isMobile
+    ? 'https://johnyworld2019.s3.ap-northeast-2.amazonaws.com/images/work/soohan/pc/sub-2.png'
+    : 'https://johnyworld2019.s3.ap-northeast-2.amazonaws.com/images/work/soohan/mobile/sub-2.png'
 
 class Soohan extends Component {
     render() {

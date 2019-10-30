@@ -2,21 +2,23 @@ import React, { Component } from 'react';
 import StyleSheetItem from '../WorkDetailStylesheet';
 import NormalSection from '../../Components/partials/Normal-section';
 
-import styleColors from '../../Images/work-detail-pssd/pssd-style-color.png';
-import stylePattern from '../../Images/work-detail-pssd/pssd-style-pattern.jpg';
-import styleIcons from '../../Images/work-detail-pssd/pssd-style-icons.png';
+const styleColors = 'https://johnyworld2019.s3.ap-northeast-2.amazonaws.com/images/work/pssd/pc/guide-color.png';
+const stylePattern = 'https://johnyworld2019.s3.ap-northeast-2.amazonaws.com/images/work/pssd/pc/guide-pattern.png';
+const styleIcons = 'https://johnyworld2019.s3.ap-northeast-2.amazonaws.com/images/work/pssd/pc/guide-icons.png';
 
-let pssd01, pssd02, pssd03;
 const isMobile = navigator.userAgent.match(/(iPad)|(iPhone)|(iPod)|(android)|(webOS)/i);
-if ( isMobile ) {
-    pssd01 = require( '../../Mobile-images/work-detail-pssd/pssd-01.jpg' );
-    pssd02 = require( '../../Mobile-images/work-detail-pssd/pssd-02.jpg' );
-    pssd03 = require( '../../Mobile-images/work-detail-pssd/pssd-03.jpg' );
-} else {
-    pssd01 = require( '../../Images/work-detail-pssd/pssd-01.jpg' );
-    pssd02 = require( '../../Images/work-detail-pssd/pssd-02.jpg' );
-    pssd03 = require( '../../Images/work-detail-pssd/pssd-03.jpg' );
-}
+const pssd01 = !isMobile
+    ? 'https://johnyworld2019.s3.ap-northeast-2.amazonaws.com/images/work/pssd/pc/pssd-01.jpg'
+    : 'https://johnyworld2019.s3.ap-northeast-2.amazonaws.com/images/work/pssd/mobile/pssd-01.jpg'
+
+const pssd02 = !isMobile
+    ? 'https://johnyworld2019.s3.ap-northeast-2.amazonaws.com/images/work/pssd/pc/pssd-02.jpg'
+    : 'https://johnyworld2019.s3.ap-northeast-2.amazonaws.com/images/work/pssd/mobile/pssd-02.jpg'
+
+const pssd03 = !isMobile
+    ? 'https://johnyworld2019.s3.ap-northeast-2.amazonaws.com/images/work/pssd/pc/pssd-03.jpg'
+    : 'https://johnyworld2019.s3.ap-northeast-2.amazonaws.com/images/work/pssd/mobile/pssd-03.jpg'
+
 
 class Pssd extends Component {
     render() {

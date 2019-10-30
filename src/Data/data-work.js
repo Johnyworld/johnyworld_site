@@ -1,12 +1,11 @@
-let workScreenFocus, workScreenBigpictureEnt, workScreenPssd, workScreenKrx, workScreenCamping;
+let workScreenFocus, workScreenBigpictureEnt, workScreenKrx, workScreenCamping;
 let workMobileFocus, workMobileBigpictureEnt, workMobileCamping;
-let workBgFocus, workBgPssd, workBgKrx, workBgCamping, workBgBigpictureEnt;
-let workKeyBgFocus, workKeyBgBigpictureEnt, workKeyBgKrx, workKeyBgPssd, workKeyBgCamping
+let workBgFocus, workBgKrx, workBgCamping, workBgBigpictureEnt;
+let workKeyBgFocus, workKeyBgBigpictureEnt, workKeyBgKrx, workKeyBgCamping
 const isMobile = navigator.userAgent.match(/(iPad)|(iPhone)|(iPod)|(android)|(webOS)/i);
 if ( isMobile ) {
     // Thumnails
     workBgFocus = require( '../Mobile-images/workbg-focus.jpg' );
-    workBgPssd = require( '../Mobile-images/workbg-pssd.jpg' );
     workBgKrx = require( '../Mobile-images/workbg-krx.jpg' );
     workBgCamping = require( '../Mobile-images/workbg-camping.jpg' );
     workBgBigpictureEnt = require( '../Mobile-images/workbg-bigpicture.jpg' );
@@ -15,19 +14,16 @@ if ( isMobile ) {
     workKeyBgFocus = require( '../Mobile-images/work-detail-focus/focus-keyvisualbg.jpg' );
     workKeyBgBigpictureEnt = require( '../Mobile-images/work-detail-bigpic/bigpic-keyvisualbg.jpg' );
     workKeyBgKrx = require( '../Mobile-images/work-detail-krx/krx-keyvisualbg.jpg' );
-    workKeyBgPssd = require( '../Mobile-images/work-detail-pssd/pssd-keyvisualbg.jpg' );
     workKeyBgCamping = require( '../Mobile-images/work-detail-camping/camping-keyvisualbg.jpg' );
 
     // Devices
     workScreenFocus = require( '../Mobile-images/work-detail-focus/focus-devices.jpg' );
-    workScreenPssd = require( '../Mobile-images/work-detail-pssd/pssd-devices.jpg' );
     workScreenKrx = require( '../Mobile-images/work-detail-krx/krx-devices.jpg' );
     workScreenBigpictureEnt = require( '../Mobile-images/work-detail-bigpic/bigpic-devices.jpg' );
     workScreenCamping = require( '../Mobile-images/work-detail-camping/camping-devices.jpg' );
 } else {
     // Thumnails
     workBgFocus = require( '../Images/workbg-focus.jpg' );
-    workBgPssd = require( '../Images/workbg-pssd.jpg' );
     workBgKrx = require( '../Images/workbg-krx.jpg' );
     workBgCamping = require( '../Images/workbg-camping.jpg' );
     workBgBigpictureEnt = require( '../Images/workbg-bigpicture.jpg' );
@@ -36,12 +32,10 @@ if ( isMobile ) {
     workKeyBgFocus = require( '../Images/work-detail-focus/focus-keyvisualbg.jpg' );
     workKeyBgBigpictureEnt = require( '../Images/work-detail-bigpic/bigpic-keyvisualbg.jpg' );
     workKeyBgKrx = require( '../Images/work-detail-krx/krx-keyvisualbg.jpg' );
-    workKeyBgPssd = require( '../Images/work-detail-pssd/pssd-keyvisualbg.jpg' );
     workKeyBgCamping = require( '../Images/work-detail-camping/camping-keyvisualbg.jpg' );
 
     // Devices
     workScreenFocus = require( '../Images/work-detail-focus/focus-devices.jpg' );
-    workScreenPssd = require( '../Images/work-detail-pssd/pssd-devices.jpg' );
     workScreenKrx = require( '../Images/work-detail-krx/krx-devices.jpg' );
     workScreenBigpictureEnt = require( '../Images/work-detail-bigpic/bigpic-devices.jpg' );
     workScreenCamping = require( '../Images/work-detail-camping/camping-devices.jpg' );
@@ -131,9 +125,9 @@ const dataWork = [
         ],
         category1: "UX/UI",
         category2: "UI Design",
-        thumbnail: workBgPssd, 
-        keyvisual: workKeyBgPssd,
-        screen: workScreenPssd,
+        thumbnail: awsS3uri + "/images/work/pssd/pc/thumbnail.jpg", 
+        keyvisual: awsS3uri + "/images/work/pssd/pc/key-visual.jpg",
+        screen: awsS3uri + "/images/work/pssd/pc/screen-pc.jpg",
         date: "2014. 08"
     },
     {

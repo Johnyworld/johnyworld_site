@@ -2,20 +2,24 @@ import React, { Component } from 'react';
 import StyleSheetItem from '../WorkDetailStylesheet';
 import NormalSection from '../../Components/partials/Normal-section';
 
-import styleColors from '../../Images/work-detail-fancoin/fancoin-style-color.png';
-import styleFonts from '../../Images/work-detail-fancoin/fancoin-style-fonts.png';
-
-let workDesignFanclubCoin1, workDesignFanclubCoin2, workDesignFanclubCoin3;
 const isMobile = navigator.userAgent.match(/(iPad)|(iPhone)|(iPod)|(android)|(webOS)/i);
-if (isMobile) {
-    workDesignFanclubCoin1 = require( '../../Mobile-images/work-detail-fancoin/fancoin-design-1.jpg' );
-    workDesignFanclubCoin2 = require( '../../Mobile-images/work-detail-fancoin/fancoin-design-2.jpg' );
-    workDesignFanclubCoin3 = require( '../../Mobile-images/work-detail-fancoin/fancoin-design-3.jpg' );
-} else {
-    workDesignFanclubCoin1 = require( '../../Images/work-detail-fancoin/fancoin-design-1.jpg' );
-    workDesignFanclubCoin2 = require( '../../Images/work-detail-fancoin/fancoin-design-2.jpg' );
-    workDesignFanclubCoin3 = require( '../../Images/work-detail-fancoin/fancoin-design-3.jpg' );
-}
+
+const styleColors = 'https://johnyworld2019.s3.ap-northeast-2.amazonaws.com/images/work/fancoin/pc/guide-color.png';
+const styleFonts = 'https://johnyworld2019.s3.ap-northeast-2.amazonaws.com/images/work/fancoin/pc/guide-fonts.png';
+
+const workDesignFanclubCoin1 = !isMobile
+    ? 'https://johnyworld2019.s3.ap-northeast-2.amazonaws.com/images/work/fancoin/pc/landing-1.jpg'
+    : 'https://johnyworld2019.s3.ap-northeast-2.amazonaws.com/images/work/fancoin/mobile/landing-1.jpg'
+
+const workDesignFanclubCoin2 = !isMobile
+    ? 'https://johnyworld2019.s3.ap-northeast-2.amazonaws.com/images/work/fancoin/pc/landing-2.jpg'
+    : 'https://johnyworld2019.s3.ap-northeast-2.amazonaws.com/images/work/fancoin/mobile/landing-2.jpg'
+
+const workDesignFanclubCoin3 = !isMobile
+    ? 'https://johnyworld2019.s3.ap-northeast-2.amazonaws.com/images/work/fancoin/pc/landing-3.jpg'
+    : 'https://johnyworld2019.s3.ap-northeast-2.amazonaws.com/images/work/fancoin/mobile/landing-3.jpg'
+
+
 
 class FanclubCoin extends Component {
     render() {

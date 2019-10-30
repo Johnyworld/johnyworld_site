@@ -1,7 +1,7 @@
-let workScreenFocus, workScreenBigpictureEnt, workScreenFanclubCoin, workScreenSoohan, workScreenPssd, workScreenKrx, workScreenCamping;
-let workMobileFocus, workMobileSoohan, workMobileBigpictureEnt, workMobileFanclubCoin, workMobileCamping;
-let workBgFocus, workBgPssd, workBgKrx, workBgCamping, workBgSoohan, workBgFanclubCoin, workBgBigpictureEnt;
-let workKeyBgFocus, workKeyBgBigpictureEnt, workKeyBgFanclubCoin, workKeyBgSoohan, workKeyBgKrx, workKeyBgPssd, workKeyBgCamping
+let workScreenFocus, workScreenBigpictureEnt, workScreenSoohan, workScreenPssd, workScreenKrx, workScreenCamping;
+let workMobileFocus, workMobileSoohan, workMobileBigpictureEnt, workMobileCamping;
+let workBgFocus, workBgPssd, workBgKrx, workBgCamping, workBgSoohan, workBgBigpictureEnt;
+let workKeyBgFocus, workKeyBgBigpictureEnt, workKeyBgSoohan, workKeyBgKrx, workKeyBgPssd, workKeyBgCamping
 const isMobile = navigator.userAgent.match(/(iPad)|(iPhone)|(iPod)|(android)|(webOS)/i);
 if ( isMobile ) {
     // Thumnails
@@ -10,13 +10,11 @@ if ( isMobile ) {
     workBgKrx = require( '../Mobile-images/workbg-krx.jpg' );
     workBgCamping = require( '../Mobile-images/workbg-camping.jpg' );
     workBgSoohan = require( '../Mobile-images/workbg-soo.jpg' );
-    workBgFanclubCoin = require( '../Mobile-images/workbg-fanclub-coin.jpg' );
     workBgBigpictureEnt = require( '../Mobile-images/workbg-bigpicture.jpg' );
 
     // Keyvisualds
     workKeyBgFocus = require( '../Mobile-images/work-detail-focus/focus-keyvisualbg.jpg' );
     workKeyBgBigpictureEnt = require( '../Mobile-images/work-detail-bigpic/bigpic-keyvisualbg.jpg' );
-    workKeyBgFanclubCoin = require( '../Mobile-images/work-detail-fancoin/fancoin-keyvisualbg.jpg' );
     workKeyBgSoohan = require( '../Mobile-images/work-detail-soohan/soohan-keyvisualbg.jpg' );
     workKeyBgKrx = require( '../Mobile-images/work-detail-krx/krx-keyvisualbg.jpg' );
     workKeyBgPssd = require( '../Mobile-images/work-detail-pssd/pssd-keyvisualbg.jpg' );
@@ -28,7 +26,6 @@ if ( isMobile ) {
     workScreenPssd = require( '../Mobile-images/work-detail-pssd/pssd-devices.jpg' );
     workScreenKrx = require( '../Mobile-images/work-detail-krx/krx-devices.jpg' );
     workScreenBigpictureEnt = require( '../Mobile-images/work-detail-bigpic/bigpic-devices.jpg' );
-    workScreenFanclubCoin = require( '../Mobile-images/work-detail-fancoin/fancoin-devices.jpg' );
     workScreenCamping = require( '../Mobile-images/work-detail-camping/camping-devices.jpg' );
 } else {
     // Thumnails
@@ -37,13 +34,11 @@ if ( isMobile ) {
     workBgKrx = require( '../Images/workbg-krx.jpg' );
     workBgCamping = require( '../Images/workbg-camping.jpg' );
     workBgSoohan = require( '../Images/workbg-soo.jpg' );
-    workBgFanclubCoin = require( '../Images/workbg-fanclub-coin.jpg' );
     workBgBigpictureEnt = require( '../Images/workbg-bigpicture.jpg' );
 
     // Keyvisualds
     workKeyBgFocus = require( '../Images/work-detail-focus/focus-keyvisualbg.jpg' );
     workKeyBgBigpictureEnt = require( '../Images/work-detail-bigpic/bigpic-keyvisualbg.jpg' );
-    workKeyBgFanclubCoin = require( '../Images/work-detail-fancoin/fancoin-keyvisualbg.jpg' );
     workKeyBgSoohan = require( '../Images/work-detail-soohan/soohan-keyvisualbg.jpg' );
     workKeyBgKrx = require( '../Images/work-detail-krx/krx-keyvisualbg.jpg' );
     workKeyBgPssd = require( '../Images/work-detail-pssd/pssd-keyvisualbg.jpg' );
@@ -55,14 +50,12 @@ if ( isMobile ) {
     workScreenPssd = require( '../Images/work-detail-pssd/pssd-devices.jpg' );
     workScreenKrx = require( '../Images/work-detail-krx/krx-devices.jpg' );
     workScreenBigpictureEnt = require( '../Images/work-detail-bigpic/bigpic-devices.jpg' );
-    workScreenFanclubCoin = require( '../Images/work-detail-fancoin/fancoin-devices.jpg' );
     workScreenCamping = require( '../Images/work-detail-camping/camping-devices.jpg' );
 
     // Mobile Screen
     workMobileFocus = require( '../Images/work-detail-focus/focus-devices-mobile.jpg' );
     workMobileSoohan = require( '../Images/work-detail-soohan/soohan-devices-mobile.jpg' );
     workMobileBigpictureEnt = require( '../Images/work-detail-bigpic/bigpic-devices-mobile.jpg' );
-    workMobileFanclubCoin = require( '../Images/work-detail-fancoin/fancoin-devices-mobile.jpg' );
     workMobileCamping = require( '../Images/work-detail-camping/camping-devices-mobile.jpg' );
 }
 
@@ -120,10 +113,10 @@ const dataWork = [
         ],
         category1: "Wordpress",
         category2: "Web Design + Wordpress",
-        thumbnail: workBgFanclubCoin,
-        keyvisual: workKeyBgFanclubCoin,
-        screen: workScreenFanclubCoin,
-        mobileScreen: workMobileFanclubCoin,
+        thumbnail: awsS3uri + "/images/work/fancoin/pc/thumbnail.jpg",
+        keyvisual: awsS3uri + "/images/work/fancoin/pc/key-visual.jpg",
+        screen: awsS3uri + "/images/work/fancoin/pc/screen-pc.jpg",
+        mobileScreen: awsS3uri + "/images/work/fancoin/pc/screen-mobile.jpg",
         darkPage: true,
         date: "2019. 05",
         url: "https://fanclubcoin.com/"

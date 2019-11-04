@@ -226,14 +226,14 @@ const dataWork = [
         id: "05009",
         title: "Daylog",
         slug: "daylog",
-        comment: "데이로그 서비스 개발",
+        comment: "데이로그 서비스 개발 (베타)",
         summary: [
             { title: "참여인원", desc: ["1명"] },
             { title: "내 업무범위", desc: ["기획 - 100%", "디자인 - 100%", "프론트엔드 - 100%", "백엔드 - 100%" ] },
             { title: "설명", desc: ["이 앱을 사용함으로써 하루의 시간이 얼마나 낭비되고 있는지 파악할 수 있습니다. 이와 같이 시간을 기록하는 일은 '시간 가계부', '데일리 리포트'등의 이름으로 불려집니다. 보통은 1시간 단위로 기록하곤 하는데, 데이로그 앱은 15분 단위로 시간을 기록합니다."] },
         ],
         keywords: [
-            "React JS", "Styled Component", "Node JS", "GraphQL", "Prisma", "Apollo", "AWS S3", "UX, UI 디자인"
+            "React JS", "Styled Component", "Node JS", "GraphQL", "Prisma", "Apollo", "AWS S3", "UX, UI 디자인", "Netlify", "Heroku"
         ],
         category1: "Development",
         category2: "App Development",

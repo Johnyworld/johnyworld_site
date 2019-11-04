@@ -8,9 +8,7 @@ import UnorderedList from '../../Components/List/UnorderedList';
 
 const isMobile = navigator.userAgent.match(/(iPad)|(iPhone)|(iPod)|(android)|(webOS)/i);
 
-const Container = styled.div`
-
-`;
+const Container = styled.div``;
 
 const Section = styled.section`
     padding-top: 150px;
@@ -260,7 +258,7 @@ const Daylog = () => {
                 <TitleText text="로그인, 회원정보" className="jsAppearBtT" />
                 <Text>
                     <TextRegular text="간편한 회원 가입 / 인증코드 로그인" strong={true} block={true} className="jsAppearBtT" />
-                    <TextRegular text="단 3개의 정보만 입력하면 회원가입이 가능하고, 비밀번호 없이 인증코드로 로그인합니다." className="jsAppearBtT" />
+                    <TextRegular text="단 3개의 정보만 입력하면 회원가입이 가능하고, 비밀번호 없이 인증코드로 로그인합니다. JWT토큰 인증방식을 사용했습니다." className="jsAppearBtT" />
                 </Text>
                 <Grid pc={4} mobile={2}>
                     <GridItem>
@@ -290,6 +288,55 @@ const Daylog = () => {
                     <GridItem>
                         <ImageFull
                             src="https://johnyworld2019.s3.ap-northeast-2.amazonaws.com/images/work/daylog/pc/login-3.jpg"
+                            alt="dataModelDiagram"
+                            isMobile={isMobile}
+                            className="jsAppearBtT"
+                        />
+                    </GridItem>
+                </Grid>
+            </Section>
+            <Section>
+                <TitleText text="다국어 지원" className="jsAppearBtT" />
+                <Text>
+                    <TextRegular text="한글/영문 언어를 지원합니다." strong={true} block={true} className="jsAppearBtT" />
+                    <UnorderedList 
+                        list={[ 
+                            {text:"접속 국가의 언어에 따라 처음 언어가 설정됩니다."},
+                            {text:"프로필 수정 화면에서 언어를 변경할 수 있습니다."},
+                            {text:"개발자가 Languages.js 파일과 Words.json 번역만 추가하면 다른 언어도 얼마든지 추가 가능합니다."},
+                            {text:"언어 설정이 없는 국가는 기본적으로 영어로 표시됩니다."},
+                        ]} 
+                        className="jsAppearBtT"
+                    />
+                </Text>
+                <Grid pc={4} mobile={2}>
+                    <GridItem>
+                        <ImageFull
+                            src="https://johnyworld2019.s3.ap-northeast-2.amazonaws.com/images/work/daylog/pc/login-1.jpg"
+                            alt="dataModelDiagram"
+                            isMobile={isMobile}
+                            className="jsAppearBtT"
+                        />
+                    </GridItem>
+                    <GridItem>
+                        <ImageFull
+                            src="https://johnyworld2019.s3.ap-northeast-2.amazonaws.com/images/work/daylog/pc/lang-1.jpg"
+                            alt="dataModelDiagram"
+                            isMobile={isMobile}
+                            className="jsAppearBtT"
+                        />
+                    </GridItem>
+                    <GridItem>
+                        <ImageFull
+                            src="https://johnyworld2019.s3.ap-northeast-2.amazonaws.com/images/work/daylog/pc/lang-2.jpg"
+                            alt="dataModelDiagram"
+                            isMobile={isMobile}
+                            className="jsAppearBtT"
+                        />
+                    </GridItem>
+                    <GridItem>
+                        <ImageFull
+                            src="https://johnyworld2019.s3.ap-northeast-2.amazonaws.com/images/work/daylog/pc/lang-3.jpg"
                             alt="dataModelDiagram"
                             isMobile={isMobile}
                             className="jsAppearBtT"

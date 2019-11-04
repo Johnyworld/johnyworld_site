@@ -1,7 +1,7 @@
 [
     {
         "skillName" : "Javascript",
-        "skillLevel" : "6",
+        "skillLevel" : "7",
         "desc" : "자바스크립트와 친해지기 위해 게임도 만들어보고 지금도 재미있는 시도들을 하고 있습니다. 원하는 기능들은 어찌어찌 구현하는데  당연히 아직 많이 부족합니다. ES6를 일부러 안쓰다가 지금은 ES6 이후 버전의 모던자바스크립트 위주로 공부 하고 있습니다.",
         "category" : "Front-end",
         "color" : "#ffc600",
@@ -18,15 +18,15 @@
     {
         "skillName" : "CSS3",
         "skillLevel" : "8",
-        "desc" : "기본적인 레이아웃이나 애니메이션 등은 만들고 싶은건 대부분 구현합니다. SCSS를 사용해봤고 이 사이트에도 적용되어 있습니다. 새로 나오는 멋진 기술들은 계속 공부할 예정입니다.",
+        "desc" : "기본적인 레이아웃이나 애니메이션 등은 만들고 싶은건 대부분 구현합니다. 이 홈페이지와 데이로그에 SCSS(Styled-Component)가 사용되었습니다. 데이로그 개발에 Grid, Flex, Sticky 등 신 기술들을 적극 활용했습니다.",
         "category" : "Front-end",
         "color" : "#1370b6",
         "bgPosition": " -64px 0 "
     },
     {
         "skillName" : "React JS",
-        "skillLevel" : "4",
-        "desc" : "강의보고 따라하고 구글링하고 점점 알아가는중입니다. 이 포트폴리오 사이트는 그 경험을 바탕으로 만든 첫 리액트 작품입니다.",
+        "skillLevel" : "6",
+        "desc" : "리액트로 두개의 사이트를 제작하면서 어느정도 익숙해졌습니다. Class Component, Functional Component, Hooks, Styled Component, Hash Route 등과 친해졌습니다.",
         "category" : "Library",
         "color" : "#01d7fe",
         "bgPosition": " -96px 0 "
@@ -34,7 +34,7 @@
     {
         "skillName" : "React Native",
         "skillLevel" : "1",
-        "desc" : "현재 Expo와 함께 공부중입니다.",
+        "desc" : "현재 개발중입니다.",
         "category" : "Library",
         "color" : "#01d7fe", 
         "bgPosition": " -96px 0 "
@@ -42,7 +42,7 @@
     {
         "skillName" : "Wordpress",
         "skillLevel" : "8",
-        "desc" : "기본은 잘 이해합니다. 워낙 테마나 플러그인이 방대해서 모두 알진 못합니다. PHP로 플러그인 하나 (관리자페이지까지) 만들어본 경험이 있습니다.",
+        "desc" : "기본은 잘 이해합니다. PHP로 플러그인 하나 (관리자페이지까지) 만들어본 경험이 있습니다.",
         "category" : "CMS",
         "color" : "#00a0d2",
         "bgPosition": " 0 -32px "
@@ -50,7 +50,7 @@
     {
         "skillName" : "Node JS",
         "skillLevel" : "3",
-        "desc" : "가장 잘 하고싶고 탐나는 기술입니다. 라우팅, 컨트롤러등의 개념은 이해했고 패스포트, 웹팩, 몽고DB 등을 사용해 본 경험이 있습니다.",
+        "desc" : "데이로그 서비스는 NodeJS로 구현되었습니다. 라우팅, 컨트롤러등의 개념은 이해했고 Passport, WebPack, MongoDB, GraphQL 등을 사용해 본 경험이 있습니다.",
         "category" : "Back-end",
         "color" : "#8fc53f",
         "bgPosition": " -32px -32px "
@@ -65,7 +65,7 @@
     },
     {
         "skillName" : "Redux",
-        "skillLevel" : "1",
+        "skillLevel" : "2",
         "desc" : "현재 공부중입니다. 제가 이해한 리덕스는, 게임개발시 GAME_STATE_MACHINE과 비슷하다고 느꼈습니다. 스테이트가 변경 될 경우 여러 컴포넌트로 한번에 렌더해주기 때문에 상태관리가 편해집니다.",
         "category" : "Library",
         "color" : "#7649bb",
@@ -89,8 +89,8 @@
     },
     {
         "skillName" : "GraphQL",
-        "skillLevel" : "1",
-        "desc" : "현재 공부중입니다. 프리즈마, 아폴로(프론트엔드)와 함께 사용하는데, 몽고DB에 비해 매우 쉽고 유용하다고 생각합니다. 관리자패널도 지원해주고 코드 사용이 매우 간결해집니다. 데이터간의 관계(Relation)도 실시간 감지도(Subscribe) 쉽게 사용 가능합니다. 아직 익숙하지 않아서, 그래프큐엘, 프리즈마, 아폴로를 이용해서 토이프로젝트를 만들어 볼 예정입니다.",
+        "skillLevel" : "4",
+        "desc" : "데이로그는 GraphQL을 적극 사용해 개발되었습니다. 프리즈마, 아폴로(프론트엔드)와 함께 사용하는데, 몽고DB에 비해 매우 쉽고 유용하다고 생각합니다. 관리자 패널도 지원해주고 쿼리 형태로 데이터를 주고 받는것이 매우 편합니다. 데이터간의 관계(Relation)도 실시간 감지도(Subscribe) 쉽게 사용 가능합니다.",
         "category" : "Back-end",
         "color" : "#e635ab",
         "bgPosition": " -128px -32px " 

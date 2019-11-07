@@ -483,11 +483,12 @@ const Daylog = () => {
             <Section>
                 <TitleText text="나만의 루틴" className="jsAppearBtT" />
                 <Text>
-                    <TextRegular text="직접 만든 아이콘 업로드" strong={true} block={true} className="jsAppearBtT" />
+                    <TextRegular text="직접 만들고 공유하는 일과 아이템" strong={true} block={true} className="jsAppearBtT" />
                     <UnorderedList 
                         list={[ 
                             {text:"기본으로 제공되는 다양한 라인 아이콘들과 색상 팔레트"},
-                            {text:"직접 만든 아이콘을 업로드하세요."},
+                            {text:"기본 아이콘들은 개발자가 직접 그린 SVG 입니다."},
+                            {text:"직접 만든 아이콘 파일을 업로드하세요."},
                             {text:"예쁜 색상과 개성 있는 아이콘의 조합을 만드세요."},
                             {text:"내가 만든 루틴은 다른 사람이 사용할지도 모릅니다!"},
                         ]} 

@@ -291,5 +291,81 @@
         "content": [
             "현재 자기계발 관련된 앱을 개발중입니다. 상업용이 아닌 포트폴리오용이라서 무료로 서비스 예정입니다. 기획-디자인 작업이 거의 마무리중인데, 파워포인트와 포토샵만 다루느라 깃헙은 조용하네요 ^^ 몇주 뒤에 서비스 런칭과 함께 자세한 기획, 디자인, 개발 프로세스를 공개할 예정입니다. 그때 만나요~"
         ]
+    },
+    {
+        "id": 23,
+        "title": "This",
+        "category": "Today I Learned",
+        "date": "2019. 11. 4. Mon.",
+        "hash": [ "Javascript" ],
+        "content": [
+            "1. 자바스크립트의 대부분의 경우에서 this는 호출하는 방법에 의해서 결정된다. 즉, 누가 호출했느냐에 따라 this가 바뀐다.",
+            {
+                "type" : "code",
+                "content" : "var person = {\n    name: 'johny kim',\n    myName: function() {\n        console.log(this)\n    }\n};\n\n// 1.\nperson.myName() // { name: 'johny kim', myName: f }\n\n// 2.\nvar hello = person.myName\nhello(); // Window { ... }\n\n// 3.\nvar btn = document.getElementById('btn');\nbtn.addEventListener('click', person.myName) // <button id='btn'>...</button>"
+            },
+            "위 세가지 호출 방식에 따라 concole.log(this)는 모두 다르게 표시된다.",
+            "이 때, {-var binded = hello.bind(person);-} 이런식으로 {-.bind()-} 를 붙여서 호출할 수 있는데, 이 경우 bind에 매개변수로 전달된 person이 무조건 this로 묶이게 된다.",
+            "2. 화살표함수를 사용할 경우 bind 없이도, 선언된 함수가 this가 된다.",
+            {
+                "type" : "code",
+                "content" : "var person = {\n    name: 'johny kim',\n    myName: () => {\n        console.log(this)\n    }\n};"
+            }
+        ]
+    },
+    {
+        "id": 24,
+        "title": "Hoisting",
+        "category": "Today I Learned",
+        "date": "2019. 11. 4. Mon.",
+        "hash": [ "Javascript" ],
+        "content": [
+            "1. Hoist는 끌어올리다/감아올리다 라는 뜻을 가지고 있다.",
+            "2. 변수가 함수 내에서 정의되었을 경우 함수 내 최상위로, 함수 밖에서 정의되었을 경우 전역 컨텍스트의 최상위로 끌어올리게 된다.",
+            {
+                "type": "code",
+                "content": "const hoisting = () => {\n    console.log(age); // undefined\n    var age = 24;\n    console.log(age); // 24\n}"
+            },
+            "위와 같은 코드를 작성시, 변수 age는 최상위로 끌어올려져서 변수를 먼저 선언하고 값은 아직 할당되지 않았기 때문에 undefined로 표시된다.",
+            "같은 코드를 let이나 const로 선언시에는 undefined가 아닌 age is not defined 오류를 보여준다. 호이스팅되지 않았다는 의미는 아니고, let과 const는 코드 실행이 변수가 실제 있는 위치에 도달할 때까지 액세스할 수 없다."
+        ]
+    },
+    {
+        "id": 25,
+        "title": "Arrow function",
+        "category": "Today I Learned",
+        "date": "2019. 11. 6. Wed.",
+        "hash": [ "Javascript" ],
+        "content": [
+            "1. 화살표함수에는 function 표시 없이 {-()=>{}-} 형태로 간단히 선언이 가능하다. 인자가 1개일때는 괄호{-()-} 도 생략이 가능하며 한줄짜리 코드일 경우 중괄호{-{}-}도 생략이 가능하다. 아래 두개의 함수는 같은 내용이다.",
+            {
+                "type" : "code",
+                "content" : "const sum = function(a) { return ( a * a ); }\n\nconst sum = a => a * a;"
+            },
+            "2. 화살표함수에는 this가 없다. 기존의 함수에서 this는 this를 {b-호출-b}한 스코프체인에 속하게 되는데, 화살표 함수를 사용할 경우, this가 {b-선언-b}된 스코프체인에 속하게 된다.",
+            "3. 화살표함수는 constructor(생성자)로 사용할 수 없다.",
+            "4. 화살표함수는 arguments가 제공되지 않는다. 그대신 ...args(배열)로 인자들을 전달 받을 수 있다.",
+            "5. 화살표함수는 return을 쓰지 않아도 return 된다."
+        ]
+    },
+    {
+        "id": 26,
+        "title": "var와 let의 차이점",
+        "category": "Today I Learned",
+        "date": "2019. 11. 6. Wed.",
+        "hash": [ "Javascript" ],
+        "content": [
+            "1. {-var-}는 변수가 이미 선언 되었음에도 다시 같은 이름의 변수를 선언 할 경우 에러가 발생하지 않고 새로 선언 된 변수값으로 덮어씌우게 되는데, {-let-}은 같은 이름의 변수를 선언 할 경우 에러가 발생하여 중복을 방지한다.",
+            {
+                "type" : "code",
+                "content" : "var name = 'Johny Kim';\nvar name = 'Hong Lee';\n\nconsole.log(name); // Hong Lee"
+            },
+            {
+                "type" : "code",
+                "content" : "let name = 'Johny Kim';\nlet name = 'Hong Lee';\n\nUncaught SyntaxError: Identifier 'name' has already been declared"
+            },
+            "2. {-var-}는 {b-functional scope-b}. 즉 {-if-}나 {-for-}문 내에 선언하더라도 외부 함수의 스코프 체인에 속하게 되어 {-if-}나 {-for-}문 밖에서 접근할 수 없고, {-let-}과 {-const-}는 {b-block scope-b}. 즉 중괄호에 포함된 스코프체인에 속하게 되는데, {-if-}나 {-for-} 문 내에서 {-let-}과 {-const-}를 선언 할 경우 새로운 스코프 체인을 생성하여 {-if-}나 {-for-} 문 내에 속하게 되고 외부 함수에서는 접근할 수 없다.",
+            "3. {-let-}과 {-const-}는 {-var-}와 같이 Hoisting 되지만, {-var-}와는 다르게 코드 실행이 변수가 실제 있는 위치에 도달할 때까지 액세스할 수 없다."
+        ]
     }
 ]

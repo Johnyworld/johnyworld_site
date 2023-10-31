@@ -1,153 +1,153 @@
 .lab-slider-wrapper {
+  position: absolute;
+  top: 55%;
+  transform: translateY(-50%);
+  width: 100%;
+
+  .index-wrap {
     position: absolute;
-    top: 55%;
-    transform: translateY(-50%);
+    top: 67px;
+    left: 16%;
+    overflow: hidden;
+    font-size: 150px;
+    line-height: 1;
+    z-index: 50;
+    font-family: 'S-CoreDream-3Light', serif;
+    transform: translateY(0);
+    transition: transform cubic-bezier(0.44, 0.03, 0.53, 1) 2.3s;
+
+    &.slide-hide {
+      transform: translateY(500px);
+    }
+
+    .index {
+      display: inline-block;
+      transition: 1.8s;
+    }
+  }
+
+  .btn-wrap {
+    position: absolute;
+    height: 60vh;
+    top: 0;
     width: 100%;
 
+    .btn {
+      content: ' ';
+      position: absolute;
+      width: 120px;
+      height: 240px;
+      top: 50%;
+      left: 5vw;
+      transform: translateY(-50%) scale(1);
+      background-color: #3e4044;
+      background: url(../../images/labslider-arrows.png) no-repeat;
+      background-position: 0 0;
+      z-index: 100;
+      transition: 0.5s;
+      opacity: 0.6;
+
+      &.right {
+        right: 5vw;
+        left: auto;
+        background-position: -120px 0;
+      }
+
+      &:hover {
+        transform: translateY(-50%) scale(1.1);
+        opacity: 1;
+      }
+    }
+  }
+
+  .slider {
+    text-align: left;
+    height: 60vh;
+    margin-left: 10vw;
+    position: relative;
+  }
+
+  .navigator {
+    display: inline-block;
+    margin-top: 15vh;
+
+    .nav-item {
+      position: relative;
+      margin-right: 3px;
+      float: left;
+      transition: 0.3s;
+
+      button {
+        display: block;
+      }
+
+      .bar {
+        margin-top: 4px;
+        width: 40px;
+        height: 8px;
+        background-color: #222;
+        transition: 0.3s;
+      }
+
+      .bar-hover {
+        position: absolute;
+        display: none;
+        bottom: 40px;
+        left: 0;
+
+        img {
+          position: absolute;
+          left: -60px;
+          width: 50px;
+          height: 50px;
+          object-fit: cover;
+          transform: translateY(-25%);
+        }
+      }
+
+      &:hover {
+        .bar {
+          margin-top: 0;
+          margin-bottom: -4px;
+          width: 60px;
+          height: 16px;
+          background-color: #555;
+        }
+
+        .bar-hover {
+          display: block;
+        }
+      }
+      &.selected .bar {
+        background-color: #ff4b7b;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1440px) {
+  .lab-slider-wrapper {
     .index-wrap {
-        position: absolute;
-        top: 67px;
-        left: 16%;
-        overflow: hidden;
-        font-size: 150px;
-        line-height: 1;
-        z-index: 50;
-        font-family: 'S-CoreDream-3Light', serif;
-        transform: translateY(0);
-        transition: transform cubic-bezier(.44,.03,.53,1) 2.3s;
-
-        &.slide-hide {
-            transform: translateY(500px);
-        }
-
-        .index {
-            display: inline-block;
-            transition: 1.8s;
-        }
+      top: 40px;
     }
-
     .btn-wrap {
-        position: absolute;
-        height: 60vh;
-        top: 0;
-        width: 100%;
+      .btn {
+        width: 60px;
+        height: 120px;
+        background-size: 120px;
 
-        .btn {
-            content: ' ';
-            position: absolute;
-            width: 120px;
-            height: 240px;
-            top: 50%;
-            left: 5vw;
-            transform: translateY(-50%) scale(1);
-            background-color: #3e4044;
-            background: url(../../Images/labslider-arrows.png) no-repeat;
-            background-position: 0 0;
-            z-index: 100;
-            transition: .5s;
-            opacity: .6;
-
-            &.right {
-                right: 5vw;
-                left: auto;
-                background-position: -120px 0;
-            }
-
-            &:hover {
-                transform: translateY(-50%) scale(1.1);
-                opacity: 1;
-            }
+        &.right {
+          background-position: -60px 0;
         }
+      }
     }
-
-    .slider {
-        text-align: left;
-        height: 60vh;
-        margin-left: 10vw;
-        position: relative;
-    }
-
-    .navigator {
-        display: inline-block;
-        margin-top: 15vh;
-
-        .nav-item {
-            position: relative;
-            margin-right: 3px;
-            float: left;
-            transition: .3s;
-
-            button {
-                display: block;
-            }
-
-            .bar {
-                margin-top: 4px;
-                width: 40px;
-                height: 8px;
-                background-color: #222;
-                transition: .3s;
-            }
-
-            .bar-hover {
-                position: absolute;
-                display: none;
-                bottom: 40px;
-                left: 0;
-
-                img {
-                    position: absolute;
-                    left: -60px;
-                    width: 50px; 
-                    height: 50px;
-                    object-fit: cover;
-                    transform: translateY( -25% )
-                }
-            }
-
-            &:hover {
-                .bar {
-                    margin-top: 0;
-                    margin-bottom: -4px;
-                    width: 60px;
-                    height: 16px;
-                    background-color: #555;
-                }
-
-                .bar-hover {
-                    display: block;
-                }
-            }  
-            &.selected .bar {
-                background-color: #ff4b7b;
-            }
-        }
-    }
+  }
 }
 
-@media screen and ( max-width: 1440px ) {
-    .lab-slider-wrapper {
-        .index-wrap {
-            top: 40px;
-        }
-        .btn-wrap {
-            .btn {
-                width: 60px;
-                height: 120px;
-                background-size: 120px;
-
-                &.right {
-                    background-position: -60px 0;
-                }
-            }
-        }
+@media screen and (max-width: 767px) {
+  .lab-slider-wrapper {
+    .btn-wrap {
+      display: none;
     }
-}
-
-@media screen and ( max-width: 767px ) {
-    .lab-slider-wrapper {
-        .btn-wrap {
-            display: none;
-        }
-    }
+  }
 }
